@@ -11,7 +11,7 @@ DEFAULT_CATEGORY = 'misc'
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
 #DOCUTILS_SETTINGS = {}
-DELETE_OUTPUT_DIRECTORY = True
+#DELETE_OUTPUT_DIRECTORY = False
 #OUTPUT_RETENTION = []
 #JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 #JINJA_FILTERS = {}
@@ -28,7 +28,7 @@ PATH = 'content/'
 #OUTPUT_SOURCES = False
 #OUTPUT_SOURCES_EXTENSION = '.text'
 SITENAME = u"Canux's Blog"
-SITEURL = 'localhost:8000'
+SITEURL = 'http://canuxcheng.com'
 STATIC_PATHS = ['images', 'extra']
 #STATIC_EXCLUDES = []
 #STATIC_EXCLUDE_SOURCES = True
@@ -114,25 +114,32 @@ AUTHOR = u'Canux CHENG'
 #DEFAULT_METADATA = {}
 FILENAME_METADATA = '(?P<slug>.*)'
 #PATH_METADATA = ''
-#EXTRA_PATH_METADATA = {}
+EXTRA_PATH_METADATA = {
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/CNAME': {'path': 'CNAME'},
+}
 
 ################
 ## Feed setting
 ################
 
 FEED_DOMAIN = SITEURL
-#FEED_ATOM = 'feeds/atom.xml'
+
 #FEED_RSS = 'feeds/rss.xml'
 FEED_ALL_RSS = 'feeds/all.rss.xml'
 CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 #AUTHOR_FEED_RSS = 'feeds/%s.rss.xml'
 #TAG_FEED_RSS = None
-#FEED_ALL_ATOM = None
+#RSS_FEED_SUMMARY_ONLY = True
+
+#FEED_ATOM = 'feeds/atom.xml'
+#FEED_ALL_ATOM = 'feeds/all.atom.xml'
 #CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 #AUTHOR_FEED_ATOM = 'feeds/%s.atom.xml'
 #TAG_FEED_ATOM = None
+
 FEED_MAX_ITEMS = 20
-#RSS_FEED_SUMMARY_ONLY = True
 
 ################
 ## Pagination setting
@@ -165,7 +172,7 @@ DEFAULT_LANG = u'en'
 
 THEME = 'pelican-theme-canux'
 HEADER = 'extra/header.png'
-SITEICON = 'extra/favicon.ico'
+SITEICON = 'extra/siteicon.ico'
 
 #THEME_STATIC_DIR = 'theme'
 #THEME_STATIC_PATHS = ['static']
@@ -190,7 +197,8 @@ LINKS = (('Python', 'https://www.python.org/'),
 SOCIAL = (('github', 'https://github.com/crazy-canux'),
           ('linkedin', 'http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button'),
           ('stackoverflow', 'http://stackoverflow.com/users/4344009/canux'),
-          ('mail', 'mailto:canuxcheng@gmail.com'))
+          ('mail', 'mailto:canuxcheng@gmail.com'),
+          ('rss', 'http://canuxcheng.com/feeds/all.rss.xml'))
 
 ################
 ## Plugin setting

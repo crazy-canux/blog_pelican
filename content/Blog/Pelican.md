@@ -70,6 +70,7 @@ pelican部署博客:
     $firefox http://localhost:8000/
 
     # 部署站点
+    # 一般publishconf.py导入pelicanconf.py即可，配置一样．
     $pelican content -s publishconf.py
 
 fabric部署博客:
@@ -128,3 +129,16 @@ publishconf.py
 
     $cd blog_pelican
     $git submodule add https://github.com/getpelican/pelican-plugins.git plugins
+
+***
+
+# 部署到github或coding
+
+修改makefile:
+
+    github: publish
+        cd $(OUTPUTDIR); git add -A; git commit -m "update"; git push -u origin GITHUB_PAGES_BRANCH
+
+一键部署：
+
+    $make github
