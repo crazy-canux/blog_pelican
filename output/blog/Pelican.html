@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Pelican</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Python/Django & Linux/Shell & Vim/Git/Tmux">
+    <meta name="author" content="Canux CHENG">
+
+    <link href="../theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="../theme/css/normalize.css" rel="stylesheet"/>
+    <link href="../theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="../theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="../theme/css/custom.css" rel="stylesheet"/>
+    <link href="../theme/css/pygement.css" rel="stylesheet"/>
+
+    <script src="../theme/js/jquery.min.js"></script>
+    <script src="../theme/js/run_prettify.js"></script>
+    <script src="../theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="../">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="../pages/media.html">
+                        MEDIA
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="../pages/todo.html">
+                        TODO
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="../pages/about.html">
+                        ABOUT
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="../"><img src="../extra/favicon.ico" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                2013-04-01 12:49:49+08:00
+            </p>
+            <header class="header">
+                <a href="../blog/Pelican.html" rel="bookmark" title="Permalink to Pelican">
+                    <h2 class="blogpost-title">
+                        Pelican
+                    </h2>
+                </a>
+            </header>
+            <div>
+                <h1>Pelican</h1>
+<p>python开发的静态站点生成器.</p>
+<p><a href="http://blog.getpelican.com/">http://blog.getpelican.com/</a></p>
+<p><a href="https://github.com/getpelican/pelican">https://github.com/getpelican/pelican</a></p>
+<p><a href="http://pelican-docs-zh-cn.readthedocs.io/en/latest/getting_started.html">http://pelican-docs-zh-cn.readthedocs.io/en/latest/getting_started.html</a></p>
+<p><a href="http://pelican-zh.readthedocs.io/en/latest/zh-cn/">http://pelican-zh.readthedocs.io/en/latest/zh-cn/</a></p>
+<h1>搭建博客</h1>
+<p>创建环境:</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">mkdir</span><span class="x"> blog_pelican</span>
+<span class="p">$</span><span class="nv">cd</span><span class="x"> blog_pelican</span>
+<span class="p">$</span><span class="nv">virtualenv</span><span class="x"> venv</span>
+<span class="p">$</span><span class="nv">source</span><span class="x"> venv/bin/activate</span>
+<span class="p">$</span><span class="nv">pip</span><span class="x"> install pelican</span>
+<span class="p">$</span><span class="nv">pip</span><span class="x"> install markdown</span>
+</pre></div>
+
+
+<p>创建pelican项目:</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">pelican</span><span class="x">-quickstart</span>
+</pre></div>
+
+
+<p>生成下列文件和目录:</p>
+<div class="highlight"><pre><span></span>publishconf.py # 主配置文件
+pelicanconf.py # 发布的配置文件
+fabfile.py # fabric配置文件
+Makefile   # make配置文件
+develop_server.sh # 用于开启测试服务器
+content # 用于存放所有文章
+output # 静态生成文件
+</pre></div>
+
+
+<p>生成博客站点:</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">pelican</span><span class="x"> content</span>
+</pre></div>
+
+
+<p>预览站点:</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">cd</span><span class="x"> output</span>
+<span class="p">$</span><span class="nv">python</span><span class="x"> -m pelican.server</span>
+<span class="p">$</span><span class="nv">firefox</span><span class="x"> http://localhost:8000/</span>
+</pre></div>
+
+
+<h1>发布站点</h1>
+<p>pelican部署博客:</p>
+<div class="highlight"><pre><span></span><span class="err">#</span><span class="x"> 将rst或md格式转换成html.</span>
+<span class="p">$</span><span class="nv">pelican</span><span class="x"> content</span>
+
+<span class="err">#</span><span class="x"> 浏览生成的文件</span>
+<span class="p">$</span><span class="nv">firefox</span><span class="x"> output/index.html</span>
+<span class="err">#</span><span class="x"> 启动web服务器预览</span>
+<span class="p">$</span><span class="nv">python2</span><span class="x">.7 -m SimpleHTTPServer</span>
+<span class="p">$</span><span class="nv">python3</span><span class="x"> -m http.server</span>
+<span class="p">$</span><span class="nv">firefox</span><span class="x"> http://localhost:8000/</span>
+
+<span class="err">#</span><span class="x"> 部署站点</span>
+<span class="p">$</span><span class="nv">pelican</span><span class="x"> content -s publishconf.py</span>
+</pre></div>
+
+
+<p>fabric部署博客:</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">fab</span><span class="x"> build </span><span class="err">#</span><span class="x"> 生成页面</span>
+<span class="p">$</span><span class="nv">fab</span><span class="x"> regenerate </span><span class="err">#</span><span class="x"> 自动重新生成页面</span>
+<span class="p">$</span><span class="nv">fab</span><span class="x"> serve </span><span class="err">#</span><span class="x"> 启动测试服务器</span>
+<span class="p">$</span><span class="nv">fab</span><span class="x"> publish</span>
+</pre></div>
+
+
+<p>make部署博客:</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">make</span><span class="x"> html </span><span class="err">#</span><span class="x"> 生成页面</span>
+<span class="p">$</span><span class="nv">make</span><span class="x"> regenerate </span><span class="err">#</span><span class="x"> 自动重新生成页面</span>
+<span class="p">$</span><span class="nv">make</span><span class="x"> serve </span><span class="err">#</span><span class="x"> 启动测试服务器</span>
+<span class="p">$</span><span class="nv">make</span><span class="x"> devserver </span><span class="err">#</span><span class="x"> 同时生成页面并启动测试服务器</span>
+<span class="p">$</span><span class="x">./develop_server.sh stop </span><span class="err">#</span><span class="x"> 停止测试服务器</span>
+<span class="p">$</span><span class="nv">make</span><span class="x"> rsync_upload</span>
+</pre></div>
+
+
+<hr>
+<h1>配置</h1>
+<p>pelicanconf.py</p>
+<p>publishconf.py</p>
+<p>参考pelican和hexo的配置：</p>
+<p><a href="https://github.com/crazy-canux/blog_hexo">https://github.com/crazy-canux/blog_hexo</a></p>
+<p><a href="https://github.com/crazy-canux/blog_pelican">https://github.com/crazy-canux/blog_pelican</a></p>
+<hr>
+<h1>Theme</h1>
+<p>添加主题</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">cd</span><span class="x"> blog_pelican</span>
+<span class="p">$</span><span class="nv">git</span><span class="x"> submodule add https://github.com/getpelican/pelican-themes.git themes</span>
+</pre></div>
+
+
+<p>安装主题：</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">cd</span><span class="x"> pelican-themes</span>
+<span class="p">$</span><span class="nv">pelican</span><span class="x">-themes -i bootstrap2</span>
+</pre></div>
+
+
+<p>在pelicanconf.py添加主题：</p>
+<div class="highlight"><pre><span></span>THEME = &#39;bootstrap2&#39;
+</pre></div>
+
+
+<hr>
+<h1>Plugin</h1>
+<p>添加插件：</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">cd</span><span class="x"> blog_pelican</span>
+<span class="p">$</span><span class="nv">git</span><span class="x"> submodule add https://github.com/getpelican/pelican-plugins.git plugins</span>
+</pre></div>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="../category/blog.html">Blog</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> 2013-04-01 12:49:49 </span>
+                    <br/>
+                    <br/>
+                </div>
+            </div>
+        </article>
+        <br/><br/><br/>
+    </section>
+</div>
+
+<footer class="footer">
+    &copy <a href="../" >Canux CHENG</a>. 2013
+    <br/>
+    Powered by <a href="http://getpelican.com/">pelican</a>.
+    Theme by <a href="https://github.com/crazy-canux/pelican-theme-canux">coding-now</a>
+    <br/>
+</footer></body>
+</html>

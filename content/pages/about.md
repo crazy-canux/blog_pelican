@@ -1,0 +1,72 @@
+Title: ABOUT
+Date: 2013-04-01 12:49:49
+Modified: 2017-02-01 12:49:49
+Category:
+Tags:
+Slug:
+Authors:
+Summary:
+
+
+
+# **关于(About)**
+
+
+## 作者简介(Synopsis)
+
+程 伟
+Canux CHENG
+
+Linux：Shell
+
+Windows：PowerShell
+
+Tools：Vim/Git/Tmux
+
+back-end：Python/Java/C
+
+front-end：JavaScript/Html/Css
+
+Database：Mysql/MSSQL/Oracle
+
+
+
+Be good at: DevOps, Web
+
+Interested in：BigData, CloudComputing, Virtualization
+
+***
+
+## 交流方式(Contact)
+
+了解项目情况，欢迎追踪我的Github
+
+Welcome to follow my github, to see the project.
+
+[Follow](https://github.com/crazy-canux)
+
+查看简历，欢迎追踪我的LinkedIn
+
+Welcome to follow my LinkedIn, to see my resume.
+
+[Follow](http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button)
+
+***
+
+## 个人邮箱(E-mail):
+
+技术邮箱(tech)
+
+<canuxcheng@gmail.com>
+
+职位邮箱(position)
+
+<canuxcheng@163.com>
+
+商务邮箱(business)
+
+<canuxcheng@outlook.com>
+
+## 移动电话(Phone):
+
+\+86-136-8198-4515

@@ -4,3 +4,6 @@
 [submodule "themes"]
 	path = themes
 	url = https://github.com/getpelican/pelican-themes.git
+[submodule "pelican-theme-canux"]
+	path = pelican-theme-canux
+	url = https://crazy-canux:Wz1085694641@github.com/crazy-canux/pelican-theme-canux.git
