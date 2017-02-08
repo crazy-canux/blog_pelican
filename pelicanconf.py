@@ -9,9 +9,9 @@ from __future__ import unicode_literals
 USE_FOLDER_AS_CATEGORY = True
 DEFAULT_CATEGORY = 'misc'
 DISPLAY_PAGES_ON_MENU = True
-DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = True
 #DOCUTILS_SETTINGS = {}
-#DELETE_OUTPUT_DIRECTORY = False
+DELETE_OUTPUT_DIRECTORY = True
 #OUTPUT_RETENTION = []
 #JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 #JINJA_FILTERS = {}
@@ -189,7 +189,9 @@ GITHUB_URL = 'https://github.com/crazy-canux'
 #TWITTER_USERNAME
 #LINKS_WIDGET_NAME
 #SOCIAL_WIDGET_NAME
-#MENUITEMS = []
+
+MENUITEMS = (('Category', 'categories.html'),
+             ('Tags', 'tags.html'))
 
 LINKS = (('Python', 'https://www.python.org/'),
          ('Django', 'https://www.djangoproject.com/'))
@@ -197,8 +199,8 @@ LINKS = (('Python', 'https://www.python.org/'),
 SOCIAL = (('github', 'https://github.com/crazy-canux'),
           ('linkedin', 'http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button'),
           ('stackoverflow', 'http://stackoverflow.com/users/4344009/canux'),
-          ('mail', 'mailto:canuxcheng@gmail.com'),
-          ('rss', 'http://canuxcheng.com/feeds/all.rss.xml'))
+          ('rss', 'http://canuxcheng.com/feeds/all.rss.xml'),
+          ('mail', 'mailto:canuxcheng@gmail.com'))
 
 ################
 ## Plugin setting

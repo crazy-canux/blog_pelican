@@ -27,6 +27,14 @@ DROPBOX_DIR=~/Dropbox/Public/
 
 GITHUB_PAGES_BRANCH=master
 
+# For github
+GITHUB_BRANCH=master
+GITHUB_URL=https://github.com/crazy-canux/crazy-canux.github.io.git
+
+# For coding
+CODING_BRANCH=master
+CODING_URL=https://git.coding.net/Canux/Canux.git
+
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
 	PELICANOPTS += -D
@@ -55,7 +63,8 @@ help:
 	@echo '   make ftp_upload                     upload the web site via FTP        '
 	@echo '   make s3_upload                      upload the web site via S3         '
 	@echo '   make cf_upload                      upload the web site via Cloud Files'
-	@echo '   make github                         upload the web site via gh-pages   '
+	@echo '   make gh_pages                       upload the web site via gh-pages   '
+	@echo '   make github                         upload the web site via github     '
 	@echo '                                                                          '
 	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html   '
 	@echo 'Set the RELATIVE variable to 1 to enable relative urls                    '
@@ -117,11 +126,15 @@ s3_upload: publish
 cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
-#github: publish
-	#ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
-	#git push origin $(GITHUB_PAGES_BRANCH)
+gh_pages: publish
+	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
+	git push origin $(GITHUB_PAGES_BRANCH)
 
+# Deploy to github and coding.
 github: publish
-	cd $(OUTPUTDIR); git add -A; git commit -m "update"; git push -u origin $(GITHUB_PAGES_BRANCH)
+	cd $(OUTPUTDIR); git init; git remote add origin $(GITHUB_URL); git add -A; git commit -m "[$(shell date +%Y%m%d)]update"; git push -f -u origin $(GITHUB_BRANCH)
+
+coding: publish
+	cd $(OUTPUTDIR); git init; git remote add origin $(CODING_URL); git add -A; git commit -m "[$(shell date +%Y%m%d)]update"; git push -f -u origin $(CODING_BRANCH)
 
 .PHONY: html help clean regenerate serve serve-global devserver stopserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github

@@ -9,10 +9,7 @@ Summary:
 
 
 
-# **关于(About)**
-
-
-## 作者简介(Synopsis)
+# 作者简介(Synopsis)
 
 程 伟
 Canux CHENG
@@ -25,10 +22,9 @@ Tools：Vim/Git/Tmux
 
 back-end：Python/Java/C
 
-front-end：JavaScript/Html/Css
-
 Database：Mysql/MSSQL/Oracle
 
+front-end：JavaScript/Html/Css
 
 
 Be good at: DevOps, Web
@@ -37,7 +33,7 @@ Interested in：BigData, CloudComputing, Virtualization
 
 ***
 
-## 交流方式(Contact)
+# 技术交流(Contact)
 
 了解项目情况，欢迎追踪我的Github
 
@@ -52,21 +48,3 @@ Welcome to follow my LinkedIn, to see my resume.
 [Follow](http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button)
 
 ***
-
-## 个人邮箱(E-mail):
-
-技术邮箱(tech)
-
-<canuxcheng@gmail.com>
-
-职位邮箱(position)
-
-<canuxcheng@163.com>
-
-商务邮箱(business)
-
-<canuxcheng@outlook.com>
-
-## 移动电话(Phone):
-
-\+86-136-8198-4515
