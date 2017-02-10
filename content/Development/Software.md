@@ -1,18 +1,10 @@
----
-layout: post
-title: Sofeware
-comments: true
-date: 2016-04-03 14:55:13
-updated:
-tags:
-- software
-categories:
-- Develop
-- Software
-permalink:
----
+Title: Sofeware
+Date: 2016-04-03 14:55:13
+Tags: Software
 
-# 软件工程
+
+
+# Software
 
 软件工程相关知识。
 

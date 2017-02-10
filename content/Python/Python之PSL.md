@@ -1,14 +1,8 @@
----
-layout: post
-title: Python之PSL
-comments: true
-date: 2016-08-15 10:28:46
-updated:
-tags:
-categories:
-- Python
-permalink:
----
+Title: Python之PSL
+Date: 2016-08-15 10:28:46
+Tags: Python, PSL
+
+
 
 # PSL
 
@@ -92,5 +86,3 @@ Python Standard Library 的其它标准库
 ## formatter
 
 ## ihooks
-
-

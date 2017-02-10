@@ -1,15 +1,8 @@
----
-layout: post
-title: Database之Mysql
-comments: true
+Title: Mysql
 date: 2016-05-25 12:14:59
-updated:
-tags:
-- mysql
-categories:
-- Database
-permalink:
----
+tags: Mysql
+
+
 
 # Mysql
 
@@ -86,6 +79,14 @@ charset   (\C) Switch to another charset. Might be needed for processing binlog 
 warnings  (\W) Show warnings after every statement.
 nowarning (\w) Don't show warnings after every statement.
 
+# 数据类型
+
+# 函数
+
+NOW()
+
+DATE()
+
 # sql query
 
 查看版本：
@@ -140,6 +141,8 @@ nowarning (\w) Don't show warnings after every statement.
 
     desc tablename;
 
+***
+
 # Python
 
 ## pymysql
@@ -180,6 +183,8 @@ MySQLdb 1.X 是旧版本，<https://github.com/farcepest/MySQLdb1>
 MySQLdb 2.X 是MySQLdb1的升级版，改名为moist，不稳定， <https://github.com/farcepest/moist>
 
 mysqlclient 是MySQLdb1的升级版, <https://github.com/PyMySQL/mysqlclient-python>
+
+***
 
 # Java
 

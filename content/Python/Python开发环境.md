@@ -2,6 +2,8 @@ Title: Python开发环境
 Date: 2016-04-03 10:49:21
 Tags: Python
 
+
+
 # python
 
 python2的最后一个版本是python2.7,2020年停止更新.
@@ -94,6 +96,11 @@ python3.4之后并入了包含pip的虚拟化标准库venv
     $virtualenv venv
     $. venv/bin/activate
     $pip install ...
+
+    # 导出项目用的所有依赖库．
+    $pip freeze > requirements.txt
+    # 在其它环境需要安装依赖：
+    $pip install -r requirements.txt
 
 ***
 

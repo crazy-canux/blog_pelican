@@ -1,19 +1,10 @@
----
-layout: post
-title: Django
-comments: true
-date: 2016-09-20 23:14:07
-updated:
-tags:
-- python
-- django
-categories:
-- Python
-- Django
-permalink:
----
+Title: Django
+Date: 2016-09-20 23:14:07
+Tags: Python, Django
 
-# django
+
+
+# Django
 
 django是python的web框架。
 
@@ -22,8 +13,6 @@ django是python的web框架。
 <https://www.djangoproject.com/>
 
 <http://python.usyiyi.cn/translate/django_182/index.html>
-
-<http://django-intro-zh.readthedocs.io/zh_CN/latest/>
 
 django遵守MVC设计模式，采用MTV框架。
 

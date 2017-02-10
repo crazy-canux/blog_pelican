@@ -1,14 +1,8 @@
----
-layout: post
-title: Python之System
-comments: true
-date: 2016-08-15 11:04:12
-updated:
-tags:
-categories:
-- Python
-permalink:
----
+Title: Python之System
+Date: 2016-08-15 11:04:12
+Tags: Python, system
+
+
 
 # Python Runtime Services
 
@@ -18,7 +12,7 @@ permalink:
 
 ## __future__
 
-把下一个版本的心特性导入到当前版本。
+把下一个版本的新特性导入到当前版本。
 
     absolute_import
     all_feature_names
@@ -46,6 +40,8 @@ permalink:
 ## traceback
 
 ## gc
+
+garbage collector：python的垃圾回收模块．
 
 ## inspect
 

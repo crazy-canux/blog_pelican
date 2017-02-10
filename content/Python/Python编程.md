@@ -1,15 +1,16 @@
----
-layout: post
-title: Python编程
-comments: true
-date: 2016-06-21 21:18:09
-updated:
-tags:
-- python
-categories:
-- Python
-permalink:
----
+Title: Python编程
+Date: 2016-06-21 21:18:09
+Tags: Python
+
+
+
+<https://docs.python.org/2.7/index.html>
+
+<http://python.usyiyi.cn/translate/python_278/in>
+
+<https://docs.python.org/3.5/index.html>
+
+<http://python.usyiyi.cn/translate/python_352/index.html>
 
 # python基础知识
 

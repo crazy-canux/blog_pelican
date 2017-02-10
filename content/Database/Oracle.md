@@ -1,16 +1,6 @@
----
-layout: post
-title: Database之Oracle.md
-comments: true
-date: 2016-06-01 22:40:22
-updated:
-tags:
-- oracle
-- database
-categories:
-- Database
-permalink:
----
+Title: Oracle.md
+Date: 2016-06-01 22:40:22
+Tags: Oracle
 
 # Oracle
 
@@ -97,6 +87,10 @@ sysman是oracle的数据库用户EM管理用户。
 
     show
 
+# 数据类型
+
+# 函数
+
 # SQL
 
 创建用户：
@@ -126,6 +120,8 @@ sysman是oracle的数据库用户EM管理用户。
     SELECT value FROM v$parmeter WHERE name = 'processes'; 查询数据库允许最大连接数
     SELECT value FROM v$parmeter WHERE name = 'open_cursor'; 查询数据库允许最大游标数
 
+***
+
 # python
 
 ## cx_Oracle
@@ -139,6 +135,8 @@ sysman是oracle的数据库用户EM管理用户。
 <http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html>
 
     import cx_Oracle
+
+***
 
 # java
 

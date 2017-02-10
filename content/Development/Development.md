@@ -1,17 +1,10 @@
----
-layout: post
-title: Develop
-comments: true
-date: 2016-07-25 17:11:58
-updated:
-tags:
-- develop
-categories:
-- Develop
-permalink:
----
+Title: Develop
+Date: 2016-07-25 17:11:58
+Tags: Development
 
-# Develop
+
+
+# Development
 
 开发的一些工具
 

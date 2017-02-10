@@ -1,15 +1,8 @@
----
-layout: post
-title: Operation
-comments: true
-date: 2016-04-15 09:41:39
-updated:
-tags:
-- devops
-categories:
-- Operation
-permalink:
----
+Title: Operation
+Date: 2016-04-15 09:41:39
+Tags: DevOps
+
+
 
 # Operation
 

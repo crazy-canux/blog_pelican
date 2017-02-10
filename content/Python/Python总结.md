@@ -1,15 +1,8 @@
----
-layout: post
-title: Python总结
-comments: true
-date: 2016-06-21 21:18:20
-updated:
-tags:
-- python
-categories:
-- Python
-permalink:
----
+Title: Python总结
+Date: 2016-06-21 21:18:20
+Tags: Python
+
+
 
 # python项目结构
 

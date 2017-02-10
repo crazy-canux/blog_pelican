@@ -1,7 +1,6 @@
 Title: Pelican
 Date: 2013-04-01 12:49:49
 Tags: Pelican
-Summary:
 
 
 

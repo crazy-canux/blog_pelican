@@ -1,19 +1,6 @@
----
-layout: post
-title: Database之MSSQL
-comments: true
+Title: MSSQL
 date: 2016-04-06 15:33:42
-updated:
-tags:
-- mssql
-- database
-- pymssql
-- pyodbc
-- freetds
-categories:
-- Database
-permalink:
----
+tags: Mssql, Sql Server
 
 # MSSQL
 
@@ -47,54 +34,6 @@ default port：1433
 2012: max instance 256
 
 Client -> SNAC(OLE DB/ODBC) -> Network Libraries -> TDS <=> Server -> Endpoints -> SQL OS(relational engine/storage engine)
-
-## XX.mdf & XX.ldf
-
-sql server存储数据放在data file, 叫.mdf/.ndf,日志文件存放在log file，叫.ldf。
-
-只能有一个.mdf。
-
-Shinking, 自动收缩，不推荐。
-database-file-dbcc-shrinks
-database-file-auto-shrinks
-database-datafile-auto-shrinks
-database-logfile-auto-shrinks
-
-Expanding,自动扩展。
-database-file-auto-growths
-database-datafile-auto-growths
-database-logfile-auto-growths
-
-connection-time
-cpy-busy
-io-busy
-full-scans
-connected-users
-transactions
-batch-requests
-latches-waits
-latches-wait-time
-locks-waits
-locks-timeouts
-locks-deadlocks
-sql-recompilations
-sql-initcompilations
-total-server-memory
-mem-pool-data-buffer-hit-ratio
-lazy-writes
-page-life-expectancy
-free-list-stalls
-checkpoint-pages
-database-online
-database-free
-database-used
-database-backup-age
-database-logbackup-age
-failed-jobs
-jobs-enabled
-list-databases
-list-datafiles
-list-locks
 
 ***
 
@@ -161,7 +100,7 @@ SQL Server的PowerShell命令行模式。
 
 ***
 
-# data type
+# 数据类型
 
 三种数据类型：
 1. system data types
@@ -212,7 +151,7 @@ system data有下面类型：
 
     collate
 
-## modfy data type
+## modify data type
 
     cast
 
@@ -288,6 +227,8 @@ sa是数据库默认的管理员,dbcc需要sa权限执行。
 
 导入/导出/复制，以表为单位进行复制。
 
+***
+
 # programmability(T-SQL)
 
 ## sql query
@@ -337,7 +278,7 @@ sa是数据库默认的管理员,dbcc需要sa权限执行。
 
         DROP PROCEDURE <procedure>
 
-## Functions
+## 函数
 
 * system functions
 

@@ -1,15 +1,6 @@
----
-layout: post
-title: Database之Postgresql
-comments: true
+Title: Postgresql
 date: 2016-07-08 12:56:19
-updated:
-tags:
-- postgresql
-categories:
-- Database
-permalink:
----
+tags: Postgresql
 
 # postgresql
 
@@ -53,6 +44,10 @@ CLI工具： psql
     \d # 查看表关系
     \d <table> # 查询表结构
 
+# 数据类型
+
+# 函数
+
 # SQL
 
     ALTER USER/ROLE <username> WITH PASSWORD <password>; #更改用户密码
@@ -86,6 +81,8 @@ CLI工具： psql
     SELECT current_date;
     SELECT current_time;
 
+***
+
 # python
 
 ## psycopg
@@ -105,5 +102,7 @@ CLI工具： psql
     ...
     cur.close()
     cxn.close()
+
+***
 
 # java
