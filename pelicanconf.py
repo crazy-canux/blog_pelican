@@ -28,7 +28,7 @@ PATH = 'content/'
 #OUTPUT_SOURCES = False
 #OUTPUT_SOURCES_EXTENSION = '.text'
 SITENAME = u"Canux's Blog"
-SITEURL = 'http://canuxcheng.com'
+SITEURL = 'http://www.canuxcheng.com'
 STATIC_PATHS = ['images', 'extra']
 #STATIC_EXCLUDES = []
 #STATIC_EXCLUDE_SOURCES = True
@@ -177,7 +177,7 @@ SITEICON = 'extra/siteicon.ico'
 #THEME_STATIC_DIR = 'theme'
 #THEME_STATIC_PATHS = ['static']
 #CSS_FILE = 'main.css'
-SITESUBTITLE = 'Python/Django & Linux/Shell & Vim/Git/Tmux'
+SITESUBTITLE = 'Python/Django & Linux/Shell & Vim/Git'
 #DISQUS_SITENAME
 GITHUB_URL = 'https://github.com/crazy-canux'
 #GOOGLE_ANALYTICS
@@ -194,7 +194,9 @@ MENUITEMS = (('Category', 'categories.html'),
              ('Tags', 'tags.html'))
 
 LINKS = (('Python', 'https://www.python.org/'),
-         ('Django', 'https://www.djangoproject.com/'))
+         ('Django', 'https://www.djangoproject.com/'),
+         ('Jinja', 'http://jinja.pocoo.org/'),
+         ('OpenJDK', 'http://openjdk.java.net/'))
 
 SOCIAL = (('github', 'https://github.com/crazy-canux'),
           ('linkedin', 'http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button'),

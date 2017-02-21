@@ -1,17 +1,8 @@
----
-layout: post
-title: VIM
-comments: true
-date: 2016-04-02 21:11:26
-updated:
-tags:
-- Vi
-- Vim
-categories:
-- Develop
-- VIM
-permalink:
----
+Title: VIM
+Date: 2016-04-02 21:11:26
+Tags: Vi, Vim
+
+
 
 # vim
 
@@ -64,7 +55,9 @@ permalink:
     make VIMRUNTIMEDIR=/usr/share/vim/vim74
     sudo make install
 
-# Vim相关xiangmu
+***
+
+# Vim相关项目
 
 ## MacVim
 
@@ -82,6 +75,36 @@ permalink:
 
 vim的升级版，修复了vim的bug，同时集成了许多插件。
 
+## vim-galore
+
+<https://github.com/mhinz/vim-galore>
+
+## sp13
+
+分布式vim。
+
+<http://vim.spf13.com/>
+
+<https://github.com/spf13>
+
+## janus
+
+分布式vim。
+
+<https://github.com/carlhuda/janus>
+
+## goyo.vim
+
+分布式vim。
+
+<https://github.com/junegunn/goyo.vim>
+
+## vimrc
+
+集成插件的和配置的vim。
+
+<https://github.com/amix/vimrc>
+
 ***
 
 # vim用法
@@ -90,3 +113,50 @@ vim的升级版，修复了vim的bug，同时集成了许多插件。
 
     :%/^/inseart/g
     :%/$/inseart/g
+
+***
+
+# vim-plugins-manager
+
+vim的插件管理器
+
+# pathogen
+
+<https://github.com/tpope/vim-pathogen>
+
+vim的本地管理插件。
+
+# vundle
+
+<https://github.com/VundleVim/Vundle.vim>
+
+vim的在线管理插件。
+
+# vim-plug
+
+<https://github.com/junegunn/vim-plug>
+
+vundle的迷你版。
+
+# dein
+
+dein已经取代neobundle, 可以用于vim和neovim。
+
+旧版本：
+
+<https://github.com/Shougo/neobundle.vim>
+
+新版本：
+
+<https://github.com/Shougo/dein.vim>
+
+***
+
+# vim-plugins
+
+vim常用的插件
+
+# YCM
+
+# syntastic
+

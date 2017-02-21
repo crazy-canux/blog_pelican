@@ -1,19 +1,24 @@
 Title: Python之System
 Date: 2016-08-15 11:04:12
-Tags: Python, system
+Tags: Python
 
 
 
 # Python Runtime Services
 
-## __builtin__
+## \__builtin__
 
-## __main__
+> __builtin__ - Built-in functions, exceptions, and other objects.
 
-## __future__
+## \__main__
+
+> __main__ - Automatically created module for IPython interactive environment
+
+## \__future__
 
 把下一个版本的新特性导入到当前版本。
 
+    import __future__
     absolute_import
     all_feature_names
     division
@@ -25,6 +30,8 @@ Tags: Python, system
 
 ## sys
 
+    import sys
+
 ## sysconfig
 
 ## future_builtins
@@ -33,7 +40,21 @@ Tags: Python, system
 
 ## contextlib
 
+编写上下文管理器的模块．
+
+    import contextlib
+
 ## abc
+
+实现抽象方法．
+
+    import abc
+    class AbstractMethod(object):
+        __metaclass__ = abc.ABCMeta
+
+        @abc.abstractmethod
+        def abstract_method(self):
+            """Method do nothing."""
 
 ## atexit
 
@@ -43,7 +64,15 @@ Tags: Python, system
 
 garbage collector：python的垃圾回收模块．
 
+    import gc
+
 ## inspect
+
+从运行的python对象获取有用的信息．
+
+    import inspect
+    inspect.isgenerator()
+    inspect.isgeneratorfunction() # 检查一个函数是否是生成器
 
 ## site
 
@@ -57,8 +86,11 @@ garbage collector：python的垃圾回收模块．
 
 ## os
 
+    import os
+
 ## time
 
+    import time
     # 获取当前unix时间戳
     time.time()
 
@@ -71,6 +103,8 @@ garbage collector：python的垃圾回收模块．
 ## io
 
 ## logging
+
+    import logging
 
 ## getopt
 

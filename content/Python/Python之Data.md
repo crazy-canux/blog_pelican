@@ -51,6 +51,12 @@ permalink:
 
 ## copy
 
+copy和deepcopy都只拷贝对象的类型和数值，不拷贝对象的ID.也就是==运算为True, is运算为False.
+
+    import copy
+    copy.copy(x) # 浅复制, 只拷贝父对象，不拷贝内部的子对象.
+    copy.deepcopy(x, memo=None, _nil=[]) # 深复制, 拷贝父对象和内部的子对象
+
 ## pprint
 
 ## repr

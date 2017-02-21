@@ -1,17 +1,8 @@
----
-layout: post
-title: Monitoring之Nagios
-comments: true
-date: 2016-03-25 11:15:48
-updated:
-tags:
-- nagios
-- monitoring
-categories:
-- Operation
-- Monitor
-permalink:
----
+Title: Monitoring之Nagios
+Date: 2016-03-25 11:15:48
+Tags: Nagios
+
+
 
 # Nagios
 

@@ -6,7 +6,7 @@ Tags: Python
 
 <https://docs.python.org/2.7/index.html>
 
-<http://python.usyiyi.cn/translate/python_278/in>
+<http://python.usyiyi.cn/translate/python_278/index.html>
 
 <https://docs.python.org/3.5/index.html>
 

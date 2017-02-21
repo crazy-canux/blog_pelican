@@ -10,40 +10,17 @@ Tags: Development
 
 ***
 
-# continuous integration
-
-* travis CI
-
-<https://travis-ci.org/>
-
-基于github的测试和部署工具.
-
-* jenkins
-
-<https://jenkins.io/>
-
-基于java的测试和部署工具.
-
-# Code quality
-
-* coveralls
-
-<https://coveralls.io/>
-
-代码覆盖率,需要和CI一起使用.
-
-# project management
-
-* redmine
-
-# procedure
-
-* wiki
-
-***
-
 # 文档阅读工具
 
 ## zeal
 
 ## dash
+
+***
+
+# 怎样选择Licenses
+
+<http://choosealicense.com/licenses/>
+
+![pic](/images/license.jpeg)
+

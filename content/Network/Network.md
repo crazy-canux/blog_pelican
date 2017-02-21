@@ -1,15 +1,8 @@
----
-layout: post
-title: Network
-comments: true
-date: 2016-04-03 14:46:19
-updated:
-tags:
-- network
-categories:
-- Network
-permalink:
----
+Title: Network
+Date: 2016-04-03 14:46:19
+Tags: Network
+
+
 
 # 网络基础
 
@@ -20,6 +13,14 @@ permalink:
 linux一般是小端，unix一般是大端
 
 # 网络模型
+
+OSI七层模型
+
+TCP/IP四层模型：
+1. 应用层
+2. 传输层
+3. 网络互联层
+4. 主机到网络层
 
 ## 传输层
 
@@ -145,3 +146,37 @@ LDAP的windows工具：LDAPSoft LDAP Browser
 ### pyldap
 
 <https://github.com/pyldap/pyldap>
+
+***
+
+# 网络相关的命令
+
+ping命令用于确定网络的连通性
+
+    ping
+
+查看TCP/IP设置
+
+    ipconfig # for windows
+    ifconfig # for linux/unix
+
+arp用于确定IP地址的网卡物理地址
+
+    arp
+
+查看数据包到达目的主机所经过的路径
+
+    tracert # for windows
+    traceroute # for linux/unix
+
+操作路由表的命令：
+
+    route
+
+查询IP地址和对应的域名
+
+    nslookup
+
+查看当前网络状态
+
+    netstat

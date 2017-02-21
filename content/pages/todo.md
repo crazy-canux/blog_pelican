@@ -1,26 +1,17 @@
 Title: TODO
 Date: 2013-04-01 12:49:49
-Modified: 2017-02-01 12:49:49
-Category:
-Tags:
-Slug:
-Authors:
-Summary:
+Tags: Todo
 
 
 
 # TODO
 
-* pymonitoringplugins
+2013 - Linux + Shell + C + Vim + Git
 
-* django-wechat-api
+2014 - Python + Oracle
 
-* awesome-monitoring
+2015 - Django + Mysql + HTML + CSS
 
-* algorithm_python
+2016 - Windows + PowerShell + Sql Server
 
-* pydeveloper
-
-* hydra
-
-***
+2017 - Java + JavaScript

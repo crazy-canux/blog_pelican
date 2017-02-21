@@ -1,18 +1,14 @@
 Title: CONTACT
 Date: 2013-04-01 12:49:49
-Modified: 2017-02-01 12:49:49
-Category:
-Tags:
-Slug:
-Authors:
-Summary:
+Tags: Contact, Phone, Wechat, Email
+
 
 
 # 移动电话(Phone):
 
     +86-136-8198-4515
 
-# 微信(wechat):
+# 微信(Wechat):
 
 ![wechat](/images/wechatpay.jpg)
 

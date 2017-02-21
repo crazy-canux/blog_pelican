@@ -1,33 +1,30 @@
 Title: ABOUT
 Date: 2013-04-01 12:49:49
-Modified: 2017-02-01 12:49:49
-Category:
-Tags:
-Slug:
-Authors:
-Summary:
+Tags: About
 
 
 
 # 作者简介(Synopsis)
 
 程 伟
+
 Canux CHENG
 
-Linux：Shell
+Born: 1989
 
-Windows：PowerShell
+Gender: Male
 
-Tools：Vim/Git/Tmux
+Start to learn Linux/Shell, C, Git, Vim at 2013.
 
-back-end：Python/Java/C
+Start to learn Python, Oracle at 2014.
 
-Database：Mysql/MSSQL/Oracle
+Start to learn Django, Mysql, HTML, CSS at 2015.
 
-front-end：JavaScript/Html/Css
+Start to learn Windows/PowerShell, Sql Server at 2016.
 
+Start to learn Java, JavaScript at 2017.
 
-Be good at: DevOps, Web
+Want to be a perfect Python and Java Developer.
 
 Interested in：BigData, CloudComputing, Virtualization
 

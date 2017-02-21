@@ -93,9 +93,11 @@ python3.4之后并入了包含pip的虚拟化标准库venv
 <https://github.com/pypa/virtualenv>
 
     $cd project
-    $virtualenv venv
-    $. venv/bin/activate
-    $pip install ...
+    $virtualenv .venv
+    $source .venv/bin/activate
+    # 先升级pip和setuptools
+    $pip install pip
+    $pip install setuptools
 
     # 导出项目用的所有依赖库．
     $pip freeze > requirements.txt

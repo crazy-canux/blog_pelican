@@ -18,6 +18,16 @@ http port: 80
 
 https port: 443
 
+http/https的命令：
+
+    get # 从服务器取出资源
+    post # 在服务器新建资源
+    put # 在服务器更新资源，客户端提供改变后的完整资源
+    delete # 从服务器删除资源
+    patch # 在服务器更新资源，客户端提供改变的属性
+    head # 获取资源的源数据
+    options # 获取资源的哪些信息是客户端可以改变的信息
+
 ***
 
 # Python处理协议的第三方库
@@ -48,8 +58,8 @@ https port: 443
     get(url, params=None, **kwargs)
     post(url, data=None, json=None, **kwargs)
     put(url, data=None, **kwargs)
-    patch(url, data=None, **kwargs)
     delete(url, **kwargs)
+    patch(url, data=None, **kwargs)
     head(url, **kwargs)
     options(url, **kwargs)
 

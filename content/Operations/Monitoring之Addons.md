@@ -24,10 +24,15 @@ permalink:
 The Open Monitoring Distribution
 
 用于快速部署基于nagios的分布式监控，包括：
+
 1. Icinga/Shinken/check_MK
+
 2. Monitoring-Plugins和其它插件
+
 3. mod-gearman/MK Livestatus/thruk/multisite
+
 4. nsca/check_nrpe。
+
 5. NagVis/Pnp4nagios/rrdtool/dokuwiki
 
 # Gearman
@@ -79,6 +84,7 @@ XXX.php需要和nagios的service的command_name同名，默认查找这个同名
 测试就是scp XXX.php nagios-server:/usr/share/pnp4nagios/html/templates/然后去nagios查看结果
 
 pnp4nagios查找顺序：
+
 1. templates/check_XXX.php
 2. templates.dist/check_XXX.php
 3. templates/default.php

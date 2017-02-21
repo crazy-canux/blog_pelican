@@ -1,17 +1,8 @@
----
-layout: post
-title: Python之Document
-comments: true
-date: 2016-08-03 21:57:26
-updated:
-tags:
-- reST
-- Sphinx
-- readthedoc
-categories:
-- Python
-permalink:
----
+Title: Python之Document
+Date: 2016-08-03 21:57:26
+Tags: reST, Sphinx, readthedoc
+
+
 
 # Sphinx
 
@@ -23,7 +14,7 @@ Sphinx就是python处理reStructuredText格式的工具。
 
 安装：
 
-    pip install -U Sphinx
+    $pip install -U Sphinx
 
 使用sphinx：
 
@@ -35,6 +26,7 @@ Sphinx就是python处理reStructuredText格式的工具。
     > Author name(s): Canux CHENG
     > Project version: 1.0.0.0
     > autodoc: automatically insert docstrings from modules (y/n) [n]: y
+    > doctest: automatically test code snippets in doctest blocks (y/n) [n]: y
 
 配置文件conf.py包含刚才的所有配置，可以在这里手动修改。
 
@@ -65,7 +57,6 @@ index.rst这是文档的首页。
 
     # 生成html格式的文档
     $make html
-    $make latexpdf
 
 # sphinx-apidoc
 
@@ -77,6 +68,10 @@ index.rst这是文档的首页。
 
 浏览器打开docs/_build/html/index.html即可。
 
+    $firefox _build/html/index.html
+
+***
+
 # ReadTheDocs
 
 <https://readthedocs.org/>
@@ -86,6 +81,8 @@ index.rst这是文档的首页。
 将项目文档部署到readthedocs站点。
 
 直接注册帐号，同步github项目，然后导入你的项目即可。
+
+***
 
 # alabaster
 
@@ -113,5 +110,5 @@ index.rst这是文档的首页。
 
 安装：
 
-    pip install pypandoc
+    $pip install pypandoc
 

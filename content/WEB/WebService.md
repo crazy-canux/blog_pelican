@@ -1,17 +1,8 @@
----
-layout: post
-title: WebService
-comments: true
-date: 2016-07-07 16:43:15
-updated:
-tags:
-- web service
-- SOAP
-- REST
-categories:
-- Web
-permalink:
----
+Title: WebService
+Date: 2016-07-07 16:43:15
+Tags: webservice, SOAP, REST, RESTful
+
+
 
 # webservice
 
@@ -25,8 +16,14 @@ RDF:
 
 RSS:
 
+# SOAP
+
 SOAP: 是一种简单的基于XML的协议，它使应用程序通过HTTP来交换信息。
 
 # REST
+
+REST: Representational State Transfer
+
+符合REST的架构称为RESTful.
 
 REST已逐渐取代SOAP。

@@ -1,19 +1,8 @@
----
-layout: post
-title: Shell
-comments: true
-date: 2016-04-01 20:42:59
-updated:
-tags:
-- Shell
-- Bash
-- Zsh
-- Fish
-categories:
-- Linux
-- Shell
-permalink:
----
+Title: Shell
+Date: 2016-04-01 20:42:59
+Tags: Shell, Bash, Zsh, Fish
+
+
 
 # Shell
 
@@ -67,13 +56,13 @@ bash的优化项目bash-it：
 
 ***
 
-# shell(bash)命令
+# shell命令
 
     bash --help
 
 ***
 
-# shell(bash) script
+# shell script
 
 # shell注释
 

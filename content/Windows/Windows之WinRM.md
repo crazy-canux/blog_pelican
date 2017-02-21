@@ -1,15 +1,8 @@
----
-layout: post
-title: Windows之WinRM
-comments: true
-date: 2016-07-17 08:36:36
-updated:
-tags:
-- winrm
-categories:
-- Windows
-permalink:
----
+Title: Windows之WinRM
+Date: 2016-07-17 08:36:36
+Tags: winrm
+
+
 
 # WinRM
 
@@ -40,11 +33,11 @@ WinRM设置:
 
 WinRM配置包括监听设置,协议设置,Client,Service和Winrs四部分.
 
-# 权限管理
-
 windows的三种网络安全协议。
 
 Basic是基本的明文协议, NTLM是早期的安全协议,Kerberos是最新的安全协议.
+
+# service权限管理
 
 查看service的auth配置：
 
@@ -53,18 +46,44 @@ Basic是基本的明文协议, NTLM是早期的安全协议,Kerberos是最新的
 service只有Negotiate和Kerberos是默认开启的:
 
     Basic = false
-    Certificate = false
     Kerberos = true
     Negotiate = true
+    Certificate = false
     CredSSP = false
 
 Negotiate对domain用户选择kerberos,对local用户选择NTLM.
 
 设置service的Basic和Certificate和CredSSP(默认关闭)：
 
-    cmd> winrm set winrm/config/service/auth @{Basic="true"}
-    cmd> winrm set winrm/config/service/auth @{Certificate="true"}
-    cmd> winrm set winrm/config/service/auth @{CredSSP="true"}
+    #cmd> winrm set winrm/config/service/auth @{Basic="true"}
+    #cmd> winrm set winrm/config/service/auth @{Certificate="true"}
+    #cmd> winrm set winrm/config/service/auth @{CredSSP="true"}
+
+设置是否允许不加密：
+
+    #cmd> winrm set winrm/config/service @{AllowUnencrypted="true"}
+
+# client权限管理
+
+查看client的auth配置：
+
+    cmd> winrm get winrm/config/client/auth
+
+设置client的CredSSP(默认关闭),其它默认都是开启：
+
+    #cmd> winrm set winrm/config/client/auth @{CredSSP="true"}
+
+设置client的trustedhosts:
+
+    #cmd> winrm set winrm/config/client @{TrustedHosts="*"}
+
+# Winrs
+
+winrs是winrm的客户端．
+
+    $winrs -r:http://<ip-address> -u:domain/user -p:pass command
+
+***
 
 # python
 

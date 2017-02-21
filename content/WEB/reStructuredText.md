@@ -1,21 +1,20 @@
----
-layout: post
-title: reStructuredText
-comments: true
-date: 2016-08-08 13:39:38
-updated:
-tags:
-- reST
-categories:
-- Web
-permalink:
----
+Title: reStructuredText
+Date: 2016-08-08 13:39:38
+Tags: reStructuredText
+
+
 
 # reStructuredText
 
 <http://docutils.sourceforge.net/rst.html>
 
 reST是易读所见即所得的文本标记语言，格式类似markdown。
+
+python的reST参考pep12和pep287:
+
+<https://www.python.org/dev/peps/pep-0012/>
+
+<https://www.python.org/dev/peps/pep-0287/>
 
 主标题：
 

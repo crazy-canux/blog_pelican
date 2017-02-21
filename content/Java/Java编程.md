@@ -733,3 +733,6 @@ JWS特性：
 
 applet是一种包含在html网页中的java应用程序。
 
+## servlet
+
+jsp是简化的servlet.

@@ -1,18 +1,8 @@
----
-layout: post
-title: Shell之内置命令
-comments: true
-date: 2016-03-31 21:51:03
-updated:
-tags:
-- Linux
-- Shell
-- Bash
-categories:
-- Linux
-- Shell
-permalink:
----
+Title: Shell之内置命令
+Date: 2016-03-31 21:51:03
+Tags: Linux, Shell, Bash, Zsh, Fish
+
+
 
 # Linux内置命令
 
@@ -26,17 +16,74 @@ shell命令分为内置命令和外部命令.
 
     提示"[command] is a shell builtin"就表示是内置命令，否则就是外部命令。
 
-help命令查看所有内置命令：
+查看所有内置命令：
 
     help
+    enable -a
 
 查看内置命令的帮助：
 
     help [command]
 
-# cd
+***
 
-# which
+    type
+    enable
+    help
 
-# type
+    alias
+    bg
+    bind
+    break
+    builtin
+    caller
+    cd
+    command
+    compgen
+    complete
+    compopt
+    continue
+    declare
+    dirs
+    disown
+    echo
+    eval
+    exec
+    exit
+    export
+    false
+    fc
+    fg
+    getopts
+    hash
+    history
+    jobs
+    kill
+    let
+    local
+    logout
+    mapfile
+    popd
+    printf
+    pushd
+    pwd
+    read
+    readarray
+    readonly
+    return
+    set
+    shift
+    shopt
+    source
+    suspend
+    test
+    times
+    trap
+    true
+    typeset
+    ulimit
+    umask
+    unalias
+    unset
+    wait
 

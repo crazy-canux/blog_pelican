@@ -1,15 +1,8 @@
----
-layout: post
-title: DjangoCMS
-comments: true
-date: 2016-12-28 00:15:47
-updated:
-tags:
-categories:
-- Web
-- CMS
-permalink:
----
+Title: DjangoCMS
+Date: 2016-12-28 00:15:47
+Tags: Django-cms
+
+
 
 # django-cms
 
@@ -20,8 +13,8 @@ python基于django的CMS/Blog框架.
 初始化虚拟环境:
 
     $cd <yourproject>
-    $virtualenv venv
-    $source venv/bin/activate
+    $virtualenv .venv
+    $source .venv/bin/activate
 
 独立项目:
 

@@ -22,8 +22,8 @@ python开发的静态站点生成器.
 
     $mkdir blog_pelican
     $cd blog_pelican
-    $virtualenv venv
-    $source venv/bin/activate
+    $virtualenv .venv
+    $source .venv/bin/activate
     $pip install pelican
     $pip install markdown
 

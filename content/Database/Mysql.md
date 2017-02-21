@@ -180,9 +180,13 @@ DATE()
 
 MySQLdb 1.X 是旧版本，<https://github.com/farcepest/MySQLdb1>
 
+    $pip install mysql-python
+
 MySQLdb 2.X 是MySQLdb1的升级版，改名为moist，不稳定， <https://github.com/farcepest/moist>
 
-mysqlclient 是MySQLdb1的升级版, <https://github.com/PyMySQL/mysqlclient-python>
+mysqlclient 是MySQLdb1的升级版,支持python3， <https://github.com/PyMySQL/mysqlclient-python>
+
+    $pip install mysqlclient
 
 ***
 

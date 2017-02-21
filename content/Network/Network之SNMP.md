@@ -1,22 +1,15 @@
----
-layout: post
-title: Network之SNMP
-comments: true
-date: 2016-04-26 09:56:04
-updated:
-tags:
-- snmp
-- network
-categories:
-- Network
-permalink:
----
+Title: Network之SNMP
+Date: 2016-04-26 09:56:04
+Tags: SNMP
+
+
 
 # SNMP
 
 Simple Network Management Protocol, 简单网络管理协议
 
 MIB
+
 SMI
 
 # 安装和配置snmp

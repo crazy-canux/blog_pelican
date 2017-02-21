@@ -41,8 +41,8 @@ virtualenv中安装：
 
     $mkdir mysite
     $cd mysite
-    $virtualenv venv
-    $. venv/bin/activate
+    $virtualenv .venv
+    $source .venv/bin/activate
     $pip install django==1.8.2
 
 验证安装：

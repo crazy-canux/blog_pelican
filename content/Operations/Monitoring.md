@@ -1,21 +1,8 @@
----
-layout: post
-title: Monitoring
-comments: true
-date: 2016-05-18 19:23:25
-updated:
-tags:
-- monitoring
-- nagios
-- naemon
-- icinga
-- shinken
-- centreon
-categories:
-- Operation
-- Monitor
-permalink:
----
+Title: Monitoring
+Date: 2016-05-18 19:23:25
+Tags: Monitoring, Nagios ,Naemon ,Icinga ,Shinken ,Centreon, Opsview
+
+
 
 # **Monitoring**
 
@@ -33,7 +20,7 @@ My monitoring plugin project on github:
 
 For more informations, see here:
 
-<http://crazy-canux.github.io/2016/03/25/Monitoring%E4%B9%8BNagios/>
+<http://canuxcheng.com/operations/Monitoring%E4%B9%8BNagios.html>
 
 ***
 

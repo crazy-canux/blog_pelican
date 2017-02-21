@@ -1,15 +1,8 @@
----
-layout: post
-title: Java编程之面向对象
-comments: true
-date: 2016-04-03 10:49:07
-updated:
-tags:
-- Java
-categories:
-- Java
-permalink:
----
+Title: Java编程之面向对象
+Date: 2016-04-03 10:49:07
+Tags: Java, OOP
+
+
 
 # 类(Class)
 
