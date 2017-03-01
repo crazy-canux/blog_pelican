@@ -1,4 +1,4 @@
-Title: Python编程之面向对象
+Title: OOP
 Date: 2016-06-21 21:18:09
 Tags: Python, Inheritance,
 

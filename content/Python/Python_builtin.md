@@ -1,4 +1,4 @@
-Title: Python之__builtin__
+Title: Python___builtin__
 Date: 2016-08-15 11:16:29
 Tags: Python, __builtin__
 

@@ -1,15 +1,8 @@
----
-layout: post
-title: Html之Form
-comments: true
-date: 2016-10-31 04:00:49
-updated:
-tags:
-categories:
-- Web
-- Html
-permalink:
----
+Title: HTML_Form
+Date: 2016-10-31 04:00:49
+Tags: HTML, Form
+
+
 
 # html表单
 

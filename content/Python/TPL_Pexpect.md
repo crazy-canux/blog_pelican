@@ -1,13 +1,9 @@
----
-layout: post
-title: Operation之Ansible
-comments: true
-date: 2017-01-12 21:05:48
-updated:
-tags:
-- ansible
-categories:
-- Operation
-- Ansible
-permalink:
----
+Title: TPL_Pexpect
+Date: 2017-01-12 21:05:48
+Tags: Pexpect
+
+
+
+# Pexpect
+
+<https://github.com/pexpect/pexpect>
