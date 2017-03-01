@@ -8,10 +8,7 @@ Tags: Contact, Phone, Wechat, Email
 
     +86-136-8198-4515
 
-# 微信(Wechat):
-
-![wechat](/images/wechatpay.jpg)
-
+***
 
 # 个人邮箱(E-mail):
 
@@ -28,3 +25,8 @@ Tags: Contact, Phone, Wechat, Email
 <canuxcheng@outlook.com>
 
 ***
+
+# 微信(Wechat):
+
+![wechat](/images/wechatpay.jpg)
+

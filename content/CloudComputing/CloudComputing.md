@@ -1,16 +1,8 @@
----
-layout: post
-title: CloudComputing
-comments: true
-date: 2016-04-05 22:02:31
-updated:
-tags:
-- openstack
-- cloudstack
-categories:
-- CloudComputing
-permalink:
----
+Title: CloudComputing
+Date: 2016-04-05 22:02:31
+Tags: Openstack, Cloudstack
+
+
 
 # CloudComputing
 
@@ -20,6 +12,4 @@ PAAS: Platform as a service
 
 SAAS: software as a service
 
-# OpenStack
-
-# CloudStack
+CAAS: Communications as a service

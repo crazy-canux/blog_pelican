@@ -177,7 +177,7 @@ SITEICON = 'extra/siteicon.ico'
 #THEME_STATIC_DIR = 'theme'
 #THEME_STATIC_PATHS = ['static']
 #CSS_FILE = 'main.css'
-SITESUBTITLE = 'Python/Django & Linux/Shell & Vim/Git'
+SITESUBTITLE = 'DevOps & Cloud Computing'
 #DISQUS_SITENAME
 GITHUB_URL = 'https://github.com/crazy-canux'
 #GOOGLE_ANALYTICS

@@ -25,5 +25,3 @@ SOAP: 是一种简单的基于XML的协议，它使应用程序通过HTTP来交�
 REST: Representational State Transfer
 
 符合REST的架构称为RESTful.
-
-REST已逐渐取代SOAP。

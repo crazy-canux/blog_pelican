@@ -59,21 +59,18 @@ Linux外部命令的项目是coreutils。
     lsusb # 列出USB设备
     lsblk # 列出块设备
     lshw # 列出硬件
+    clear
+    passwd
 
     # sudo apt-get install sysstat
     iostat
     mpstat
-
-# 系统设置
 
 # 文件和目录管理
 
     mkdir
     tree
     cat
-
-# 文件编辑
-
     col
     colrm
     comm
@@ -91,6 +88,70 @@ Linux外部命令的项目是coreutils。
     expr
     uniq
     wc
+    chmod
+    chown
+    chgrp
+    chattr
+    cksum
+    cmp
+    diff
+    diffstat
+    file
+    cut
+    less
+    more
+    locate
+    lsattr
+    mattrib
+    mdel
+    mdir
+    mktemp
+    mmove
+    mren
+    mtools
+    mtoolstest
+    mv
+    od
+    paste
+    patch
+    rcp
+    rm
+    split
+    tee
+    touch
+    umask
+    which
+    cp
+    whereis
+    mcopy
+    mshowfat
+    scp
+    lprm
+    lpr
+    lpq
+    rsync
+
+    四个用到正则表达式的重要命令：
+    sed
+    awk
+    grep/ack/ag
+    find
+
+# 压缩备份
+
+    tar
+    zip
+
+# 网络管理
+
+    telnet
+    ping #用于确定网络的连通性
+    ifconfig #查看TCP/IP设置
+    arp #用于确定IP地址的网卡物理地址
+    route #操作路由表的命令：
+    nslookup #查询IP地址和对应的域名
+    netstat #查看当前网络状态
+    tcpdump
 
 # 磁盘管理
 
@@ -99,6 +160,7 @@ Linux外部命令的项目是coreutils。
     dd
     fsck
     fdisk
+    sync
 
 # 设备管理
 

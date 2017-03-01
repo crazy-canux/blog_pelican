@@ -15,3 +15,11 @@ Tags: Todo
 2016 - Windows + PowerShell + Sql Server
 
 2017 - Java + JavaScript
+
+***
+
+2013 - 2017 DevOps
+
+2017 - 2021 Cloud Computing
+
+2021 - 2025 PM

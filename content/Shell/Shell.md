@@ -17,10 +17,23 @@ Linux的shell有很多种,大多数linux发行版的默认登录shell是BASH。
 
     cat /etc/shells
 
-常用的shell：
-1. bash
-2. zsh
-3. fish
+设置登陆shell:
+
+    $chsh -s $(which shellname)
+
+shell分为登陆shell和交互式shell:
+
+    # 输出有i的就是交互shell
+    $echo $-
+
+非交互登陆shell:
+* 先运行系统配置文件/etc/profile(调用/etc/bash.bashrc和/etc/profile.d/*.sh)
+* 然后运行用户配置文件~/.profile(调用~/.bashrc和~/bin)
+* 最后退出用户登陆~/.bash_logout
+
+交互非登陆shell:
+* 先运行/etc/bash.bashrc(调用/etc/bash_completion(调用/etc/bash_completion.d/*.sh))
+* 然后运行~/.bashrc(调用~/.bash_aliases和~/bash.d和~/bin)
 
 ***
 
@@ -46,7 +59,7 @@ bash的优化项目bash-it：
 
 <https://github.com/fish-shell/fish-shell>
 
-## oh-myfish
+## oh-my-fish
 
 <https://github.com/oh-my-fish/oh-my-fish>
 

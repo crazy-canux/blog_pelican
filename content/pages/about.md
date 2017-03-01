@@ -14,19 +14,11 @@ Born: 1989
 
 Gender: Male
 
-Start to learn Linux/Shell, C, Git, Vim at 2013.
-
-Start to learn Python, Oracle at 2014.
-
-Start to learn Django, Mysql, HTML, CSS at 2015.
-
-Start to learn Windows/PowerShell, Sql Server at 2016.
-
-Start to learn Java, JavaScript at 2017.
-
 Want to be a perfect Python and Java Developer.
 
-Interested in：BigData, CloudComputing, Virtualization
+Be expert in: DevOps, Cloud Computing.
+
+Interested in：Virtualization, Big Data.
 
 ***
 
