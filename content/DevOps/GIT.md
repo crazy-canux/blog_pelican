@@ -123,27 +123,9 @@ git有四个协议：
     git remote set-url --add [--push] <name> <newurl>
     git remote set-url --delete [--push] <name> <url>
 
-# git相关项目
+***
 
-## GUI
-
-Linux：
-
-git-gui gitk
-
-<http://repo.or.cz/w/git-gui.git/>
-
-    sudo apt-get install gitk
-
-windows:
-
-<https://git-scm.com/downloads/guis>
-
-## git-extras
-
-<https://github.com/tj/git-extras>
-
-## github
+# github
 
 github的windows版本包含windows的git和对powershell的支持
 
@@ -168,13 +150,13 @@ github的windows版本包含windows的git和对powershell的支持
 
         ssh -T git@github.com
 
-### projcet/.gitignore
+## projcet/.gitignore
 
 忽略文件
 
 <https://github.com/github/gitignore>
 
-### project/.gitattributes
+## project/.gitattributes
 
 github显示编程语言
 
@@ -182,11 +164,23 @@ github显示编程语言
 
 <https://github.com/github/linguist>
 
-## post-git
+***
 
-powershell的git
+# git相关项目
 
-<https://github.com/dahlbyk/posh-git>
+## GUI
+
+Linux：
+
+git-gui gitk
+
+<http://repo.or.cz/w/git-gui.git/>
+
+    sudo apt-get install gitk
+
+windows:
+
+<https://git-scm.com/downloads/guis>
 
 ## git-for-windows
 
@@ -194,9 +188,31 @@ windows的git
 
 <https://github.com/git-for-windows/git>
 
+## post-git
+
+powershell的git
+
+<https://github.com/dahlbyk/posh-git>
+
+## git-extras
+
+GIT utilities -- repo summary, repl, changelog population, author commit percentages and more
+
+<https://github.com/tj/git-extras>
+
+    $sudo apt-get install git-extras
+
 ## git-sweep
 
+A command-line tool that helps you clean up Git branches that have been merged into master.
+
 <https://github.com/arc90/git-sweep>
+
+    $sudo -E pip install git-sweep
+    $cd git-repo
+    $git-sweep preview # 查看哪些远程的branch已经merge到master.
+    $git-sweep cleanup # 删除远程已经merge到master的branch.
+    $git-sweep cleanup --skip integration, sandbox
 
 ## git-imerge
 
@@ -204,7 +220,17 @@ windows的git
 
 ## git-standup
 
+Recall what you did on the last working day. Psst! or be nosy and find what someone else in your team did ;
+
 <https://github.com/kamranahmedse/git-standup>
+
+    $npm install -g git-standup
+
+## git-lfs
+
+git的大文件管理
+
+<https://github.com/git-lfs/git-lfs>
 
 ***
 
@@ -225,92 +251,147 @@ git的结构：
         git help -a
         git help -g
 
-## init       Create an empty Git repository or
+## init
+
+Create an empty Git repository or reinitialize an existing one
 
     git init # 创建一个空repository
 
-## add        Add file contents to the index
+## add
+
+Add file contents to the index
 
     git add .  # 不包括删除的文件
     git add -u # 不包括新建的文件
     git add -A # 添加working tree下的所有文件到index
 
-## commit     Record changes to the repository
+## commit
+
+Record changes to the repository
 
     git commit -m "[1.0.0.0]init repository."
 
-## bisect     Find by binary search the change that introduced a bug
+## bisect
 
-## branch     List, create, or delete branches
+Find by binary search the change that introduced a bug
+
+## branch
+
+List, create, or delete branches
 
     $git branch -m old-name new-name # 重命名
 
-## blame      Show what revision and author last modified each line of a file
+## blame
+
+Show what revision and author last modified each line of a file
 
     $git blame filename # 查看文件的历史记录
 
-## checkout   Checkout a branch or paths to the working tree
+## checkout
+
+Checkout a branch or paths to the working tree
 
     $git checkout -b develop master
 
-## clone      Clone a repository into a new directory
+## clone
 
-## diff       Show changes between commits, commit and working tree, etc
+Clone a repository into a new directory
 
-## fetch      Download objects and refs from another repository
+## diff
 
-## grep       Print lines matching a pattern reinitialize an existing one
+Show changes between commits, commit and working tree, etc
 
-## log        Show commit logs
+## fetch
 
-## merge      Join two or more development histories together
+Download objects and refs from another repository
+
+## grep
+
+Print lines matching a pattern reinitialize an existing one
+
+## log
+
+Show commit logs
+
+## merge
+
+Join two or more development histories together
 
     $git merge --no-ff develop
 
-## mv         Move or rename a file, a directory, or a symlink
+## mv
 
-## pull       Fetch from and integrate with another repository or a local branch
+Move or rename a file, a directory, or a symlink
 
-## push       Update remote refs along with associated objects
+## pull
 
-## rebase     Forward-port local commits to the updated upstream head
+Fetch from and integrate with another repository or a local branch
+
+## push
+
+Update remote refs along with associated objects
+
+## rebase
+
+Forward-port local commits to the updated upstream head
 
     $git rebase -i head # 修改提交的信息
+    # r commit-id [branch]comment.
 
-## reset      Reset current HEAD to the specified state
+## reset
+
+Reset current HEAD to the specified state
 
     $git reset --hard origin/master
 
-## rm         Remove files from the working tree and from the index
+## rm
 
-## revert     Revert some existing commits
+Remove files from the working tree and from the index
+
+## revert
+
+Revert some existing commits
 
     $git revert head # 撤销一次merge
 
-## reflog     Manage reflog information
+## reflog
+
+Manage reflog information
 
     $git reflog show # 查看所有git操作日
     $git reflog branch # 查看分支的所有历史操作
 
-## show       Show various types of objects
+## show
 
-## status     Show the working tree status tag Create, list, delete or verify a
+Show various types of objects
+
+## status
+
+Show the working tree status tag Create, list, delete or verify a
 
     $git status
 
-## stash      Stash the changes in a dirty working directory away
+## stash
+
+Stash the changes in a dirty working directory away
 
     $git stash # 暂存当前工作目录
     $git stash list # 查看暂存列表
     $git stash pop --index stash@{N} # 恢复暂存区N和工作目录
 
-## tag        object signed with GPG
+## tag
+
+object signed with GPG
 
     $git tag -a v1.0.0.0 -m "release 1.0 version."
 
-## submodule  Initialize, update or inspect submodules
+## submodule
+
+Initialize, update or inspect submodules
 
 会在项目产生.gitmodules文件，而且不被.gitignore忽略，所以不要在URL添加用户名和密码．
 
     $git submodule add <repository> [<path>]
     $git submodule update --init --recursive
+
+***

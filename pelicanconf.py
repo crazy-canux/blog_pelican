@@ -195,8 +195,9 @@ MENUITEMS = (('Category', 'categories.html'),
 
 LINKS = (('Python', 'https://www.python.org/'),
          ('Django', 'https://www.djangoproject.com/'),
-         ('Jinja', 'http://jinja.pocoo.org/'),
-         ('OpenJDK', 'http://openjdk.java.net/'))
+         ('OpenJDK', 'http://openjdk.java.net/'),
+         ('JavaScript', 'https://www.javascript.com/'),
+         ('Mysql', 'https://www.mysql.com/'))
 
 SOCIAL = (('github', 'https://github.com/crazy-canux'),
           ('linkedin', 'http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button'),

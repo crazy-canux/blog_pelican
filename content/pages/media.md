@@ -66,13 +66,13 @@ E01 - E08
 
 # Tuesday
 
-## 海豹六队S01
+## 24小时：再活一天
 
-E01 - D08
+E01 - E12
 
-下载地址:
+下载地址：
 
-<http://cn163.net/archives/23970/>
+<http://cn163.net/archives/24314/>
 
 # Wednesday
 
@@ -93,6 +93,14 @@ E01 - E13
 <http://cn163.net/archives/24084/?encode=1>
 
 # Thursday
+
+## 海豹六队S01
+
+E01 - D08
+
+下载地址:
+
+<http://cn163.net/archives/23970/>
 
 ## 致命武器
 

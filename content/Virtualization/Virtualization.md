@@ -10,7 +10,7 @@ Tags: Virtualization
 
 1. DataCenter, 最原始的数据中心
 
-2. Virtualization, 虚拟化技术，包括Kvm, Xen(Citrix), HyperV(MicroSoft), vSphere(VMware)等
+2. Virtualization, 虚拟化技术，包括Kvm, Xen(Citrix), HyperV(MicroSoft), ESXi(VMware)等
 
 3. Container,容器技术，包括Docker, Kubernetes, Mesos等
 

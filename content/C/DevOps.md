@@ -7,9 +7,6 @@ updated:
 tags:
 - gcc
 - gdb
-- make
-- cmake
-- doxygen
 categories:
 - C
 permalink:
@@ -23,10 +20,11 @@ Windows: DEV C++
 
 Linux: Vim + Gcc + Gdb
 
+***
+
 # gcc/clang
+
+***
 
 # gdb
 
-# doygen
-
-文档生成工具

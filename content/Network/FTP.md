@@ -1,26 +1,20 @@
----
-layout: post
-title: Network之FTP
-comments: true
-date: 2016-07-28 16:08:54
-updated:
-tags:
-- ftp
-categories:
-- Network
-permalink:
----
+Title: FTP
+Date: 2016-07-28 16:08:54
+Tags: Python, FTP
 
-# ftp
+
+
+# FTP
 
 ftp服务器有很多：
+
 1. vsftpd
 2. proftpd
 3. pyftpdlib
 
 安装ftp:
 
-    sudo apt-get install vsftpd
+    $sudo apt-get install vsftpd
 
 ftp的网页浏览格式：
 
@@ -31,7 +25,7 @@ windows开启ftp服务即可。
 
 ***
 
-# python
+# python的FTP标准库
 
 ## ftplib
 

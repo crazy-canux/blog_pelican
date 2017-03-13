@@ -6,7 +6,7 @@ Tags: DevOps, Development, Operations, QA
 
 # DevOps
 
-DevOps包括敏捷开发，持续集成,持续交付,持续/发布部署，智能监控和日志管理等内容．
+DevOps包括敏捷开发，持续集成,持续交付,持续/发布部署，QA(自动化测试），智能监控和日志管理等内容．
 
 DevOps涉及到三个部门：
 * Development
@@ -20,15 +20,12 @@ DevOps涉及到三个部门：
 Continuous Integration.
 
 持续集成包括：
+
 * 编译代码.
 * 静态代码分析.
 * 自动化测试，例如selenium.
 * 代码覆盖率分析.
 * 构建，例如docker.
-
-CI工具分为:
-* Self Hosted CI, 自建机房，例如Jenkins,Fabric.
-* Hosted CI, SAAS.
 
 # CD
 
@@ -42,13 +39,19 @@ Continuous Delivery.
 持续部署/发布包括：
 * 将通过评审的交付代码部署到Production.
 
-# travis CI & coveralls
+***
+
+# CI/CD的工具
+
+## travis CI
 
 <https://travis-ci.org/>
 
 <https://coveralls.io/>
 
-travis CI和coveralls是基于github的CI工具．
+travis CI是基于github的CI工具．
+
+coveralls/codecov用于测试代码覆盖率．
 
 在github项目添加.travis.yml文件：
 
@@ -59,71 +62,39 @@ travis CI和coveralls是基于github的CI工具．
       - pip install -r requirements.txt
       - pip install coveralls
     script:
-      - ...
+      - coverage run --source=pymonitoringplugins setup.py test
     after_success:
       - coveralls
 
-***
+## stackstorm
 
-# sentry
+StackStorm is a platform for integration and automation across services and tools, taking actions in response to events.
 
-<https://github.com/getsentry/sentry>
-
-# pybuilder
-
-<https://github.com/pybuilder/pybuilder>
-
-# stackstorm
+For DevOps and ChatOps.
 
 <https://github.com/StackStorm/st2>
 
-# supervisor
+## Drone
+
+Drone is a Continuous Delivery platform built on Docker, written in Go
+
+<https://github.com/drone/drone>
+
+## sentry
+
+Sentry is a cross-platform crash reporting and aggregation platform.
+
+<https://github.com/getsentry/sentry>
+
+<https://github.com/getsentry/raven-python>
+
+<https://github.com/getsentry/raven-java>
+
+## supervisor
+
+Supervisor process control system for UNIX/Linux.
 
 <https://github.com/Supervisor/supervisor>
 
-***
-
-配置批量管理工具
-
-# puppet
-
-# chef
-
-# salt
-
-# ansible
-
-***
-
-密码管理工具
-
-# KeePassX
-
-<https://www.keepassx.org/>
-
-<https://github.com/keepassx/keepassx>
-
-***
-
-项目管理工具
-
-# redmine
-
-ruby开发的项目管理工具
-
-***
-
-文档管理工具
-
-# dokuwiki
-
-php开发的文档管理工具
-
-***
-
-文档阅读工具
-
-# zeal
-
-# dash
+    $pip install supervisor
 

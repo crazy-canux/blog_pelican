@@ -10,8 +10,6 @@ ChatOps是一种DevOps的方法．
 
 ***
 
-chatops工具有下面几个．
-
 # hubot
 
 <https://github.com/github/hubot>

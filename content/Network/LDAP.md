@@ -1,4 +1,4 @@
-Title: Network之LDAP
+Title: LDAP
 Date: 2016-07-28 16:08:54
 Tags: LDAP
 
@@ -18,13 +18,13 @@ LDAP的windows工具：LDAPSoft LDAP Browser
 
 ***
 
-## python
+# python的ldap的第三方库
 
-### python-ldap
+## python-ldap
 
 <https://www.python-ldap.org/>
 
-### pyldap
+## pyldap
 
 <https://github.com/pyldap/pyldap>
 

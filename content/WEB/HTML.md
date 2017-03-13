@@ -587,24 +587,35 @@ dl定义定义列表,dt定义定义项目,dd定义定义的描述,都支持全�
 
 # 脚本
 
-在html中插入javascript脚本。
+在html中插入javascript等脚本
 
 ## script标签
 
 定义客户端脚本，支持全局属性
 
+直接嵌入javascript代码时注意代码中如果有&lt;/script>需要转义．
+
+通过src属性指定外部javascript脚本的script标签中不能包含额外的javascript代码．
+
+    <!-- 直接嵌入javascript代码 -->
     <script type="text/javascript">
     document.write("hello javascript")
     </script>
 
-    # type属性指定脚本MIME类型
-    # async
-    # charset
-    # defer
-    # src
+    <!-- 指定外部javascript脚本　-->
+    <script type="text/javascript" src="example.js"></script>
+
+    # type 可选，指定脚本MIME类型，比如text/javascript
+    # src 可选，表示指定的外部文件
+    # charset 可选，表示通过src属性指定的代码的字符集
+    # defer 可选，表示外部脚本可以延迟到文档完全被解析和显示之后再执行
+    # async 可选，表示应该立即下载外部脚本
 
 ## noscript标签
 
-为不支持客户端脚本的浏览器定义替代内容,支持全局属性
+针对早期不支持javascript的浏览器，为不支持客户端脚本的浏览器定义替代内容,支持全局属性
 
+当浏览器不支持，就显示noscript标签的内容，否则就不显示．
+
+    <script type="text/javascript" sr"example.js"></script>
     <noscript>Your browser does not support javascript</noscript>

@@ -32,11 +32,6 @@ django2.0开始只支持python3(2018).
 
 django2.2是第一个python3的长期支持版(2019.4).
 
-全局安装：
-
-    $pip install diango==1.8.2
-    $sudo apt-get install python-django
-
 virtualenv中安装：
 
     $mkdir mysite
@@ -64,7 +59,9 @@ virtualenv中安装：
 
 创建一个名为mysite的项目
 
-    $django-admin startproject mysite
+    $cd mysite
+    # 创建在当前目录下，加上．，没必要再嵌套．
+    $django-admin startproject mysite .
 
     mysite
     |-- manage.py

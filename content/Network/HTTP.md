@@ -1,18 +1,10 @@
----
-layout: post
-title: Network之HTTP
-comments: true
-date: 2016-09-13 01:39:34
-updated:
-tags:
-- http
-- https
-categories:
-- Network
-permalink:
----
+Title: HTTP
+Date: 2016-09-13 01:39:34
+Tags: http, https, url, html, xml
 
-# http/https
+
+
+# HTTP/HTTPS
 
 http port: 80
 
@@ -28,21 +20,70 @@ http/https的命令：
     head # 获取资源的源数据
     options # 获取资源的哪些信息是客户端可以改变的信息
 
+URL: Uniform Resource Locator
+
+URI: Universal Resource Identifier
+
+> prot_sch://net_loc/path;params?query#frag
+> prot_sch: http/https/ftp/file
+> net_loc: username:password@host:port
+> path: /path/to/path
+> params: options arguments
+> query: connector&key-value
+> frag:
+
 ***
 
-# Python处理协议的第三方库
+# python的http/url标准库
+
+python2的http标准库
+1. httplib for client
+2. BaseHTTPServer, CGIHTTPServer, SimpleHTTPServer, cookielib, Cookie for server
+
+python3的标准库
+1. http
+
+python2的url标准库：
+1. urlparse
+2. urllib
+3. urllib2
+
+python3的url标准库：
+1. urllib
+
+## urllib
+
+## urllib2
+
+## urlparse
+
+## httplib
+
+## BaseHTTPServer
+
+## CGIHTTPServer
+
+## SimpleHTTPServer
+
+## cookielib
+
+## Cookie
+
+***
+
+# python的http/url的第三方库
 
 ## httplib2
 
 <https://github.com/httplib2/httplib2>
 
-    pip install httplib2
+    $pip install httplib2
 
 ## urllib3
 
 <https://github.com/shazow/urllib3>
 
-    pip install urllib3
+    $pip install urllib3
 
 ## requests
 
@@ -108,7 +149,27 @@ http/https的命令：
 
 ***
 
-# Python处理数据的第三方库
+# python的html/xml的标准库
+
+## HTMLParser
+
+HTML和XHTML解析器
+
+python3中更名为html.parser
+
+## htmlentitydefs
+
+html定义通用实体
+
+python3更名为html.entities
+
+## xml
+
+XML解析器
+
+***
+
+# python的html/xml的第三方库
 
 ## bs4
 
@@ -126,6 +187,7 @@ http/https的命令：
 安装解析器：
 
 * python标准库的html解析器是HTMLParser（python3中改名为html.parser)
+* python标准库的xml解析器是xml.
 * lxml解析html
 * lxml-xml解析xml
 * html5lib解析html5
@@ -196,7 +258,9 @@ XML和HTML的解析器
 
 <https://github.com/html5lib/html5lib-python>
 
-HTML解析器
+## xmltodict
+
+<https://github.com/martinblech/xmltodict>
 
 ***
 

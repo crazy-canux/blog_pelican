@@ -4,51 +4,7 @@ Tags: Python
 
 
 
-# python项目结构
-
-.
-|-- AUTHORS.rst
-|-- README.rst
-|-- CONTRIBUTING.rst
-|-- LICENSE
-|-- project    项目源代码目录
-    |-- __init__.py 包文件
-    |-- tests      用来存放测试相关的文件
-        |-- __init.py__.py 包文件
-|-- bin        //用来存放将被setup.py安装的二进制脚本
-|-- data       //用来存放其它类型文件
-|-- etc        //用来存放配置文件
-|-- tools      用来存放与工具相关shell脚本
-|-- docs       用来存放文档
-|-- scripts    用来存放安装相关的脚本
-|-- examples   用来存放使用本包相关的例子
-|-- setup.py   标准安装脚本
-|-- setup.cfg
-|-- MANIFEST.in
-
-***
-
-# python的可用接口
-
-1. python内置函数
-
-c/c++实现的，不需要导入就可以使用的。
-
-2. python标准库
-
-python实现的，需要导入才能使用的。
-
-3. python外部库
-
-需要安装和导入才能使用的。
-
-外部库是对python代码的补充。
-
-4. python框架
-
-需要安装和导入才能使用的。
-
-python代码是对外部库的补充。
+# python难点总结
 
 ***
 
@@ -78,6 +34,10 @@ python3中直接通过类名来调用方法，会得到一个方法是一个函�
 * property
 
     property(fget=None, fset=None, fdel=None, doc=None)内置函数，创建类的特性属性,通常在类内部通过@property装饰器来使用．
+
+* descriptors
+
+    python有很多内置的描述符．
 
 * staticmethod
 

@@ -6,8 +6,4 @@ Tags: SoftwareEngineering, UML, Design Pattern
 
 主要研究设计模式和UML等知识．
 
-# 怎样选择Licenses
-
-<http://choosealicense.com/licenses/>
-
-![pic](/images/license.jpeg)
+***

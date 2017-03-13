@@ -1,6 +1,6 @@
-Title: TPL_WeChat
+Title: WeChat
 Date: 2016-10-07 22:01:44
-Tags: python, django, wechat
+Tags: Python, django, wechat
 
 
 
@@ -40,27 +40,28 @@ BAE添加第三方依赖：
 
 SAE平台需要config.yaml和index.wsgi两个文件.
 
-BAE平台需要app.conf,favicon.ico和index.py三个文件。
-
 SAE的入口就是index.wsgi文件中名叫application的可调用对象。
+
+BAE平台需要app.conf,favicon.ico和index.py三个文件。
 
 BAE的入口就是index.py文件中名叫application的可调用对象。
 
 ## 创建一个django项目wechat。
 
-app.conf和conf.yaml添加配置文件。
+app.conf或conf.yaml添加配置文件。
 
-index.wsgi和index.py添加云平台入口。
+index.wsgi或index.py添加云平台入口。
 
 wechat/settings.py添加mysql数据库信息。
 
-在BAE/SAE设置mysql，在项目添加mysql的参数。
+在GAE/BAE/SAE设置mysql，在项目添加mysql的参数。
 
 用migrate同步本地数据库后，用下面命令导出本地数据为sql文件
 
-    mysqldump -u <username> -p <databasename> > <filename>.sql
+    $ python manage.py migrate
+    $ mysqldump -u <username> -p <databasename> > <filename>.sql
 
-在BAE/SAE上传sql文件把数据同步到BAE/SAE的mysql。
+在GAE/BAE/SAE上传sql文件把数据同步到GAE/BAE/SAE的mysql。
 
 ## 创建一个django的应用django-wechat-api
 
@@ -72,8 +73,8 @@ wechat/settings.py添加mysql数据库信息。
 
 ## 修改wechat公众平台配置
 
-    SAE_URL: http://<mysite>.applinzi.com/wechat/
-    BAE_URL: http://<mysite>.duapp.com/wechat/
+    SAE_URL: http://<project>.applinzi.com/wechat/
+    BAE_URL: http://<project>.duapp.com/wechat/
     TOKEN: yourtoken
 
 ## django开发的wechat接口开源项目

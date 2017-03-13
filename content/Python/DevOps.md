@@ -11,6 +11,7 @@ python2的最后一个版本是python2.7,2020年停止更新.
 Windows安装：
 
     安装python到C:\Python27，添加系统环境变量path：C:\Python27\和C:\Python27\Scripts\。
+    安装针对windows的扩展．
     可以使用IDLE或python命令行或cmd执行python命令
 
 Linux安装：
@@ -39,10 +40,28 @@ Linux安装：
     help>quit            # 退出help工具
     $pydoc --help        # 文档工具
 
-IDE：
+python的IDE：
 
 1. Windows: IDLE
 2. Linux: Vim + Scripts
+
+python的可用接口
+
+1. python内置函数，类和异常．
+
+    C实现的，不需要导入就可以使用的。
+
+2. python标准库
+
+    python实现的，需要导入才能使用的。
+
+3. python外部库
+
+    需要安装和导入才能使用的。外部库是对python代码的补充。
+
+4. python框架
+
+    需要安装和导入才能使用的。python代码是对外部库的补充。
 
 ***
 
@@ -52,15 +71,33 @@ IDE：
 
 python的默认解释器，安装python即可获得。
 
+<https://github.com/python/cpython>
+
+## stackless
+
+cpython的增强版，支持多线程。
+
+<https://bitbucket.org/stackless-dev/stackless>
+
 ## pypy
 
 用python写的python解释器。
 
 比cpython更快的python。
 
-<http://pypy.org/>
+<https://bitbucket.org/pypy/pypy>
 
-    sudo apt-get install pypy
+## jpython
+
+java开发的可以运行在JVM平台的python解释器。
+
+## ironpython
+
+C#开发的可以运行在.net/mono平台的python解释器。
+
+***
+
+# python开发相关的工具
 
 ## ipython
 
@@ -68,27 +105,11 @@ python写的交互式解释器。
 
 <https://github.com/ipython/ipython>
 
-    sudo apt-get install ipython
+    $sudo apt-get install ipython
 
-## stackless
+## pyenv
 
-python增强版，支持多线程。
-
-<https://bitbucket.org/stackless-dev/stackless>
-
-## jpython
-
-运行在java平台的python解释器。
-
-## ironpython
-
-运行在.net(C#)平台的python解释器。
-
-***
-
-# pyenv
-
-python版本管理
+python的版本管理工具.
 
 <https://github.com/yyuu/pyenv>
 
@@ -130,12 +151,12 @@ python3.4之后并入了包含pip的虚拟化标准库venv
 
 * 二进制安装：
 
-        sudo apt-get install python-packagename
+        $sudo apt-get install python-packagename
 
 * 源码安装第三方库：
 
-        cd package
-        sudo -E python setup.py install
+        $cd package
+        $sudo -E python setup.py install
 
 * easy_install(setuptools)安装：
 
@@ -145,10 +166,10 @@ python3.4之后并入了包含pip的虚拟化标准库venv
 
     缺点是不支持卸载。
 
-        sudo apt-get install python-setuptools
+        $sudo apt-get install python-setuptools
 
-        sudo -E easy_install packagename[=version] # 安装
-        sudo -E easy_install -U packagename[=version] # 升级
+        $sudo -E easy_install packagename[=version] # 安装
+        $sudo -E easy_install -U packagename[=version] # 升级
 
 * pip安装：
 
@@ -156,80 +177,110 @@ python3.4之后并入了包含pip的虚拟化标准库venv
 
     python自带的安装工具,支持wheel格式和tarball。
 
-        sudo apt-get install python-pip
-        pip install -U pip # for linux
-        python -m pip install -U pip # for windows
+        $sudo apt-get install python-pip
+        $pip install -U pip # for linux
+        $python -m pip install -U pip # for windows
 
-        sudo -E pip install packagename[==version] # 安装
-        sudo -E pip install -U packagename[==version] # 升级
-        sudo -E pip uninstall packagename # 卸载
-        sudo -E pip install XXX.whl # 安装wheel包
+        $sudo -E pip install packagename[==version] # 安装
+        $sudo -E pip install -U packagename[==version] # 升级
+        $sudo -E pip uninstall packagename # 卸载
+        $sudo -E pip install XXX.whl # 安装wheel包
 
 ***
 
 # python代码检查
 
-* hacking
-
-<https://github.com/openstack-dev/hacking>
-
 * flake8
 
-<https://github.com/PyCQA/flake8>
+    <https://github.com/PyCQA/flake8>
 
-Include:
-pyflakes
-pep8
-pep257
-McCabe
+    Include: pyflakes, pep8/pycodestyle, McCabe
 
 * pylama
 
-Code audit tool for python and javascript.
+    <https://github.com/klen/pylama>
 
-<https://github.com/klen/pylama>
-
-Include:
-pyflakes
-pylint
-pep8
-pep257
-mccabe
-ghslint(for js)
+    Include: pyflakes, pylint, pep8/pycodestyle, pep257/pydocstyle, mccabe, radon, ghslint(for js)
 
 * pep8/pycodestyle
 
-<https://github.com/PyCQA/pycodestyle>
+    Simple Python style checker in one Python file.
+
+    <https://github.com/PyCQA/pycodestyle>
 
 * pep257/pydocstyle
 
-<https://github.com/PyCQA/pydocstyle>
+    docstring style checker
+
+    <https://github.com/PyCQA/pydocstyle>
 
 * jedi
 
-<https://github.com/davidhalter/jedi>
+    Awesome autocompletion and static analysis library for python.
+
+    <https://github.com/davidhalter/jedi>
 
 * mccabe
 
-<https://github.com/PyCQA/mccabe>
+    McCabe complexity checker for Python
+
+    <https://github.com/PyCQA/mccabe>
 
 * pyflakes
 
-Faster than pylint.
+    A simple program which checks Python source files for errors.
 
-<https://github.com/pyflakes/pyflakes>
+    Faster than pylint.
+
+    <https://github.com/PyCQA/pyflakes>
 
 * pylint
 
-<https://github.com/PyCQA/pylint>
+    A Python source code analyzer which looks for programming errors, helps enforcing a coding standard and sniffs for some code smells
 
-    sudo apt-get install pylint
-    sudo yum install pylint
+    <https://github.com/PyCQA/pylint>
 
 * rope
 
-<https://github.com/python-rope/rope>
+    A python refactoring library
 
-> a python refactoring library
+    <https://github.com/python-rope/rope>
 
-    sudo apt-get install python-rope
+***
+
+# python项目结构
+
+    .
+    |-- README.rst
+    |-- LICENSE
+    |-- AUTHORS.rst
+    |-- CONTRIBUTING.rst
+
+    |-- project    项目源代码目录
+        |-- __init__.py 包文件
+        ...
+    |-- tests      用来存放测试相关的文件
+        |-- __init.py__.py 包文件
+        ...
+    |-- docs       用来存放文档
+        |-- conf.py
+        |-- index.rst
+        ...
+
+    |-- bin 用来存放将被setup.py安装的二进制脚本
+    |-- data 用来存放其它类型文件
+    |-- etc 用来存放配置文件
+    |-- tools 用来存放与工具相关shell脚本
+    |-- scripts 用来存放安装相关的脚本
+    |-- examples 用来存放使用本包相关的例子
+
+    |-- setup.py 标准安装脚本
+    |-- requirements.txt 依赖的环境
+    |-- setup.cfg
+    |-- MANIFEST.in
+    |-- .gitignore
+    |-- .gitattributes
+    |-- Makefile
+    |-- fabfile.py
+
+***

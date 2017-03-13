@@ -1,4 +1,4 @@
-Title: Network之SNMP
+Title: SNMP
 Date: 2016-04-26 09:56:04
 Tags: SNMP
 
@@ -14,11 +14,11 @@ SMI
 
 # 安装和配置snmp
 
-    sudo apt-get install snmp snmpd
+    $sudo apt-get install snmp snmpd
 
 ***
 
-# Python
+# Python的第三方库
 
 ## pysnmp
 
@@ -32,10 +32,9 @@ python的snmp包[pysnmp](https://github.com/etingof/pysnmp)
 
 net-snmp的源代码内置一个python目录就是netsnmp的python包．
 
-
 ***
 
-# java
+# java的第三方库
 
 ## snmp4j
 

@@ -6,22 +6,28 @@ Tags: Todo
 
 # TODO
 
-2013 - Linux + Shell + C + Vim + Git
+2013 - (C) + Linux + Shell + Vim + Git
 
-2014 - Python + Oracle
+2014 - Python + Oracle + DevOps
 
-2015 - Django + Mysql + HTML + CSS
+2015 - Django + Mysql + HTML + CSS + DevOps
 
-2016 - Windows + PowerShell + Sql Server
-
-2017 - Java + JavaScript
+2016 - (PowerShell) + Windows + Sql Server + DevOps + ITIL Foundation
 
 ***
 
-2013 - 2017 DevOps
+2017 - (Java) + Python + Django + Mysql + JavaScript + OpenStack
 
-2017 - 2021 Cloud Computing
+2018 - (Java) + Python + Django + Mysql + JavaScript + OpenStack
 
-2021 - 2025 PM
+2019 - (Java) + Python + Django + Mysql + JavaScript + OpenStack + PMP
+
+***
+
+2020 - ITIL Practitioner
+
+2021 - ITIL MALC/Expert
+
+2022 - ITIL Master
 
 ***

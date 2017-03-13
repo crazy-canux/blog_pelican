@@ -1,21 +1,16 @@
----
-layout: post
-title: Network之SSH
-comments: true
-date: 2016-07-28 15:53:34
-updated:
-tags:
-- ssh
-categories:
-- Network
-permalink:
----
+Title: SSH
+Date: 2016-07-28 15:53:34
+Tags: Network, SSH
+
+
 
 # OpenSSH
 
 <http://www.openssh.com/>
 
-# python
+***
+
+# python的第三方库
 
 ## paramiko
 
@@ -23,10 +18,7 @@ permalink:
 
 paramiko依赖pycrypto
 
-<https://github.com/dlitz/pycrypto>
-
-    pip install cryptography
-    pip install paramiko
+    $pip install paramiko
 
     import paramiko
 
@@ -132,5 +124,7 @@ paramiko依赖pycrypto
     shutdown(self, how)
     shutdown_read(self)
     shutdown_write(self)
+
+***
 
 # Java

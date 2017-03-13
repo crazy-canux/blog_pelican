@@ -6,7 +6,13 @@ Tags: Openstack
 
 # OpenStack
 
-openstack可以用来搭建公有云，私有云和企业云．
+<https://github.com/openstack>
+
+<https://github.com/openstack-dev>
+
+openstack是一个云操作系统，通过数据中心可控制大型的计算，存储，网络等资源池．
+
+所有的管理通过前端的界面管理员就可以完成，同样也可以通过web接口让最终的用户部署资源．
 
 openstack的设计原则：
 
