@@ -68,8 +68,11 @@ python2.7.9和python3.4以及virtualenv自带这个包．
 支持sdist打包成tar.gz包,和wheel打包成whl包．
 
     $pip install -U setuotools
+    $pip install -U wheel
 
 创建setup.py文件：
+
+<https://pypi.python.org/pypi?%3Aaction=list_classifiers>
 
     import os
 
@@ -102,13 +105,13 @@ python2.7.9和python3.4以及virtualenv自带这个包．
         keywords='',
         url='',
         download_url='',
+        # find_packages会自动查找包含__init__.py的包．
         packages=find_packages(),
         package_dir={"": ""},
-        install_requires=INSTALL_REQUIRES,
+        install_requires=['a==1.0.0', 'b>=1.0.0'],
         extras_require='',
         cmdclass='',
         entry_points={},
-        # classifiers 参考 <https://pypi.python.org/pypi?%3Aaction=list_classifiers>
         classifiers=[
             'Development Status :: 5 - Production/Stable',
             ...
@@ -135,8 +138,9 @@ python2.7.9和python3.4以及virtualenv自带这个包．
 默认只有python模块和包会被打包，如果需要其它文件需要添加到这个文件中。
 
     include LICENSE README.rst AUTHORS.rst CONTRIBUTING.rst
-    recursive-include docs * OR graft docs
+    recursive-include docs *
     graft examples
+    graft tests
     global-exclude *.py[co]
     prune docs/_build
     prune docs/_themes

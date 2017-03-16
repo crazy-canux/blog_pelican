@@ -137,6 +137,7 @@ python的版本管理工具.
 * easy_install(setuptools)安装：
 
     <https://github.com/pypa/setuptools>
+    easy_install安装egg包不推荐使用．
 
     setuptools带的工具,从pypi的egg归档格式中安装。
 
@@ -242,27 +243,27 @@ python的版本管理工具.
     |-- project    项目源代码目录
         |-- __init__.py 包文件
         ...
-    |-- tests      用来存放测试相关的文件
-        |-- __init.py__.py 包文件
-        ...
     |-- docs       用来存放文档
         |-- conf.py
         |-- index.rst
         ...
+
+    |-- tests 用来存放测试相关的文件(不能有__init__.py)
+    |-- examples 用来存放使用本包相关的例子(不能有__init__.py)
 
     |-- bin 用来存放将被setup.py安装的二进制脚本
     |-- data 用来存放其它类型文件
     |-- etc 用来存放配置文件
     |-- tools 用来存放与工具相关shell脚本
     |-- scripts 用来存放安装相关的脚本
-    |-- examples 用来存放使用本包相关的例子
 
     |-- setup.py 标准安装脚本
-    |-- requirements.txt 依赖的环境
     |-- setup.cfg
     |-- MANIFEST.in
+
     |-- .gitignore
     |-- .gitattributes
+    |-- requirements.txt 依赖的环境
     |-- Makefile
     |-- fabfile.py
 
