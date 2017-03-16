@@ -86,6 +86,14 @@ pytest用于单元测试．推荐使用．
 
     import pytest
 
+     def test_main():
+         ...
+
+    if __name__ == "__main__":
+        pytest.main("/path/to/test_script.py")
+
+    $ py.test
+
 ***
 
 ## coverage
@@ -107,7 +115,7 @@ virtualenv management and test command line tool.
 
     $ pip install tox
 
-    # 通过命令进行测试，可以集成其它工具．
+    # 通过命令进行测试，可以集成nose2, pytest, coverage等工具．
     $ tox
 
 ## buildbot

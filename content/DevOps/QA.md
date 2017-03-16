@@ -22,19 +22,21 @@ QA主要就是进行自动化测试相关的工作
 
 <https://github.com/SeleniumHQ/selenium>
 
+javascript开发的测试框架，支持python, java, javascript, C#, ruby
+
 ***
 
 # robot framework
 
 <https://github.com/robotframework/robotframework>
 
-python开发的测试框架，支持Python和java接口．
+python开发的测试框架，支持Python, java．
 
 ***
-
-QA相关的工具
 
 # big-list-of-naughty-strings
 
 <https://github.com/minimaxir/big-list-of-naughty-strings>
+
+测试中谨慎使用的字符串．
 

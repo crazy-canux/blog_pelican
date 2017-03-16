@@ -20,8 +20,8 @@ Mercurial: hg分布式版本控制。
 
 Git安装：
 
-    sudo apt-get install git
-    yum install git
+    $ sudo apt-get install git
+    $ yum install git
 
 # git config (Git配置)
 
@@ -55,6 +55,8 @@ git配置：
 
     [include]
         path = ~/myCode/pydeveloper/etc/git/gitcofig
+
+***
 
 # git remote (git 协议)
 
@@ -231,6 +233,12 @@ Recall what you did on the last working day. Psst! or be nosy and find what some
 git的大文件管理
 
 <https://github.com/git-lfs/git-lfs>
+
+## Gerrit
+
+Gerrit is a code review and project management tool for Git based projects.
+
+<https://github.com/gerrit-review/gerrit>
 
 ***
 

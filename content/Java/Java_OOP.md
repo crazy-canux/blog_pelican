@@ -8,7 +8,7 @@ Tags: Java, Encapsulation, Inheritance, Polymorphism, Interface
 
 ***
 
-# 类(Class)
+# 类/Class
 
 类是构造对象的模板或蓝图，由类构造对象的过程称为创建类的实例。
 
@@ -352,7 +352,7 @@ java中的对象变量是多态的。
 
 ***
 
-# 接口(Interface)
+# 接口/Interface
 
 接口用interface来定义。
 

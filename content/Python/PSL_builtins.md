@@ -1,6 +1,6 @@
-Title: builtins
+Title: PSL_builtins
 Date: 2016-08-15 11:16:29
-Tags: Python, __builtins__, builtins
+Tags: Python, __builtin__, builtins
 
 
 
@@ -14,7 +14,7 @@ python的内置模块，所有python的内置功能都在这个模块中，不�
 
 > builtins - python3中的名称,包括内置类类型以及所属的内置方法，和内置函数.解释器不会自动导入．
 
-> __builtins__ - 仅仅是__builtin__/builtins的一个引用．解释器自动导入的．
+>> __builtins__ - 仅仅是__builtin__/builtins的一个引用．解释器自动导入的．
 
 ***
 
@@ -23,13 +23,13 @@ python的内置模块，所有python的内置功能都在这个模块中，不�
 python2和python3共同的内置函数：
 
     __debug__
-    __doc__
+    __doc__ # 查看模块，类，函数的文档
     __import__
-    __name__
+    __name__ # 如果模块是被导入,返回模块名，如果是被直接执行返回"__main__".
     __package__
 
     compile(source, filename, mode[, flags[, dont_inherit]]) # 编译source返回一个code对象．
-    # mode: exec用于模块 可以用exec执行，single用于单行申明，eval用于表达式 可以用eval()执行． eg:
+    # mode: exec用于模块 python2可以用exec关键字执行,python3改成exec()函数;single用于单行申明;eval用于表达式 可以用eval()函数执行． eg:
     module = "for i in xrange(10): print(i)"
     code = compile(module, '', 'exec')
     type(code) # code
@@ -44,40 +44,44 @@ python2和python3共同的内置函数：
     eval(source[, globals[, locals]]) # 返回python表达式的结果，source可以是compile()的返回值，也可以是一个表达式．
     globals() # 返回当前作用域的全局变量组成的字典
     locals() # 返回当前作用域的局部变量组成的字典
-    chr(i) # 返回整数ｉ对应的ASCII字符的str类型，0 <= i < 256.
-    rd(c) # 返回字符c对应的ASCII整数.
 
-    ## related to math
+    ## 数字类型的数学运算
+    abs(number) # 返回int/long的绝对值
+    divmod(x, y) # 返回x/y 的　(商，余数) 组成的元组
+    pow(x, y[, z]) # 返回x**y或(x**y) % z
+    round(number[, ndigits]) # 返回number四舍五入后的结果，ndigits表示小数点后的位数，默认是0.
+
+    # 数字类型的转换
+    chr(i) # 返回整数ｉ对应的ASCII字符的字符串形式，0 <= i < 256.
+    ord(c) # 返回字符ASCII字符c对应的整数.
     bin(number) # 返回int/long的二进制的字符串形式
     oct(number) # 返回int/long的八进制的字符串形式．
     hex(number) # 返回int/long的十六进制的字符串形式.
-    abs(number) # 返回int/long的绝对值
-    round(number[, ndigits]) # 返回number四舍五入后的结果，ndigits表示小数点后的位数，默认是0.
-    pow(x, y[, z]) # 返回x**y或(x**y) % z
-    divmod(x, y) # 返回x/y 的　(商，余数) 组成的元组
-    sum(sequence[, start]) # 返回数字序列sequence的所有元素加上start的和，start默认是０．
 
-    ## related to object
+    ## 对象相关的操作
+    id(object) # 返回一个对象的ID, 用内存地址作为ID来表示唯一性. 也就是对象的身份．等价is关键字.
+    isinstance(object, class-or-type-or-tuple) # 如果object是class-or-type中指定的类或类型，返回True,否则返回False.等价is关键字.
+    repr(object) # 返回object的标准字符串形式，可以通过eval()重新得到该对象．eval(repr(object)) == object.
     dir([object]) # 查看对象的信息
     callable(object) # 如果object是可调用的返回True
     delattr(object, name) # 删除对象object的属性name
     len(object) # 返回序列（str, tuple, list)或映射（dict)的长度
     hash(object) # 返回一个对象的散列(hash)值，有相同值的对象hash值相同.
-    id(object) # 返回一个对象的ID, 用内存地址作为ID来表示唯一性. 也就是对象的身份．
     getattr(object, name[, default]) # 如果object.name存在,返回name的值，否则如果default存在，返回default,否则抛出异常AttributeError
     hasattr(object, name) # 和getattr一样，但是捕获了异常，object.name存在返回True,否则返回False.
     setattr(object, name, value) # 给对象的属性赋值，相当于object.name = value
-    isinstance(object, class-or-type-or-tuple) # 如果object是class-or-type中指定的类或类型，返回True,否则返回False,　第二个参数可以是原则．
     issubclass(C, B-or-(B,A)) # 如果C是B或(B,A,...)中的类的子类，返回True,否则返回False.
-    repr(object) # 返回object的标准字符串形式，eval(repr(object)) == object.
     vars([object]) # 没有参数等于locals()，有参数等于object.__dict__.
 
     ## related to iterable
     min(iterable[, key=func]) # 返回可迭代对象iterable中的最小元素
     min(a, b, c, ...[, key=func])  # 返回a,b,c...中的最小元素
+    max(iterable[, key=func]) # 和min相反
+    max(a, b, c, ...[, key=func]) # 和min相反
+    sorted(iterable, cmp=None, key=None, reverse=False) # 返回可迭代对象iterable的元素排序后组成的列表．
     all(iterable) # 如果可迭代的参数iterable中所有的元素都不是0,False,''则返回True,iterable为空也返回True,否则返回False
     any(iterable) # 如果可迭代的参数iterable中所有的元素都是0,False,''则返回False,　否则返回True
-    sorted(iterable, cmp=None, key=None, reverse=False) # 返回可迭代对象iterable的元素排序后组成的列表．
+    sum(sequence[, start]) # 返回数字序列sequence的所有元素加上start的和，start默认是０．
 
     ## related to iterator
     iter(collection) # 将可迭代对象（str, tuple, list, dict等）转换成迭代器,返回迭代器.
@@ -118,9 +122,9 @@ python2.7中有，python3中被废弃的内置函数(Deprecated)：
 
     False # 内置类型bool的实例
     True # 内置类型bool的实例
-    None # types.NoneType
-    NotImplemented
-    Ellipsis
+    None # python的Null对象或types.NoneType只有一个值None.
+    NotImplemented # types.NotImplementedType
+    Ellipsis # types.EllipsisType
     __debug__
 
 ***
@@ -128,6 +132,8 @@ python2.7中有，python3中被废弃的内置函数(Deprecated)：
 # object
 
 object类是所有类的基类
+
+继承自object的内置类类型都有对应的工厂函数．
 
     object.__dict__
     instance.__class__
@@ -187,7 +193,7 @@ python3数字类型(int, float, complex)是不可变类型．
 内置方法:
 
     bit_length() # 一个int类型的二进制形式的位数．
-    conjugate() # 整数的共轭复数是自己
+    conjugate()
 
 内置描述符：
 
@@ -214,7 +220,7 @@ python3中被废弃．
 内置方法:
 
     bit_length() # 一个int类型的二进制形式的位数
-    conjugate() # 长整型的共轭复数是自己
+    conjugate()
 
 内置描述符:
 
@@ -230,7 +236,7 @@ python3中被废弃．
 内置方法:
 
     as_integer_ratio() # 返回一个整数对，相除的结果是该浮点数
-    conjugate() # 浮点数的共轭复数是自己
+    conjugate()
     fromhex(string) # 将十六进制的字符转换成浮点型
     # float.fromhex('-0x1p-1074')
     hex() # 将浮点数转换成十六进制形式
@@ -251,8 +257,8 @@ python3中被废弃．
 
 内置描述符：
 
-    imag
-    real
+    imag 复数的虚部
+    real 复数的实部
 
 ***
 
@@ -270,7 +276,7 @@ python3中只有str类，没有unicode类，str直接继承自object类．
 
 字符串是不可变类型, 字符串是序列(可迭代)
 
-    str(object='') # 把一个对象转换成字符串．
+    str(object='') # 把一个对象转换成字符串．或者返回一个对象的可读性好的字符串表示，无法用语eval()求值．
 
 内置方法：
 

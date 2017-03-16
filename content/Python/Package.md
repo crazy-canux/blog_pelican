@@ -10,13 +10,21 @@ PEP426是python最新的打包标准，定义了wheel为最新的python包。
 
 <https://www.python.org/dev/peps/pep-0426/>
 
-## ensurepip/pip
+## ensurepip
 
 内置模块.提供使用pip从pypi安装模块。
 
-## (distutils)
+## distutils
 
-内置的模块.处理简单的包安装。
+内置的模块.处理简单的包安装,一般使用setuptools代替该模块。
+
+## venv
+
+python3新增了虚拟环境的包．python2中使用virtualenv.
+
+## zipapp
+
+python3新增管理可执行的python的zip包．
 
 ***
 
@@ -24,19 +32,30 @@ PEP426是python最新的打包标准，定义了wheel为最新的python包。
 
 相关的第三方库
 
-## (distutils2)
+# virtualenv
 
-distutils的升级版，已经废弃。
+python3.4之后并入了虚拟化标准库venv.
 
-## distlib
+分离的虚拟的python环境,自动安装setuptools和pip
 
-取代distutils和distutils2.
+<https://github.com/pypa/virtualenv>
 
-<https://bitbucket.org/pypa/distlib>
+    $cd project
+    # 默认python2.7
+    $virtualenv .venv
+    # 指定python3
+    $virtualenv -p `which python3` .venv
+    # 激活虚拟环境
+    $source .venv/bin/activate
+    # 先升级pip和setuptools
+    $pip install pip
+    $pip install setuptools
 
-## (distribute)
-
-已经并入setuptools。
+    # 导出项目用的所有依赖库．
+    $pip freeze > requirements.txt
+    # 在其它环境需要安装依赖：
+    $pip install -r
+    requirements.txt
 
 ## setuptools
 
@@ -44,15 +63,11 @@ distutils的升级版，已经废弃。
 
 <https://bitbucket.org/pypa/wheel>
 
-setuotppls是第三方模块, 高级包管理工具，需要安装：
+python2.7.9和python3.4以及virtualenv自带这个包．
 
-最新的setuptools是合并了原来的setuptools和distribute。
+支持sdist打包成tar.gz包,和wheel打包成whl包．
 
-自动处理依赖，egg分发格式，包含了easy_install 来安装egg格式的包。
-
-安装wheel包，可以支持打包wheel包。
-
-    $sudo apt-get install python-setuptools
+    $pip install -U setuotools
 
 创建setup.py文件：
 
@@ -173,7 +188,7 @@ setuotppls是第三方模块, 高级包管理工具，需要安装：
 打包:
 
     $python setup.py sdist # 生成tarball
-    $python setup.py bdist_wheel # 安装wheel包后，可以用setuptools生成wheel包
+    $python setup.py bdist_wheel # 安装wheel后，可以用setuptools生成wheel包
 
 打包并上传到pypi：
 

@@ -12,11 +12,11 @@ Tags: Python, Encapsulation, Inheritance, Polymorphism
 
 ***
 
-# 封装/Encapsulation
+# 封装
 
 ***
 
-# 继承/Inheritance
+# 继承
 
 派生类（子类）继承自基类（父类）
 
@@ -48,7 +48,7 @@ super()方法实际是一个构造器．
             super(C, self).meth(arg)
             ...
 
-## 多继承/Multiple Inheritance
+## 多继承
 
 MRO: Method Resolution Order　决定访问的方法和属性的顺序．
 
@@ -56,6 +56,6 @@ MRO采用广度优先的顺序，先查找同胞兄弟，如果所有直接基�
 
 ***
 
-# 多态/Polymorphism
+# 多态
 
 ***

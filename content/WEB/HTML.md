@@ -611,6 +611,26 @@ dl定义定义列表,dt定义定义项目,dd定义定义的描述,都支持全�
     # defer 可选，表示外部脚本可以延迟到文档完全被解析和显示之后再执行
     # async 可选，表示应该立即下载外部脚本
 
+    <!DOCTYPE html>
+    <html>
+      <head>
+        ...head content...
+      </head>
+    <body>
+      ...body content...
+
+      <!-- 页面内容先呈现，然后按顺序加载和解析脚本 -->
+      <script type="text/javascript" src="example.js"></script>
+
+      <!-- defer表示整个页面解析完后才加载和解析脚本 -->
+      <script type="text/javascript" defer="defer" sr"example.js"></script>
+
+      <!-- async表示在加载页面期间异步加载和解析脚本 -->
+      <script type="text/javascript" async src="example.js"></script>
+
+    </body>
+    </html>
+
 ## noscript标签
 
 针对早期不支持javascript的浏览器，为不支持客户端脚本的浏览器定义替代内容,支持全局属性

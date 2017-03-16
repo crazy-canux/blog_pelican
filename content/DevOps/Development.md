@@ -1,12 +1,16 @@
 Title: Development
 Date: 2016-04-15 09:41:39
-Tags: DevOps, Development, Operations, QA
+Tags: DevOps, Development
 
 
 
 # Development
 
 开发相关的工具
+
+传统的软件开发采用的是瀑布式开发流程．
+
+现代的软件开发采用的是敏捷开发流程(Agile development).
 
 ***
 

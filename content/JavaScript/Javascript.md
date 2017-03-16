@@ -4,7 +4,7 @@ Tags: Javascript
 
 
 
-# JavaScript
+# JavaScript概述
 
 Javascript包括三部分:
 
@@ -12,24 +12,84 @@ Javascript包括三部分:
 2. DOM文档对象模型, 提供访问和操作网页内容的方法和接口．
 3. BOM浏览器对象模型, 提供与浏览器交互的方法和接口．
 
-# html中使用javascript
+***
 
-    <!DOCTYPE html>
-    <html>
-      <head>
-        ...head content...
-      </head>
-    <body>
-      ...body content...
+# ECMAScript基本语法
 
-      <!-- 页面内容先呈现，然后按顺序加载和解析脚本 -->
-      <script type="text/javascript" src="example.js"></script>
+javascript源程序叫xxx.js.
 
-      <!-- defer表示整个页面解析完后才加载和解析脚本 -->
-      <script type="text/javascript" defer="defer" sr"example.js"></script>
+ECMAScript大小写敏感．
 
-      <!-- async表示在加载页面期间异步加载和解析脚本 -->
-      <script type="text/javascript" async src="example.js"></script>
+ECMAScript使用驼峰命名法．
 
-    </body>
-    </html>
+ECMAScript的标识符以字母，下划线或美元符号开头，还可以包含数字．不能是关键字．
+
+ECMAScript中的语句以分号;结尾，代码块以大括号{}包围．
+
+***
+
+# 注释
+
+单行注释：
+
+    // comment
+
+多行注释：
+
+    /*
+     * comment1
+     * comment2
+     */
+
+***
+
+# 关键字
+
+    # 数据类型
+    var function typeof
+
+    # 流程控制
+    if else for in do while switch case default break continue return try catch
+
+    # 修饰符
+    void
+
+    # 动作相关
+    instanceof this throw
+
+    new with delete debugger
+
+***
+
+# 运算符和优先级
+
+***
+
+# 数据类型
+
+## 变量和常量
+
+***
+
+# 文件和输入输出
+
+***
+
+# 控制流
+
+***
+
+# 函数
+
+***
+
+# 错误和异常
+
+***
+
+# 文档
+
+***
+
+# 模块和包
+

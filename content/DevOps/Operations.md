@@ -1,6 +1,6 @@
 Title: Operations
 Date: 2016-04-15 09:41:39
-Tags: DevOps, Development, Operations, QA
+Tags: DevOps, Operations
 
 
 

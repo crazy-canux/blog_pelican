@@ -21,31 +21,33 @@ Java的架构：
 
 java源程序叫Xxx.java
 
+java源代码文件名要和公共类的名字相同。
+
 java是强类型语言。
 
 java大小写敏感。
+
+java语句要用分号;结尾, import语句也需要分号;。
+
+java用大括号{}表示一个代码块.
+
+java标识符(变量名，类中的域名和方法名，类名，接口名，构造器名)由字母和下划线开头，可以包含数字，不能是关键字。
+
+java一个类要独立运行需要main函数。
 
 java使用骆驼命名法.
 
 java包名全部小写.
 
-类名/接口名,首字母大写,中间单词的首字母都大写.
+java类名/接口名,首字母大写,中间单词的首字母都大写.
 
-变量名/类中的域名/类中的方法名,首字母小写,中间单词首字母都大写.
+java变量名/类中的域名/类中的方法名,首字母小写,中间单词首字母都大写.
 
-类中的构造器名,要和类名相同.
+java类中的构造器名,要和类名相同.
 
-常量名全部大写.
+java常量名全部大写.
 
-java语句要用分号；结尾, 用{}表示一个代码块, import语句也需要分号;。
-
-java程序以类的形式出现，类名单词首字母大写。
-
-java源代码文件名要和公共类的名字相同。
-
-java标识符：字母和下划线开头，可以包含数字，不能是关键字。
-
-java一个类要独立运行需要main函数。
+java不支持多继承．
 
 ***
 
@@ -68,31 +70,106 @@ java一个类要独立运行需要main函数。
 
 # java关键字
 
-## 数据类型
+    # 数据类型
+    boolean, int, long, short, byte, float, double, char, class, interface
 
-boolean, int, long, short, byte, float, double, char, class, interface
+    # 流程控制
+    if, else, for, do, while, switch, case, default, break, continue, return, try, catch, finally.
 
-## 流程控制
+    # 修饰符
+    public, protect，private，final，void， static， staticfp， abstract， transient， synchronized， volatile, native,
 
-if, else, for, do, while, switch, case, default, break, continue, return, try, catch, finally.
+    # 动作相关
+    package, import, throw, throws, extends, implements, this, super, instanceof, new.
 
-## 修饰符
-
-public, protect，private，final，void， static， staticfp， abstract， transient， synchronized， volatile, native,
-
-## 动作相关
-
-package, import, throw, throws, extends, implements, this, super, instanceof, new.
-
-## 保留字
-
-true, false, null, goto, const.
+    # 保留字
+    true, false, null, goto, const.
 
 ***
 
-# java的数据类型
+# java运算符和优先级
+
+    # 算术运算
+    +
+    -
+    *
+    /    当除法两个操作数都是整数时结果是整数，否则是浮点数。
+    %
+    # 自增运算/自减运算
+    ++n/--n    当前表达式n的值就要加1。
+    n++/n--    当前表达式n的值不变，下一个表达式n的值加1。
+
+    # 赋值运算
+    =
+    # 增量赋值
+    +=
+    -=
+    *=
+    /=
+    %=
+    <<=    左移位
+    >>=    右移位
+    &=     and
+    |=     or
+    ^=     xor
+
+    # 关系运算
+    ==
+    !=
+    <
+    >
+    <=
+    >=
+    instanceof    关键字(检查是否是类的对象）
+
+    # 位运算
+    &  按位与
+    |  按位或
+    ^  按位异或
+    ~  按位取反
+    <<    a<<b (a左移b位),低位补0。
+    >>    a>>b (a右移b位)，高位是符号位。
+    >>>   (无符号右移，高位始终补0)
+
+    # boolean逻辑运算
+    && 逻辑与(and短路)
+    || 逻辑或(or短路)
+    !  逻辑非
+
+    # 三目运算：
+    x?y:z
+
+***
+
+# java数据类型
 
 java有8种基本数据类型
+
+## 变量
+
+也就是局部变量，和类中的域有区别。
+
+局部变量定义在局部代码块中，只在所属区域有效。
+
+局部变量存放在栈内存的方法中。
+
+局部变量随着所属区域的执行而存在，随着所属区域结束而释放。
+
+局部变量没有默认初始值，必须手动初始化。
+
+    int <variable> = <value>
+
+变量需要先申明类型,然后再初始化, 最后才能使用.
+
+最好逐一申明每个变量.
+
+变量的申明最好靠近第一次使用的地方.
+
+## 常量:
+
+使用final修饰的是常量，只能被赋值一次。
+
+    final int <VAR> = <val>
 
 ## 字符类型
 
@@ -101,6 +178,12 @@ java有8种基本数据类型
 char类型可以转换成int类型.
 
 ## 整数类型
+
+前缀0b表示二进制
+
+前缀0表示八进制
+
+前缀0x表示十六进制
 
 1. byte 1 字节
 
@@ -136,123 +219,7 @@ NaN
 
 在java中整形值和布尔值不能转换。
 
-## 进制：
-
-前缀0b表示二进制
-
-前缀0表示八进制
-
-前缀0x表示十六进制
-
-## 变量
-
-也就是局部变量，和类中的域有区别。
-
-局部变量定义在局部代码块中，只在所属区域有效。
-
-局部变量存放在栈内存的方法中。
-
-局部变量随着所属区域的执行而存在，随着所属区域结束而释放。
-
-局部变量没有默认初始值，必须手动初始化。
-
-    int <variable> = <value>
-
-变量需要先申明类型,然后再初始化, 最后才能使用.
-
-最好逐一申明每个变量.
-
-变量的申明最好靠近第一次使用的地方.
-
-## 常量:
-
-使用final修饰的是常量，只能被赋值一次。
-
-    final int <VAR> = <val>
-
-***
-
-# java的运算符
-
-## 算术运算
-
-> +
-
-> -
-
-> *
-
-> /    当除法两个操作数都是整数时结果是整数，否则是浮点数。
-
-> &    求余数
-
-## 自增运算/自减运算
-
->> ++n/--n    当前表达式n的值就要加1。
-
->> n++/n--    当前表达式n的值不变，下一个表达式n的值加1。
-
-## 赋值运算
-
->> =
-
->> +=
-
->> -=
-
->> *=
-
->> /=
-
->> &=
-
-## 关系运算
-
->> ==
-
->> !=
-
->> <
-
->> >
-
->> <=
-
->> >=
-
->> instanceof关键字(检查是否是类的对象）
-
-## 逻辑运算(boolean运算符)
-
->> && (AND短路)
-
->> || (OR短路)
-
->> ! (NOT)
-
-## 位运算
-
->> & (AND)
-
->> | (OR)
-
->> ^ (XOR)
-
->> ~ (非)
-
->> a<<b (a左移b位),低位补0。
-
->> a>>b (a右移b位)，高位是符号位。
-
->> >>> (无符号右移，高位始终补0)
-
-## 三目运算：
-
->> x?y:z
-
-***
-
-# 枚举类型
+## 枚举类型
 
 变量的值只在一个有限的集合内，可以定义枚举类型。
 
@@ -264,15 +231,13 @@ NaN
 
     <enum_name> <variable> = <enum_name>.varX
 
-***
-
-# 数组
+## 数组
 
 数组就是一个容器，存储相同数据类型的集合。
 
 数组大小不能改变，只能改变数组元素的大小。
 
-## 一维数组
+### 一维数组
 
 申明数组两种方法：
 
@@ -328,7 +293,7 @@ java.util.Arrays.copyOf()仅仅是把一个数组的所有值拷贝给另一个�
 
     Arrays.sort(array); / 优化的快速排序 /
 
-## 多维数组：
+### 多维数组：
 
 申明二维数组：
 
@@ -350,17 +315,15 @@ java.util.Arrays.copyOf()仅仅是把一个数组的所有值拷贝给另一个�
 
 参考java.util.Arrays类。
 
-***
-
-# 字符串(java.lang.String)：
+## 字符串(java.lang.String)：
 
 java字符串就是unicode字符序列。
 
 任何一个java对象都可以转换成字符串。
 
-java没有字符串类型，而是用标准库中预定义的类Spring。
+java没有字符串类型，而是用标准库中预定义的类String。
 
-每个用双引号""括起来的字符串都是Spring类的一个实例。
+每个用双引号""括起来的字符串都是String类的一个实例。
 
 不能修改java字符串中的字符，所以String类对象是不可变字符串。
 
@@ -412,7 +375,7 @@ String类的方法:
 
 参考java.lang.String。
 
-## 用StringBuilder构建字符串:
+### 用StringBuilder构建字符串:
 
 构建一个空字符串构建器:
 
@@ -432,13 +395,13 @@ String类的方法:
 
 参考 java.lang.StringBuilder 类的方法。
 
-## 用StringBuffer构建字符串缓冲区
+### 用StringBuffer构建字符串缓冲区
 
 参考 java.lang.StringBuffer 类的方法。
 
 ***
 
-# 文件和输入输出：
+# java文件和输入输出：
 
 ## 标准输出流：System.out
 
@@ -610,7 +573,11 @@ continue语句：
 
 ***
 
-# 文档
+# java错误和异常
+
+***
+
+# java文档
 
 java文档采用javadoc风格.
 
@@ -689,7 +656,7 @@ java文档采用javadoc风格.
 
 ***
 
-# 包(Package)
+# java包(Package)
 
 标准java类库分布在多个包中，包方便类的管理。
 
@@ -720,8 +687,4 @@ sun建议使用公司域名的逆序作为包名。
 在类的源文件开头添加一行语句,源文件要放到包名对应的目录结构中。
 
     package package_name;
-
-***
-
-# 错误和异常
 
