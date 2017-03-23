@@ -12,9 +12,9 @@ QA主要就是进行自动化测试相关的工作
 
 测试分为：
 
-* 单元测试
-* 集成测试／接口测试
-* UI测试(分为B/S架构和C/S架构)
+* unit test(70%)
+* component/integration/API test(20%)
+* UI测试(分为B/S架构和C/S架构)(10%)
 
 ***
 

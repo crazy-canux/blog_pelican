@@ -6,7 +6,7 @@ Tags: DevOps, Development, Operations, QA
 
 # DevOps
 
-DevOps包括敏捷开发，持续集成,持续交付,持续/发布部署，QA(自动化测试），智能监控和日志管理等内容．
+DevOps包括ChatOps, 敏捷开发，持续集成,持续交付,持续发布/部署，QA(自动化测试），智能监控和日志管理等内容．
 
 DevOps涉及到三个部门：
 * Development
@@ -98,3 +98,44 @@ Supervisor process control system for UNIX/Linux.
 
     $pip install supervisor
 
+***
+
+# redmine
+
+ruby开发的项目管理工具,集成bug和wiki工具．
+
+***
+
+# dokuwiki
+
+php开发的wiki管理工具
+
+***
+
+# Atlassian
+
+Jira for Porject Management.
+
+Bamboo for CI/CD.
+
+***
+
+# bugzilla
+
+perl开发的bug追踪系统．
+
+***
+
+# errbot
+
+python开发的ChatOps工具．
+
+<https://github.com/errbotio/errbot>
+
+***
+
+# zulip
+
+团队聊天工具介绍
+
+<https://github.com/zulip/zulip>
