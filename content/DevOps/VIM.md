@@ -75,7 +75,7 @@ vim的升级版，修复了vim的bug，同时集成了许多插件。
 
 分布式vim。
 
-<https://github.com/spf13/spf13>
+<https://github.com/spf13/spf13-vim>
 
 ## vim-galore
 

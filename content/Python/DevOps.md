@@ -21,6 +21,7 @@ Linux安装：
 
     $sudo apt-get install python-dev
     $sudo yum install python-devel
+
     $sudo apt-get install python3-dev
     $sudo yum install python3-devel
 
