@@ -125,5 +125,13 @@ remmina：基于gtk，支持RFB(VNC), RDP, SSH/SFTP协议。
 
 krdc：基于kde，支持RFB(VNC), RDP协议。
 
+mRemoteNG: RDP, VNC, SSH, Telnet, Http, Rlogin, RAW, ICA
+
+<https://github.com/mRemoteNG/mRemoteNG>
+
+FreeDRP: DRP
+
+<https://github.com/FreeRDP/FreeRDP>
+
 ***
 

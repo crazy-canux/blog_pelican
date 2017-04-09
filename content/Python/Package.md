@@ -41,12 +41,15 @@ python3.4之后并入了虚拟化标准库venv.
 <https://github.com/pypa/virtualenv>
 
     $cd project
+
     # 默认python2.7
     $virtualenv .venv
     # 指定python3
     $virtualenv -p `which python3` .venv
+
     # 激活虚拟环境
     $source .venv/bin/activate
+
     # 先升级pip和setuptools
     $pip install pip
     $pip install setuptools
@@ -63,7 +66,7 @@ python3.4之后并入了虚拟化标准库venv.
 
 <https://bitbucket.org/pypa/wheel>
 
-python2.7.9和python3.4以及virtualenv自带这个包．
+python2.7.9和python3.4以及virtualenv自带setuptools．
 
 支持sdist打包成tar.gz包,和wheel打包成whl包．
 

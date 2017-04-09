@@ -14,6 +14,8 @@ E01 - E13
 
 <http://cn163.net/archives/19774/>
 
+***
+
 # Monday
 
 ## 冰与火之歌-权利的游戏S06
@@ -66,7 +68,7 @@ E01 - E08
 
 # Tuesday
 
-## 24小时：再活一天
+## 反恐24小时S10
 
 E01 - E12
 
@@ -84,13 +86,21 @@ E01 - E22
 
 <http://cn163.net/archives/23794/?t=1466294568093>
 
-## 余波（劫数）
+## 余波（劫数）S01
 
 E01 - E13
 
 下载地址：
 
 <http://cn163.net/archives/24084/?encode=1>
+
+## 越狱S05
+
+E01 - E09
+
+下载地址：
+
+<http://cn163.net/archives/23645/>
 
 # Thursday
 
@@ -102,31 +112,13 @@ E01 - D08
 
 <http://cn163.net/archives/23970/>
 
-## 致命武器
+## 致命武器S01
 
 E01 - E10
 
 下载地址：
 
 <http://cn163.net/archives/24044/>
-
-# Saturday
-
-## 瓦妮莎海辛
-
-E01 - E13
-
-下载地址：
-
-<http://cn163.net/archives/24046/?t=1474726062555>
-
-## 驱魔人
-
-E01 - E13
-
-下载地址：
-
-<http://cn163.net/archives/24063/>
 
 ***
 

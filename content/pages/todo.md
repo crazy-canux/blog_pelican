@@ -16,11 +16,11 @@ Tags: Todo
 
 ***
 
-2017 - (Java) + Python + Django + Mysql + JavaScript + OpenStack
+2017 - (Java) + Python + Django + Mysql + JavaScript + QA
 
-2018 - (Java) + Python + Django + Mysql + JavaScript + OpenStack
+2018 - (Java) + Python + Django + Mysql + JavaScript + QA
 
-2019 - (Java) + Python + Django + Mysql + JavaScript + OpenStack + PMP
+2019 - (Java) + Python + Django + Mysql + JavaScript + QA + PMP
 
 ***
 

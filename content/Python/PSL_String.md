@@ -10,6 +10,9 @@ Tags: Python, String
 
 ## re
 
+    import re
+
+
 ## cStringIO
 
 ## StringIO

@@ -21,6 +21,9 @@ Tags: Python, Data
 
 ## collections
 
+    import collections
+
+
 ## heapq
 
 ## bisect

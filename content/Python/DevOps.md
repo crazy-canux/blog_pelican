@@ -6,12 +6,12 @@ Tags: Python
 
 # python
 
-python2的最后一个版本是python2.7,2020年停止更新.
+python2的最后一个版本是python2.7, 2020年停止更新.
 
 Windows安装：
 
-    安装python到C:\Python27，添加系统环境变量path：C:\Python27\和C:\Python27\Scripts\。
-    安装针对windows的扩展．
+    Python2.7.9之后的版本直接下载msi安装即可．
+    选择自动设置PATH，默认安装pip和setuptools.
     可以使用IDLE或python命令行或cmd执行python命令
 
 Linux安装：
@@ -20,13 +20,11 @@ Linux安装：
     $sudo yum install python
 
     $sudo apt-get install python-dev
-    $sudo yum install python-devel
-
     $sudo apt-get install python3-dev
+    $sudo yum install python-devel
     $sudo yum install python3-devel
 
     $sudo apt-get install libssl-dev
-
 
 标准库的路径：
 
@@ -132,15 +130,18 @@ python的版本管理工具.
 
 * 源码安装第三方库：
 
-        $cd package
-        $sudo -E python setup.py install
+        $ cd package
+        $ python setup.py install
 
 * easy_install(setuptools)安装：
 
     <https://github.com/pypa/setuptools>
-    easy_install安装egg包不推荐使用．
+
+    easy_install安装egg包,不推荐使用．
 
     setuptools带的工具,从pypi的egg归档格式中安装。
+
+    python2.7.9, python3.4, virtualenv自带setuptools.
 
     缺点是不支持卸载。
 
@@ -158,8 +159,7 @@ python的版本管理工具.
     直接从pypi安装wheel格式和sdist格式(也就是tarball)。
 
         $sudo apt-get install python-pip
-        $pip install -U pip # for linux
-        $python -m pip install -U pip # for windows
+        $pip install -U pip
 
         $sudo -E pip install packagename[==version] # 安装
         $sudo -E pip install -U packagename[==version] # 升级
@@ -169,7 +169,7 @@ python的版本管理工具.
         $pip list
         $pip search packagename
         $pip freeze > requirements.txt
-        $pip instgall -r requirements.txt
+        $pip install -r requirements.txt
 
 ***
 

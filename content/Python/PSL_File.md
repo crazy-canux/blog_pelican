@@ -8,6 +8,13 @@ Tags: Python, File
 
 ## os.path
 
+windows的路径要写成：
+
+    C:\\test\\sub\\
+
+    import os
+    os.path.expanduser(path) # 把path中~或~user扩展成绝对绝对路径
+
 ## stat
 
 ## fileinput
@@ -50,3 +57,13 @@ Tags: Python, File
 # TPL
 
 相关的第三方库
+
+## pyyaml
+
+YAML parser and emitter for Python
+
+<http://pyyaml.org/wiki/PyYAML>
+
+    $ pip install pyyaml
+
+    import yaml

@@ -12,6 +12,16 @@ Tags: Container, Docker
 
 # Docker
 
+最知名的容器应用．
+
 # Kubernetes
 
+最知名的容器编排应用．
+
 # Mesos
+
+容器编排应用．
+
+# Swarm
+
+容器编排应用．

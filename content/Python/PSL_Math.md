@@ -17,6 +17,9 @@ Tags: Python, Math
 
 ## functools
 
+    import functools
+    partial(func, *args, **keywords) # 返回functools.partial类型的对象
+
 ## operator
 
 ## decimal

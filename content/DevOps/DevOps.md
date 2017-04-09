@@ -51,7 +51,7 @@ Continuous Delivery.
 
 travis CI是基于github的CI工具．
 
-coveralls/codecov用于测试代码覆盖率．
+coveralls/codecov用于分析单元测试覆盖率．
 
 在github项目添加.travis.yml文件：
 
@@ -115,6 +115,8 @@ php开发的wiki管理工具
 # Atlassian
 
 Jira for Porject Management.
+
+Bitbucket for Source code management.
 
 Bamboo for CI/CD.
 

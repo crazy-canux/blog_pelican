@@ -16,6 +16,12 @@ python的内置模块，所有python的内置功能都在这个模块中，不�
 
 >> __builtins__ - 仅仅是__builtin__/builtins的一个引用．解释器自动导入的．
 
+内置常量
+
+内置函数
+
+工厂函数：python内置的类型都有对应的类的实现，同名的类的方法就是工厂函数．
+
 ***
 
 # 内置函数
@@ -25,7 +31,7 @@ python2和python3共同的内置函数：
     __debug__
     __doc__ # 查看模块，类，函数的文档
     __import__
-    __name__ # 如果模块是被导入,返回模块名，如果是被直接执行返回"__main__".
+    __name__ # 如果模块是被导入,返回模块名，如果是被直接执行返回"__main__", 包名，函数名，方法名．
     __package__
 
     compile(source, filename, mode[, flags[, dont_inherit]]) # 编译source返回一个code对象．
@@ -50,8 +56,6 @@ python2和python3共同的内置函数：
     divmod(x, y) # 返回x/y 的　(商，余数) 组成的元组
     pow(x, y[, z]) # 返回x**y或(x**y) % z
     round(number[, ndigits]) # 返回number四舍五入后的结果，ndigits表示小数点后的位数，默认是0.
-
-    # 数字类型的转换
     chr(i) # 返回整数ｉ对应的ASCII字符的字符串形式，0 <= i < 256.
     ord(c) # 返回字符ASCII字符c对应的整数.
     bin(number) # 返回int/long的二进制的字符串形式
@@ -94,7 +98,7 @@ python2和python3共同的内置函数：
     ## related to file
     open(name[, mode[, buffering]]) # 返回一个file类类型的对象．
 
-python3新增的内置函数(New)：
+[New]python3新增的内置函数：
 
     __build_class__
     __loader__
@@ -104,7 +108,7 @@ python3新增的内置函数(New)：
     exec(object[, globals[, locals]]) # python2中仅仅是一个关键字，python3才是内置函数．
     print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) # python2中只是一个关键字，python3才是内置函数．
 
-python2.7中有，python3中被废弃的内置函数(Deprecated)：
+[Deprecated]python2.7中有，python3中被废弃的内置函数：
 
     apply(object[, args[, kwargs]])
     coerce(x, y)
@@ -122,9 +126,10 @@ python2.7中有，python3中被废弃的内置函数(Deprecated)：
 
     False # 内置类型bool的实例
     True # 内置类型bool的实例
-    None # python的Null对象或types.NoneType只有一个值None.
+    None #
+    python的Null对象或types.NoneType,只有一个值None.布尔值始终为False.
     NotImplemented # types.NotImplementedType
-    Ellipsis # types.EllipsisType
+    Ellipsis # types.EllipsisType, 省略对象，布尔值始终为True.
     __debug__
 
 ***
@@ -409,7 +414,7 @@ python3中被废弃．
     copy() # 返回字典的一个浅拷贝
     fromkeys(S[,v]) # 返回以S的元素为键，v为值的新字典，v默认为None.
     get(k[,d]) # 如果键k在字典里面，返回dict[k], 否则返回d, d默认为None.
-    has_key(k) # 如果键k在字典里面，返回True,否则返回False.
+    [Deprecated]has_key(k) # 如果键k在字典里面，返回True,否则返回False. 使用in.
     pop(k[,d]) # 从字典中删除键k的键值对，返回dict[k], 如果不存在返回d,如果没有指定d,抛出KeyError异常．
     popitem() # 从字典中删除随机的键值对，返回该键值对组成的元组，如果字典为空，抛出KeyError异常．
     setdefault(k[,d]) # 如果键k在字典中存在，等效于get(k[,d]), 否则就插入D[k]=d键值对．
@@ -500,7 +505,7 @@ python3中被废弃．
 
 ***
 
-python3中新增的内置类类型．
+python2中的函数在python3变为类．
 
 # filter
 
@@ -607,8 +612,8 @@ enumerate是一个内置的类类型，有next()内置方法，是迭代器．
 
     enumerate(iterable[, start]) # 返回一个可迭代的enumerate类型的迭代器，生成一个元组序列，包含从start 开始的索引，默认是０，和从iterable取出的值．
     a = enumerate([1,2,3])
-    for i,item in a:
-        print(i, item)
+    for index, item in a:
+        print(index, item)
     type(a) # enumerate
     a.next()
 

@@ -1,6 +1,6 @@
-Title: Design Pattern
+Title: UML
 Date: 2017-02-19 17:11:58
-Tags: Design Pattern
+Tags: UML
 
 
 
@@ -14,6 +14,4 @@ acceleo: 免费，支持java和python
 
 UML-Designer:免费，支持java和python
 
-# Design Pattern
 
-设计模式６大原则

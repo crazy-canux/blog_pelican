@@ -24,7 +24,16 @@ Tags: Python, GUI
 
 ## wxWidgets
 
-    wxPython
+python2的库叫wxPython.
+
+<https://www.wxpython.org/>
+
+    # Windows下载安装包安装即可．
+    $ sudo apt-get install python-wxgtk2.8
+
+python３启用新的项目phoneix.
+
+<https://github.com/wxWidgets/Phoenix>
 
 ## gtk
 

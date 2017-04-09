@@ -403,3 +403,7 @@ Initialize, update or inspect submodules
     $git submodule update --init --recursive
 
 ***
+
+# mergetool
+
+    $ git mergetool --tool=meld
