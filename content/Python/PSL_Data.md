@@ -23,7 +23,6 @@ Tags: Python, Data
 
     import collections
 
-
 ## heapq
 
 ## bisect
@@ -46,7 +45,7 @@ Tags: Python, Data
 
 ## copy
 
-copy和deepcopy都只拷贝对象的类型和数值，不拷贝对象的ID.也就是==运算为True, is运算为False.
+copy和deepcopy都只拷贝对象的类型和数值，不拷贝对象的ID.也就是==运算为True, is(id())运算为False.
 
     import copy
     copy.copy(x) # 浅复制, 只拷贝父对象，不拷贝内部的子对象.
@@ -62,7 +61,11 @@ copy和deepcopy都只拷贝对象的类型和数值，不拷贝对象的ID.也�
 
 ## pickle
 
+pickle不支持unicode,只支持ascii.
+
 ## cPickle
+
+python3将cPickle和pickle统一合并为pickle.
 
 ## cope_reg
 

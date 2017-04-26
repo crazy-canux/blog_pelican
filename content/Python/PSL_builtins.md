@@ -10,17 +10,17 @@ python的内置模块，所有python的内置功能都在这个模块中，不�
 
 包括内置类类型以及所属的内置方法，和内置函数.
 
-> __builtin__ - python2中的名称，包括内置类类型以及所属的内置方法，和内置函数.解释器不会自动导入．
+>> __builtin__ - 包括内置类类型以及所属的内置方法，和内置函数.解释器不会自动导入．
 
-> builtins - python3中的名称,包括内置类类型以及所属的内置方法，和内置函数.解释器不会自动导入．
-
->> __builtins__ - 仅仅是__builtin__/builtins的一个引用．解释器自动导入的．
+>> __builtins__ - 仅仅是__builtin__的一个引用．解释器自动导入的．
 
 内置常量
 
-内置函数
+内置函数和内置方法
 
 工厂函数：python内置的类型都有对应的类的实现，同名的类的方法就是工厂函数．
+
+内置异常
 
 ***
 
@@ -70,7 +70,7 @@ python2和python3共同的内置函数：
     callable(object) # 如果object是可调用的返回True
     delattr(object, name) # 删除对象object的属性name
     len(object) # 返回序列（str, tuple, list)或映射（dict)的长度
-    hash(object) # 返回一个对象的散列(hash)值，有相同值的对象hash值相同.
+    hash(object) # 返回一个对象的散列/哈希(hash)值，有相同值的对象hash值相同.可用做字典的键.
     getattr(object, name[, default]) # 如果object.name存在,返回name的值，否则如果default存在，返回default,否则抛出异常AttributeError
     hasattr(object, name) # 和getattr一样，但是捕获了异常，object.name存在返回True,否则返回False.
     setattr(object, name, value) # 给对象的属性赋值，相当于object.name = value
@@ -88,7 +88,7 @@ python2和python3共同的内置函数：
     sum(sequence[, start]) # 返回数字序列sequence的所有元素加上start的和，start默认是０．
 
     ## related to iterator
-    iter(collection) # 将可迭代对象（str, tuple, list, dict等）转换成迭代器,返回迭代器.
+    iter(collection) # 将可迭代对象（str, tuple, list, dict的键,集合,文件的行等）转换成迭代器,返回迭代器对象.
     iter(callable, sentinel) # 第一个参数需要是callable的，每次迭代到sentinel停止．
     next(iterator[, default]) # 返回迭代器iterator中的下一个元素，如果没有元素了，default指定内容返回该内容，否则抛出StopIteration异常．
 
@@ -105,20 +105,21 @@ python2和python3共同的内置函数：
     __spec__
 
     ascii(object) # 和repr()函数等效．
-    exec(object[, globals[, locals]]) # python2中仅仅是一个关键字，python3才是内置函数．
-    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) # python2中只是一个关键字，python3才是内置函数．
+    exec(object[, globals[, locals]]) # python2中是一个关键字，python3才是内置函数．
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) # python2中是一个关键字，python3才是内置函数．
 
 [Deprecated]python2.7中有，python3中被废弃的内置函数：
 
     apply(object[, args[, kwargs]])
     coerce(x, y)
-    cmp(x, y)
     execfile(filename[, globals[, locals]])
     intern(string)
-    raw_input([prompt])
-    reduce(function, sequence[, initial])
-    reload(module)
-    unichr(i)
+    unichr(i) # 返回chr(i)的unicode形式．
+    raw_input([prompt]) # python3中合并为input().
+    `` # python3中合并为repr()
+    cmp(x, y) # 参考python3的operator模块
+    reduce(function, sequence[, initial]) # 参考python3的functools模块
+    reload(module) # 参考python3的imp模块
 
 ***
 
@@ -126,8 +127,7 @@ python2和python3共同的内置函数：
 
     False # 内置类型bool的实例
     True # 内置类型bool的实例
-    None #
-    python的Null对象或types.NoneType,只有一个值None.布尔值始终为False.
+    None # python的Null对象或types.NoneType,只有一个值None.布尔值始终为False.
     NotImplemented # types.NotImplementedType
     Ellipsis # types.EllipsisType, 省略对象，布尔值始终为True.
     __debug__
@@ -273,9 +273,9 @@ python3序列包括str, list, tuple, bytearray, range, bytes, memoryview.都是�
 
 # (basestring)
 
-python2中basestring是str类和unicode类的基类
+python2中basestring是str类和unicode类的基类, basestring继承自object.
 
-python3中只有str类，没有unicode类，str直接继承自object类．
+python3中str类直接继承自object，没有unicode和basestring.
 
 # str
 
@@ -307,8 +307,9 @@ python3中只有str类，没有unicode类，str直接继承自object类．
 
     count(sub[, start[, end]]) # 返回sub字符串在str[start:end]中出现的次数
 
-    decode([encoding[,errors]]) # 解码,返回unicode类型
-    encode([encoding[,errors]]) # 编码,返回str类型
+    # 参考codecs模块的decode/encode.
+    decode([encoding[,errors]]) # 解码
+    encode([encoding[,errors]]) # 编码
 
     startswith(prefix[, start[, end]]) # 如果str[start:end]以prefix开头，返回true.
     endswith(suffix[, start[, end]]) # 如果str[start:end]以suffix结尾，返回true.
@@ -322,7 +323,7 @@ python3中只有str类，没有unicode类，str直接继承自object类．
 
     splitlines(keepends=False) # 根据\n,\r,\r\n来拆分字符串，返回拆分后的列表，True表示保留换行符，默认是False．
     split([sep [,maxsplit]]) # 将字符串以从左到右的maxsplit个seq分割，返回分割后的列表，默认seq是空格，maxsplit是所有seq．
-    rsplit([sep [,maxsplit]]) # 和split相反
+    rsplit([sep [,maxsplit]]) # 和split相反,从右到左的maxsplit个seq分割．
 
     partition(sep) # 字符串根据从左往右根据第一个找到的seq分割，返回一个(head, seq, tail), 如果没有找到seq, 返回(str, '', '').
     rpartition(sep) # 字符串根据最后一个找到的seq分割，返回(head, seq, tail),如果没有找到seq,返回('', '', str)
@@ -338,6 +339,11 @@ python3中只有str类，没有unicode类，str直接继承自object类．
 python2中的内置类型，和str是兄弟类型．
 
 python3中被废弃．
+
+python2中的unicode的工厂函数:
+
+    unicode(object='')
+    unicode(string[, encoding[, errors]])
 
 ***
 
@@ -359,7 +365,7 @@ python3中被废弃．
 
 python2的重要的内置类型．
 
-python3中被废弃．
+python3中将range和xrange合并为range类．
 
 xrange是不可变类型，是序列（可迭代）
 
@@ -387,10 +393,11 @@ python3中被废弃．
 
 内置方法：
 
-    append(object) # 在列表结尾追加对象
     count(value) # 返回value在列表中出现的次数
-    extend(iterable) # 将可迭代对象iterable的元素依次追加到列表
     index(value, [start, [stop]]) # 从左往右在list[start:stop]中寻找value,返回第一个找到的元素的索引，否则返回ValueError异常．
+    # 下列改变列表的值的方法都没有返回值，直接改变原列表的值．
+    append(object) # 在列表结尾追加对象
+    extend(iterable) # 将可迭代对象iterable的元素依次追加到列表,相当于序列的+运算．
     insert(index, object) # 在list[index]前面插入object.
     pop([index]) # 删除list[index],默认是最后一个元素，如果列表为空或索引越界，抛出IndexError异常．
     remove(value) # 删除第一个出现的value．
@@ -410,11 +417,11 @@ python3中被废弃．
 
 内置方法：
 
-    clear() # 清空字典所有元素
     copy() # 返回字典的一个浅拷贝
+    clear() # 清空字典所有元素
     fromkeys(S[,v]) # 返回以S的元素为键，v为值的新字典，v默认为None.
     get(k[,d]) # 如果键k在字典里面，返回dict[k], 否则返回d, d默认为None.
-    [Deprecated]has_key(k) # 如果键k在字典里面，返回True,否则返回False. 使用in.
+    [Deprecated]has_key(k) # 如果键k在字典里面，返回True,否则返回False. 使用in和not in代替.
     pop(k[,d]) # 从字典中删除键k的键值对，返回dict[k], 如果不存在返回d,如果没有指定d,抛出KeyError异常．
     popitem() # 从字典中删除随机的键值对，返回该键值对组成的元组，如果字典为空，抛出KeyError异常．
     setdefault(k[,d]) # 如果键k在字典中存在，等效于get(k[,d]), 否则就插入D[k]=d键值对．
@@ -440,14 +447,14 @@ python3中被废弃．
 
 不可变集合和可变集合共同的内置方法：
 
-    copy()
-    difference([others, ...])
-    intersection([others, ...])
-    isdisjoint()
-    issubset()
-    issuperset()
-    symmetric_difference()
-    union()
+    copy() # 返回集合的一个浅拷贝
+    isdisjoint() # 两个集合交集为空，返回为True.
+    a.issubset(b) # a是b的非严格子集，　a <= b, 返回True
+    a.issuperset(b) # a是b的非严格超集, a >= b, 返回True
+    union() # 联合/并集，OR操作，等效于|运算符
+    intersection([others, ...]) # 交集，　AND操作，　等效于&运算符
+    difference([others, ...]) # 差补或相对补充集，等效于-运算符
+    symmetric_difference() # 对称差分或异或，等效于^运算符
 
 # set
 
@@ -458,15 +465,15 @@ python3中被废弃．
 
 set除了有frozenset的所有方法还有自己特有的内置方法：
 
-    add()
-    clear()
-    difference_update()
-    discard()
-    intersection_update()
-    pop()
-    remove()
-    symmetric_difference_update()
-    update()
+    clear() # 清空集合所有元素
+    pop() # 删除并返回任意一个集合元素，集合为空抛出KeyError.
+    add(obj) # 往集合中添加一个不存在的元素
+    remove(obj) # 删除集合中的存在的指定的数字元素, 非数字抛出KeyError.
+    a.discard(obj) # 如果obj是集合s中的元素，从s中删除obj.
+    update() # 等效于|=运算符
+    intersection_update() # 等效于&=运算符
+    difference_update() # 等效于-=运算法
+    symmetric_difference_update() # 等效于^=运算符
 
 ***
 
@@ -476,7 +483,7 @@ python2中的内置类型．
 
 python3中被废弃．
 
-文件类型可以迭代文件的所有行．
+file是python2中的内置类类型，有next()方法，返回一个迭代器的file类型．
 
     file(name[, mode[, buffering]])
 

@@ -16,9 +16,9 @@ Tags: Python, Encapsulation, Inheritance, Polymorphism
 
 python的类中的变量／常量和方法默认都是public的，类本身和子类都可以使用，也可以被import导入．
 
-一个下划线开头的属性是protected,只能在类本身和子类使用，不可以用import导入．
+一个下划线开头的属性是protected,能在类本身和子类使用，类的实例可以直接访问，不可以用import导入．
 
-双下划线开头的属性是private, 只能类本身使用，子类和其它类都不能使用．
+双下划线开头的属性是private, 只能类本身使用，类的实例不能直接访问，子类和其它类都不能使用,子类也不能覆盖．
 
     xxx # public
     _xxx # protected

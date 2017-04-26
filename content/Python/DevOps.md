@@ -20,11 +20,13 @@ Linux安装：
     $sudo yum install python
 
     $sudo apt-get install python-dev
-    $sudo apt-get install python3-dev
     $sudo yum install python-devel
+
+    $sudo apt-get install python3-dev
     $sudo yum install python3-devel
 
     $sudo apt-get install libssl-dev
+    $sudo yum install openssl-devel
 
 标准库的路径：
 
@@ -104,7 +106,7 @@ python写的交互式解释器。
 
 <https://github.com/ipython/ipython>
 
-    $sudo apt-get install ipython
+    $pip install ipython
 
 ## pyenv
 
@@ -147,6 +149,8 @@ python的版本管理工具.
 
         $sudo apt-get install python-setuptools
 
+        $pip install -U setuptools
+
         $sudo -E easy_install packagename[=version] # 安装
         $sudo -E easy_install -U packagename[=version] # 升级
 
@@ -159,12 +163,15 @@ python的版本管理工具.
     直接从pypi安装wheel格式和sdist格式(也就是tarball)。
 
         $sudo apt-get install python-pip
-        $pip install -U pip
+        $sudo apt-get install python-wheel
 
-        $sudo -E pip install packagename[==version] # 安装
-        $sudo -E pip install -U packagename[==version] # 升级
-        $sudo -E pip uninstall packagename # 卸载
-        $sudo -E pip install XXX.whl # 安装wheel包
+        $pip install -U pip
+        $pip install -U wheel
+
+        $ pip install packagename[==version] # 安装
+        $ pip install -U packagename[==version] # 升级
+        $ pip uninstall packagename # 卸载
+        $ pip install XXX.whl # 安装wheel包
 
         $pip list
         $pip search packagename

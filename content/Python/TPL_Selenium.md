@@ -8,6 +8,10 @@ Tags: Selenium
 
 参考DevOps/selenium进行安装配置．
 
+selenium只有两个包webdriver和common.
+
+# selenium.webdriver
+
     from selenium import webdriver
 
     # 返回WebDriver类型的对象．
@@ -47,3 +51,23 @@ Tags: Selenium
     elem.send_keys(self, *value)
     elem.submit(self)
     elem.value_of_css_property(self, property_name)
+
+    # selenium.webdriver.remote
+    from selenium.webdriver.remote.webelement import WebElement
+
+    # selenium.webdriver.common
+    from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.common.action_chains import ActionChains
+
+    # selenium.webdriver.support
+    from selenium.webdriver.support.select import Select
+    from selenium.webdriver.support.ui import WebDriverWait
+
+# selenium.common
+
+common.exception包括了所有的异常．
+
+    from selenium.common.exceptions import TimeoutException
+    from selenium.common.exceptions import NoSuchElementException
+    ...
+

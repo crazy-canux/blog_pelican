@@ -59,6 +59,8 @@ python不支持方法或函数重载．
 
 python不支持char和type类型．
 
+python没有switch语句．
+
 python中类型都有对应的类的实现，类型也是类．
 
 python支持多继承．
@@ -104,9 +106,10 @@ python2.7源代码格式:
     if elif else while for continue break try except finally return pass
     global raise assert del yield with as
     and or not is in
+
     [New in python3] False None True nonlocal
 
-    [Deprecated in python3] print exec
+    [Deprecated in python3] print(改为了内置print函数) exec(改为了内置exec函数)
 
 ***
 
@@ -120,7 +123,7 @@ python2.7源代码格式:
     # 序列的切片
     seq[ind1:ind2:step]
 
-    # 下标索引
+    # 序列下标索引
     seq[index]
 
     # 属性运算.
@@ -137,7 +140,8 @@ python2.7源代码格式:
 
     # 算术运算符, 优先级一样
     *
-    /    两个操作数都是整数时，结果是商舍去小数后的整数,也就是地板除; 只要有一个以上的浮点操作数,结果就是浮点数，也就是真正的除法．
+    /    python2两个操作数都是整数时，结果是商舍去小数后的整数,也就是地板除; 只要有一个以上的浮点操作数,结果就是浮点数，也就是真正的除法．
+    /    python3会自动转化成两个浮点数出发，结果永远是浮点数，永远是真正的除法．
     //   地板除，结果总是舍去小数部分．
     %
 
@@ -165,7 +169,7 @@ python2.7源代码格式:
     # 关系运算, 优先级一样
     ==
     !=
-    [Deprecated] <>
+    [Deprecated in python3] <>
 
     # 赋值运算符和增量赋值
     =
@@ -185,7 +189,7 @@ python2.7源代码格式:
     is
     is not
 
-    # [New] 序列成员运算符, 优先级一样
+    # [New] 序列的元素/字典的键/集合的元素 成员运算符, 优先级一样
     in
     not in
 
@@ -236,19 +240,21 @@ python是动态类型语言，变量不需要先申明，变量的类型和值�
 
 更新模型：
 
-* immutable不可变类型就是变量的值是固定的，再次赋值就是重新创建了新的对象: 数字类型，字符串，元组，不可变集合
-* mutable可变类型就是变量的值是可以改变的: 列表，字典，可变集合
+* 不可变类型:immutable不可变类型就是变量的值是固定的，再次赋值就是重新创建了新的对象: 数字类型，字符串str，元组tuple，不可变集合frozenset.
+* 可变类型:mutable可变类型就是变量的值是可以改变的: 列表list，字典dict，可变集合set.
 
 存储模型：
 
-* scalar标量/原子类型就是只能容纳单个对象：　数字类型，字符串
-* container容器类型就是可以容纳多个对象：　元组，列表，字典, 集合
+* scalar标量/原子类型:只能容纳单个对象：数字类型，字符串str
+* container容器类型:可以容纳多个对象：元组tuple，列表list，字典dict,集合set/frozenset.
 
 访问模型：
 
-* 直接存取：数字类型
-* sequence序列是顺序访问：字符串，元组，列表
-* mapping映射类型就是元素无序存放，通过唯一的key来访问：字典
+* 直接存取:数字类型
+* 索引访问:sequence序列是顺序访问：字符串str，元组tuple，列表list.
+* 映射访问:mapping映射类型是映射访问,元素无序存放，通过唯一的key来访问：字典dict.
+
+## 序列类型
 
 sequence序列是指成员有序排列，可以通过下标偏移量访问，同时可以进行切片操作．序列是可迭代的．
 
@@ -266,7 +272,7 @@ sequence切片操作：
     seq[::-1]  # 翻转序列
     seq[::-step]  # 以步长为step翻转序列．
 
-sequence运算：
+sequence算术运算：
 
     seq * number # 序列重复number次
     sql1 + seq2 # 两个序列连接
@@ -276,7 +282,23 @@ sequence成员运算：
     obj in seq # obj在包含在序列中,返回True
     obj not in seq # obj不包含在序列中返回True
 
+序列浅拷贝：
+
+    浅拷贝就是创建了一个类型和原对象一样，内容是原来对象的元素的引用．
+    a = ['name', ['money', 100]]
+    b = a[:] #　通过切片操作来拷贝
+    c = list(a) #　通过工厂函数来拷贝
+    d = copy.copy(a) # 通过copy模块的copy函数
+    ???
+
+序列深拷贝:
+
+    copy.deepcopy()
+    ???
+
 ## 数字类型
+
+数字类型是不可变类型(immutable),是标量(scalar),是直接存储的．
 
 0b开头表示二进制
 
@@ -290,6 +312,8 @@ sequence成员运算：
 
     python3的int其实就包括了short, int, long三种长度的整型．
 
+    python3的int不再需要用l/L来表示长整型．
+
 * bool(int)
 
     bool类继承自int.
@@ -298,9 +322,10 @@ sequence成员运算：
 
 * [Deprecated in python 3]long
 
-    在整数值后面家L表示长整型．
+    python2在整数值后面加l/L表示长整型．
 
 * float
+
     python中的float其实就包括了单精度和双精度，相当于float和double都可以用．
 
 * complex
@@ -309,19 +334,255 @@ sequence成员运算：
 
 ## str
 
-python2中str和unicode继承自basestring.
+python2中str和unicode继承自basestring, basestring继承自object.
 
-unicode在python3中被废弃．
+python3中unicode和basestring在python3中被废弃．str直接继承自object.
 
-## tupple
+python3中不再需要u/U来表示unicode字符串．
+
+str类型是不可变类型(immutable),是标量(scalar),是序列(sequence)通过索引访问．
+
+字符串表示方法：
+
+    'This is a string'
+    "This is a string"
+    """This is a string"""
+
+字符串的续行：
+
+下面都表示一个只有一行的字符串．
+
+    a = 'This is a ' \
+    'string'
+
+    b = "This is a " \
+    "string"
+
+    c = """This is a \
+    string"""
+
+编译时字符串连接：
+
+    foo = "hello" 'world'
+    urllib.urlopen('http://' # protocol
+    'localhost' # hostname
+    ':8000' # port
+    '/') # path
+
+原始字符串：
+
+    # 正常情况下在字符串中的特殊字符串(\加一个字符)表示特殊含义．是不可打印的．
+    print '\n'
+    # 如果需要表示正常含义需要转译(\用来转意)．
+    print '\\n' # 需要转译．
+    # 也可以使用原始字符串来表示正常含义．r''和R''都可以．
+    print r'\n'
+    open(r'C:\windows\test.txt')
+
+字符串编码解码:
+
+    # 程序中出现字符串一定加前缀u.
+    u'hello world'
+    # 不要用str(), 用unicode().
+    # 只在写入文件／数据库／网络时才调用编码函数encode().
+    # 只在读回数据时才调用解码函数decode().
+
+可迭代对象转换成字符串：
+
+    ''.join(('a', 'b')) # 可迭代对象的元素需要是str类型.
+    ''.join(['a', 'b']) # 可迭代对象的元素需要是str类型.
+    ''.join({'a': 'b'}) # 字典迭代键，可迭代对象的元素需要是str类型.
+
+## tuple
+
+tuple类型是不可变类型(immutable),是容器(container),是序列(sequence)通过索引访问．
+
+元组是不可变类型，不能对元组的元素进行增删操作．
 
 ## list
 
+list类型是可变类型(immutable),是容器(container),是序列(sequence)通过索引访问．
+
+列表元素增删修改：
+
+    # 除了使用内置方法还可以使用序列的索引．
+    lst[index] = value
+    del lst[index]
+
 ## dict
 
-## frozenset
+dict类型是可变类型(immutable),是容器(container),是映射(mapping)类型,是无序的,通过映射访问．
 
-## set
+字典迭代键，字典的键必须是可哈希的，字典的键必须是不可变类型．列表/字典/可变集合等不可哈希对象不能用作字典的键．
+
+所有不可变类型都是可哈希的，都可以作为字典的键．
+
+可用内置函数hash()获取或判断是否能用作字典的键．
+
+字典的键必须是唯一的，不能一个键对应多个值．有这种情况取最后一个赋值．
+
+字典的键操作符：
+
+    # 字典通过键操作符来读取元素的值
+    dic['key']
+
+键成员操作符:
+
+    # 取代has_key()内置方法
+    'key' in dic
+    'key' not in dic
+
+字典元素增删修改：
+
+    dic['key'] = 'value'
+    del dic['key']
+
+## 集合
+
+集合是一组无序排列的值，不能进行索引和切片操作，也不能进行键操作，只能通过for循环迭代集合元素．
+
+集合分为可变集合和不可变集合.
+
+集合运算符：
+
+    'element' in st 是成员
+    'element' not in st 不是成员
+    == 等于
+    != 不等于
+    <  严格子集
+    <= 非严格子集, 等效于issubset()
+    > 严格超集
+    >= 非严格超集, 等效于issuperset()
+    | 联合, OR操作，等效于union()内置方法
+    & 交集, AND操作，等效于intersection()内置方法
+    - 差补或相对补集, 等效于difference()内置方法
+    ^ 对称差分或异或, XOR操作，等效于symmetric_difference()内置方法
+
+    仅用于可变集合的运算符：
+    |= 等效于update()内置方法
+    &= 等效于intersection_update()内置方法
+    -= 等效于difference_update()内置方法
+    ^= 等效于symmetric_difference_update()内置方法
+
+集合运算返回结果的类型与左操作数的类型相同，左边是可变集合，结果就是可变集合，否则是不可变集合．
+
+### frozenset
+
+frozenset类型是不可变类型(immutable),是容器(container).
+
+### set
+
+set类型是可变类型(mutable)，是容器(container).
+
+***
+
+# python控制流
+
+continue语句:表示立即终止本次循环，启动循环的下一次迭代．
+
+break语句：表示结束当前循环块，跳转到后面的语句．
+
+pass语句： 表示不做任何事情，NOP.
+
+## if条件语句
+
+    if condition:
+        expression
+    elif condition:
+        expression
+    else:
+        expression
+
+python中的三目运算：
+
+    X if C else Y
+
+## while循环语句
+
+    while condition:
+        expression
+
+    # while执行完会执行else，break会跳过else．
+    while condition:
+        expression
+    else:
+        expression
+
+## for循环语句
+
+for循环可以用于遍历序列，字典的键 和 文件的行，集合，列表解析，生成器表达式.
+
+for循环会自动调用迭代器的next()方法，捕获StopIteration异常结束循环．
+
+用for迭代可变对象的时候，不应该改变可变对象的元素的值．
+
+    for condition:
+        expression
+
+    # for执行完成会执行else, break会跳过else.
+    for condition:
+        expression
+    else:
+        expression
+
+    # 字典有两种写法
+    for loop in dic.keys()
+    等效于
+    for loop in dic
+
+    # 文件有两种写法
+    for loop in open('file', 'r').readlines():
+    等效于
+    for loop in open('file','r'):
+
+## 迭代器
+
+Iterable: 能直接用于for循环的对象为可迭代对象Iterable.
+
+Iterator: 能被next()内置函数调用并不断返回下一个值的对象为迭代器Iterator,迭代完成后抛出StopIteration异常．
+
+file，enumerate和reversed内置类类型的工厂函数返回的都是迭代器类型．
+
+创建迭代器的3种方法：
+
+    # 通过内建函数iter()
+    iter()
+
+    # 通过工厂函数
+    file()
+    enumerate()
+    reversed()
+
+    # 自定义类，需要实现 __iter__() 和　next() 两个方法
+    class TestIterator(object):
+        def __iter__(self):
+            ...
+
+        def next(self):
+            ...
+
+## 列表解析
+
+List Comprehensions列表解析
+
+列表解析使用中括号，列表解析返回一个列表。
+
+    list = [expression for item in iterable if condition]
+
+## 生成器表达式
+
+Generator Expressions生成器表达式
+
+生成器不必创建完整的列表，而是一边循环一边计算，这种就是生成器。
+生成器就是对象，在每次调用next()方法时返回一个值．直到抛出StopIteration异常．
+
+最简单的创建生成器的方法，就是把列表解析的中括号改成下括号．
+
+    generator = (expression for item1 in iterable1 if condition1
+                            for item2 in iterable2 if condition2
+                            ...
+    )
+    generator.next()    # 获取下一个值
 
 ***
 
@@ -329,17 +590,36 @@ unicode在python3中被废弃．
 
 ***
 
-# python控制流
+# python错误和异常
 
-python没有switch。
+## 上下文管理
+
+with as上下文管理
+
+with上下文仅用于支持上下文管理协议(CMP)的对象．
+可以在自己的类中添加__enter__和__exit__方法来实现上下文管理器．
+也可以直接使用标准库contextlib来实现．
+
+    with open('log.txt', 'w') as logger:
+        logger.write('test')
 
 ***
 
 # python函数
 
-***
+## yield生成器
 
-# python错误和异常
+Generator Expressions除了使用小括号的生成器表达式，还可以使用yield和函数.
+
+任何使用yield的函数都称为生成器。
+
+    def generator_test():
+        yield 1
+        yield 2
+    g = generator_test()
+    next(g)    # 1
+    next(g)    # 2
+    next(g)    # StopIteration
 
 ***
 
@@ -423,6 +703,7 @@ as关键字可以给模块/包/属性取别名：
 
     from package.module import *
     # 需要在__init__.py中添加__all__列表来定义需要导入的属性．否则导入什么取决于操作系统的文件系统．
+    # python3中在函数内部不支持模糊导入．只能在模块层使用．
 
 import书写顺序：
 

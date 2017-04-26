@@ -16,10 +16,6 @@ tags: Mssql, Sql Server
 4. Web
 5. SQL Azure
 
-安装配置参考文档。
-
-# mssql基本属性
-
 system databases:
 1. master 主数据库
 2. model  模板数据库
@@ -35,49 +31,45 @@ default port：1433
 
 Client -> SNAC(OLE DB/ODBC) -> Network Libraries -> TDS <=> Server -> Endpoints -> SQL OS(relational engine/storage engine)
 
-***
 
-# GUI
+## GUI
 
-## SSMS
+* SSMS
 
-SQL Server Management Studio是mssql的图形化管理界面。
+    SQL Server Management Studio是mssql的图形化管理界面。
 
-从模板中获取常用的SQL：
+    从模板中获取常用的SQL：
 
-view -> template explorer + query -> specify values for template parameters.
+    view -> template explorer + query -> specify values for template parameters.
 
-## SSIS
+* SSIS
 
-数据集成服务。
+    数据集成服务。
 
-## cliconfg.exe
+* cliconfg.exe
 
-用于给数据库取别名并分发。
+    用于给数据库取别名并分发。
 
-***
+## CLI
 
-# CLI
+* sqlcmd
 
-## sqlcmd
+    SQL Server的命令行界面。
 
-SQL Server的命令行界面。
+        sqlcmd -? # 查看帮助
+        sqlcmd /?
+        sqlcmd -A # 管理员专用模式。
 
-    sqlcmd -? # 查看帮助
-    sqlcmd /?
+* bcp
 
-    sqlcmd -A # 管理员专用模式。
+    数据库import/export工具
 
-## bcp
+        bcp -? # 查看帮助
+        bcp XXX out XXX -T -c
 
-数据库import/export工具
+* sqlps
 
-    bcp -? # 查看帮助
-    bcp XXX out XXX -T -c
-
-## sqlps
-
-SQL Server的PowerShell命令行模式。
+    SQL Server的PowerShell命令行模式。
 
 ***
 
@@ -167,7 +159,7 @@ system data有下面类型：
 
 ***
 
-# data structure
+# 数据结构
 
 ## tables
 
@@ -177,7 +169,7 @@ system data有下面类型：
 
 * merge
 
-使用merge来快速插入，没有就insert，有就update。
+    使用merge来快速插入，没有就insert，有就update。
 
 ## views
 

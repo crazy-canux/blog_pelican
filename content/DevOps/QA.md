@@ -40,8 +40,6 @@ QA主要就是进行软件测试相关的工作.
 
 软件测试的类型：
 
-* 功能测试
-* UI测试
 * 性能测试
 * 稳定性测试
 * 安全测试
@@ -49,8 +47,10 @@ QA主要就是进行软件测试相关的工作.
 * 兼容性测试
 * 文档测试
 * 本地化测试
-* 冒烟测试Smoke Test
-* 回归测试Regression Test
+* 冒烟测试
+* 功能测试Functional Testing
+* 回归测试Regression Testing
+* 用户界面测试UI Testing
 * 端到端测试End-To-End Testing
 
 软件测试的模型：
@@ -101,15 +101,10 @@ Unit Test的工具有：
 自动化测试框架：
 
 * Robot Framework
-* Selenium(Web)
 
 ATDD: Acceptance test-driven development
 
 BDD: Behavior-driven development
-
-***
-
-# End-to-End Testing
 
 ***
 

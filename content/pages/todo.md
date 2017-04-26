@@ -6,28 +6,34 @@ Tags: Todo
 
 # TODO
 
-2013 - (C) + Linux + Shell + Vim + Git
-
-2014 - Python + Oracle + DevOps
-
-2015 - Django + Mysql + HTML + CSS + DevOps
-
-2016 - (PowerShell) + Windows + Sql Server + DevOps + ITIL Foundation
+2013 - C + Linux + Shell + Vim + Git
 
 ***
 
-2017 - (Java) + Python + Django + Mysql + JavaScript + QA
+Operations development:
 
-2018 - (Java) + Python + Django + Mysql + JavaScript + QA
+2014 - Python + Oracle
 
-2019 - (Java) + Python + Django + Mysql + JavaScript + QA + PMP
+2015 - Django + Mysql + HTML + CSS
+
+2016 - PowerShell + Windows + Sql Server + ITIL Foundation
 
 ***
 
-2020 - ITIL Practitioner
+QA development:
 
-2021 - ITIL MALC/Expert
+2017 - Java + Hadoop + Mongodb + JavaScript + Agile + QA
 
-2022 - ITIL Master
+2018 - BigData + PMP
+
+***
+
+BigData devops(development/operations/QA)
+
+2019 - ITIL Practitioner
+
+2020 - ITIL MALC/Expert
+
+2021 - ITIL Master
 
 ***

@@ -1,12 +1,20 @@
-Title: Database
+Title: RDBMS
 Date: 2016-04-03 14:46:14
-Tags: Database
+Tags: Database, RDBMS
 
 # RDBMS
 
 关系数据库管理系统。
 
-Oracle，Mssql，Mysql分开介绍。
+***
+
+# Oracle
+
+# MSSQL
+
+# Mysql
+
+***
 
 # c
 
@@ -20,24 +28,7 @@ Oracle，Mssql，Mysql分开介绍。
 
 安装相应数据库的JDBC。
 
-# dataset
-
-<https://github.com/pudo/dataset>
-
-    import dataset
-    db = dataset.connect('sqlite:///mydatabase.db')
-    db = dataset.connect('mysql://user:password@localhost/mydatabase')
-    db = dataset.connect('postgresql://scott:tiger@localhost:5432/mydatabase')
-
-# pyodbc
-
-<https://github.com/mkleehammer/pyodbc>
-
-    import pyodbc
-    cnxn = pyodbc.connect('DRIVER={MySQL};DATABASE=test;SOCKET=/var/lib/mysql/mysql.sock')
-    cnxn = pyodbc.connect('DRIVER=MyOracle;DBQ=x.x.x.x:1521/orcl;UID=myuid;PWD=mypwd')
-    cnxn = pyodbc.connect('DSN=MySQLServerDatabase;UID=myuid;PWD=mypwd') # from linux/unix
-    cnxn = pyodbc.connect(r'DRIVER={SQL Server Native Client 11.0};SERVER=test;DATABASE=test;UID=user;PWD=password') # from windows
+# JavaScript
 
 ***
 
@@ -45,16 +36,17 @@ Oracle，Mssql，Mysql分开介绍。
 
 安装postgresql：
 
-    sudo apt-get install postgresql
+    $ sudo apt-get install postgresql
 
 安装第三方库：
 
-    sudo apt-get install postgresql-contrib-9.3 libpg-dev postgresql-server-dev-9.3
+    $ sudo apt-get install postgresql-contrib-9.3 libpg-dev postgresql-server-dev-9.3
 
 GUI工具： pgAdminIII
+
 CLI工具： psql
 
-## postgresql相关命令
+## postgresql命令
 
     $passwd postgres # 修改默认管理员用户postgresql的密码
     $su - postgresql # 切换到默认的postgresql用户
@@ -64,7 +56,7 @@ CLI工具： psql
     $dropdb <database> # 在命令行删除数据库
     $show
 
-## pssql的命令
+## CLI
 
     $psql # 进入psql
     $psql <database> # 登陆数据库
@@ -136,6 +128,25 @@ psycopg
     cur.close()
     cxn.close()
 
-## java
+***
+
+# dataset
+
+<https://github.com/pudo/dataset>
+
+    import dataset
+    db = dataset.connect('sqlite:///mydatabase.db')
+    db = dataset.connect('mysql://user:password@localhost/mydatabase')
+    db = dataset.connect('postgresql://scott:tiger@localhost:5432/mydatabase')
+
+# pyodbc
+
+<https://github.com/mkleehammer/pyodbc>
+
+    import pyodbc
+    cnxn = pyodbc.connect('DRIVER={MySQL};DATABASE=test;SOCKET=/var/lib/mysql/mysql.sock')
+    cnxn = pyodbc.connect('DRIVER=MyOracle;DBQ=x.x.x.x:1521/orcl;UID=myuid;PWD=mypwd')
+    cnxn = pyodbc.connect('DSN=MySQLServerDatabase;UID=myuid;PWD=mypwd') # from linux/unix
+    cnxn = pyodbc.connect(r'DRIVER={SQL Server Native Client 11.0};SERVER=test;DATABASE=test;UID=user;PWD=password') # from windows
 
 ***

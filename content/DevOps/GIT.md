@@ -339,6 +339,8 @@ Fetch from and integrate with another repository or a local branch
 
 Update remote refs along with associated objects
 
+    $ git config --global push.default simple
+
 ## rebase
 
 Forward-port local commits to the updated upstream head

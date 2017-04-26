@@ -12,15 +12,7 @@ oracle的GUI：
 oracle的CLI：
 1. sqlplus
 
-# oracle相关命令
-
-监听管理：
-    su - oracle
-    lsnrctl start
-    lsnrctl stop
-    lsnrctl status
-
-# 权限管理
+# Oracle命令
 
 sys是oracle默认管理员权限
 
@@ -44,7 +36,14 @@ dbsnmp是oracle的用户智能代理用户，用来监控和管理数据库相�
 
 sysman是oracle的数据库用户EM管理用户。
 
-# sqlplus命令
+监听管理：
+
+    su - oracle
+    lsnrctl start
+    lsnrctl stop
+    lsnrctl status
+
+# CLI
 
 查看所有sqlplus命令：
 
@@ -87,9 +86,15 @@ sysman是oracle的数据库用户EM管理用户。
 
     show
 
+***
+
 # 数据类型
 
+***
+
 # 函数
+
+***
 
 # SQL
 

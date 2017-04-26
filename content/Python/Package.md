@@ -60,6 +60,19 @@ python3.4之后并入了虚拟化标准库venv.
     $pip install -r
     requirements.txt
 
+virtualenvwrapper
+
+<https://bitbucket.org/virtualenvwrapper/virtualenvwrapper>
+
+    $ pip install virtualenvwrapper
+    $ export WORKON_HOME=~/.virtualenv
+    $ mkdir -p $WORKON_HOME
+    $ source virtualenvwrapper.sh
+    $ mkvirtualenv [project-name]
+    $ workon [project-name] # 切换到针对该项目的virtualenv
+    (pro)$ pip install [package] # 安装第三方包
+    (pro)$ lssitepackages # 查看安装的第三方包
+
 ## setuptools
 
 <https://github.com/pypa/setuptools>

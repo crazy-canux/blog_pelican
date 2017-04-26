@@ -1,15 +1,18 @@
----
-layout: post
-title: Linux之系统管理
-comments: true
-date: 2016-04-03 14:04:05
-updated:
-tags:
-- Linux
-categories:
-- Linux
-permalink:
----
+Title: Linux Admin
+Date: 2016-04-03 14:04:05
+Tags: Linux, Ubuntu, CentOS, Suse
+
+
+
+# Linux Admin
+
+dpkg: ubuntu, debian.
+
+rpm: fedora, centos, redhat.
+
+zypper: suse.
+
+***
 
 # 中文输入法
 
@@ -116,3 +119,8 @@ org->gnome->gedit->preferences->encodings->auto-detected
 # ufw & iptables
 
 # upstart & systemd
+
+# terninator
+
+    $ sudo yum install terminator
+    $ sudo apt-get install terminator

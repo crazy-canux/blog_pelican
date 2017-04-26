@@ -16,6 +16,16 @@ vCenter Server是vSphere的高级管理系统．需单独购买．
 
 ***
 
+# vSphere client
+
+开启虚拟机copy/paste功能：
+
+    edit properties -> Options -> Advanced -> General -> configuration Parameters
+    # isolation.tools.copy.disable    false
+    # isolation.tools.paste.disable    false
+
+***
+
 # python
 
 pyVmomi is the Python SDK for the VMware vSphere API that allows you to manage ESX, ESXi, and vCenter.

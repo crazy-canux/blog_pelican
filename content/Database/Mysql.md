@@ -1,6 +1,6 @@
 Title: Mysql
-date: 2016-05-25 12:14:59
-tags: Mysql
+Date: 2016-05-25 12:14:59
+Tags: Mysql
 
 
 
@@ -8,13 +8,13 @@ tags: Mysql
 
 安装mysql服务器
 
-    sudo apt-get install mysql-server
-    sudo yum install mysql-community-server
+    $ sudo apt-get install mysql-server
+    $ sudo yum install mysql-community-server
 
 安装mysql客户端
 
-    sudo apt-get install mysql-client
-    sudo yum install mysql-community-client
+    $ sudo apt-get install mysql-client
+    $ sudo yum install mysql-community-client
 
 CLI工具： mysql
 
@@ -24,70 +24,75 @@ GUI工具： mysql workbench
 
 # mysql命令
 
-    mysql db_name
-    mysql --user=user_name --password=your_password db_name
-    mysql db_name < script.sql > output.tab
+    $ mysql [OPTIONS] [database]
 
 初始化时需要用root用户进入mysql命令行
 
-    mysql -u root -p
-    mysql -h <mysql server> -P <port> -u root -p
+    $ mysql -u root -p
+    $ mysql -h<host> -P<port> -uroot -p<password>
 
-创建用户后用其它用户登陆：
+创建用户后用其它用户操作：
 
-    mysql -u username -p
-    mysql -u <mysql server> -P <port> -u <username> -p
+    $ mysql -u <user> -p
+    $ mysql -u<user> -P<port> -u<username> -p<password> <database>
+    -e/--execute # 通过命令行执行sql语句．
 
 导出数据命令:
 
-    $mysqldump -u username -p databasename > dump.sql
+    $ mysqldump -u<username> -p<password> <databasename>  >  dump.sql
 
-# mysql的命令
+# CLI
 
 先用mysql命令进入mysql的命令行。
 
-?         (\?) Synonym for help.
-help      (\h) Display this help.
+    ?         (\?) Synonym for help.
+    help      (\h) Display this help.
 
-exit      (\q) Exit mysql. Same as quit.
-quit      (\q) Quit mysql.
+    exit      (\q) Exit mysql. Same as quit.
+    quit      (\q) Quit mysql.
 
-clear     (\c) Clear the current input statement.
-connect   (\r) Reconnect to the server. Optional arguments are db and host.
-delimiter (\d) Set statement delimiter.
-edit      (\e) Edit command with \$EDITOR.
-ego       (\G) Send command to mysql server, display result vertically.
-go        (\g) Send command to mysql server.
-nopager   (\n) Disable pager, print to stdout.
-notee     (\t) Don't write into outfile.
-pager     (\P) Set PAGER [to_pager]. Print the query results via PAGER.
-print     (\p) Print current command.
-prompt    (\R) Change your mysql prompt.
-rehash    (\#) Rebuild completion hash.
-source    (\.) Execute an SQL script file. Takes a file name as an argument.
+    clear     (\c) Clear the current input statement.
+    connect   (\r) Reconnect to the server. Optional arguments are db and host.
+    delimiter (\d) Set statement delimiter.
+    edit      (\e) Edit command with \$EDITOR.
+    ego       (\G) Send command to mysql server, display result vertically.
+    go        (\g) Send command to mysql server.
+    nopager   (\n) Disable pager, print to stdout.
+    notee     (\t) Don't write into outfile.
+    pager     (\P) Set PAGER [to_pager]. Print the query results via PAGER.
+    print     (\p) Print current command.
+    prompt    (\R) Change your mysql prompt.
+    rehash    (\#) Rebuild completion hash.
 
+    source    (\.) Execute an SQL script file. Takes a file name as an argument.
     mysql> source /path/to/dump.sql # 从sql导入数据
 
-status    (\s) Get status information from the server.
-system    (\!) Execute a system shell command.
-tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
-use       (\u) Use another database. Takes database name as argument.
+    status    (\s) Get status information from the server.
+    system    (\!) Execute a system shell command.
+    tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
 
-    use database 切换到数据库
+    use       (\u) Use another database. Takes database name as argument.
+    mysql> use database # 切换到数据库
 
-charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
-warnings  (\W) Show warnings after every statement.
-nowarning (\w) Don't show warnings after every statement.
+    charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+    warnings  (\W) Show warnings after every statement.
+    nowarning (\w) Don't show warnings after every statement.
+
+***
 
 # 数据类型
 
+***
+
 # 函数
 
-NOW()
+    NOW()
 
-DATE()
+    DATE()
 
-# sql query
+***
+
+# SQL
 
 查看版本：
 
@@ -149,7 +154,7 @@ DATE()
 
 <https://github.com/PyMySQL/PyMySQL>
 
-    sudo pip install PyMySQL
+    $ sudo pip install PyMySQL
 
     import pymysql.cursors
     connection = pymysql.connect(host='localhost', user='user', password='password', database='db')
@@ -172,7 +177,8 @@ DATE()
 
 官方提供的python的API。
 
-    sudo yum/apt-get install mysql-connector-python
+    $sudo apt-get install mysql-connector-python
+    $sudo yum install mysql-connector-python
 
     import mysql.connector
 

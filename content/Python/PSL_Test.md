@@ -45,14 +45,35 @@ ERROR 表示测试过程引发一个不是AssertionError的异常．
     unittest.TestCase: 每个实例就是一个test case. 使用TestCase.assert* 系列方法进行测试．
     unittest.TestSuite: 每个实例就是一个test suite. 多个test case放在一起就是一个test suite.
     unittest.TestLoader/unittest.defaultTestLoader: 用来加载TestCase到TestSuite.
-    unittest.TextTestRunner: 用来执行测试用例．
-    unittest.TextTestResult: 用来保存测试的结果．
     unittest.TestResult: 用来保存测试的结果．
-    unittest.main()/unittest.TestProgram: 搜索该模块下所有test开头的测试用例方法并执行．
+    unittest.TextTestRunner: 用来执行测试用例．
+    unittest.TextTestResult: 用来打印格式化的测试结果．
+    unittest.TestProgram/unittest.main(): 搜索该模块下所有test开头的测试用例方法并执行．
     fixtures对一个测试用例的环境的搭建和销毁，通过重载TestCase的setUp()和teaeDown()方法．
 
     # unittest.TestCase
+    assertXXX　系列方法．
+    failXXX 系列方法
+    addCleanup
+    addTypeEqualityFunc
+    countTestCases
+    debug
     defaultTestResult() # return unittest.TestResult()
+    doCleanups
+    id
+    longMessage
+    maxDiff
+    run
+    shortDescription
+    setUp
+    setUpClass
+    skipTest
+    tearDown
+    tearDownClass
+
+    # unittest.TestResult
+    starTest
+    starTestRun
 
     class MyClassTest(unittest.TestCase):
 

@@ -6,25 +6,6 @@ Tags: Python
 
 # python难点总结
 
-***
-
-# 控制流
-
-* with as上下文管理
-
-    with上下文仅用于支持上下文管理协议(CMP)的对象．
-    可以在自己的类中添加__enter__和__exit__方法来实现上下文管理器．
-    也可以直接使用标准库contextlib来实现．
-
-        with open('log.txt', 'w') as logger:
-            logger.write('test')
-
-* iterator
-
-    能直接用于for循环的对象为可迭代对象Iterable.
-    能被next()内置函数调用并不断返回下一个值的对象为迭代器Iterator.
-    所有的可迭代对象都可以使用iter()内置函数转变为迭代器．
-
 # 类
 
 python中的方法就是作为类的属性的函数．
@@ -94,10 +75,6 @@ python3中直接通过类名来调用方法，会得到一个方法是一个函�
 
         lambda arguments:expression
 
-* global全局变量
-
-    global var　用来定义一个全局变量．
-
 * closure闭包
 
     闭包就是根据不同的配置信息得到不同的结果.
@@ -110,38 +87,6 @@ python3中直接通过类名来调用方法，会得到一个方法是一个函�
 
         c = closure_out(3, 4) # 返回的是函数closure_in
         print(c(5))
-
-* decorator
-
-    装饰器本质就是函数，这个函数接受其它函数作为参数，并将其以一个新的修改后的函数进行替换。
-
-* list comprehension
-
-    列表解析使用中括号，列表解析返回一个列表。
-
-        list = [expression for item in iterable if condition]
-
-* generator
-
-    生成器不必创建完整的列表，而是一边循环一边计算，这种就是生成器。
-    生成器就是对象，在每次调用next()方法时返回一个值．直到抛出StopIteration异常．
-
-        # 最简单的创建生成器的方法，就是把列表解析的中括号改成下括号．
-        generator = (expression for item1 in iterable1 if condition1
-                        for item2 in iterable2 if condition2
-                        ...
-        )
-        generator.next() # 获取下一个值
-
-    任何使用yield的函数都称为生成器。
-
-        def generator_test():
-            yield 1
-            yield 2
-        g = generator_test()
-        next(g) # 1
-        next(g) # 2
-        next(g) # StopIteration
 
 # 多线程
 

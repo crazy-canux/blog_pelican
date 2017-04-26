@@ -401,62 +401,6 @@ String类的方法:
 
 ***
 
-# java文件和输入输出：
-
-## 标准输出流：System.out
-
-输出控制流的方法：
-
-    System.out.print();
-    System.out.println();
-
-参考 java.io.PrintStream 的方法。
-
-## 标准输入流：System.in
-
-导入Scanner类：
-
-    import java.util.Scanner;
-
-构造Scanner对象，然后和System.in关联：
-
-    Scanner in = new Scanner(System.in);
-
-输入控制流的方法：
-
-    String name = in.nextLine(); / 读取输入的下一行内容 /
-    String firstName = in.next(); / 读取输入的下一个单词 /
-    int age = in.nextInt(); / 读取一个整数 /
-    double number = in.nextDouble(); / 读取一个浮点数 /
-    boolean test = in.hasNext(); / 检测输入中是否还有其他单词 /
-    boolean test = in.hasNextInt(); / 检测输入中是否还有其他int类型 /
-    boolean test = in.hasNextDouble(); / 检测输入中是否还有其他double类型 /
-
-参考 java.util.Scanner 的方法。
-
-## 控制台输入System.console()
-
-返回一个Console类型对象：
-
-    Console cons = System.console();
-
-Console类型对象的方法：
-
-    String username = cons.readLine("User name: ");
-    char[] password = cons.readPassword("Password: ");
-
-参考 java.io.Console 的方法。
-
-## 文件输出（读）：
-
-    Scanner in = new Scanner(Paths.get(“myfile.txt”));
-
-## 文件输入（写）：
-
-    PrintWriter out = new PrintWriter(“myfile.txt”));
-
-***
-
 # java控制流
 
 由{}括起来的若干简单语句构成块作用域。
@@ -573,7 +517,67 @@ continue语句：
 
 ***
 
+# java文件和输入输出：
+
+## 标准输出流：System.out
+
+输出控制流的方法：
+
+    System.out.print();
+    System.out.println();
+
+参考 java.io.PrintStream 的方法。
+
+## 标准输入流：System.in
+
+导入Scanner类：
+
+    import java.util.Scanner;
+
+构造Scanner对象，然后和System.in关联：
+
+    Scanner in = new Scanner(System.in);
+
+输入控制流的方法：
+
+    String name = in.nextLine(); / 读取输入的下一行内容 /
+    String firstName = in.next(); / 读取输入的下一个单词 /
+    int age = in.nextInt(); / 读取一个整数 /
+    double number = in.nextDouble(); / 读取一个浮点数 /
+    boolean test = in.hasNext(); / 检测输入中是否还有其他单词 /
+    boolean test = in.hasNextInt(); / 检测输入中是否还有其他int类型 /
+    boolean test = in.hasNextDouble(); / 检测输入中是否还有其他double类型 /
+
+参考 java.util.Scanner 的方法。
+
+## 控制台输入System.console()
+
+返回一个Console类型对象：
+
+    Console cons = System.console();
+
+Console类型对象的方法：
+
+    String username = cons.readLine("User name: ");
+    char[] password = cons.readPassword("Password: ");
+
+参考 java.io.Console 的方法。
+
+## 文件输出（读）：
+
+    Scanner in = new Scanner(Paths.get(“myfile.txt”));
+
+## 文件输入（写）：
+
+    PrintWriter out = new PrintWriter(“myfile.txt”));
+
+***
+
 # java错误和异常
+
+***
+
+# java函数式编程
 
 ***
 

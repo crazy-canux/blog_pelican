@@ -26,11 +26,15 @@ tmux使用c/s架构，tmux命令启动tmux服务器，一个tmux服务有多个s
 
 tmux依赖libevent和ncurses库。
 
-<http://tmux.github.io/>
-
 <http://libevent.org/>
 
+    $ sudo yum install libevent-devel
+
 <http://invisible-island.net/ncurses/>
+
+    $ sudo yum install ncurese-devel
+
+<http://tmux.github.io/>
 
     sudo apt-get install tmux
     sudo yum install tmux

@@ -248,7 +248,7 @@ robot framework相关的工具．
 
 ***
 
-# robot
+# robot command
 
     $ robot tests.robot
     $ robot -t/--test [test cases] tests.robot
@@ -267,41 +267,3 @@ robot framework相关的工具．
     -K --consolemarkers auto|on|off
 
 ***
-
-# Library
-
-robotframework的灵活就在于可以自己开发第三方库，实现和自己业务相关的关键字．
-
-以Selenium2Library为例：
-
-    Selenium2Library
-    |-- docs
-    |-- tests
-    |-- Selenium2Library
-        |-- __init__.py
-        |-- keywords/*.py
-        |-- ...
-    |-- setup.py
-    |-- ...
-
-    $ pip install robotframework-selenium2library
-    # C:\Python27\Lib\site-packages\Selenium2Library
-    # /usr/local/lib/python2.7/dist-packages/Selenium2Library
-    # 通过ride导入该库后，可以用F5查看关键字的帮助.
-
-    # __init__.py
-    from .keywords import keywords
-    ...
-
-    __version__ =  1.0.0
-
-    class Selenium2Library(keywords):
-        """docs."""
-
-        ROBOT_LIBRARY_SCOPE = 'GLOBAL'
-        ROBOT_LIBRARY_VERSION = __version__
-
-        def __init__(self, ...):
-           """docs"""
-           ...
-
