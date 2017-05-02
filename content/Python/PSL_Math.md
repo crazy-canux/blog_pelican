@@ -8,6 +8,8 @@ Tags: Python, Math
 
 ## random
 
+    import random
+
     random()
     randint(a, b)
     randrange(start, stop=None, step=1, int=<type 'int'>, _maxwidth=...)
@@ -18,13 +20,17 @@ Tags: Python, Math
 ## functools
 
     import functools
+
     partial(func, *args, **keywords) # 返回functools.partial类型的对象
+    reduce(function, sequence[, initial])
 
 ## operator
 
 ## decimal
 
 ## itertools
+
+    import itertools
 
 ## cmath
 

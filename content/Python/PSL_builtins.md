@@ -35,7 +35,7 @@ python2和python3共同的内置函数：
     __package__
 
     compile(source, filename, mode[, flags[, dont_inherit]]) # 编译source返回一个code对象．
-    # mode: exec用于模块 python2可以用exec关键字执行,python3改成exec()函数;single用于单行申明;eval用于表达式 可以用eval()函数执行． eg:
+    mode: exec用于模块 python2可以用exec关键字执行,python3改成exec()函数;single用于单行申明;eval用于表达式 可以用eval()函数执行． eg:
     module = "for i in xrange(10): print(i)"
     code = compile(module, '', 'exec')
     type(code) # code
@@ -48,6 +48,8 @@ python2和python3共同的内置函数：
     format(value[, format_spec]) # 返回格式化后的字符串形式．
 
     eval(source[, globals[, locals]]) # 返回python表达式的结果，source可以是compile()的返回值，也可以是一个表达式．
+
+    ## 环境变量相关
     globals() # 返回当前作用域的全局变量组成的字典
     locals() # 返回当前作用域的局部变量组成的字典
 
@@ -96,7 +98,7 @@ python2和python3共同的内置函数：
     input([prompt]) # 等于eval(raw_input(prompt))，根据prompt提示输入内容，返回输入的内容.
 
     ## related to file
-    open(name[, mode[, buffering]]) # 返回一个file类类型的对象．
+    open(name[, mode[, buffering]]) # 打开一个文件，返回一个file类类型的对象．
 
 [New]python3新增的内置函数：
 
@@ -186,9 +188,9 @@ BaseException(object) # 所有异常的基类, 继承自object.
             ...
 ***
 
-python2数字类型(int, long, float, complex)是不可变类型．
+python2数字类型(int, long, float, complex)是不可变类型,是标量，是直接存储的．
 
-python3数字类型(int, float, complex)是不可变类型．
+python3数字类型int, float, complex
 
 # int
 
@@ -279,7 +281,7 @@ python3中str类直接继承自object，没有unicode和basestring.
 
 # str
 
-字符串是不可变类型, 字符串是序列(可迭代)
+字符串是不可变类型, 是标量，是序列．
 
     str(object='') # 把一个对象转换成字符串．或者返回一个对象的可读性好的字符串表示，无法用语eval()求值．
 
@@ -349,7 +351,7 @@ python2中的unicode的工厂函数:
 
 # tuple
 
-元组是不可变类型, 元组是序列(可迭代)
+元组是不可变类型, 是容器，是序列.
 
     tuple()
     tuple(iterable) # 把可迭代对象转换成元组.
@@ -366,8 +368,6 @@ python2中的unicode的工厂函数:
 python2的重要的内置类型．
 
 python3中将range和xrange合并为range类．
-
-xrange是不可变类型，是序列（可迭代）
 
 xrange和range功能一样，但是返回的是xrange类型的可迭代对象．
 
@@ -386,7 +386,7 @@ python3中被废弃．
 
 # list
 
-列表是可变类型, 列表是序列(可迭代)
+列表是可变类型,　是容器，是序列.
 
     list()
     list(iterable) # 把可迭代的对象转换成列表．
@@ -408,7 +408,7 @@ python3中被废弃．
 
 # dict
 
-字典是可变类型, 字典是映射类型（mapping), 字典可以迭代键．字典是无序的．
+字典是可变类型, 是容器，是映射类型（mapping), 字典可以迭代键．字典是无序的．
 
     dict()
     dict(mapping) # dict(one=1, two=2)
@@ -435,6 +435,25 @@ python3中被废弃．
     viewitems() # 返回键和值组成的可迭代对象
     viewkeys()　# 返回键组成的可迭代对象
     viewvalues() # 返回值组成的可迭代对象
+
+***
+
+# slice
+
+python2:
+
+    slice(stop)
+    slice(start, stop[, step])
+
+内置方法:
+
+    indices(len) -> (start, stop, stride)
+
+内置描述符：
+
+    start
+    step
+    stop
 
 ***
 
@@ -479,9 +498,9 @@ set除了有frozenset的所有方法还有自己特有的内置方法：
 
 # (file)
 
-python2中的内置类型．
+python2中的内置类型．使用open()内置函数．
 
-python3中被废弃．
+python3中被废弃．用open()内置函数代替．
 
 file是python2中的内置类类型，有next()方法，返回一个迭代器的file类型．
 
@@ -490,43 +509,72 @@ file是python2中的内置类类型，有next()方法，返回一个迭代器的
 内置方法:
 
     close()
-    fileno()
-    flush()
-    isatty()
-    x.next()
-    read([size])
-    readinto()
-    readline([size])
-    readlines([size])
+    next()
+    fileno() # 返回打开的文件的描述符.
+    flush() # 把内部缓冲区的数据立即写入文件．
+    isatty() # 文件是tty设备返回True.
+
+    # 文件输入操作
+    read([size]) # 从文件读取size个字节到字符串并返回，默认读取到文件结尾．保留行结束符．
+    readline([size]) # 读取一行的size个字符到字符串并返回，默认读取文件的一行，包括行结束符．
+    readlines([size]) # 读取文件所有行，返回行组成的字符串列表，size表示返回的最大字节数.
+    [depredated] xreadlines()
+    [deprecated] readinto()
+
+    # 文件输出操作
+    write(str) # 往文件中写．如果str表示一行，需要手动加上行结束符．
+    writelines(sequence_of_strings) # 往文件写入一个字符串列表，需要手动给列表元素加上行结束符．
+
+    # 文件内移动
     seek(offset[, whence])
     tell()
     truncate([size])
-    write(str)
-    writelines(sequence_of_strings)
-    xreadlines()
 
 内置描述符：
 
     closed
-    ...
+    encoding
+    mode
+    name
+    newlines
+    softspace
+    errors
+
+# enumerate
+
+python2:
+
+enumerate是一个内置的类类型，有next()内置方法，是迭代器．
+
+    enumerate(iterable[, start]) # 返回一个可迭代的enumerate类型的迭代器，生成一个元组序列，包含从start 开始的索引，默认是０，和从iterable取出的值．
+    a = enumerate([1,2,3])
+    for index, item in a:
+        print(index, item)
+    type(a) # enumerate
+    a.next()
+
+# reversed
+
+python2:
+
+reversed是一个内置类类型，有next()方法，是迭代器．
+
+    reversed(sequence) # 反转sequence序列的元素的值，返回反转后的reversed类型的迭代器．
+    a = reversed((1,2,3))
+    for i in a:
+        print(i)
+    type(a) # reversed
+    a.next()
 
 ***
 
-python2中的函数在python3变为类．
-
-# filter
-
-python2中的内置函数：
-
-    filter(function or None, sequence) # 对sequence序列中的所有元素调用function，返回所有function结果为True的结果结果组成的列表／元组／字符串．
-
-python3中的内置类类型：
+python2中的函数在python3变为类类型．
 
 # range
 
 python2中的内置函数：
 
-    range(stop) # 返回[0, 1, stop-1]
+    range(stop) # 返回[0, 1, stop-1]的列表
     range(start, stop[, step]) # 返回[start, start+n*step... ], n>=1,start+n*step<stop.
 
 python3中的内置类类型：
@@ -540,7 +588,19 @@ python2中的内置函数：
 
 python3中的内置类类型：
 
+# filter
+
+python2中的函数式编程的内置函数．
+
+python2中的内置函数：
+
+    filter(function or None, sequence) # 对sequence序列中的所有元素调用function，返回所有function结果为True的结果结果组成的列表／元组／字符串．
+
+python3中的内置类类型：
+
 # map
+
+python2中的函数式编程的内置函数．
 
 python2中的内置函数：
 
@@ -611,32 +671,6 @@ python2:
 
 ***
 
-# enumerate
-
-python2:
-
-enumerate是一个内置的类类型，有next()内置方法，是迭代器．
-
-    enumerate(iterable[, start]) # 返回一个可迭代的enumerate类型的迭代器，生成一个元组序列，包含从start 开始的索引，默认是０，和从iterable取出的值．
-    a = enumerate([1,2,3])
-    for index, item in a:
-        print(index, item)
-    type(a) # enumerate
-    a.next()
-
-# reversed
-
-python2:
-
-reversed是一个内置类类型，有next()方法，是迭代器．
-
-    reversed(sequence) # 反转sequence序列的元素的值，返回反转后的reversed类型的迭代器．
-    a = reversed((1,2,3))
-    for i in a:
-        print(i)
-    type(a) # reversed
-    a.next()
-
 # type
 
 python2:
@@ -649,23 +683,6 @@ python2:
     mro() # 返回一个类型的method resolution order
 
 内置描述符：
-
-# slice
-
-python2:
-
-    slice(stop)
-    slice(start, stop[, step])
-
-内置方法:
-
-    indices(len) -> (start, stop, stride)
-
-内置描述符：
-
-    start
-    step
-    stop
 
 ***
 

@@ -6,4 +6,4 @@ Tags: Web, Bootstrap
 
 # Bootstrap
 
-HTML,CSS,JavaScript的框架
+HTML,CSS,JavaScript的支持响应式和移动设备的WEBk框架.

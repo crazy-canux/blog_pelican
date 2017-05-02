@@ -352,12 +352,14 @@ str类型是不可变类型(immutable),是标量(scalar),是序列(sequence)通�
 
 下面都表示一个只有一行的字符串．
 
+    # 一个引号需要在引号内部空格表示和下一行有空格，续行符前的空格可有可无．
     a = 'This is a ' \
     'string'
 
     b = "This is a " \
     "string"
 
+    # 三引号续行符前的空格就表示和下一行有空格．
     c = """This is a \
     string"""
 
@@ -563,32 +565,111 @@ file，enumerate和reversed内置类类型的工厂函数返回的都是迭代�
 
 ## 列表解析
 
-List Comprehensions列表解析
+List Comprehensions列表解析,来自函数式编程语言Haskell.
 
 列表解析使用中括号，列表解析返回一个列表。
 
-    list = [expression for item in iterable if condition]
+    lst = [expression for item in iterable]
+    # 嵌套if
+    lst = [expression for item in iterable if condition]
+    # 嵌套for
+    lst = [expression for item in iterable for item1 in iterable1]
+
+    [x ** 2 for x in range(10)]
+    等效于,python2的内置函数map(), filter()都是函数式编程的应用．
+    map(lambda x: x**2, range(10))
+
+    [(x+1, y+1) for x in range(10) for y in range(10)]
 
 ## 生成器表达式
 
-Generator Expressions生成器表达式
+Generator Expressions生成器表达式, 是列表解析的一个扩展．
 
-生成器不必创建完整的列表，而是一边循环一边计算，这种就是生成器。
-生成器就是对象，在每次调用next()方法时返回一个值．直到抛出StopIteration异常．
+列表解析的缺点就是要迭代整个对象用来创建列表，对大的对象来说性能差.
 
-最简单的创建生成器的方法，就是把列表解析的中括号改成下括号．
+生成器表达式就是结合生成器和列表解析解决这个问题．
 
-    generator = (expression for item1 in iterable1 if condition1
-                            for item2 in iterable2 if condition2
-                            ...
-    )
-    generator.next()    # 获取下一个值
+生成器表达式不必创建完整的列表，而是一边循环一边计算，返回一个生成器对象。
+
+生成器就是一个迭代器对象，在每次调用next()方法时返回一个值．直到抛出StopIteration异常．
+
+创建生成器的两种方法：
+
+    # 使用列表解析的变种
+    generator = (expression for item1 in iterable1 if condition1)
+
+    # 任何使用yield的函数都称为生成器。
+    def generator_test():
+        yield 1
+        yield 2
+
+    g = generator_test() # 返回生成器类型的迭代器．
+
+generator类类型:
+
+    generator.next()
+    generator.close() # 在生成器内部抛出GeneratorExit异常
+    generator.send(arg)
+    generator.throw(typ[,val[,tb]])
 
 ***
 
 # python文件和输入输出
 
-***
+python2使用open()内置函数打开文件，返回file类类型的对象，出错返回IOError异常.
+
+file类类型对象是迭代器，同时也是上下文管理器．
+
+python3废弃了file类类型，open()内置函数返回IO流．
+
+    # python2
+    open(name[, mode='r'[, buffering=-1]])
+
+    mode
+    r: 读，文件必须存在
+    w: 写，文件不存在则创建，否则先清空文件再写入．
+    a: 追加，文件存在就追加到文件结尾,否则就创建．
+    t: text模式，这个是默认模式．不用指定．
+    rb/wb/ab: 二进制读写．
+    r+/w+/a+: 以读写模式打开文本文件．
+    rb+/wb+/ab+: 以读写模式打开二进制文件．
+    U: 提供通用换行符支持，文件必须存在
+
+    buffering
+    0: 不缓冲
+    1: 只缓冲一行数据
+    <0: 使用系统默认缓冲机制
+    >1: 使用给定值作为缓冲区大小
+
+通用换行符UNS:
+
+Universal Newline Support.
+
+如果是二进制文件读写rb/wb/ab，不会有换行符的问题，如果是文本文件建议用rU/wU/aU来读写.
+
+    # UNS会把
+    \r\n
+    \r
+    \n
+    # 都被替换为
+    \n
+
+文件可以使用with上下文管理器，并且迭代文件的行:
+
+    with open('file', 'rU') as f:
+        for line in f:
+            ...
+
+标准文件:
+
+系统默认的三个标准文件: sys.stdin, sys.stdout, sys.stderr.
+
+    # python2的关键字print会把语句打印到sys.stdout,并默认在语句结尾加换行符.
+    print expression
+    print expression, # 可以避免默认加换行符
+
+    # 内置函数input()会从sys.stdin接受输入
+    a = input()
 
 # python错误和异常
 
@@ -607,19 +688,6 @@ with上下文仅用于支持上下文管理协议(CMP)的对象．
 
 # python函数
 
-## yield生成器
-
-Generator Expressions除了使用小括号的生成器表达式，还可以使用yield和函数.
-
-任何使用yield的函数都称为生成器。
-
-    def generator_test():
-        yield 1
-        yield 2
-    g = generator_test()
-    next(g)    # 1
-    next(g)    # 2
-    next(g)    # StopIteration
 
 ***
 

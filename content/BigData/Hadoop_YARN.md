@@ -10,13 +10,7 @@ Tags: Hadoop
 
 apache hadoop是一个框架，允许使用简单的编程模型在大量计算机上对大型数据集进行分布式处理．
 
-hadoop包括四个模块．
-
-hadoop的版本:
-
-* apache hadoop
-* hortonworks hadoop (HWX)
-* cloudera hadoop (CDH)
+hadoop包括下面四个模块．
 
 # Hadoop common
 
@@ -28,7 +22,7 @@ Hadoop Distributed File System: hadoop分布式文件系统
 
 # YARN
 
-Yet Another Resource Negotiator: 作业调度和集群资源管理的框架．
+作业调度和集群资源管理的框架．
 
 # Map-Reduce
 

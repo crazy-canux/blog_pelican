@@ -42,10 +42,15 @@ python3叫builtins
     import sys
 
     # 动态对象
+    sys.argv # 命令行参数的列表，sys.argv[0]是程序名称, len(sys.argv)就是C语言中的argc
+    sys.path
+    sys.modules
+    ...
 
     # 静态对象
 
     # 函数
+    exit() -- exit the interpreter by raising SystemExit
 
 ## sysconfig
 

@@ -12,6 +12,8 @@ mongodb是一种开源的文档数据库，高性能，高可用性，自动裁�
 
 mongodb将BSON文档存储在集合(collections)中，集合相当于关系数据库中的表．
 
+BSON就是mongo的JSON.
+
     $ sudo apt-get install -y mongodb-org
     $ sudo yum install -y mongodb-org
 

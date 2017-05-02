@@ -59,6 +59,12 @@ copy和deepcopy都只拷贝对象的类型和数值，不拷贝对象的ID.也�
 
 # Data Persistence
 
+pickle/cPickle/marshal提供对象的序列化操作．
+
+gdb相关的模块anydbm/whichdb/dbm/gdbm/dumbdbm提供类似字典和文件的对象．
+
+shelve集合了以上两者的功能．
+
 ## pickle
 
 pickle不支持unicode,只支持ascii.
@@ -67,13 +73,11 @@ pickle不支持unicode,只支持ascii.
 
 python3将cPickle和pickle统一合并为pickle.
 
-## cope_reg
-
-## pickletools
-
-## shelve
+cPickle是c开发的，速度比pickle快，但是不支持被继承．
 
 ## marshal
+
+## shelve
 
 ## anydbm
 
@@ -84,6 +88,10 @@ python3将cPickle和pickle统一合并为pickle.
 ## gdbm
 
 ## dumbdbm
+
+## cope_reg
+
+## pickletools
 
 ## sqlite
 

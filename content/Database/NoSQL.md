@@ -6,6 +6,8 @@ Tags: Database, NoSQL
 
 # NoSQL
 
+NoSQL: Not only SQL.
+
 非关系型数据库。
 
 ***

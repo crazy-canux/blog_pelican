@@ -10,7 +10,7 @@ Tags: Hadoop, Hive, Impala, HAWQ
 
 <http://hive.apache.org/>
 
-Hive数据仓库用于读取，写入和管理使用SQL的大型分布式数据集．
+Hive2数据仓库用于读取，写入和管理使用SQL的大型分布式数据集．
 
 # Impala
 
@@ -37,6 +37,9 @@ HAWQ可以通过HDFS在本机快速，交互查询hadoop数据．
 ***
 
 # beeline
+
+    $ beeline --silent
+    beeline> !connect jdbc:hive2://[ip]:[port]/[database] [username] [password]
 
     # for hive
     $ beeline -u "jdbc:hive2://[ip]:10000[/database]" -n [username] -p [password] -e "USE [database]; ..."
