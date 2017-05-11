@@ -22,6 +22,8 @@ Tags: Python, System
     # 将时间戳转换成时间2011-09-27 10:50:00
     time.gmtime(1472540718.340721)
 
+    time.sleep(seconds) # 延迟
+
 ## io
 
 ## logging

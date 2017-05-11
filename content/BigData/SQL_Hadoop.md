@@ -38,6 +38,8 @@ HAWQ可以通过HDFS在本机快速，交互查询hadoop数据．
 
 # beeline
 
+hive提供了一个jdbc的客户端beeline.
+
     $ beeline --silent
     beeline> !connect jdbc:hive2://[ip]:[port]/[database] [username] [password]
 

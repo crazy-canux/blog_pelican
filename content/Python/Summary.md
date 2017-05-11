@@ -67,26 +67,6 @@ python3中直接通过类名来调用方法，会得到一个方法是一个函�
     MRO: Method Resolution Order.方法解析顺序.
     MRO使用广度优先搜索．字节点顺序从左往右．
 
-# 函数和函数式编程
-
-* lambda匿名函数
-
-    lambda表达式等效一个函数，但是不需要像普通函数一样定义这个函数．
-
-        lambda arguments:expression
-
-* closure闭包
-
-    闭包就是根据不同的配置信息得到不同的结果.
-    闭包最常见的应用是装饰器.
-
-        def closure_out(x, y):
-            def closure_in(z):
-                return x + y + z
-            return closure_in # 仅仅返回函数名
-
-        c = closure_out(3, 4) # 返回的是函数closure_in
-        print(c(5))
 
 # 多线程
 

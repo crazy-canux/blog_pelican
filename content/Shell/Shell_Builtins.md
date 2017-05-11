@@ -1,6 +1,6 @@
-Title: Shell之内置命令
+Title: Shell Builtins
 Date: 2016-03-31 21:51:03
-Tags: Linux, Shell, Bash, Zsh, Fish
+Tags: Linux, Shell, Builtins, Bash, Zsh, Fish
 
 
 

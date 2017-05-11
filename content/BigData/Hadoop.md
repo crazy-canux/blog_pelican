@@ -10,7 +10,7 @@ Tags: Hadoop
 
 apache hadoop是一个框架，允许使用简单的编程模型在大量计算机上对大型数据集进行分布式处理．
 
-hadoop包括四个模块．
+hadoop1只有HDFS和MapReduce两个模块，hadoop2开始分为HDFS, YARN, MapReduce三个模块．
 
 hadoop的版本:
 

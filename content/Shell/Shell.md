@@ -63,21 +63,29 @@ bash的优化项目bash-it：
 
 <https://github.com/oh-my-fish/oh-my-fish>
 
-## shellcheck
-
-<https://github.com/koalaman/shellcheck>
-
 ***
 
 # shell命令
 
     bash --help
 
+## thefuck
+
+一个纠正shell命令输错的命令
+
+<https://github.com/nvbn/thefuck>
+
 ***
 
 # shell script
 
-# shell注释
+## shellcheck
+
+一个debug脚本的工具．
+
+<https://github.com/koalaman/shellcheck>
+
+## shell注释
 
 单行注释：
 

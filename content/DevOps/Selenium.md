@@ -22,6 +22,8 @@ Tags: QA, Selenium
 
 selenium3需要安装相应浏览器的driver:
 
+selenium, driver, browser三个版本都需要兼容才能工作．
+
     winfows放在C:\Python\Scripts\
     linux放在/usr/local/bin/
 
@@ -66,7 +68,7 @@ selenium提供８中定位web页面中元素的方法：
 
 使用的工具：
 
-* firebug
-* firepath
+* firebug, firefox的插件．
+* firepath, firebug的插件．
 * selenium builder
 

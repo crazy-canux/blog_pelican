@@ -18,15 +18,11 @@ Avro: 数据序列化
 
 Chukwa: 用于管理大型分布式系统的数据收集系统
 
-Mahout: 可扩展的机器学习和数据挖掘库
-
 Pig: 并行计算的高级数据流语言和执行框架
 
 Tez: 一种基于hadoop yarn的通用数据流编程框架
 
 Zookeeper: 分布式应用程序的高性能协调服务
-
-Kafka: 分布式流处理平台
 
 # Realtime Data Processing
 
@@ -37,3 +33,21 @@ Samza
 Spark
 
 Flink
+
+# Data ingestion and integration
+
+Flume
+
+Sqoop
+
+Kafka
+
+# search
+
+solr
+
+nutch
+
+# Analytics
+
+mahout

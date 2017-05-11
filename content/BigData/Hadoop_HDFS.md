@@ -8,3 +8,16 @@ Tags: Hadoop, HDFS
 
 Hadoop Distributed File System: hadoop分布式文件系统
 
+hadoop:
+
+master NameNode -> JobTracker
+
+secondary NameNode
+
+DataNode -> TaskTracker
+
+hdfs命令的三种方式:
+
+    $ hadoop fs  # 本地文件系统和hdfs文件系统都能用
+    $ hadoop dfs
+    $ hdfs dfs

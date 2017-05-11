@@ -22,20 +22,28 @@ GUI工具： mysql workbench
 
 安装完成默认的数据库是 mysql。
 
+mysqld的默认端口是3306.
+
 # mysql命令
 
     $ mysql [OPTIONS] [database]
 
 初始化时需要用root用户进入mysql命令行
 
-    $ mysql -u root -p
+    $ mysql -uroot -p
     $ mysql -h<host> -P<port> -uroot -p<password>
 
 创建用户后用其它用户操作：
 
-    $ mysql -u <user> -p
-    $ mysql -u<user> -P<port> -u<username> -p<password> <database>
-    -e/--execute # 通过命令行执行sql语句．
+    $ mysql -u<user> -p
+
+本地执行sql语句:
+
+    $ mysql -u<username> -p<password> <database> -e/--execute <sql query>
+
+远程执行sql语句:
+
+    $ mysql -h<host> -P<port> -u<username> -p<password> <database> -e/--execute <sql query>
 
 导出数据命令:
 

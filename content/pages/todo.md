@@ -24,7 +24,7 @@ QA development:
 
 2017 - Java + Hadoop + Mongodb + JavaScript + Agile + QA
 
-2018 - BigData + PMP
+2018 - Hadoop + PMP
 
 ***
 

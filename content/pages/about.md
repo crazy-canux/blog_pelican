@@ -16,9 +16,9 @@ Gender: Male
 
 Want to be a perfect Python/Java/JavaScript Developer.
 
-Be expert in: DevOps, OpenStack.
+Be expert in: DevOps, Hadoop.
 
-Interested in：Virtualization, Cloud Computing, Big Data.
+Interested in：DevOps, Virtualization, Cloud Computing, Big Data.
 
 ***
 

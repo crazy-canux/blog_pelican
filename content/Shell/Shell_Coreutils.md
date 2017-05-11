@@ -1,6 +1,6 @@
-Title: Shell之外部命令
+Title: Shell Coreutils
 Date: 2016-03-31 21:51:25
-Tags: Linux, Shell, Bash, Zsh, Fish
+Tags: Linux, Shell, Coreutils, Bash, Zsh, Fish
 
 
 
@@ -61,6 +61,7 @@ Linux外部命令的项目是coreutils。
     lshw # 列出硬件
     clear
     passwd
+    pkill
 
     # sudo apt-get install sysstat
     iostat
@@ -152,6 +153,8 @@ Linux外部命令的项目是coreutils。
     nslookup #查询IP地址和对应的域名
     netstat #查看当前网络状态
     tcpdump
+    wget
+    curl
 
 # 磁盘管理
 

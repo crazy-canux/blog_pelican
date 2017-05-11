@@ -29,7 +29,7 @@ python的内置模块，所有python的内置功能都在这个模块中，不�
 python2和python3共同的内置函数：
 
     __debug__
-    __doc__ # 查看模块，类，函数的文档
+    __doc__ # 查看模块/包，类，函数的文档
     __import__
     __name__ # 如果模块是被导入,返回模块名，如果是被直接执行返回"__main__", 包名，函数名，方法名．
     __package__
@@ -112,7 +112,7 @@ python2和python3共同的内置函数：
 
 [Deprecated]python2.7中有，python3中被废弃的内置函数：
 
-    apply(object[, args[, kwargs]])
+    apply(object[, args[, kwargs]]) # 直接使用函数定义的可变长参数形式, function_name(*args, **kwargs)
     coerce(x, y)
     execfile(filename[, globals[, locals]])
     intern(string)
@@ -157,17 +157,55 @@ object类是所有类的基类
 
 BaseException(object) # 所有异常的基类, 继承自object.
 
-    SystemExit
-    KeyboardInterrupt
-    GeneratorExit
-    Exception
-        StopIteration
-        StandardError
-            ...
-
-        Warning
-            DeprecationWarning
-            ...
+    # BaseException的四个子类
+    SystemExit # python解释器请求退出
+    KeyboardInterrupt # 用户输入ctrl-c中断执行
+    GeneratorExit # 生成器发出异常来通知退出
+    Exception # 常规错误的基类
+        StopIteration # 迭代器结束抛出的异常
+        StandardError # 所有内置标准error的基类
+            BufferError
+            ArithmeticError # 数值计算错误的基类
+                FloatingPointError
+                OverflowError
+                ZeroDivisionError # 除法分母为０错误
+            AsseertionError # 断言语句失败
+            AttributeError # 访问未知的对象属性
+            EnvironmentError
+                IOError # 打开不存在的磁盘文件导致的输入/输出错误
+                OSError
+                    WindowError
+                    VMSError
+            EOFError
+            ImportError
+            LookupError
+                IndexError # 序列的索引错误
+                KeyError # 字典的键错误
+            MemoryError
+            NameError # 未申明或初始化的对象
+                UnboundLocalError
+            ReferenceError
+            RuntimeError # 一般的运行错误
+                NotImplementedError # 尚未实现的方法
+            SyntaxError # 语法错误， 唯一不在运行时发生的异常
+                IndentationError # 缩进错误
+                    TabError # 跳格和空格混用
+            SystemError # 一般的解释器系统错误
+            TypeError # 对类型无效的操作
+            ValueError # 传入无效的参数
+                UnicodeError
+                    UnicodeDecodeError
+                    UnicodeEncodeError
+                    UnicodeTranslateError
+        Warning # 所有warning的基类
+           DeprecationWarning # 被弃用特征的警告
+           RuntimeWarning # 可疑的运行时行为警告
+           SyntaxWarning # 可疑的语法行为警告
+           UserWarning # 用户代码生成的警告
+           FutureWarning # 使用新的语法特征的警告
+           ImportWarning # 导入包警告
+           UnicodeWarning
+           ByteWarning
 
 # python3内置异常
 
@@ -180,10 +218,8 @@ BaseException(object) # 所有异常的基类, 继承自object.
         StopIteration
         StopAsyncIteration
         ArithmeticError
-            ...
         ...
-
-        Warning
+        Warning # 所有warning的基类
             DeprecationWarning
             ...
 ***

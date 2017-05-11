@@ -1,4 +1,4 @@
-Title: Oracle.md
+Title: Oracle
 Date: 2016-06-01 22:40:22
 Tags: Oracle
 
@@ -31,6 +31,10 @@ scott是oracle的默热你的普通用户，默认密码是tiger，需要sys授�
     > alter user scott account unlock;
     > alter user scott identified by tiger;
     > conn scott/tiger
+
+本地命令行执行sql语句：
+
+    $ <sql query> | <sqlplus> <db user>/<db password>@<db sid> | sudo ORACLE_HOME=<oracle home> -i -u <oracle user>
 
 dbsnmp是oracle的用户智能代理用户，用来监控和管理数据库相关性能。
 
