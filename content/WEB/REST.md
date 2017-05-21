@@ -48,7 +48,7 @@ python开发的类似于curl的命令行工具，同时还有wget的功能．
 
 # postman
 
-postman是一个application,同时也有一个chrome的插件．
+postman是一个application,同时也可以从chrome启动.
 
 <https://github.com/postmanlabs>
 

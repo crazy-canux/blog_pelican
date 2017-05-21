@@ -49,7 +49,7 @@ sysman是oracle的数据库用户EM管理用户。
 
 # CLI
 
-查看所有sqlplus命令：
+先用sqlplus命令进入oracle的命令行．
 
     help index
     ? index

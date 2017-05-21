@@ -67,7 +67,6 @@ python3中直接通过类名来调用方法，会得到一个方法是一个函�
     MRO: Method Resolution Order.方法解析顺序.
     MRO使用广度优先搜索．字节点顺序从左往右．
 
-
 # 多线程
 
 * GIL

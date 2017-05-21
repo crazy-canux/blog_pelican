@@ -10,6 +10,8 @@ Tags: Python, System
 
     import os
 
+    os.pardir # 表示上一级路径
+
 ## time
 
     import time

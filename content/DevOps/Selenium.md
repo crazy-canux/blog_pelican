@@ -55,7 +55,7 @@ Selenium Grid用于分布式测试
 
 对应的python的API参考python博文．
 
-selenium提供８中定位web页面中元素的方法：
+selenium提供８种定位web页面中元素的方法：
 
 * id
 * name
@@ -66,9 +66,5 @@ selenium提供８中定位web页面中元素的方法：
 * 通过xpath
 * 通过css
 
-使用的工具：
-
-* firebug, firefox的插件．
-* firepath, firebug的插件．
-* selenium builder
+在浏览器通过F12快捷键进入调试模式获取．
 

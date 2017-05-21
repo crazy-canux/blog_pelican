@@ -15,8 +15,8 @@ Tags: RobotFramework
     # **options包括所有robot命令的选项，另外还可以有stdout, stderr
 
     from robot.api import logger
-    # robot的内置日志系统
-    logger.info(message)
+    # robot的内置日志系统, 除了info可以同时选择输出到console,其它都是输出到logfile.
+    logger.info(message, also_console=False)
     logger.trace(message)
     logger.debug(message)
     logger.warn(message)

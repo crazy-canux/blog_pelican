@@ -28,8 +28,7 @@ python内置的文档测试库．
 
 python内置的单元测试库．
 
-也叫pyunit，类似于Junit(java)都是基于Kent Beck和Erich
-Gamma的XUnit框架．
+也叫pyunit，类似于Junit(java)都是基于Kent Beck和Erich Gamma的XUnit框架．
 
 测试结果：
 
@@ -46,10 +45,12 @@ ERROR 表示测试过程引发一个不是AssertionError的异常．
     unittest.TestSuite: 每个实例就是一个test suite. 多个test case放在一起就是一个test suite.
     unittest.TestLoader/unittest.defaultTestLoader: 用来加载TestCase到TestSuite.
     unittest.TestResult: 用来保存测试的结果．
-    unittest.TextTestRunner: 用来执行测试用例．
-    unittest.TextTestResult: 用来打印格式化的测试结果．
+
     unittest.TestProgram/unittest.main(): 搜索该模块下所有test开头的测试用例方法并执行．
     fixtures对一个测试用例的环境的搭建和销毁，通过重载TestCase的setUp()和teaeDown()方法．
+
+    unittest.TextTestRunner: 用来执行测试用例．
+    unittest.TextTestResult: 用来打印格式化的测试结果．
 
     # unittest.TestCase
     assertXXX　系列方法．
@@ -59,37 +60,66 @@ ERROR 表示测试过程引发一个不是AssertionError的异常．
     countTestCases
     debug
     defaultTestResult() # return unittest.TestResult()
-    doCleanups
+    doCleanups()
     id
     longMessage
     maxDiff
-    run
     shortDescription
-    setUp
-    setUpClass
+    run # 可以在子类覆盖该方法．
     skipTest
-    tearDown
-    tearDownClass
+    setUp # 重写之后，每个case运行之前都会调用一次．
+    tearDown # 同上
+    setUpClass # 通过@classmethod重写，这样所有的case运行之前只调用一次，而不是每个case运行之前都调用．
+    tearDownClass # 同上
 
-    # unittest.TestResult
-    starTest
-    starTestRun
+    # unittest.case实现了几个函数用来增强unittest.TestCase的方法
+    skip(reason) # 无条件跳过一个test case.
+    skipIf(condition, reason) # condition为true就跳过一个test case.
+    skipUnless(condition, reason) # 和上面相反
 
     class MyClassTest(unittest.TestCase):
 
+        @classmethod
+        def setUpClass(cls):
+            print 'Just execute before the first test case start.'
+
+        @classmethod
+        def tearDownClass(cls):
+            print 'Just execute after all test case end.'
+
         def setUp(self):
-            """重载setUp和tearDown."""
-            pass
+            """重载setUp进行测试之前的初始化工作.运行每个test_func之前都会运行该方法"""
+            print "start"
 
         def tearDown(self):
-            pass
+            """重载tearDown进行测试结束后的清理工作.结束运行每个test_func之后都会运行该方法"""
+            print "end"
 
         def test_func(self):
-            """具体的测试用例，需要用test开头"""
+            """具体的测试用例，需要用test开头,多个test_func会根据func名字中的数字或字母的顺序来执行，和位置无关.
+            不是用test开头的方法默认不会被执行"""
             self.assertEqual(MyClass.method(args), value, "message")
 
     if __name__ == "__main__":
         unittest.main()
+
+自动发现和批量执行testcase/testsuite:
+
+    def discover_test_case():
+        test_cases = []
+        _module = ...
+        tests.append(unittest.defaultTestLoader.loadTestsFromModule(_module))
+        unittest.defaultTestLoader.discover()
+        return tests
+
+    def get_test_suite():
+        """打包一个testsuite."""
+        return unittest.TestSuite(discover_test_case())
+
+    unittest.TextTestRunner
+    if __name__ == "__main__":
+        runner = unittest.TextTestRunner()
+        result = runner.run(get_test_suite())
 
 ***
 

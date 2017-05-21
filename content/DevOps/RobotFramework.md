@@ -42,7 +42,7 @@ Use:
 
     *** Settings ***
     # 前三个是加载外部文件
-    Library    Selenium2Library
+    Library    Selenium2Library # 需要在sys.path路径里面
     Resource    ${RESOURCES}/common.tsv
     Variables    ${RESOURCES}/common.py
     Documentation    Docs

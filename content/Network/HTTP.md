@@ -24,13 +24,13 @@ URL: Uniform Resource Locator
 
 URI: Universal Resource Identifier
 
-> prot_sch://net_loc/path;params?query#frag
-> prot_sch: http/https/ftp/file
-> net_loc: username:password@host:port
-> path: /path/to/path
-> params: options arguments
-> query: connector&key-value
-> frag:
+    prot_sch://net_loc/path;params?query#frag
+    prot_sch: http/https/ftp/file
+    net_loc: username:password@host:port
+    path: /path/to/path
+    params: options arguments
+    query: connector&key-value
+    frag:
 
 ***
 
@@ -94,6 +94,9 @@ python3的url标准库：
     pip install requests
 
     import requests
+    requests.reqeust(method, url, **kwargs)
+    requests.Method()
+    requests.Request()
 
     # Method Request, 返回requests.Response类型的对象。
     get(url, params=None, **kwargs)
@@ -123,6 +126,8 @@ python3的url标准库：
     verify=True
     stream=True
 
+Response:
+
     # Method Response:
     r.close()
     r.iter_content(chunk_size=1, decode_unicode=False)
@@ -130,22 +135,35 @@ python3的url标准库：
     r.json(**kwargs)
     r.raise_for_status()
     # Data:
-    r.apparent_encoding
-    r.content # 返回str类型
+    r.content # 返回json数据, 通过json.loads转化为dict.
     r.text # 返回unicode类型
+    r.headers # 返回headers
+    r.apparent_encoding
     r.is_permanent_redirect
     r.is_redirect
     r.links
-    r.ok
+    r.ok # True/False
     r.status_code # ok:200
-    r.headers
-    r.url
+    r.url # 返回URL
     r.history
     # other data
     r.encoding # 查看或设置编码
     r.raw
     r.cookies
     r.elapsed.seconds/microseconds/days
+
+Sessions
+
+    from requests.sessions import Session
+    from requests import Session
+
+auth
+
+    from requests.auth import HTTPBasicAuth
+
+packages
+
+    from requests.packages import urllib3
 
 ***
 

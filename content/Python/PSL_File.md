@@ -13,7 +13,12 @@ windows的路径要写成：
     C:\\test\\sub\\
 
     import os
-    os.path.expanduser(path) # 把path中~或~user扩展成绝对绝对路径
+    os.path.expanduser(path) # 把path中~或~user扩展成绝对路径 expanduser("~/src") -> /home/user/src
+    os.path.realpath(filename) # 返回filename的真实路径+文件名 realpath("/home/user/file.py") -> /home/user/file.py
+    os.path.dirname(filename) # 返回filename的路径 dirname("/home/user/file.py") -> /home/user
+    os.path.join(a, *p) # 拼结一个完整的路径　
+    os.path.join(a, os.pardir) # 返回上级目录的路径
+    os.path.abspath(path) # 返回绝对路径
 
 ## stat
 

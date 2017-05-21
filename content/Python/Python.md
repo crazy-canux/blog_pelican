@@ -4,7 +4,7 @@ Tags: Python
 
 
 
-# Python概述
+# **Python概述**
 
 <https://docs.python.org/2.7/index.html>
 
@@ -37,7 +37,7 @@ python特点：
 
 ***
 
-# python基本语法
+# **python基本语法**
 
 python源程序叫xxx.py
 
@@ -83,7 +83,7 @@ python2.7源代码格式:
 
 ***
 
-# python注释
+# **python注释**
 
 单行注释：
 
@@ -100,7 +100,7 @@ python2.7源代码格式:
 
 ***
 
-# python关键字
+# **python关键字**
 
     def lambda class import from
     if elif else while for continue break try except finally return pass
@@ -113,7 +113,7 @@ python2.7源代码格式:
 
 ***
 
-# python运算符和优先级
+# **python运算符和优先级**
 
 优先级从高到底：
 
@@ -202,7 +202,7 @@ python2.7源代码格式:
 
 ***
 
-# python数据类型
+# **python数据类型**
 
 python中一切皆对象，每个对象都有身份(id()), 类型(type()) 和 值三个属性．
 
@@ -222,7 +222,7 @@ is和is not可以判断变量的类型:
     import types
     type(a) is types.IntType
 
-## 变量和常量
+## *变量和常量*
 
 python是动态类型语言，变量不需要先申明，变量的类型和值在赋值的时候被初始化．
 
@@ -236,7 +236,7 @@ python是动态类型语言，变量不需要先申明，变量的类型和值�
 
     PIE = 3.14
 
-## 类型总结
+## *类型总结*
 
 更新模型：
 
@@ -254,18 +254,21 @@ python是动态类型语言，变量不需要先申明，变量的类型和值�
 * 索引访问:sequence序列是顺序访问：字符串str，元组tuple，列表list.
 * 映射访问:mapping映射类型是映射访问,元素无序存放，通过唯一的key来访问：字典dict.
 
-## 序列类型
+## *序列类型*
 
 sequence序列是指成员有序排列，可以通过下标偏移量访问，同时可以进行切片操作．序列是可迭代的．
 
 sequence索引操作：
 
     seq[ind] # 获取下标为ind的元素，下标从0开始．
+    seq[-1] # 取最后一个元素
 
 sequence切片操作：
 
     seq[ind1:ind2] # 获取下标从ind1到ind2间的元素的集合．不包括ind2.
     seq[:ind2] # ind1缺省默认为０.
+    seq[ind1:] # ind2缺省表示从ind1到最后一个元素
+
     seq[ind1:ind2:step] # 以步长为step来切片
     seq[:ind2:step]
     seq[::step] # ind1缺省为０，ind2缺省为整个序列长度．
@@ -289,14 +292,14 @@ sequence成员运算：
     b = a[:] #　通过切片操作来拷贝
     c = list(a) #　通过工厂函数来拷贝
     d = copy.copy(a) # 通过copy模块的copy函数
-    ???
+    [TODO]
 
 序列深拷贝:
 
     copy.deepcopy()
-    ???
+    [TODO]
 
-## 数字类型
+## *数字类型*
 
 数字类型是不可变类型(immutable),是标量(scalar),是直接存储的．
 
@@ -332,7 +335,7 @@ sequence成员运算：
 
     python中有复数类型．
 
-## str
+## *str*
 
 python2中str和unicode继承自basestring, basestring继承自object.
 
@@ -395,13 +398,13 @@ str类型是不可变类型(immutable),是标量(scalar),是序列(sequence)通�
     ''.join(['a', 'b']) # 可迭代对象的元素需要是str类型.
     ''.join({'a': 'b'}) # 字典迭代键，可迭代对象的元素需要是str类型.
 
-## tuple
+## *tuple*
 
 tuple类型是不可变类型(immutable),是容器(container),是序列(sequence)通过索引访问．
 
 元组是不可变类型，不能对元组的元素进行增删操作．
 
-## list
+## *list*
 
 list类型是可变类型(immutable),是容器(container),是序列(sequence)通过索引访问．
 
@@ -411,7 +414,7 @@ list类型是可变类型(immutable),是容器(container),是序列(sequence)通
     lst[index] = value
     del lst[index]
 
-## dict
+## *dict*
 
 dict类型是可变类型(immutable),是容器(container),是映射(mapping)类型,是无序的,通过映射访问．
 
@@ -439,7 +442,7 @@ dict类型是可变类型(immutable),是容器(container),是映射(mapping)类�
     dic['key'] = 'value'
     del dic['key']
 
-## 集合
+## *集合*
 
 集合是一组无序排列的值，不能进行索引和切片操作，也不能进行键操作，只能通过for循环迭代集合元素．
 
@@ -478,7 +481,7 @@ set类型是可变类型(mutable)，是容器(container).
 
 ***
 
-# python控制流
+# **python控制流**
 
 continue语句:表示立即终止本次循环，启动循环的下一次迭代．
 
@@ -486,7 +489,7 @@ break语句：表示结束当前循环块，跳转到后面的语句．
 
 pass语句： 表示不做任何事情，NOP.
 
-## if条件语句
+## *if条件语句*
 
     if condition:
         expression
@@ -499,7 +502,7 @@ python中的三目运算：
 
     X if C else Y
 
-## while循环语句
+## *while循环语句*
 
     while condition:
         expression
@@ -510,7 +513,7 @@ python中的三目运算：
     else:
         expression
 
-## for循环语句
+## *for循环语句*
 
 for循环可以用于遍历序列，字典的键 和 文件的行，集合，列表解析，生成器表达式.
 
@@ -537,7 +540,7 @@ for循环会自动调用迭代器的next()方法，捕获StopIteration异常结�
     等效于
     for loop in open('file','r'):
 
-## iterator迭代器
+## *iterator迭代器*
 
 Iterable: 能直接用于for循环的对象为可迭代对象Iterable.
 
@@ -563,7 +566,7 @@ file，enumerate和reversed内置类类型的工厂函数返回的都是迭代�
         def next(self):
             ...
 
-## list comprehensions列表解析
+## *list comprehensions列表解析*
 
 List Comprehensions列表解析,来自函数式编程语言Haskell.
 
@@ -581,7 +584,7 @@ List Comprehensions列表解析,来自函数式编程语言Haskell.
 
     [(x+1, y+1) for x in range(10) for y in range(10)]
 
-## generator expressions生成器表达式
+## *generator expressions生成器表达式*
 
 Generator Expressions生成器表达式, 是列表解析的一个扩展．
 
@@ -599,21 +602,11 @@ Generator Expressions生成器表达式, 是列表解析的一个扩展．
     generator = (expression for item1 in iterable1 if condition1)
 
     # 任何使用yield的函数都称为生成器。
-    def generator_test():
-        yield 1
-        yield 2
-    g = generator_test() # 返回生成器类型的迭代器．
-
-generator类类型:
-
-    generator.next()
-    generator.close() # 在生成器内部抛出GeneratorExit异常
-    generator.send(arg)
-    generator.throw(typ[,val[,tb]])
+    参考yield函数部分．
 
 ***
 
-# python文件和输入输出
+# *python文件和输入输出*
 
 python2使用open()内置函数打开文件，返回file类类型的对象，出错返回IOError异常.
 
@@ -672,7 +665,7 @@ Universal Newline Support.
 
 ***
 
-# python错误和异常
+# *python错误和异常*
 
 参考内置的错误和异常.
 
@@ -708,7 +701,7 @@ BaseException是所有异常的基类． Exception是常规错误的基类.
     reason.__clas__.__name__  # 就是异常类的名字
     print reason # 打印异常参数．
 
-## raise触发异常：
+## *raise触发异常*
 
 除了上面捕获解释器触发的异常，用户还可以用raise自己触发异常:
 
@@ -718,12 +711,12 @@ SomeException可以是字符串，内置异常，第三方库异常类，自定�
 
     raise ExceptionClass[, args[, traceback]] # 类
     raise ExceptionClass(arguments)[, args[, traceback]] # 实例
-    raise ExceptionClass, instance # ???
+    raise ExceptionClass, instance # [TODO]
     raise instance # 触发实例异常
     raise string # 触发字符串异常
     raise # 重新触发前一个异常，如果之前没有异常触发TypeError.
 
-## 自定义异常和错误
+## *自定义异常和错误*
 
 自定义异常需要继承一个标准异常或者第三方库的异常来实现一个类．
 
@@ -736,7 +729,7 @@ SomeException可以是字符串，内置异常，第三方库异常类，自定�
 
     raise MyError, args
 
-## assert断言
+## *assert断言*
 
 断言语句等效assert表达式, 如果断言成功不采取任何措施，否则触发AssertionError异常．
 
@@ -749,7 +742,7 @@ SomeException可以是字符串，内置异常，第三方库异常类，自定�
     except AssertionError, e:
         print '%s: %s' % (e.__class__.__name__, e)
 
-## with上下文管理
+## *with上下文管理*
 
 CMP: context management protocol.
 
@@ -781,7 +774,7 @@ with语句块执行完毕后调用__exit__()方法，__exit__()有三个参数�
 
 ***
 
-# python函数
+# **python函数**
 
 定义/申明一个函数:
 
@@ -881,28 +874,118 @@ def function_name(arguments)
 python涉及到函数式编程主要有几个内置函数和lambda匿名函数．
 
     [Deprecated]apply() # function(*args, **keywords)
-    [Deprecated]reduce() # 推荐使用from functools import reduce, 而不是直接使用内置方法.
-    filter()
-    map()
+    reduce() # 推荐使用from functools import reduce, 而不是直接使用内置方法.
+    filter() # 参考__builtins__
+    map() # 参考__builtins__
 
-## lambda匿名函数
+偏函数:
 
+    from functools import partial
+    partial(func, *args, **keywords) # 一个偏函数的类
 
-## 内嵌函数
+变量作用域:
+
+python搜索一个标识符先从局部作用域开始搜索，如果没有找到就在全局作用域找，否则抛出NameError异常．
+
+    # 当在函数外部和内部都定义了同一个变量，局部变量会覆盖全局变量
+    var = 'global'
+    def func_test(*args, **kwargs):
+        var = 'local'
+        print var
+    func_test() # local
+
+    # 如果在函数内部使用一个不在函数内部定义的变量，就会在函数外部查找．
+    var = 'global'
+    def func_test(*args, **kwargs):
+        print var
+    func_test() # global
+
+    # [TODO]
+    var = 'global'
+    def func_test(*args, **kwargs):
+        var += 'local'
+        print var
+    func_test() # UnboundLocalError: local variable 'var' referenced before assignment
+
+    # 如果需要在局部引用全局变量需要使用global关键字
+    var = 'global'
+    def func(*args, **kwargs):
+        global var
+        var = 'local'
+        print var
+    func() # local
+    print var # local # 全局变量在局部被修改．
+
+## *lambda匿名函数*
+
+lambda匿名函数就是一个只有一行表达式，不需要通过def来命名的函数.
+
+lambda匿名函数返回一个可调用的函数对象．
+
+lambda匿名函数支持通过def定义的函数的所有功能．
+
+lambda匿名函数中不能有return语句．
+
+    lambda [arg1[, arg2, ...argN]]: expression
+    lambda *args, **kwargs: expression
+
+## *内嵌函数*
 
 可以在函数内部定义函数，内部函数不能在外部函数以外的地方调用．
 
-    def outer(args):
-        inner(arg1): # 内嵌函数的参数不能是外部函数的参数．内部函数必须完全独立．
+    def outer(*args, **kwargs):
+        expression
+        def inner(arg): # 内嵌函数的参数不能是外部函数的参数．内部函数必须完全独立．
             expression
         inner(args)
 
-    使用lambda实现？？？
+    def outer(*args, **kwargs):
+        filter(lambda arg: expression, sequence)
+        map(lambda arg: expression, sequence)
+        functools.reduce(lambda arg: expression, sequence)
 
-## closure闭包
+可以在函数内部内嵌匿名函数，匿名函数可以使用外部函数的参数:
 
+    def foo(x, y):
+        bar = lambda :x + y
+        print bar()
+    foo(4,3)
 
-## decorator装饰器
+递归：
+
+    在函数中调用函数本身是一种递归方法
+    def fib(n):
+        if n in[0, 1]:
+            val = 1
+        else:
+            val = fib(n-1) + fib(n-2)
+        return val
+
+## *closure闭包*
+
+在一个内部函数里对在外部作用域的变量进行引用，内部函数被认为是closure.
+
+定义在外部函数内的但由内部函数引用的变量称为自由变量．
+
+当自由变量是一个函数时，闭包就是一个装饰器，decorator是closure最常见的应用．
+
+    def outer(free):
+        def clos(*args, **kwargs):
+            print free
+            print args, kwargs
+        return clos
+
+    # 调用外部函数，返回一个内部函数的引用,　传入外部函数的就是自由变量,返回的内部函数就是闭包.
+    first_clos = outer(1)
+
+    # 调用closure
+    first_clos(*args, **kwargs)
+
+## *decorator装饰器*
+
+装饰器分为函数装饰器和类装器．函数中再定义函数是函数装饰器，函数中再定义类是类装饰器．
+
+函数装饰器修饰函数和类中的方法，类装饰器修饰类．类装饰器参考OOP．
 
 装饰器本质是一个函数，可以让其它函数在不做修改的情况下增加额外的功能．
 
@@ -917,6 +1000,7 @@ python涉及到函数式编程主要有几个内置函数和lambda匿名函数�
     def deco_name(func):
         def wrapper_name(*args, **kwargs): # 抽象出相同的部分进行包装
             print func.__name__ # 抽象出来的部分在这里实现
+            print args, kwargs # 可以引用func传入的参数
             return func(*args, **kwargs) # 最后调用新增加的功能
         return wrapper_name # 返回包装函数的引用.
 
@@ -928,31 +1012,207 @@ python涉及到函数式编程主要有几个内置函数和lambda匿名函数�
     foo = deco_name(foo)
 
     # 调用装饰后的函数,　调用的是装饰后的新的函数．
-    foo(args)
+    foo(*args, **kwargs)
 
 带参数的装饰器:
 
-    def deco_name(args):
+    def deco_name(arg):
         def deco_inner(func):
             def wrapper_name(*args, **kwargs):
-                print func.__name__, args # 通过装饰器的参数args来做一些判断
+                print func.__name__
+                print args, kwargs
+                print arg # 通过装饰器的参数arg来做一些判断
                 return func(*args, **kwargs)
             return wrapper_name
         return deco_inner
 
-    # deco_name(args)(foo) -> deco_inner(foo) -> wrapper_name
-    @deco_name(args="value")
+    # deco_name(arg)(foo) -> deco_inner(foo) -> wrapper_name
+    @deco_name(arg="value")
     def foo(*args, **kwargs):
         pass
 
-    # wrapper_name(args)
-    foo(args)
+    # wrapper_name(*args, **kwargs)
+    foo(*args, **kwargs)
 
-## yield生成器
+## *yield生成器*
+
+生成器generator的另一种实现就是yield函数．有yield的函数返回的就是一个生成器．
+
+yield函数能记住上一次返回时在函数体中的位置，迭代生成器会跳转至该函数中间，而且上次调用的所有局部变量保持不变．
+
+yield函数和普通函数执行顺序不一样，普通函数顺序执行，遇到return或最后一行语句返回．
+
+yield函数遇到yield语句返回，下次执行从上次返回的yield语句开始继续执行．遇到return语句抛出StopIteration异常．
+
+生成器通常用于迭代一个巨大的数据集．
+
+    def gena():
+        yield 'first'
+        yield 'second'
+    g = gena()
+    type(g) # generator
+    g.next() # first
+    g.next() # second
+    g.next() # StopIteration
+
+generator类类型,是一个迭代器，可以用for循环迭代:
+
+    __iter__()
+    generator.next()
+    generator.close() # 在生成器内部抛出GeneratorExit异常要求生成器退出．
+    generator.send(arg) # 将值回送给生成器．
+    generator.throw(typ[,val[,tb]]) # 在生成器抛出异常
 
 ***
 
-# python文档
+# **python模块和包**
+
+名称空间：
+
+* 局部名称空间
+* 全局名称空间
+* 内建名称空间
+
+python解释器最先加载内建名称空间，也就是\_\_builtins\_\_模块．
+
+然后加载执行模块的全局名称空间，在模块执行时是活动名称空间．
+
+最后加载局部名称空间，在执行期间是不断变化的．
+
+名称空间和变量的作用域是有区别的．
+
+变量／函数／方法先从局部名称空间开始查找，在找全局名称空间，最后查找内建名称空间．
+
+如果都没找到就抛出NameError异常．
+
+无限制名称空间，可以通过属性运算小数点来指定名称空间．
+
+    module.var
+    module.function()
+    module.method()
+
+搜索路径:
+
+搜索路径在不同的操作一同一般不同.
+
+搜索路径通过两个变量来设置
+
+1. shell的环境变量PYTHONPATH．
+2. python解释器的变量sys.path列表里.
+
+在代码里修改搜索路径sys.path
+
+* sys.path.append(os.path.abspath(..))
+* sys.path.insert(0, os.path.abspath(..)) # 插入到最前面，也就是在sys.path的第一个''(当前路径)的前面．
+
+所有导入并加载的模块会存放在sys.modules中，导入模块时的搜索顺序
+
+1. 先搜索当前目录.(会覆盖同名的标准库), 其实是在运行过程中动态添加到sys.path中第一个''的位置．
+2. 没有的话再搜索sys.path,按照这个列表的顺序搜索找到第一个，然后加载该模块.
+3. 没搜到抛出ImportError异常．
+
+## *module模块*
+
+模块就是一个python程序的源文件．模块是用来组织python代码的方法．
+
+把其他模块中属性附加到你的模块中的操作叫做导入(import).
+
+那些自我包含并且有组织的代码片断就是模块( module ).
+
+## *package*
+
+包就是把多个模块放在一个目录中，然后必须加上\_\_init\_\_.py文件．包是用来组织模块的．
+
+    # 包支持模糊导入.
+    from package.module import *
+    # 在__init__.py定义__all__变量来决定导入哪些文件．
+    __all__ = []
+
+## *import导入模块和包*
+
+如果模块第一次被导入，就会被加载并执行．也就是说模块被加载时顶层的代码会被执行，一般包括全局变量，类和函数的申明．
+
+一个模块无论被导入(import)多少次，只在第一次导入时被加载一次．除非用reload()函数．
+
+import导入顺序(中间空一格)：
+
+* 标准库模块
+* 第三方库模块
+* 自定义模块
+
+import关键字导入模块/包：
+
+    import module
+    import package
+    # 包可以多层嵌套
+    import package.subpackage
+    import package.subpackage.module
+
+from-import关键字导入模块中的属性：
+
+    from module import function/method/variable
+    from package.module import function/method/variable
+    from package.subpackage.module import function/method/variable
+
+from-import关键字导入包中的的包/模块到当前的名称空间：
+
+    from package import subpackage
+    from package...subpackage import sub-subpackage
+    from package import module
+
+as关键字可以给模块/包/属性取别名：
+
+    import module/package/package.subpackage as alias
+    from module/package.module/package.subpackage.module import function/method/variable as alias
+    from package/package.subpackage import module/subpackage/sub-subpackage alias
+
+多行导入：
+
+    # 通过续行符
+    from module import a, b, c, \
+        d, e, f
+
+    # 通过分成两行导入
+    from module import a, b, c
+    from module import d, e, f
+
+    # PEP328建议使用分组导入
+    from module import (a, b, c,
+        d, e, f)
+
+    # 不推荐使用模糊导入．
+    [Deprecated] from module import *
+
+相关的内置函数:
+
+    locals()
+    global()
+    [Deprecated] reload() # 推荐用from imp import reload(), 重新导入一个已经导入的模块．
+
+## *绝对导入和相对导入
+
+默认采用绝对导入，也就是通过完整的包路径来导入，避免和标准库模块冲突．
+
+    import package/module
+
+也可以使用相对导入：
+
+    from .foo import bar
+    from ..package import module
+    from ...package import module
+
+模块属性：
+
+    __name__ # 模块名称属性
+    # 如果模块直接运行，而不是被别的模块调用，名称为__main__.
+    # 否则返回当前的模块的名称．
+    # 一般用来做单元测试.
+    if __name__ == "__main__":
+        main()
+
+***
+
+# **python文档**
 
 文档注释:
 
@@ -995,73 +1255,9 @@ python的文档注释采用reST风格的注释.
     Usage/Description
     """
 
+文档属性:
+
+    __doc__ # 用来表示文档的属性
+
 ***
-
-# python模块和包
-
-模块就是一个python程序的源文件．模块是用来组织python代码的方法．
-
-包就是把多个模块放在一个目录中，然后必须加上\_\_init\_\_.py文件．包是用来组织模块的．
-
-import关键字导入模块/包：
-
-    import module
-    import package
-    # 包可以多层嵌套
-    import package.subpackage
-    import package.subpackage.module
-
-from-import关键字导入模块/包中的属性：
-
-    from module import function/method/variable
-    from package.module import function/method/variable
-    from package.subpackage.module import function/method/variable
-
-from-import关键字导入包中的的包/模块：
-
-    from package import subpackage/module
-    from package.subpackage import sub-subpackage/module
-
-as关键字可以给模块/包/属性取别名：
-
-    import module/package/package.subpackage as alias
-    from module/package.module/package.subpackage.module import function/method/variable as alias
-    from package/package.subpackage import module/subpackage/sub-subpackage alias
-
-模糊导入：
-
-    from package.module import *
-    # 需要在__init__.py中添加__all__列表来定义需要导入的属性．否则导入什么取决于操作系统的文件系统．
-    # python3中在函数内部不支持模糊导入．只能在模块层使用．
-
-import书写顺序：
-
-* 标准库模块
-* 第三方库模块
-* 自定义模块
-
-模块和包的路径搜索顺序：
-
-1. 先搜索当前目录.(会覆盖同名的标准库), 其实是在运行过程中动态添加到sys.path中原来''的位置．
-2. 没有的话再搜索sys.path,按照这个列表的顺序搜索找到第一个，然后加载该模块.
-3. 没搜到抛出ImportError异常．
-
-修改搜索路径sys.path：
-
-* sys.path.append(os.path.abspath(..))
-* sys.path.insert(0, os.path.abspath(..)) # 插入在第一个,会覆盖当前路径(sys.path原来的第一个'')和sys.path的所有路径.
-
-模块被加载时顶层的代码会被执行，一般包括全局变量，类和函数的申明．
-
-一个模块无论被导入(import)多少次，但是只被加载一次．除非用reload()函数．
-
-名称空间的覆盖顺序：
-* 局部名称空间,在执行期间是变化的．local()函数可查看．
-* 全局名称空间,不变的．global()函数可查看．
-* 内建名称空间,python最先加载，在__builtins__模块中．
-
-大多数模块是被导入，通常这些模块代码都放在类或函数中，主函数用来放单元测试代码．极少数模块是直接运行，这些模块的主函数用来做入口．
-
-    if __name__ == "__main__":
-        main()
 

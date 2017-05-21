@@ -28,11 +28,7 @@ python的内置模块，所有python的内置功能都在这个模块中，不�
 
 python2和python3共同的内置函数：
 
-    __debug__
-    __doc__ # 查看模块/包，类，函数的文档
-    __import__
-    __name__ # 如果模块是被导入,返回模块名，如果是被直接执行返回"__main__", 包名，函数名，方法名．
-    __package__
+    __import__(name, globals={}, locals={}, fromlist=[], level=-1) # import关键字实际调用该函数
 
     compile(source, filename, mode[, flags[, dont_inherit]]) # 编译source返回一个code对象．
     mode: exec用于模块 python2可以用exec关键字执行,python3改成exec()函数;single用于单行申明;eval用于表达式 可以用eval()函数执行． eg:
@@ -50,8 +46,8 @@ python2和python3共同的内置函数：
     eval(source[, globals[, locals]]) # 返回python表达式的结果，source可以是compile()的返回值，也可以是一个表达式．
 
     ## 环境变量相关
-    globals() # 返回当前作用域的全局变量组成的字典
-    locals() # 返回当前作用域的局部变量组成的字典
+    globals() # 返回当前作用域的全局名称空间的字典．
+    locals() # 返回当前作用域的局部名称空间的字典．
 
     ## 数字类型的数学运算
     abs(number) # 返回int/long的绝对值
@@ -102,10 +98,6 @@ python2和python3共同的内置函数：
 
 [New]python3新增的内置函数：
 
-    __build_class__
-    __loader__
-    __spec__
-
     ascii(object) # 和repr()函数等效．
     exec(object[, globals[, locals]]) # python2中是一个关键字，python3才是内置函数．
     print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) # python2中是一个关键字，python3才是内置函数．
@@ -114,14 +106,15 @@ python2和python3共同的内置函数：
 
     apply(object[, args[, kwargs]]) # 直接使用函数定义的可变长参数形式, function_name(*args, **kwargs)
     coerce(x, y)
-    execfile(filename[, globals[, locals]])
     intern(string)
+
+    execfile(filename[, globals[, locals]])
     unichr(i) # 返回chr(i)的unicode形式．
     raw_input([prompt]) # python3中合并为input().
     `` # python3中合并为repr()
-    cmp(x, y) # 参考python3的operator模块
-    reduce(function, sequence[, initial]) # 参考python3的functools模块
-    reload(module) # 参考python3的imp模块
+    cmp(x, y) # 参考python3的operator.cmp()
+    reduce(function, sequence[, initial]) # 参考python3的functools.reduce()
+    reload(module) # 参考python3的imp.reload()
 
 ***
 
@@ -132,7 +125,7 @@ python2和python3共同的内置函数：
     None # python的Null对象或types.NoneType,只有一个值None.布尔值始终为False.
     NotImplemented # types.NotImplementedType
     Ellipsis # types.EllipsisType, 省略对象，布尔值始终为True.
-    __debug__
+    __debug__ # True/False
 
 ***
 
@@ -146,10 +139,12 @@ object类是所有类的基类
     instance.__class__
     class.__bases__
     definition.__name__
-    definition.__qualname__ # python3新增
     class.__mro__
+
     class.mro()
     class.__subclasses__()
+
+    definition.__qualname__ # python3新增
 
 ***
 
@@ -630,7 +625,9 @@ python2中的函数式编程的内置函数．
 
 python2中的内置函数：
 
-    filter(function or None, sequence) # 对sequence序列中的所有元素调用function，返回所有function结果为True的结果结果组成的列表／元组／字符串．
+    filter(function or None, sequence) # 对sequence序列中的所有元素调用function，返回所有function结果为True的结果组成的列表／元组／字符串．
+    # filter(lambda x: x % 2, [1,2,3]) -> [1,3]
+    # filter(None, (1,2,3)) -> (1,2,3)
 
 python3中的内置类类型：
 
@@ -641,6 +638,7 @@ python2中的函数式编程的内置函数．
 python2中的内置函数：
 
     map(function, sequence[, sequence, ...]) # 将序列中相同下标的元素作为参数传给function，返回所有的结果组成的列表．
+    # map(lambda x: x*2, [1,2,3]) -> [2,4,6]
     # map(lambda x,y,z: str(x)+str(y)+str(z), "test", (1,2,3), [0,9,8,7,6]) -> ['t10', 'e29', 's38', 'tNone7', 'NoneNone6']
     # map(None, "test", (1,2,3)) -> [('t', 1), ('e', 2), ('s', 3), ('t', None)]
 

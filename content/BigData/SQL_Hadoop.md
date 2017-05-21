@@ -28,6 +28,8 @@ HAWQ是在Pivotal Greenplum和PostgreSQL基础上开发而来．
 
 HAWQ可以通过HDFS在本机快速，交互查询hadoop数据．
 
+***
+
 # presto
 
 <https://github.com/prestodb>
@@ -48,3 +50,9 @@ hive提供了一个jdbc的客户端beeline.
 
     # for impala
     $ beeline -u "jdbc:hive2://[ip]:21050[/database];auth=noSasl" -n [username] -p [password] -e "USE [database]; ..."
+
+# psql
+
+hawq的交互式命令行接口，类似于postgresql. 参考postgresql.
+
+    $ psql [options] [dbname] [username]

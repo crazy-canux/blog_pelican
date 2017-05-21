@@ -8,6 +8,8 @@ Tags: QA, RobotFramework, Library
 
 robotframework的灵活就在于可以自己开发第三方库，实现和自己业务相关的关键字．
 
+在robot中导入的这个库必须在sys.path路径里面．
+
 库API的三种类型： 静态库, 动态库, 混合库.
 
 以Selenium2Library为例：

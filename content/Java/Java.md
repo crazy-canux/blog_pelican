@@ -581,6 +581,40 @@ Console类型对象的方法：
 
 ***
 
+# java包(Package)
+
+标准java类库分布在多个包中，包方便类的管理。
+
+使用包要确保类名唯一。
+
+sun建议使用公司域名的逆序作为包名。
+
+使用import导入包：
+
+    import java.util.*;
+
+只能用*导入一个包，不能用java.*导入所有包。
+
+导入多个包，有类在使用时重名，写全路径：
+
+    import java.util.*;
+    import java.sql.*;
+    java.util.Date deadline = new java.util.Date();
+    java.sql.Date today = new java.sql.Date();
+
+使用import导入包中的静态域和静态方法：
+
+    import static java.lang.System.*;
+    import static java.lang.System.out;
+
+将类放入包中：
+
+在类的源文件开头添加一行语句,源文件要放到包名对应的目录结构中。
+
+    package package_name;
+
+***
+
 # java文档
 
 java文档采用javadoc风格.
@@ -659,36 +693,4 @@ java文档采用javadoc风格.
 提供一个overview.html文件，在<body>...</body>之间的会被javadoc提取。
 
 ***
-
-# java包(Package)
-
-标准java类库分布在多个包中，包方便类的管理。
-
-使用包要确保类名唯一。
-
-sun建议使用公司域名的逆序作为包名。
-
-使用import导入包：
-
-    import java.util.*;
-
-只能用*导入一个包，不能用java.*导入所有包。
-
-导入多个包，有类在使用时重名，写全路径：
-
-    import java.util.*;
-    import java.sql.*;
-    java.util.Date deadline = new java.util.Date();
-    java.sql.Date today = new java.sql.Date();
-
-使用import导入包中的静态域和静态方法：
-
-    import static java.lang.System.*;
-    import static java.lang.System.out;
-
-将类放入包中：
-
-在类的源文件开头添加一行语句,源文件要放到包名对应的目录结构中。
-
-    package package_name;
 

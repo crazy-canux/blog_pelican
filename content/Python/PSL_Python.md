@@ -43,8 +43,8 @@ python3叫builtins
 
     # 动态对象
     sys.argv # 命令行参数的列表，sys.argv[0]是程序名称, len(sys.argv)就是C语言中的argc
-    sys.path # 搜索的路径．
-    sys.modules # 字典格式的加载的模块.
+    sys.path # 搜索的路径．import导入模块的搜索路径．
+    sys.modules # 字典格式的加载的模块.已经导入并加载的模块会加进来．
     sys.stdin # 标准输入，用于input()
     sys.stdout # 标准输出，用于print
     sys.stderr # 标准出错
