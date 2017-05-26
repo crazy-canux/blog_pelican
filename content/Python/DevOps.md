@@ -232,6 +232,9 @@ python的版本管理工具.
 
     <https://github.com/PyCQA/pylint>
 
+        $pylint --list-msgs
+        $pylint --help-msg=C6409
+
 * rope
 
     A python refactoring library

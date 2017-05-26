@@ -4,15 +4,122 @@ Tags: Python, Encapsulation, Inheritance, Polymorphism
 
 
 
-# 面向对象/OOP
+# **面向对象/OOP**
+
+OOD: Object Oriented Design.
+
+面向过程的设计支持任何语言，但是如果语言本身内置面向过程的结构，就会更容易编程．
+
+OOP: Object Oriented Programming.
+
+python内置OOP的结构，但是不必一定要使用类和OOP.
+
+面向对象的两个主题就是类和类实例．
+
+创建实例的过程叫实例化．
+
+属性就是属于另一个对象的数据或函数元素．属性分为数据属性和函数属性．
 
 ***
 
-# 类/Class
+# **类/Class**
+
+类是现实世界的抽象的实体以编程的形式出现，实例是这些对象的具体化．
+
+类是一种数据结构的定义，实例是申明了一个这种类型的变量．
+
+类的定义：
+
+新式类都必须继承一个父类，所有类的基类是object.
+
+    class ClassName(object):
+        """Doc string."""
+        class_suite
+
+实例化：
+
+    ins = ClassName()
+
+类似于构造器的方法:
+
+如果定义了\_\_init\_\_方法在实例化的时候会首先调用该方法，进行一些初始化的工作,不能有return语句．
+
+如果定义了\_\_new\_\_方法，会在init方法之前运行，并且返回一个实例，也就是init的self.
+
+new方法在object中被定义为staticmethod．
+
+    class ClassName(object):
+
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def __new__(cls, *args, **kwargs):
+            pass
+
+        def __del__(self, *args, **kwargs):
+            pass
+
+## 类属性
+
+类属性分为数据属性和方法属性.
+
+类的数据属性仅仅是定义的类的变量．
+
+数据属性通常是静态变量, 也就是和类对象绑定, 与类实例无关．
+
+    class ClassName(object):
+        CONST_VARIABLE = 'value'
+
+类的方法属性仅仅是一个作为类定义的一部分定义的函数．
+
+方法属性必须绑定到一个实例才能被直接调用, 非绑定方法没有给出实例对象一般不能直接调用．
+
+    class ClassName(object):
+        def func(*args, **kwargs):
+            pass
+
+    ClassName.func() # TypeError: unbound method func() must be called with MyClass instance as first argument (got nothing instead)
+    ClassName().func()
+
+查看类的属性：
+
+    dir() # 内建函数
+    __dict__ # 通过类的特殊属性
+
+类的特殊属性：
+
+    class.__dict__ # 以字典的形式存储对象的属性
+    class.__bases__ # 类的父类构成的元组
+    class.__name__ # class name
+    class.__doc__ # 文档的特殊属性, 不会被继承.
+    class.__module__ # 类的定义所在的模块.
+
+类的属性搜索顺序：[TODO]
+
+访问类属性的时候解释器会搜索(__dict__)属性，如果没有找到就去基类的(__dict__)搜索．
+
+## 实例属性
+
+实例属性：
+
+实例的特殊属性：
+
+    instance.__dict__ # 以字典的形式存储对象的属性
+    instance.__class__ # 实例对应的类
+
+## 静态方法
+
+## 类方法
+
+## 描述符
+
+## 元类
 
 ***
 
-# 封装
+# **封装/Encapsulation**
+
+封装描述了对数据／信息进行隐藏的观念，对数据属性提供接口和访问函数．
 
 python的类中的变量／常量和方法默认都是public的，类本身和子类都可以使用，也可以被import导入．
 
@@ -27,7 +134,9 @@ python的类中的变量／常量和方法默认都是public的，类本身和�
 
 ***
 
-# 继承
+# **继承/Inheritance**
+
+继承描述了子类属性从祖先类继承这样一种方式．
 
 派生类（子类）继承自基类（父类）
 
@@ -67,6 +176,10 @@ MRO采用广度优先的顺序，先查找同胞兄弟，如果所有直接基�
 
 ***
 
-# 多态
+# **多态/Polymorphism**
+
+多态指出了对象如何通过他们共同的属性和方法来操作及访问，而不需要考虑他们具体的类．
+
+多态表明了动态绑定的存在，允许重载及运行时类型确定和验证．
 
 ***

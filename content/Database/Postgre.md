@@ -37,8 +37,9 @@ postgresql的端口是5432．
 
     # 交互式:
     $ psql -U [username] [database]
+
     # 非交互式：
-    $ PGPASSWORD='password';psql -h <host> -p <port> -U <username> -d [database] -c "set PASSWORD=[password];[sql query]"
+    $ PGPASSWORD='password';psql -h <host> -p <port> -U <username> -d [database] -c "[sql query]"
 
 # CLI
 

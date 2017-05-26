@@ -6,51 +6,6 @@ Tags: Python
 
 # python难点总结
 
-# 类
-
-python中的方法就是作为类的属性的函数．
-python2中直接通过类名来调用方法，会得到一个unbound method的TypeError错误．
-python3中直接通过类名来调用方法，会得到一个方法是一个函数，需要传一个实例作为参数的错误.
-
-* property
-
-    property(fget=None, fset=None, fdel=None, doc=None)内置函数，创建类的特性属性,通常在类内部通过@property装饰器来使用．
-
-* descriptors
-
-    python有很多内置的描述符．
-
-* staticmethod
-
-    staticmethod(function)内置函数，将函数function转换成静态方法，通常在类内部通过@staticmethod装饰器来使用．
-    静态方法是属于类的方法，但实际上并非运行在类的实例上．不接受第一个隐式的参数，不需要self实例作为第一个参数．
-    装饰器@staticmethos有三个作用：
-    1. python不必为我们创建的每个对象实例化一个绑定的方法．可以直接用类名调用方法，不用实例化一个对象．
-    2. 提高代码可读性, 方法不依赖于对象的状态.
-    3. 可以在子类中覆盖静态方法
-
-        class Test(object):
-            @staticmethod
-            def test_sm(arguments):
-                ...
-
-        Test.test_sm is Test().test_sm
-        Test.().test_sm is Test().test_sm
-
-* classmethod
-
-    classmethod(function)内置函数，将函数function转换成类方法，通常在类内部通过@classmethod装饰器来使用．
-    类方法是直接绑定到类，而不是实例．接收一个类作为第一个隐式的参数，第一个参数是类本身cls．
-    如果访问这个类，总是会被绑定到附着的类.
-    类方法对于创建工厂方法最有用，以特定的方式实例化对象．
-
-        class Test(object):
-            @classmethod
-            def test_cm(cls, arguments):
-                ...
-
-        Test().test_cm is Test.test_cm
-
 * abstractmethod
 
     抽象方法是定义在基类中，可能有或没有任何实现的方法．
@@ -61,11 +16,6 @@ python3中直接通过类名来调用方法，会得到一个方法是一个函�
     魔法方法就是在类中用双下划线包围的方法．
     最基本的魔法方法是__init__方法．
     实例化一个类第一个被执行的魔法方法是__new__，最后一个被执行的是__del__．
-
-* python的多继承
-
-    MRO: Method Resolution Order.方法解析顺序.
-    MRO使用广度优先搜索．字节点顺序从左往右．
 
 # 多线程
 

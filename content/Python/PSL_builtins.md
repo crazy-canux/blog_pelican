@@ -129,22 +129,22 @@ python2和python3共同的内置函数：
 
 ***
 
-# object
+# 内置特殊属性
 
-object类是所有类的基类
+    object.__dict__ # 以字典的形式存储对象的属性
+    class.__bases__ # 类的父类构成的元组
+    class.__module__ # [TODO]
+    instance.__class__ # 实例对应的类
+    definition.__name__ # class/type/function/method/descriptor/generator的名字
 
-继承自object的内置类类型都有对应的工厂函数．
+    [New in python3] definition.__qualname__ # python3新增
 
-    object.__dict__
-    instance.__class__
-    class.__bases__
-    definition.__name__
+    [Deprecated]object.__methods__ # 用内置函数dir()代替
+    [Deprecated]object.__members__ # 用内置函数dir()代替
+    [Deprecated]# 新式类不支持下面属性
     class.__mro__
-
     class.mro()
     class.__subclasses__()
-
-    definition.__qualname__ # python3新增
 
 ***
 
@@ -217,6 +217,15 @@ BaseException(object) # 所有异常的基类, 继承自object.
         Warning # 所有warning的基类
             DeprecationWarning
             ...
+
+***
+
+# object
+
+object类是所有类的基类
+
+继承自object的内置类类型都有对应的工厂函数．
+
 ***
 
 python2数字类型(int, long, float, complex)是不可变类型,是标量，是直接存储的．

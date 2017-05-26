@@ -433,8 +433,8 @@ dict类型是可变类型(immutable),是容器(container),是映射(mapping)类�
 
 键成员操作符:
 
-    # 取代has_key()内置方法
-    'key' in dic
+    # 取代has_key()和keys()内置方法
+    'key' in dic # 不推荐用 dic.had_key('key') 和 'key' in dic.keys()
     'key' not in dic
 
 字典元素增删修改：
@@ -501,6 +501,16 @@ pass语句： 表示不做任何事情，NOP.
 python中的三目运算：
 
     X if C else Y
+    等效于
+    if C:
+        X
+    else:
+        Y
+
+    # 三目运算符高于赋值运算符．
+    a = b if c else d
+    # 等效于
+    a = (b if c else d)
 
 ## *while循环语句*
 
@@ -606,7 +616,7 @@ Generator Expressions生成器表达式, 是列表解析的一个扩展．
 
 ***
 
-# *python文件和输入输出*
+# **python文件和输入输出**
 
 python2使用open()内置函数打开文件，返回file类类型的对象，出错返回IOError异常.
 
@@ -665,7 +675,7 @@ Universal Newline Support.
 
 ***
 
-# *python错误和异常*
+# **python错误和异常**
 
 参考内置的错误和异常.
 
@@ -865,8 +875,10 @@ def function_name(arguments)
 
 函数的属性：
 
-通过小数点来调用函数的属性．
+通过小数点来调用函数的属性(以特殊属性为例)．
 
+    function_test.__dict__
+    function_test.__name__
     function_test.__doc__
 
 函数式编程：
@@ -998,7 +1010,9 @@ lambda匿名函数中不能有return语句．
 不带参数的装饰器：
 
     def deco_name(func):
+        # @wraps(func)
         def wrapper_name(*args, **kwargs): # 抽象出相同的部分进行包装
+            """Docs for wrapper_name."""
             print func.__name__ # 抽象出来的部分在这里实现
             print args, kwargs # 可以引用func传入的参数
             return func(*args, **kwargs) # 最后调用新增加的功能
@@ -1007,6 +1021,7 @@ lambda匿名函数中不能有return语句．
     # 增加新功能,装饰后返回包装函数的一个引用,赋值给原来的foo．此时包装函数wrapper_name并不会执行
     @deco_name
     def foo(*args, **kwargs):
+        """Docs for foo."""
         print 'call foo'
     # 等效于
     foo = deco_name(foo)
@@ -1018,10 +1033,13 @@ lambda匿名函数中不能有return语句．
 
     def deco_name(arg):
         def deco_inner(func):
+            # @wraps(func)
             def wrapper_name(*args, **kwargs):
-                print func.__name__
-                print args, kwargs
+                """Docs for wrapper_name."""
                 print arg # 通过装饰器的参数arg来做一些判断
+                print func.__name__
+                print func.__doc__
+                print args, kwargs
                 return func(*args, **kwargs)
             return wrapper_name
         return deco_inner
@@ -1029,10 +1047,17 @@ lambda匿名函数中不能有return语句．
     # deco_name(arg)(foo) -> deco_inner(foo) -> wrapper_name
     @deco_name(arg="value")
     def foo(*args, **kwargs):
+        """Docs for foo."""
         pass
 
     # wrapper_name(*args, **kwargs)
     foo(*args, **kwargs)
+
+装饰器的属性：
+
+    foo.__name__ #  wrapper_name, 并非foo
+    foo.__doc__ # "Docs for wrapper_name.", 并非foo的doc.
+    # 可以通过import functools.wraps来修饰wrapper_name改变这一属性．
 
 ## *yield生成器*
 
@@ -1166,6 +1191,23 @@ as关键字可以给模块/包/属性取别名：
     from module/package.module/package.subpackage.module import function/method/variable as alias
     from package/package.subpackage import module/subpackage/sub-subpackage alias
 
+相关的内置函数:
+
+    locals()
+    global()
+    [Deprecated] reload() # 推荐用from imp import reload(), 重新导入一个已经导入的模块．
+
+模块的特殊属性：
+
+    __name__ # 模块的特殊属性
+    # 如果模块直接运行，也就是作为top-level脚本运行．值为__main__.
+    # 如果作为module,也就是(import/python -m)，值为模块名称.
+    # 一般用来做单元测试.
+    if __name__ == "__main__":
+        main()
+
+# *PEP0328*
+
 多行导入：
 
     # 通过续行符
@@ -1183,32 +1225,28 @@ as关键字可以给模块/包/属性取别名：
     # 不推荐使用模糊导入．
     [Deprecated] from module import *
 
-相关的内置函数:
-
-    locals()
-    global()
-    [Deprecated] reload() # 推荐用from imp import reload(), 重新导入一个已经导入的模块．
-
-## *绝对导入和相对导入
+绝对导入：
 
 默认采用绝对导入，也就是通过完整的包路径来导入，避免和标准库模块冲突．
 
+默认的包路径就是sys.path或PYTHONPATH.
+
+只有import没有from的一定是绝对导入．
+
     import package/module
 
-也可以使用相对导入：
+相对导入： [TODO]
 
+小数点开头表示相对导入，一个小数点表示当前的包，两个小数点表示上一层的包，以此类推．
+
+相对导入一定是import-from结构．
+
+相对导入的优先级低于绝对导入，也就是先去sys.path中查找，然后根据当前模块的相对位置查找．
+
+    from . import package/module
     from .foo import bar
-    from ..package import module
-    from ...package import module
-
-模块属性：
-
-    __name__ # 模块名称属性
-    # 如果模块直接运行，而不是被别的模块调用，名称为__main__.
-    # 否则返回当前的模块的名称．
-    # 一般用来做单元测试.
-    if __name__ == "__main__":
-        main()
+    from ..foo import bar
+    from ...foo import bar
 
 ***
 
@@ -1218,7 +1256,7 @@ as关键字可以给模块/包/属性取别名：
 
 python的文档注释采用reST风格的注释.
 
-包,模块文档:
+包/模块文档:
 
 包括作者,版权,模块的信息.
 
@@ -1236,7 +1274,7 @@ python的文档注释采用reST风格的注释.
     Description
     """
 
-类,函数和方法文档:
+类/函数/方法文档:
 
 包括作用,初始化方法参数和类型,函数和方法的参数和类型,返回类型和抛出异常,以及用法用例.
 
@@ -1255,9 +1293,10 @@ python的文档注释采用reST风格的注释.
     Usage/Description
     """
 
-文档属性:
+文档的特殊属性:
 
-    __doc__ # 用来表示文档的属性
+    __doc__ # 函数/类/方法的特殊属性，用来表示文档的属性
+    # 文档字符串不能被子类继承．
 
 ***
 
