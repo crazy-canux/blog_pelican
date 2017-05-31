@@ -1,6 +1,6 @@
 Title: DevOps
 Date: 2016-04-03 10:49:21
-Tags: Python
+Tags: Python, Vim, Pycharm
 
 
 
@@ -35,16 +35,17 @@ Linux安装：
 
 命令：
 
-    $python/ipython --help     # 进入python解释器
+    $ python/ipython     # 进入python解释器
     >>>exit()/Ctrl+d     # 退出python解释器
     >>>help()            # 进入help工具
     help>quit            # 退出help工具
-    $pydoc --help        # 文档工具
+    $ pydoc --help        # 文档工具
 
 python的IDE：
 
 1. Windows: IDLE
-2. Linux: Vim + Scripts
+2. Linux: Vim
+3. Pycharm/IntelliJ
 
 python的可用接口
 
@@ -124,7 +125,9 @@ python的版本管理工具.
 
     C:\Python27\Lib\site-packages
     /usr/lib/python2.7/dist-packages
+    /usr/lib/python2.7/site-packages
     /usr/local/lib/python2.7/dist-packages
+    /usr/local/lib/python2.7/site-packages
 
 * 二进制安装：
 

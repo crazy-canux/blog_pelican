@@ -69,7 +69,10 @@ python3叫builtins
     version_info -- version information as a named tuple
     hexversion -- version information encoded as a single integer
     copyright -- copyright notice pertaining to this interpreter
-    platform -- platform identifier
+
+    platform -- platform identifier # 可以判断操作系统类型
+    sys.platform # 'win32', 'linux2'
+
     executable -- absolute path of the executable binary of the Python interpreter
     prefix -- prefix used to find the Python library
     exec_prefix -- prefix used to find the machine-specific Python library

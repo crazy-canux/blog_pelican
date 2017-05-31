@@ -14,14 +14,22 @@ ftp服务器有很多：
 
 安装ftp:
 
-    $sudo apt-get install vsftpd
+    $ sudo apt-get install vsftpd
 
 ftp的网页浏览格式：
 
-ftp://host/path
-ftp://username:password@host:port/path
+    ftp://host/path
+    ftp://username:password@host:port/path
 
 windows开启ftp服务即可。
+
+***
+
+# ftp命令
+
+## ftp
+
+    $ ftp [-46pinegvd] [host [port]]
 
 ***
 

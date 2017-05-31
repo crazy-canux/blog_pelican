@@ -34,14 +34,6 @@ Spark
 
 Flink
 
-# Data ingestion and integration
-
-Flume
-
-Sqoop
-
-Kafka
-
 # search
 
 solr

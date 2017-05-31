@@ -12,9 +12,13 @@ MIB
 
 SMI
 
-# 安装和配置snmp
+安装和配置snmp:
 
     $sudo apt-get install snmp snmpd
+
+***
+
+# snmp命令
 
 ***
 

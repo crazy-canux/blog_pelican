@@ -63,7 +63,7 @@ Linux外部命令的项目是coreutils。
     passwd
     pkill
 
-    # sudo apt-get install sysstat
+    $ sudo apt-get install sysstat
     iostat
     mpstat
 
@@ -126,7 +126,6 @@ Linux外部命令的项目是coreutils。
     whereis
     mcopy
     mshowfat
-    scp
     lprm
     lpr
     lpq
@@ -143,19 +142,6 @@ Linux外部命令的项目是coreutils。
     tar
     zip
 
-# 网络管理
-
-    telnet
-    ping #用于确定网络的连通性
-    ifconfig #查看TCP/IP设置
-    arp #用于确定IP地址的网卡物理地址
-    route #操作路由表的命令：
-    nslookup #查询IP地址和对应的域名
-    netstat #查看当前网络状态
-    tcpdump
-    wget
-    curl
-
 # 磁盘管理
 
     df
@@ -171,3 +157,24 @@ Linux外部命令的项目是coreutils。
     loadkeys
     dumpkeys
     MAKEDEV
+
+***
+
+# 网络管理
+
+    telnet
+    ping #用于确定网络的连通性
+    ifconfig #查看TCP/IP设置
+    arp #用于确定IP地址的网卡物理地址
+    route #操作路由表的命令：
+    nslookup #查询IP地址和对应的域名
+    netstat #查看当前网络状态
+    tcpdump
+    wget
+
+    # 在Network里面研究的几个常用命令
+    curl(参考network-http)
+    ftp(参考network-ftp)
+    snmp(参考network-snmp)
+    ssh/scp/sftp(参考network-ssh)
+

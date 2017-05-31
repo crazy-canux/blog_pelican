@@ -39,23 +39,20 @@ zypper: suse.
 
     sudo apt-get install dconf-editor
 
-org->gnome->gedit->preferences->encodings->auto-detected
-添加'GB2312','GBK',...
+org->gnome->gedit->preferences->encodings->auto-detected 添加'GB2312','GBK',...
 
 # virtualbox 开机自动挂载共享文件夹
 
-    sudo vim /etc/rc.local
+    # 手动挂在命令, 需要安装增强功能
+    $ mount -t vboxsf FolderNameOnWindows /path/on/linux
+
+    # 实现开机自动挂载
+    $ sudo vim /etc/rc.local
     mount.vboxsf -w ShareFolderNameOnWindows MountPointOnLinux
 
 # 挂载U盘失败
 
 移动硬盘或者u盘不能挂载，删掉/etc/fstab的关于sdb的行，保存后重新插拔。
-
-# Linux修改hostname
-
-    sudo vim /etc/hostname
-    sudo vim /etc/hosts
-    sudo reboot
 
 # Linux创建桌面图标（比如eclipse）
 
@@ -103,24 +100,123 @@ org->gnome->gedit->preferences->encodings->auto-detected
 
     $convert -limit memory 2mb -limit map 2mb -delay 2 -loop 0 *.gif example.gif
 
-# 网络代理
+# terninator
+
+    $ sudo yum install terminator
+    $ sudo apt-get install terminator
+
+# 添加用户为管理员
+
+    $ vim /etc/sudoers
+    user     ALL = (ALL:ALL) ALL
+
+***
+
+# Ubuntu/Debian安装后的基本配置
+
+    $ sudo apt-get install gcc
+
+# Ubuntu网络设置
+
+ubuntu修改hostname:
+
+    $ sudo vim /etc/hostname
+    new-hostname
+    $ sudo vim /etc/hosts
+    ip-address hostname
+    $ sudo reboot
 
 在下面路径添加代理脚本:
 
-    /etc/profile.d
-
-    sys_proxy.sh
+    $ vim /etc/profile.d/sys_proxy.sh
     http_proxy="http://proxy-server:port"
     https_proxy="http://proxy-server:port"
     ftp_proxy="http://proxy-server:port"
     no_proxy=localhost,127.0.0.1,...
     export http_proxy ftp_proxy https_proxy no_proxy
 
-# ufw & iptables
+设置静态IP:
 
-# upstart & systemd
+    $ vim /etc/network/interfaces
+    auto eth0
+    iface eth0 inet static
+    address 192.168.0.1
+    netmask 255.255.255.0
+    getway 192.168.0.0
+    # 修改dns
+    $ vim /etc/resolv.conf
+    nameserver 192.168.0.1
+    $ vim /etc/resolvconf/resolv.conf.d/base
+    nameserver 192.168.0.1
+    $ service network restart
 
-# terninator
+***
 
-    $ sudo yum install terminator
-    $ sudo apt-get install terminator
+# Centos/Fedora/Redhat安装后的基本配置
+
+    $ sudo yum install gcc kernel-devel bzip2
+    $ sudo ln -s /usr/src/kernels/...x86_64 /usr/src/linux
+
+# Centos网络配置
+
+安装mini版本之后配置网络：
+
+    $ vi /etc/sysconfig/network-scripts/ifcfg-enxxx
+    ONBOOT=no -> yes
+    # service network restart
+    $ sudo yum install net-tools
+    $ ifconfig
+
+设置静态IP:
+
+    $ vim /etc/sysconfig/network-scripts/ifcfg-enxxx
+    BOOTPROTO= # dhcp(自动获取), static(固定IP), node(手动设置)
+    IPADDR="192.168.0.1"
+    PREFIX="21"
+    GATEWAY="192.168.0.0"
+    DNS1="192.168.0.0"
+
+设置可以同时访问外网和本地连接的方法：
+
+    # 网卡１用于外网连接
+    # settings -> network -> network card1 -> NAT
+    $ cat /etc/sysconfig/network-scripts/ifcfg-en01
+    BOOTPROTO=dhcp # 自动获取ip
+    ONBOOT=yes
+    UUID # 通过$ nmcli con show 命令查看
+    HWADDR # 通过 $ ip addr 命令查看, 这个可以不设置
+
+    # 网卡２用于本地局域网
+    setting -> network-> network card2 -> host-only
+    # cp /etc/sysconfig/network-scripts/ifcfg-en01 /etc/sysconfig/network-scripts/ifcfg-en02
+    $ vim /etc/sysconfig/network-scripts/ifcfg-en02
+    NAME
+    DEVICE
+    BOOTPROTO=static
+    ONBOOT=yes
+    UUID
+    HWADDR
+    IPADDR=192.168.56.102
+
+    $ sudo service network restart
+
+修改hostname,局域网可以根据hostname相互访问：
+
+    $ sudo vim /etc/sysconfig/network
+    NETWORKING=yes
+    HOSTNAME=new-hostname
+
+    $ sudo vim /etc/hostname
+    new-hostname
+    $ sudo vim /etc/hosts
+    ip-address hostname
+
+    $ sudo reboot
+
+# centos安装增强功能
+
+    $ sudo mkdir -p /media/cdrom
+    $ sudo mount /dev/cdrom /media/cdrom
+    $ cd /media/cdrom
+    $ sudo ./VBoxLinuxAdditions.run --nox11
+

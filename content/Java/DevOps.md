@@ -26,6 +26,8 @@ JDK: Java Develop Kit. Java的开发工具包。包括JRE和其它开发工具�
         $ sudo apt-get update
         $ sudo apt-get install openjdk-8-jdk
 
+        $ sudo yum install java-1.8.0-openjdk*
+
 2. Oracle JDK(C:\Program Files\Java\)
 
         $ sudo add-apt-repository ppa:webupd8team/java

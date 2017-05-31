@@ -1,21 +1,8 @@
----
-layout: post
-title: Linux之Package
-comments: true
-date: 2016-06-07 16:57:45
-updated:
-tags:
-- linux
-- apt
-- apt-get
-- deb
-- rpm
-- yum
-- aptitude
-categories:
-- Linux
-permalink:
----
+Title: Linux Package
+Date: 2016-06-07 16:57:45
+Tags: Linux, dpkg, yum, zypper
+
+
 
 # DPKG
 

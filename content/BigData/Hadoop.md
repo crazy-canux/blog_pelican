@@ -18,9 +18,48 @@ hadoop的版本:
 * hortonworks hadoop (HWX)
 * cloudera hadoop (CDH)
 
+# 安装hadoop
+
+hadoop有三种安装模式：
+
+* 单节点模式
+* 伪分布式模式
+* 分布式模式
+
+参考Linux Admin和Network SSH如何安装多台centos，并且配置局域网，让本地多台机器相互访问．
+
+一个cluster搭建完成后可以安装hadoop.
+
+下载hadoop的二进制安装包，然后放到/home/hadoop/目录下并解压．
+
+设置环境变量：
+
+    $ vim ~/.bash_profile
+    export HADOOP_HOME=/home/hadoop/hadoop-3.0.0-alpha2
+    export PATH=$HADOOP_HOME/bin:$PATH
+
+修改配置文件：
+
+    $ cd hadoop-3.0.0-alpha2/etc/hadoop
+    $ vim core-site.xml
+
+    $ vim hdfs-site.xml
+
+    $ vim mapred-site.xml
+
+    $ vim yarn-site.xml
+
+格式化hadoop文件系统：
+
+    $ hdfs namenode -format
+
+***
+
 # Hadoop common
 
 支持其它模块的常用工具．
+
+***
 
 # HDFS
 

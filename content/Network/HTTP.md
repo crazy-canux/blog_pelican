@@ -34,6 +34,24 @@ URI: Universal Resource Identifier
 
 ***
 
+# http命令
+
+## curl
+
+    $ curl [options] [URL...]
+
+## httpie
+
+python开发的类似于curl的命令行工具，同时还有wget的功能．
+
+<https://github.com/jakubroztocil/httpie>
+
+    $ sudo yum/apt-get install httpie
+
+    $ http -a 'username:password' GET http://google.com
+
+***
+
 # python的http/url标准库
 
 python2的http标准库

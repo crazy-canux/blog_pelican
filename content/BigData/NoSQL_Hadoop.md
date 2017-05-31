@@ -8,4 +8,3 @@ Tags: Hadoop, HBase, Cassandra
 
 # Cassandra
 
-# OpenTSDB

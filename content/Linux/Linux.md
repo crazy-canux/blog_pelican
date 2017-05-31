@@ -1,15 +1,8 @@
----
-layout: post
-title: Linux
-comments: true
-date: 2016-03-31 21:48:59
-updated:
-tags:
-- Linux
-categories:
-- Linux
-permalink:
----
+Title: Linux
+Date: 2016-03-31 21:48:59
+Tags: Linux
+
+
 
 # Linux
 
@@ -24,10 +17,12 @@ Linux内核的站点：
 <https://www.kernel.org/>
 
 商业化的linux系统：
+
 1. redhat enterprise linux
 2. suse enterprise linux
 
 免费的服务器版本：
+
 1. centos (rhel的免费版服务器版)
 2. open suse
 3. debian/ubuntu

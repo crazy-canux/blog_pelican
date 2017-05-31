@@ -26,16 +26,6 @@ REST支持的格式除了XML, 还有JSON，后者几乎是标准格式．
 
 ***
 
-# httpie
-
-python开发的类似于curl的命令行工具，同时还有wget的功能．
-
-<https://github.com/jakubroztocil/httpie>
-
-    $ sudo yum/apt-get install httpie
-
-    $ http -a 'username:password' GET http://google.com
-
 # restclient
 
 一个是firefox的插件．

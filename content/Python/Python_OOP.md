@@ -40,18 +40,31 @@ python内置OOP的结构，但是不必一定要使用类和OOP.
 
     ins = ClassName()
 
-类似于构造器的方法:
+类的初始化方法:
 
-如果定义了\_\_init\_\_方法在实例化的时候会首先调用该方法，进行一些初始化的工作,不能有return语句．
+如果定义了\_\_init\_\_方法在实例化的时候会首先调用该方法，进行一些初始化的工作.
 
-如果定义了\_\_new\_\_方法，会在init方法之前运行，并且返回一个实例，也就是init的self.
+init方法的第一个参数必须是实例self,　而且不能有return语句．
+
+init方法一般用来设置实例属性(也就是数据属性).
+
+    class ClassName(object):
+        def __init__(self, *args, **kwargs):
+            pass
+
+类似于构造器和解构器的方法:
+
+如果定义了\_\_new\_\_方法，会在init方法之前运行，并且返回一个实例，也就是\_\_init\_\_的self.
+
+new方法的第一个参数必须是类cls. 并且需要返回一个实例．
 
 new方法在object中被定义为staticmethod．
 
-    class ClassName(object):
+\_\_del\_\_特殊方法要在实例对象的所有引用都被清除后才会执行．
 
-        def __init__(self, *args, **kwargs):
-            pass
+不要在del中做与实例没有关系的事情，一般不建议实现该方法．
+
+    class ClassName(object):
 
         def __new__(cls, *args, **kwargs):
             pass
@@ -65,12 +78,19 @@ new方法在object中被定义为staticmethod．
 
 类的数据属性仅仅是定义的类的变量．
 
-数据属性通常是静态变量, 也就是和类对象绑定, 与类实例无关．
+数据属性通常是静态变量, 也就是和类对象绑定, 与类的实例无关．
+
+直接通过类名来访问类的数据属性．不建议通过实例来访问类的数据属性．
 
     class ClassName(object):
         CONST_VARIABLE = 'value'
 
-类的方法属性仅仅是一个作为类定义的一部分定义的函数．
+        def __init__(self, *args, **kwargs):
+            ClassName.CONST_VARIABLE = 'new'
+
+    ClassName.CONST_VARIABLE = 'new value'
+
+类的方法属性仅仅是一个作为类定义的一部分定义的函数, 与类的实例子无关．
 
 方法属性必须绑定到一个实例才能被直接调用, 非绑定方法没有给出实例对象一般不能直接调用．
 
@@ -79,12 +99,13 @@ new方法在object中被定义为staticmethod．
             pass
 
     ClassName.func() # TypeError: unbound method func() must be called with MyClass instance as first argument (got nothing instead)
+
     ClassName().func()
 
 查看类的属性：
 
-    dir() # 内建函数
-    __dict__ # 通过类的特殊属性
+    dir(class) # 内建函数
+    class.__dict__ # 通过类的特殊属性
 
 类的特殊属性：
 
@@ -101,6 +122,27 @@ new方法在object中被定义为staticmethod．
 ## 实例属性
 
 实例属性：
+
+实例严格来说只有数据属性(方法属性应该属于类属性)，数据属性就是和某个实例相关联的数据值，这些值独立于其它实例或类，当一个实例被释放，相应的数据属性也被释放．通常通过init方法来设置实例的数据属性．
+
+    class ClassName(object):
+        DATA = "in class" # 类的数据属性
+
+        def __init__(self, default="default", *args, **kwargs):
+            self.default = default
+
+区别类的数据属性和实例的数据属性.
+
+    obj1 = ClassName()
+    print obj1.DATA # "in class", 当实例没有同名的数据属性，会访问类的数据属性．
+    obj1.DATA = "in obj1" # 相当于给实例新建了一个数据属性，会覆盖类的数据属性．
+    print obj1.DATA # "in obj1" 访问的是实例的数据属性，覆盖了类的数据属性．
+    ClassName.DATA # "in class" 访问类的数据属性．
+
+查看实例属性:
+
+    dict(instance)
+    instance.__dict__
 
 实例的特殊属性：
 
