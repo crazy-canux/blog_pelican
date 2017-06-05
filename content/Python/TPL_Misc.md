@@ -38,3 +38,4 @@ decorator
 
     Dataset.FIRST.name # 'FIRST'
     Dataset.FIRST.value # 'one'
+    Dataset('one') # Dataset.FIRST

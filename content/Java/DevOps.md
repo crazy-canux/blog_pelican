@@ -50,15 +50,15 @@ JDK: Java Develop Kit. Java的开发工具包。包括JRE和其它开发工具�
     $sudo update-alternatives --config javap
     $sudo update-alternatives --config javah
 
-windows添加环境变量：
+Windows添加环境变量到path：
 
-JAVA_HOME:
+    JAVA_HOME: C:\Program Files\Java\jdk1.8.0_92
+    PATH: %JAVA_HOME%\bin
 
-    C:\Program Files\Java\jdk1.8.0_92
+Linux添加环境变量到~/.bash_profile或~/.bashrc:
 
-PATH:
-
-    %JAVA_HOME%\bin
+    export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-.../jre
+    export PATH=$JAVA_HOME/bin:$PATH
 
 # 获取java源代码
 

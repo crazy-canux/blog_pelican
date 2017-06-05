@@ -10,8 +10,8 @@ Tags: Python, Math
 
     import random
 
-    random()
-    randint(a, b)
+    random() # 随机一个小于１的数．
+    randint(a, b) # 随机一个[a,b]中的整数．
     randrange(start, stop=None, step=1, int=<type 'int'>, _maxwidth=...)
     seed([self,], a=None)
 

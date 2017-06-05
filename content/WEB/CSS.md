@@ -4,15 +4,13 @@ Tags: CSS
 
 
 
-# CSS
+# **CSS**
 
 CSS是叠层样式表
 
 # CSS3
 
 CSS3是最新的CSS标准
-
-***
 
 # CSS创建
 
@@ -23,7 +21,9 @@ CSS3是最新的CSS标准
 3. 外部样式表，在html中通过link标签在文档头部定义，方便将样式用于多个页面。
 4. 浏览器的默认值。
 
-# CSS基本语法
+***
+
+# **CSS基本语法**
 
 CSS由两部分组成，选择器和声明，选择器是html元素，声明由属性和值组成。
 
@@ -43,7 +43,7 @@ CSS注释:
 
 ***
 
-# 选择器
+# **CSS选择器**
 
 最常见的选择器是元素选择器,html元素是最基本的选择器。
 
@@ -138,7 +138,7 @@ id选择器常常用来建立派生选择器：
 
 ***
 
-# CSS样式
+# **CSS样式**
 
 内联样式：
 
@@ -153,7 +153,6 @@ id选择器常常用来建立派生选择器：
 ## background样式
 
     background: # 可以定义所有背景的值
-
     background-color: gray # 背景颜色
     background-image: url(/images/test.gif) # 背景图片,默认水平和垂直都平铺
     background-repeat: repeat-x # 水平方向平铺
@@ -218,4 +217,66 @@ id选择器常常用来建立派生选择器：
     outline-style: none/dotted/dashed/solid/double/groove/ridge/inset/outset # 设置轮廓风格
     outline-width: # 设置轮廓宽度
 
+## 尺寸属性
+
+    height
+    width
+    max-height
+    max-width
+    min-height
+    min-width
+
 ***
+
+# **CSS模型框**
+
+## 内边距属性
+
+    padding
+    padding-top
+    padding-rigit
+    padding-bottom
+    padding-left
+
+## 边框属性
+
+    border
+    border-style
+    border-width
+    border-color
+    border-buttom
+    border-buttom-color/style/width
+    border-left
+    border-left-color/style/width
+    border-right
+    border-right-color/style/width
+    border-top
+    border-top-color/style/width
+
+## 外边距属性
+
+    margin
+    margin-right
+    margin-top
+    margin-bottom
+    margin-left
+
+***
+
+# **CSS定位**
+
+    position # 规定元素的定位
+    top
+    right
+    bottom
+    left
+    overflow
+    clip
+    vertical-align
+    z-index
+    display # 规定元素应该生成的框的类型
+    float # 规定框是否应该浮动
+
+***
+
+

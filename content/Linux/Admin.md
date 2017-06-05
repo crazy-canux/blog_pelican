@@ -114,7 +114,7 @@ org->gnome->gedit->preferences->encodings->auto-detected 添加'GB2312','GBK',..
 
 # Ubuntu/Debian安装后的基本配置
 
-    $ sudo apt-get install gcc
+    $ sudo apt-get install git meld
 
 # Ubuntu网络设置
 
@@ -154,7 +154,7 @@ ubuntu修改hostname:
 
 # Centos/Fedora/Redhat安装后的基本配置
 
-    $ sudo yum install gcc kernel-devel bzip2
+    $ sudo yum install gcc kernel-devel bzip2 git meld
     $ sudo ln -s /usr/src/kernels/...x86_64 /usr/src/linux
 
 # Centos网络配置

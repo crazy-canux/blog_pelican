@@ -24,13 +24,13 @@ URL: Uniform Resource Locator
 
 URI: Universal Resource Identifier
 
-    prot_sch://net_loc/path;params?query#frag
-    prot_sch: http/https/ftp/file
-    net_loc: username:password@host:port
+    <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
+    scheme: http/https/ftp/file
+    netloc: username:password@host:port
     path: /path/to/path
     params: options arguments
     query: connector&key-value
-    frag:
+    fragment:
 
 ***
 
@@ -55,18 +55,22 @@ python开发的类似于curl的命令行工具，同时还有wget的功能．
 # python的http/url标准库
 
 python2的http标准库
+
 1. httplib for client
 2. BaseHTTPServer, CGIHTTPServer, SimpleHTTPServer, cookielib, Cookie for server
 
 python3的标准库
+
 1. http
 
 python2的url标准库：
+
 1. urlparse
 2. urllib
 3. urllib2
 
 python3的url标准库：
+
 1. urllib
 
 ## urllib
@@ -74,6 +78,12 @@ python3的url标准库：
 ## urllib2
 
 ## urlparse
+
+    import urlparse
+    urlparse.urlparse(url, scheme='', allow_fragments=True) # 返回urlparse.ParseResult类
+    # URI格式: <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
+    # 返回: (scheme, netloc, path, params, query, fragment)
+    urlparse.ParseResult(self, scheme, netloc, path, params, query, fragment)
 
 ## httplib
 

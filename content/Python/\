@@ -110,7 +110,7 @@ new方法在object中被定义为staticmethod．
             BaseClass.__init__(self, *args, **kwargs)
             ...
 
-    # 调用绑定方法： 自动把实例作为self传入，不用显式传入．
+    # 调用绑定方法：
     ClassName().func()
 
 查看类的属性：
@@ -120,11 +120,11 @@ new方法在object中被定义为staticmethod．
 
 类的特殊属性：
 
-    class.__bases__ # 类的父类构成的元组
-    class.__module__ # 类的定义所在的模块.
     class.__dict__ # 以字典的形式存储对象的属性
+    class.__bases__ # 类的父类构成的元组
     class.__name__ # class name
     class.__doc__ # 文档的特殊属性, 不会被继承.
+    class.__module__ # 类的定义所在的模块.
 
 类的属性搜索顺序：[TODO]
 
@@ -159,7 +159,6 @@ new方法在object中被定义为staticmethod．
 
     instance.__dict__ # 以字典的形式存储对象的属性
     instance.__class__ # 实例对应的类
-    # instance没有__name__属性
 
 ## 静态方法
 

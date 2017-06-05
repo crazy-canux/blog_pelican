@@ -130,6 +130,14 @@ Linux外部命令的项目是coreutils。
     lpr
     lpq
     rsync
+    rev
+    toilet
+    aafire
+    xeyes
+    pv
+    yes
+    cal
+    factor
 
     四个用到正则表达式的重要命令：
     sed

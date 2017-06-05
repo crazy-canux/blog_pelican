@@ -8,7 +8,7 @@ Tags: Hadoop, HDFS
 
 Hadoop Distributed File System: hadoop分布式文件系统
 
-hadoop:
+hadoop hdfs分为三部分:
 
 master NameNode -> JobTracker
 

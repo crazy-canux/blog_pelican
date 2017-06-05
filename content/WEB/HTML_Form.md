@@ -8,7 +8,9 @@ Tags: HTML, Form
 
 html表单用于搜集不同类型的用户输入。
 
-# form
+***
+
+# **form**
 
 form元素定义html表单。支持全局属性和事件属性。
 
@@ -45,7 +47,9 @@ form元素定义html表单。支持全局属性和事件属性。
     # target属性规定在何处打开URL。
     _blank/_self/_parent/_top
 
-# input
+***
+
+# **input**
 
 input元素是最重要的表单元素。支持全局属性和事件属性。
 
@@ -93,7 +97,7 @@ input元素是最重要的表单元素。支持全局属性和事件属性。
 
 ***
 
-# fieldset
+# **fieldset**
 
 fieldset元素组合表单中的相关数据，支持全局属性和事件属性
 
@@ -101,13 +105,15 @@ fieldset元素组合表单中的相关数据，支持全局属性和事件属性
     # form属性规定fieldset所属的一个或多个表单。
     # name属性规定fieldset名称。
 
-# legend
+***
+
+# **legend**
 
 legend元素为fieldset元素定义标题，支持全局属性和事件属性,支持样式。
 
 ***
 
-# select
+# **select**
 
 定义下拉列表。支持全局属性和事件属性。
 
@@ -126,7 +132,13 @@ legend元素为fieldset元素定义标题，支持全局属性和事件属性,�
     # required
     # size
 
-# option
+***
+
+# **optgroup**
+
+***
+
+# **option**
 
 定义选项。支持全局属性和事件属性。
 
@@ -137,7 +149,11 @@ legend元素为fieldset元素定义标题，支持全局属性和事件属性,�
 
 ***
 
-# button
+# **label**
+
+***
+
+# **button**
 
 定义可点击的按钮，支持全局属性和事件属性。
 
@@ -157,12 +173,16 @@ legend元素为fieldset元素定义标题，支持全局属性和事件属性,�
 
 ***
 
-# textarea
+# **textarea**
 
 ***
 
-# datalist
+# **datalist**
 
-# keygen
+***
 
-# output
+# **keygen**
+
+***
+
+# **output**

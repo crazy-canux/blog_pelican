@@ -28,7 +28,28 @@ python内置的文档测试库．
 
 python内置的单元测试库．
 
-也叫pyunit，类似于Junit(java)都是基于Kent Beck和Erich Gamma的XUnit框架．
+    import unittest
+
+***
+
+# TPL
+
+相关的第三方库
+
+## unittest2
+
+unittest2是unittest的升级版．
+
+python3集成了unittest2到unittest,像使用unittest一样使用即可．
+
+    # python2.7
+    $pip install unittest2
+    import unittest2
+
+    # python3
+    import unittest
+
+unittest也叫pyunit，类似于Junit(java)都是基于Kent Beck和Erich Gamma的XUnit框架．
 
 测试结果：
 
@@ -38,6 +59,7 @@ FAIL 表示测试没有通过，并引发一个AssertionError异常．
 
 ERROR 表示测试过程引发一个不是AssertionError的异常．
 
+    # Python2.7 此处用的是标准库的unittest.
     import unittest
     import MyClass
 
@@ -121,25 +143,6 @@ ERROR 表示测试过程引发一个不是AssertionError的异常．
         runner = unittest.TextTestRunner()
         result = runner.run(get_test_suite())
 
-***
-
-# TPL
-
-相关的第三方库
-
-## unittest2
-
-unittest2是unittest的升级版．
-
-python3集成了unittest2到unittest,像使用unittest一样使用即可．
-
-    # python2.7
-    $pip install unittest2
-    import unittest2
-
-    # python3
-    import unittest
-
 ## mock
 
 <https://github.com/testing-cabal/mock>
@@ -153,6 +156,12 @@ python3集成了mock到unittest模块，导入unittest.mock即可．
     # Python3
     import unittest.mock
 
+mock就是在测试中对于不容易构造或获取的对象，用一个虚拟的对象来代替以便测试的方法．
+
+    # Python2.7 此处用的是第三方库mock
+    from mock import Mock, patch, PropertyMock, MagicMock
+
+
 ## nose2
 
 <https://github.com/nose-devs/nose2>
@@ -165,7 +174,7 @@ nose2用于单元测试．
 
     $ pip install nose
 
-    import nose2
+    import nose
 
 ## pytest
 

@@ -49,6 +49,14 @@ mysqld的默认端口是3306.
 
     $ mysqldump -u<username> -p<password> <databasename>  >  dump.sql
 
+mycli:
+
+A command line client for MySQL that can do auto-completion and syntax highlighting.
+
+<https://github.com/dbcli/mycli>
+
+    $ pip install -U mycli
+
 # CLI
 
 先用mysql命令进入mysql的命令行。

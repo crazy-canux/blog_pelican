@@ -133,7 +133,7 @@ python2和python3共同的内置函数：
 
     object.__dict__ # 以字典的形式存储对象的属性
     class.__bases__ # 类的父类构成的元组
-    class.__module__ # [TODO]
+    class.__module__ # 类的定义所在的模块.
     instance.__class__ # 实例对应的类
     definition.__name__ # class/type/function/method/descriptor/generator的名字
 
@@ -141,10 +141,10 @@ python2和python3共同的内置函数：
 
     [Deprecated]object.__methods__ # 用内置函数dir()代替
     [Deprecated]object.__members__ # 用内置函数dir()代替
-    [Deprecated]# 新式类不支持下面属性
-    class.__mro__
-    class.mro()
-    class.__subclasses__()
+    # 新式类不支持这三个类
+    [Deprecated]class.__mro__
+    [Deprecated]class.mro()
+    [Deprecated]class.__subclasses__()
 
 ***
 
@@ -728,6 +728,8 @@ python2:
 内置描述符：
 
 ***
+
+参考面向对象编程．
 
 # super
 

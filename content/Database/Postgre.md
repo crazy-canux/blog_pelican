@@ -41,6 +41,14 @@ postgresql的端口是5432．
     # 非交互式：
     $ PGPASSWORD='password';psql -h <host> -p <port> -U <username> -d [database] -c "[sql query]"
 
+pgcli:
+
+This is a postgres client that does auto-completion and syntax highlighting.
+
+<https://github.com/dbcli/pgcli>
+
+    $ pip install -U pgcli
+
 # CLI
 
 先用psql进入postgre的命令行.

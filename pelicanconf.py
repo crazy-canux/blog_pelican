@@ -195,15 +195,18 @@ MENUITEMS = (('Category', 'categories.html'),
 
 LINKS = (('Python', 'https://www.python.org/'),
          ('Django', 'https://www.djangoproject.com/'),
-         ('OpenJDK', 'http://openjdk.java.net/'),
-         ('JavaScript', 'https://www.javascript.com/'),
-         ('Mysql', 'https://www.mysql.com/'))
+         ('Java', 'http://openjdk.java.net/'),
+         ('Spring', 'https://spring.io/'),
+         ('Hadoop', 'http://hadoop.apache.org/'),
+         ('OpenStack', 'https://www.openstack.org/'))
 
 SOCIAL = (('github', 'https://github.com/crazy-canux'),
           ('linkedin', 'http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button'),
           ('stackoverflow', 'http://stackoverflow.com/users/4344009/canux'),
           ('rss', 'http://canuxcheng.com/feeds/all.rss.xml'),
           ('mail', 'mailto:canuxcheng@gmail.com'))
+
+REWARD_COMMENT = '您的支持是我创作的动力!'
 
 ################
 ## Plugin setting
