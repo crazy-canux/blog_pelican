@@ -45,10 +45,14 @@ Linux外部命令的项目是coreutils。
 
 # 系统管理
 
-    uname # 打印系统信息
-    lsb_release # 查看发行版本信息
-    cat /etc/issue #
+    uname # 打印linux系统信息
+    $ uname -a
+    cat /etc/issue
     cat /proc/version
+
+    lsb_release # 查看发行版本信息
+    $ lsb_release -a
+
     getconf # 查询系统配置的变量，LONG_BIT表示系统位数
     cat /proc/cpuinfo # 查看cpu信息
     vmstat # 报告虚拟内存的统计信息

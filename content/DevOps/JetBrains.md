@@ -44,3 +44,10 @@ vim plugin.
 
 solarized plugin.
 
+***
+
+# settings
+
+## terminal
+
+默认的是bash和powershell, 使用zsh需要改成/usr/bin/zsh.

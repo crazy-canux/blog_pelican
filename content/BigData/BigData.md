@@ -8,38 +8,124 @@ Tags: BigData
 
 大数据最流行的框架是hadoop.
 
-# hadoop
+大部分工具都属于Apache基金会的项目．
 
-基于hadoop的项目：
+***
 
-Ambari: 用于配置，管理，监控hadoop集群的web工具．
+# 分布式存储
 
-Avro: 数据序列化
+## hadoop hdfs
 
-Chukwa: 用于管理大型分布式系统的数据收集系统
+***
 
-Pig: 并行计算的高级数据流语言和执行框架
+# 资源调度
 
-Tez: 一种基于hadoop yarn的通用数据流编程框架
+## hadoop yarn
 
-Zookeeper: 分布式应用程序的高性能协调服务
+***
 
-# Realtime Data Processing
+# 分布式计算框架
 
-Storm
+## hadoop mapreduce
 
-Samza
+## Spark
 
-Spark
+# 流式计算框架
 
-Flink
+## Storm
 
-# search
+## Flink
 
-solr
+***
 
-nutch
+# 部署配置和管理工具
 
-# Analytics
+## Ambari
 
-mahout
+用于配置，管理，监控hadoop集群的web工具．
+
+## Zookeeper
+
+分布式应用程序的高性能协调服务
+
+## Bigtop
+
+## Curator
+
+***
+
+# 交互式分析框架(Sql On Hadoop)
+
+## Facebook Presto
+
+## Hive
+
+## Hawq(Pivotal)
+
+Hortonworks的HDP集成了HAWQ.
+
+## Impala(Cloudera)
+
+Cloudera的CHD集成了Impala.
+
+# 交互式分析框架(NoSQL On Hadoop)
+
+## HBase
+
+## Cassandra
+
+***
+
+# 数据管理工具
+
+## Sqoop
+
+## Flume
+
+# 消息队列
+
+## Kafka
+
+## Pivotal RabbitMQ
+
+***
+
+# DSL
+
+## Pig
+
+***
+
+# Workflow and Lifecycle
+
+## Oozie
+
+***
+
+# Security
+
+## Sentry
+
+***
+
+# Data search
+
+## Solr
+
+## Nutch
+
+***
+
+# Data Analytics
+
+## Mahout
+
+## Cloudera Hue
+
+## Kudu(Cloudera)
+
+***
+
+# Misc
+
+## Avro

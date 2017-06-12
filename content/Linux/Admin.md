@@ -154,7 +154,7 @@ ubuntu修改hostname:
 
 # Centos/Fedora/Redhat安装后的基本配置
 
-    $ sudo yum install gcc kernel-devel bzip2 git meld
+    $ sudo yum -y install gcc gcc-c++ kernel-devel meld git bzip2
     $ sudo ln -s /usr/src/kernels/...x86_64 /usr/src/linux
 
 # Centos网络配置

@@ -62,17 +62,17 @@ python2和python3共同的内置函数：
 
     ## 对象相关的操作
     id(object) # 返回一个对象的ID, 用内存地址作为ID来表示唯一性. 也就是对象的身份．等价is关键字.
-    isinstance(object, class-or-type-or-tuple) # 如果object是class-or-type中指定的类或类型，返回True,否则返回False.等价is关键字.
     repr(object) # 返回object的标准字符串形式，可以通过eval()重新得到该对象．eval(repr(object)) == object.
-    dir([object]) # 查看对象的信息
     callable(object) # 如果object是可调用的返回True
-    delattr(object, name) # 删除对象object的属性name
-    len(object) # 返回序列（str, tuple, list)或映射（dict)的长度
     hash(object) # 返回一个对象的散列/哈希(hash)值，有相同值的对象hash值相同.可用做字典的键.
+    len(object) # 返回序列（str, tuple, list)或映射（dict)的长度
+    dir([object]) # 查看对象的信息
     getattr(object, name[, default]) # 如果object.name存在,返回name的值，否则如果default存在，返回default,否则抛出异常AttributeError
     hasattr(object, name) # 和getattr一样，但是捕获了异常，object.name存在返回True,否则返回False.
     setattr(object, name, value) # 给对象的属性赋值，相当于object.name = value
-    issubclass(C, B-or-(B,A)) # 如果C是B或(B,A,...)中的类的子类，返回True,否则返回False.
+    delattr(object, name) # 删除对象object的属性name
+    isinstance(object, class-or-type-or-tuple) # 如果object是class-or-type中指定的类或类型的实例或子类的实例，返回True,否则返回False.
+    issubclass(C, B-or-(B,A)) # 如果C是B或(B,A,...)中的类的子类，返回True,否则返回False. 不严格子类也允许，例如一个类可以看作是自身的子类．
     vars([object]) # 没有参数等于locals()，有参数等于object.__dict__.
 
     ## related to iterable
@@ -104,10 +104,10 @@ python2和python3共同的内置函数：
 
 [Deprecated]python2.7中有，python3中被废弃的内置函数：
 
-    apply(object[, args[, kwargs]]) # 直接使用函数定义的可变长参数形式, function_name(*args, **kwargs)
+    [Deprecated]apply(object[, args[, kwargs]]) # 直接使用函数定义的可变长参数形式, function_name(*args, **kwargs)
+
     coerce(x, y)
     intern(string)
-
     execfile(filename[, globals[, locals]])
     unichr(i) # 返回chr(i)的unicode形式．
     raw_input([prompt]) # python3中合并为input().
@@ -133,18 +133,18 @@ python2和python3共同的内置函数：
 
     object.__dict__ # 以字典的形式存储对象的属性
     class.__bases__ # 类的父类构成的元组
-    class.__module__ # 类的定义所在的模块.
     instance.__class__ # 实例对应的类
     definition.__name__ # class/type/function/method/descriptor/generator的名字
+
+    [New in python2.2] 新式类才有的三个属性：
+    class.__mro__
+    class.mro()
+    class.__subclasses__()
 
     [New in python3] definition.__qualname__ # python3新增
 
     [Deprecated]object.__methods__ # 用内置函数dir()代替
     [Deprecated]object.__members__ # 用内置函数dir()代替
-    # 新式类不支持这三个类
-    [Deprecated]class.__mro__
-    [Deprecated]class.mro()
-    [Deprecated]class.__subclasses__()
 
 ***
 
@@ -733,13 +733,9 @@ python2:
 
 # super
 
-    super(type, obj) # 返回type类的基类对象，用来调用基类中的方法．
-    super(type)
+    super(type, obj) # 返回type类的基类对象，用来调用基类中的方法, isinstance(obj, type)
     super(type, type2)
-
-# property
-
-    property(fget=None, fset=None, fdel=None, doc=None) # 创建类的特性属性,通常在类内部通过@property装饰器来使用．
+    super(type)
 
 # classmethod
 
@@ -748,3 +744,8 @@ python2:
 # staticmethod
 
     staticmethod(function)  # 将函数转换成静态方法，通常在类内部通过@staticmethod装饰器来使用．
+
+# property
+
+    property(fget=None, fset=None, fdel=None, doc=None) # 创建类的特性属性,通常在类内部通过@property装饰器来使用．
+

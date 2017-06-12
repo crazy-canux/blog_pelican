@@ -15,8 +15,10 @@ hadoop1只有HDFS和MapReduce两个模块，hadoop2开始分为HDFS, YARN, MapRe
 hadoop的版本:
 
 * apache hadoop
-* hortonworks hadoop (HWX)
+* hortonworks hadoop (HDP)
 * cloudera hadoop (CDH)
+* mapr
+* transwarp
 
 # 安装hadoop
 
