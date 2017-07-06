@@ -141,21 +141,32 @@ GUI for hadoop cluster:
 
 ***
 
-# Hadoop common
+# Hadoop Commands
 
-支持其它模块的常用工具．
+     hadoop [--config confdir] [--loglevel loglevel] [COMMAND] [GENERIC_OPTIONS] [COMMAND_OPTIONS]
+
+user command:
+
+    $ hadoop archive
+    $ hadoop fs
+    ...
+
+admin command:
+
+    $ hadoop daemonlog
+    ...
 
 ***
 
-# HDFS
+# fs commands
 
-Hadoop Distributed File System: hadoop分布式文件系统
+file system command:
 
-# YARN
+支持本地文件系统，hdfs文件系统，还有其它文件系统．
 
-Yet Another Resource Negotiator: 作业调度和集群资源管理的框架．
+    $ hadoop fs
 
-# Map-Reduce
+    $ hadoop fs -cat URI [URI ...]
+    ...
 
-一种基于YARN的大型数据并行处理系统．
-
+***

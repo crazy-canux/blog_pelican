@@ -19,7 +19,7 @@ windows的路径要写成：
     os.path.join(a, *p) # 拼结一个完整的路径　
     os.path.join(a, os.pardir) # 返回上级目录的路径
     os.path.abspath(path) # 返回绝对路径
-    os.path.splitext(p) # 分解路径和扩展名返回组成的元组，/home/user/test.py -> ("/home/user", ".py")
+    os.path.splitext(p) # 分解路径和扩展名返回组成的元组，/home/user/test.py -> ("/home/user/test", ".py")
 
 ## stat
 

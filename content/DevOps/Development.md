@@ -18,6 +18,8 @@ Tags: DevOps, Development
 
 <http://choosealicense.com/licenses/>
 
+<https://choosealicense.com/>
+
 ![pic](/images/license.jpeg)
 
 ***

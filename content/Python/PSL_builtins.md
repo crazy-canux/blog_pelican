@@ -16,11 +16,17 @@ python的内置模块，所有python的内置功能都在这个模块中，不�
 
 内置常量
 
-内置函数和内置方法
+内置函数(BIF)
+
+内置类型(BIT)
 
 工厂函数：python内置的类型都有对应的类的实现，同名的类的方法就是工厂函数．
 
+内置类型的内置方法(BIM)
+
 内置异常
+
+该模块是通过C/C++实现的．
 
 ***
 
@@ -67,7 +73,7 @@ python2和python3共同的内置函数：
     hash(object) # 返回一个对象的散列/哈希(hash)值，有相同值的对象hash值相同.可用做字典的键.
     len(object) # 返回序列（str, tuple, list)或映射（dict)的长度
     dir([object]) # 查看对象的信息
-    getattr(object, name[, default]) # 如果object.name存在,返回name的值，否则如果default存在，返回default,否则抛出异常AttributeError
+    getattr(object, name[, default]) # 如果object.name存在,返回name的值，否则如果default存在，返回default,否则抛出异常AttributeError, 和super的查找顺序一样．
     hasattr(object, name) # 和getattr一样，但是捕获了异常，object.name存在返回True,否则返回False.
     setattr(object, name, value) # 给对象的属性赋值，相当于object.name = value
     delattr(object, name) # 删除对象object的属性name
@@ -102,7 +108,7 @@ python2和python3共同的内置函数：
     exec(object[, globals[, locals]]) # python2中是一个关键字，python3才是内置函数．
     print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) # python2中是一个关键字，python3才是内置函数．
 
-[Deprecated]python2.7中有，python3中被废弃的内置函数：
+python2.7中有，python3中被废弃的内置函数：
 
     [Deprecated]apply(object[, args[, kwargs]]) # 直接使用函数定义的可变长参数形式, function_name(*args, **kwargs)
 
@@ -242,7 +248,7 @@ python3数字类型int, float, complex
     bit_length() # 一个int类型的二进制形式的位数．
     conjugate()
 
-内置描述符：
+内置数据描述符：
 
     denominator
     numerator
@@ -269,7 +275,7 @@ python3中被废弃．
     bit_length() # 一个int类型的二进制形式的位数
     conjugate()
 
-内置描述符:
+内置数据描述符:
 
     denominator
     numerator
@@ -289,7 +295,7 @@ python3中被废弃．
     hex() # 将浮点数转换成十六进制形式
     is_integer() # 如果浮点数是整数，返回true
 
-内置描述符：
+内置数据描述符：
 
     imag
     real
@@ -302,7 +308,7 @@ python3中被废弃．
 
     conjugate() # 返回一个复数的工軛复数
 
-内置描述符：
+内置数据描述符：
 
     imag 复数的虚部
     real 复数的实部
@@ -478,25 +484,6 @@ python3中被废弃．
 
 ***
 
-# slice
-
-python2:
-
-    slice(stop)
-    slice(start, stop[, step])
-
-内置方法:
-
-    indices(len) -> (start, stop, stride)
-
-内置描述符：
-
-    start
-    step
-    stop
-
-***
-
 # frozenset
 
 不可变集合frozenset是不可变类型
@@ -570,7 +557,7 @@ file是python2中的内置类类型，有next()方法，返回一个迭代器的
     tell()
     truncate([size])
 
-内置描述符：
+内置数据描述符：
 
     closed
     encoding
@@ -579,6 +566,27 @@ file是python2中的内置类类型，有next()方法，返回一个迭代器的
     newlines
     softspace
     errors
+
+***
+
+# slice
+
+python2:
+
+    slice(stop)
+    slice(start, stop[, step])
+
+内置方法:
+
+    indices(len) -> (start, stop, stride)
+
+内置数据描述符：
+
+    start
+    step
+    stop
+
+***
 
 # enumerate
 
@@ -696,8 +704,6 @@ bytearray是可变类型，是序列（可迭代）
     capitalize()
     ...
 
-内置描述符：
-
 # memoryview
 
 python2:
@@ -710,7 +716,10 @@ python2:
     tolist(...)
     ...
 
-内置描述符：
+内置数据描述符：
+
+    format
+    ...
 
 ***
 
@@ -725,7 +734,10 @@ python2:
 
     mro() # 返回一个类型的method resolution order
 
-内置描述符：
+内置数据描述符：
+
+    __abstractmethods__
+    ...
 
 ***
 
@@ -733,19 +745,68 @@ python2:
 
 # super
 
-    super(type, obj) # 返回type类的基类对象，用来调用基类中的方法, isinstance(obj, type)
+    super(type, obj)
     super(type, type2)
     super(type)
 
+内置方法：
+
+    __get__(...)
+    __getattribute__(...)
+    __init__(...)
+    __repr__(...)
+
+内置数据描述符：
+
+    __self__
+    __self_class__
+    __thisclass__
+
 # classmethod
 
-    classmethod(function) # 将函数转换成类方法，通常在类内部通过@classmethod装饰器来使用．
+    classmethod(function)
+
+内置方法：
+
+    __get__(...)
+    __getattribute__(...)
+    __init__(...)
+
+内置数据描述符：
+
+    __func__
 
 # staticmethod
 
-    staticmethod(function)  # 将函数转换成静态方法，通常在类内部通过@staticmethod装饰器来使用．
+    staticmethod(function)
+
+内置方法：
+
+    __get__(...)
+    __getattribute__(...)
+    __init__(...)
+
+内置数据描述符：
+
+    __func__
 
 # property
 
-    property(fget=None, fset=None, fdel=None, doc=None) # 创建类的特性属性,通常在类内部通过@property装饰器来使用．
+    property(fget=None, fset=None, fdel=None, doc=None)
 
+内置方法：
+
+    __delete__(...)
+    __get__(...)
+    __getattribute__(...)
+    __init__(...)
+    __set__(...)
+    deleter(...)
+    getter(...)
+    setter(...)
+
+内置数据描述符：
+
+    fdel
+    fget
+    fset

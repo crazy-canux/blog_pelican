@@ -33,9 +33,11 @@ decorator
 
     from enum import Enum
     class Dataset(str, Enum):
-        FIRST: 'one'
-        SECOND: 'second'
+        FIRST = 'one'
+        SECOND = 'second'
 
     Dataset.FIRST.name # 'FIRST'
     Dataset.FIRST.value # 'one'
     Dataset('one') # Dataset.FIRST
+    'one' in [Dataset.FIRST, Dataset.SECOND]
+    'one' == Dataset.FIRST

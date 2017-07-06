@@ -20,25 +20,13 @@ DataNode -> TaskTracker
 
 # hdfs commands
 
+    $ hadoop fs  # 本地文件系统和hdfs文件系统都能用
+    $ hadoop dfs
+    $ hdfs dfs
+
     hdfs [SHELL_OPTIONS] COMMAND [GENERIC_OPTIONS] [COMMAND_OPTIONS]
 
-user commands:
-
-    $ hdfs classpath
-
-    $ hdfs dfs # 参考 hadoop fs命令
-    ...
-
-admin commands:
-
-    $ hdfs balancer
-    ...
-
-debug commands:
-
-    $ hdfs verify
-
-    $ hdfs recoverLease
+    $ hdfs dfs
 
 ***
 

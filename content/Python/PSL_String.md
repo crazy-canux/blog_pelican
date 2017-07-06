@@ -12,6 +12,33 @@ Tags: Python, String
 
     import re
 
+    # Function
+    compile(pattern, flags=0)
+    escape(pattern)
+    findall(pattern, string, flags=0)
+    finditer(pattern, string, flags=0)
+    match(pattern, string, flags=0) # if not match, return None, else return object.
+    purge()
+    search(pattern, string, flags=0)
+    split(pattern, string, maxsplit=0, flags=0)
+    sub(pattern, repl, string, count=0, flags=0)
+    subn(pattern, repl, string, count=0, flags=0)
+    template(pattern, flags=0)
+
+    copy_reg
+    error
+    sys
+
+    # module
+    sre_compile
+    sre_compile.compile(p, flags=0)
+    sre_compile.isstring(obj)
+
+    # module
+    sre_parse
+    sre_parse.expand_template(template, match)
+    sre_parse.parse(str, flags=0, pattern=None)
+    sre_parse.parse_template(source, pattern)
 
 ## cStringIO
 

@@ -10,6 +10,12 @@ Tags: BigData
 
 大部分工具都属于Apache基金会的项目．
 
+# MPP
+
+Massive Parallel Process
+
+大规模并行处理数据库包括impala, hawq
+
 ***
 
 # 分布式存储
@@ -38,19 +44,35 @@ Tags: BigData
 
 ***
 
-# 部署配置和管理工具
+# 部署工具
 
 ## Ambari
 
 用于配置，管理，监控hadoop集群的web工具．
 
+## Bigtop
+
+对hadoop相关软件打包，分发，测试的工具．
+
+## whirr
+
+## Cloudera Hue
+
+## Hortonworks hoya
+
+# 服务编程
+
 ## Zookeeper
 
 分布式应用程序的高性能协调服务
 
-## Bigtop
-
 ## Curator
+
+## Avro
+
+## chuckwa
+
+用于监控大型分布式系统的数据收集系统．
 
 ***
 
@@ -100,6 +122,10 @@ Cloudera的CHD集成了Impala.
 
 ## Oozie
 
+## aurora
+
+## falcon
+
 ***
 
 # Security
@@ -114,13 +140,13 @@ Cloudera的CHD集成了Impala.
 
 ## Nutch
 
+## Lucene
+
 ***
 
 # Data Analytics
 
 ## Mahout
-
-## Cloudera Hue
 
 ## Kudu(Cloudera)
 
@@ -128,4 +154,10 @@ Cloudera的CHD集成了Impala.
 
 # Misc
 
-## Avro
+## hama
+
+## giraph
+
+## crunch
+
+## hcatalog

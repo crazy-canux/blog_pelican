@@ -74,30 +74,39 @@ ERROR 表示测试过程引发一个不是AssertionError的异常．
     unittest.TextTestRunner: 用来执行测试用例．
     unittest.TextTestResult: 用来打印格式化的测试结果．
 
+unittest.TestCase
+
     # unittest.TestCase
     assertXXX　系列方法．
     failXXX 系列方法
-    addCleanup
-    addTypeEqualityFunc
-    countTestCases
-    debug
+    addCleanup(self, function, *args, **kwargs)
+    addTypeEqualityFunc(self, typeobj, function)
+    countTestCases(self)
+    debug(self)
     defaultTestResult() # return unittest.TestResult()
-    doCleanups()
-    id
-    longMessage
-    maxDiff
-    shortDescription
-    run # 可以在子类覆盖该方法．
-    skipTest
-    setUp # 重写之后，每个case运行之前都会调用一次．
-    tearDown # 同上
-    setUpClass # 通过@classmethod重写，这样所有的case运行之前只调用一次，而不是每个case运行之前都调用．
-    tearDownClass # 同上
+    doCleanups(self)
+    id(self)
+    run(self, result=None) # 可以在子类覆盖该方法．
+    shortDescription(self)
+    skipTest(self, reason)
+    setUp(self) # 重写之后，每个case运行之前都会调用一次．
+    tearDown(self) # 同上
 
-    # unittest.case实现了几个函数用来增强unittest.TestCase的方法
+    # classmethod
+    setUpClass(cls) # 通过@classmethod重写，这样所有的case运行之前只调用一次，而不是每个case运行之前都调用．
+    tearDownClass(cls) # 同上
+
+unittest的functions
+
+    import unittest
+    # unittest.case实现了几个函数用来增强unittest.TestCase的方法, 一般当装饰器用．
+    expectedFailure() # 如果这个case失败了，不计入失败的数目．
+    @unittest.expectedFailure
     skip(reason) # 无条件跳过一个test case.
     skipIf(condition, reason) # condition为true就跳过一个test case.
     skipUnless(condition, reason) # 和上面相反
+
+example:
 
     class MyClassTest(unittest.TestCase):
 

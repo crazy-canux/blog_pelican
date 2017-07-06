@@ -45,11 +45,7 @@ python中一切皆对象．
 
 python大小写敏感．
 
-python中的语句不需要分号;结尾, 语句通过反斜线\续行.
-
 python通过缩进和冒号:区分语法块，而不是大括号{}.
-
-python中每个物理行表示一个逻辑行,如果多个逻辑行放在一个物理行使用分号;隔开,但是python中尽量不要使用分号.
 
 python中的表达式(条件/循环表达式等)不需要用小括号()括起来．
 
@@ -61,13 +57,49 @@ python不支持char和type类型．
 
 python没有switch语句．
 
-python中类型都有对应的类的实现，类型也是类．
-
 python支持多继承．
 
 python不支持++/--自增和自减运算符．
 
 python支持连续比较，a&lt;b&lt;c.
+
+## lexical analysis
+
+<https://docs.python.org/2/reference/lexical_analysis.html>
+
+Logical lines and physical lines：
+
+    # python通过行尾的令牌NEWLINE表示逻辑行
+    expression
+    # 以操作系统的换行符表示物理行．
+    \n
+
+encoding declarations:
+
+    # python脚本中的第一行或第二行的
+    coding[=:]\s*([-\w.]+)
+    # 注释与正则表达式匹配将被作为编码申明处理．
+
+explicit line joining:
+
+    # 多个物理行通过反斜线backslash续行进行显示换行
+    if a == b \
+           and c ==d: # 只有续行的最后一行可以有注释．反斜线的行不能注释.
+        print 'more than one physical line.'
+
+implicit line joining：
+
+    # 在括号(parentheses),方括号(square brackets)，大括号(curly braces)中的表达式可以分割多个物理行而不需要显示换行．
+    test_list = [
+        'a', # 每一行都可以注释
+        'b'
+    ]
+
+indentation:
+
+    # 逻辑行的开头的空格和跳格用于缩进，python根据行的缩进级别区分语法块．
+    # 缩进级别用于生成INDENT和DEDENT两个令牌
+    pep8建议用四个空格表示一个缩进级别．
 
 python2.7源代码格式:
 
@@ -85,10 +117,6 @@ python2.7源代码格式:
 
 # **python注释**
 
-python通过行尾的令牌NEWLINE表示逻辑行，以操作系统的换行符表示物理行．
-
-python脚本中的第一行或第二行的coding[=:]\s*([-\w.]+)注释与正则表达式匹配将被作为编码申明处理．
-
 单行注释：
 
     # comment
@@ -101,21 +129,6 @@ python脚本中的第一行或第二行的coding[=:]\s*([-\w.]+)注释与正则�
     comment2
     comment3
     """
-
-explicit line joining显示换行:
-
-    # 多个物理行通过反斜线backslash续行
-    if a == b \
-           and c ==d: # 只有续行的最后一行可以有注释．反斜线的行不能注释.
-        print 'more than one physical line.'
-
-implicit line joining隐式换行：
-
-    # 在括号(parentheses),方括号(square brackets)，大括号(curly braces)中的表达式可以分割多个物理行而不需要显示换行．
-    test_list = [
-        'a', # 每一行都可以注释
-        'b'
-    ]
 
 ***
 
@@ -411,11 +424,58 @@ str类型是不可变类型(immutable),是标量(scalar),是序列(sequence)通�
 
 字符串编码解码:
 
-    # 程序中出现字符串一定加前缀u.
+Unicode: Universal Multiple-Octet Coded Character Set. 使用十六进制表示．加上前缀U+
+
+ASCII: American Standard Code for Information
+
+UFT-8: Unicode Transformation Format
+
+python2因为比unicode出现要早，所以python2默认使用的是ASCII编码．
+
+python3默认使用的是UTF-8编码．
+
+    # 获取默认编码
+    import sys
+    print(sys.getdefaultencoding())
+
+    a = u'测试'
+    type(a) # unicode
+    a # u'\u6d4b\u8bd5',　十六进制表示
+
+    # str类型
+    b = '测试'
+    type(b) # str
+    b # \xe6\xb5\x8b\xe8\xaf\x95
+
+    # encode将unicode类型编码成str类型用于数据传输．
+    encode([encoding[,errors]]) # 编码
+    c = a.encode('uft-8')
+    type(c) # str
+    c # \xe6\xb5\x8b\xe8\xaf\x95
+
+    # decode将str类型根据原来的编码类型解码成unicode类型进行阅读．
+    decode([encoding[,errors]]) # 解码
+    d = c.decode('utf-8') # 参数必须是原来的编码的类型
+    type(d) # unicode
+    d # u'\u6d4b\u8bd5'
+
+    # python2默认ascii编码，所以encode和decode默认都是ascii. 不能处理中文
+    u'测试'.encode() # UnicodeEncodeError
+
+    # str+unicode, str会隐式的转换成unicode.
+    '测' + u'试' -> '测'.decode() + u'试' # 因为decode默认是ascii不能解码中文,UnicodeDecodeError．
+    '测'.decode('uft-8') + u'试'
+
+    # 对非unicode进行encode编码，会先隐式解码成unicode再编码
+    '测试'.encode('utf-8') # UnicodeDecodeError, 因为'测试'.decode()默认用ascii解码
+    '测试'.decode('utf-8').decode('utf-8')
+
+    # python2程序中出现字符串一定加前缀u.表示成unicode格式
     u'hello world'
     # 不要用str(), 用unicode().
     # 只在写入文件／数据库／网络时才调用编码函数encode().
     # 只在读回数据时才调用解码函数decode().
+    # 始终使用utf-8编码．否则容易出现乱码．
 
 可迭代对象转换成字符串：
 
@@ -596,10 +656,13 @@ file，enumerate和reversed内置类类型的工厂函数返回的都是迭代�
     # 自定义类，需要实现 __iter__() 和　next() 两个方法
     class TestIterator(object):
         def __iter__(self):
-            ...
+            return self
 
         def next(self):
-            ...
+            if condition:
+                ...
+            else:
+                raise StopIteration()
 
 ## *list comprehensions列表解析*
 
@@ -619,7 +682,7 @@ List Comprehensions列表解析,来自函数式编程语言Haskell.
 
     [(x+1, y+1) for x in range(10) for y in range(10)]
 
-## *generators生成器*
+## *generator expressions生成器表达式*
 
 Generator Expressions生成器表达式, 是列表解析的一个扩展．
 
@@ -900,11 +963,27 @@ def function_name(arguments)
 
 函数的属性：
 
-通过小数点来调用函数的属性(以特殊属性为例)．
+通过小数点来调用函数的属性．
 
-    function_test.__dict__
-    function_test.__name__
+内置函数的特殊属性(BIF)：
+
     function_test.__doc__
+    function_test.__name__
+    function_test.__module__ # __builtin__
+    function_test.__self__ # None
+
+自定义函数的属性(UDF)：
+
+    dir(function_test)
+    '__doc__',
+    '__name__',
+    'func_closure',
+    'func_code',
+    'func_defaults',
+    'func_dict',
+    'func_doc',
+    'func_globals',
+    'func_name'
 
 偏函数:
 
@@ -1020,7 +1099,7 @@ lambda匿名函数中不能有return语句．
 
 ## *decorator装饰器*
 
-装饰器分为函数装饰器和类装器．函数中再定义函数是函数装饰器，函数中再定义类是类装饰器．
+装饰器分为函数(方法)装饰器和类装器．函数中再定义函数是函数装饰器，函数中再定义类是类装饰器．
 
 函数装饰器修饰函数和类中的方法，类装饰器修饰类．类装饰器参考OOP．
 
@@ -1083,6 +1162,15 @@ lambda匿名函数中不能有return语句．
     foo.__name__ #  wrapper_name, 并非foo
     foo.__doc__ # "Docs for wrapper_name.", 并非foo的doc.
     # 可以通过import functools.wraps来修饰wrapper_name改变这一属性．
+
+多层装饰器：
+
+    @foo
+    @bar
+    def func(*args, **kwargs):
+        ...
+
+    func = foo(bar(func))
 
 ## *yield生成器*
 

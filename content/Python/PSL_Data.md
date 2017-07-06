@@ -15,7 +15,10 @@ Tags: Python, Data
     datetime.datetime.strftime(format[, tuple])
     string_datetime = format_datetime.strftime("%d %B %Y %H:%M:%S") # return: '24 August 2016 16:14:31'
     datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') # return: '2017-02-07 23:07:32'
+
     str(datetime.datetime.now())
+
+    datetime.datetime.now().strftime('%Y%m%d%H%M%S')
 
 ## calendar
 
@@ -74,6 +77,12 @@ pickle不支持unicode,只支持ascii.
 python3将cPickle和pickle统一合并为pickle.
 
 cPickle是c开发的，速度比pickle快，但是不支持被继承．
+
+    import cPickle
+    dump(obj, file, protocol=0) # 写入到一个文件
+    load(file) # 从文件读取
+    dumps(obj, protocol=0) # 写入到一个字符串
+    loads(string) # 从字符串读取
 
 ## marshal
 

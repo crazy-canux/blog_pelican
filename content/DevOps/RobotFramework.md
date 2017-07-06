@@ -261,9 +261,11 @@ robot framework相关的工具．
     -o --output file
     -l --log file
     -r --report file
-    -L --loglevel level    # TRACE, DEBUG, INFO (default), WARN
+    -L --loglevel level    # TRACE, DEBUG, INFO (default), WARN, NONE
     -W --consolewidth chars
     -C --consolecolors auto|on|ansi|off
     -K --consolemarkers auto|on|off
+    -b --debugfile # 存放debug log的文件．
+    -T --timestampoutputs # 所有在outputdir里面的文件都自动加时间戳．
 
 ***

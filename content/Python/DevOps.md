@@ -4,7 +4,7 @@ Tags: Python, Vim, Pycharm
 
 
 
-# python
+# Python
 
 python2的最后一个版本是python2.7, 2020年停止更新.
 
@@ -49,7 +49,7 @@ python的IDE：
 
 python的可用接口
 
-1. python内置函数，类和异常．
+1. python内置常量，函数，类和异常．
 
     C/C++实现的，不需要导入就可以使用的。
 

@@ -97,3 +97,12 @@ file:\\\C:\Program Files\Java\jdk_version\docs\index.html
     $ jdb -version
 
 ***
+# Java项目结构
+
+    .
+    |-- README.md
+    |-- LICENSE
+    |-- AUTHORS.md
+    |-- CONTRIBUTING.rst
+
+    |-- src
