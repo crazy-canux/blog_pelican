@@ -8,6 +8,9 @@ Tags: Python, Data
 
     import datetime
 
+classes:
+
+    # datetime.datetime
     datetime.datetime.strptime(string, format)
     format_datetime = datetime.datetime.strptime('20160824161431', '%Y%m%d%H%M%S') # return: datetime.datetime(2016, 8, 24, 16, 14, 31)
     format_datetime = datetime.datetime.strptime('24 August 2016 16:14:31', '%Y%m%d%H%M%S') # return: datetime.datetime(2016, 8, 24, 16, 14, 31)
@@ -18,13 +21,62 @@ Tags: Python, Data
 
     str(datetime.datetime.now())
 
-    datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    datetime.datetime.now().strftime('%Y%m%d%H%M%S') # 当前时间戳
+
+    # datetime.date
+
+    # datetime.time
+
+    # datetime.timedelta
+
+    # datetime.tzinfo
+
+functions:
+
+data:
+
+    MAXYEAR = 9999
+    MINYEAR = 1
 
 ## calendar
 
 ## collections
 
     import collections
+
+classes:
+
+    # collections.Callable
+
+    # collections.Container
+
+    # collections.Counter
+
+    # collections.Hashable
+
+    # collections.ItemsView
+
+    # collections.Iterable
+
+    # collections.Iterator
+
+    # collections.deque
+    # 返回一个deque类型的实例，也就是双端队列
+    deque([iterable[, maxlen]])
+
+    # collections.defaultdict
+    # 返回一个defaultdict类型的实例，类似于dict.setdefault()
+    defaultdict(default_factory[, ...])
+
+functions:
+
+    namedtuple(typename, field_names, verbose=False, rename=False)
+    # 返回一个tuple的子类, 将只能通过index访问的tuple变为可以通过name来访问．
+    NewTuple = namedtuple('NewTuple', ['elm1', 'elm2', 'elm3'])
+    nt = NewTuple(1, 2, 3)
+    nt.elm1 # 1
+
+data:
 
 ## heapq
 
@@ -51,6 +103,9 @@ Tags: Python, Data
 copy和deepcopy都只拷贝对象的类型和数值，不拷贝对象的ID.也就是==运算为True, is(id())运算为False.
 
     import copy
+
+functions:
+
     copy.copy(x) # 浅复制, 只拷贝父对象，不拷贝内部的子对象.
     copy.deepcopy(x, memo=None, _nil=[]) # 深复制, 拷贝父对象和内部的子对象
 
@@ -79,10 +134,19 @@ python3将cPickle和pickle统一合并为pickle.
 cPickle是c开发的，速度比pickle快，但是不支持被继承．
 
     import cPickle
+
+functions:
+
+    Pickler(file, protocol=0)
+    Unpickler(file)
     dump(obj, file, protocol=0) # 写入到一个文件
-    load(file) # 从文件读取
     dumps(obj, protocol=0) # 写入到一个字符串
+    load(file) # 从文件读取
     loads(string) # 从字符串读取
+
+data:
+
+    HIGHEST_PROTOCOL = 2
 
 ## marshal
 
@@ -116,12 +180,19 @@ DB-API参考PEP249定义了Database的API。
 <https://www.python.org/dev/peps/pep-0249/>
 
     import sqlite3
+
+classes:
+
+functions:
+
     cxn = sqlite3.connect(r'/path/to/file')
     cur = cxn.cursor()
     cur.execute(<sql>)
     ...
     cur.close()
     cxn.close()
+
+data:
 
 ***
 

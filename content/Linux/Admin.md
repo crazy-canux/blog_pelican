@@ -100,11 +100,6 @@ org->gnome->gedit->preferences->encodings->auto-detected 添加'GB2312','GBK',..
 
     $convert -limit memory 2mb -limit map 2mb -delay 2 -loop 0 *.gif example.gif
 
-# terninator
-
-    $ sudo yum install terminator
-    $ sudo apt-get install terminator
-
 # 添加用户为管理员
 
     $ vim /etc/sudoers
@@ -114,7 +109,7 @@ org->gnome->gedit->preferences->encodings->auto-detected 添加'GB2312','GBK',..
 
 # Ubuntu/Debian安装后的基本配置
 
-    $ sudo apt-get install git meld
+    $ sudo apt-get install  terminator
 
 # Ubuntu网络设置
 
@@ -154,7 +149,7 @@ ubuntu修改hostname:
 
 # Centos/Fedora/Redhat安装后的基本配置
 
-    $ sudo yum -y install gcc gcc-c++ kernel-devel meld git bzip2
+    $ sudo yum -y install epel-release terminator gcc gcc-c++ kernel-devel bzip2
     $ sudo ln -s /usr/src/kernels/...x86_64 /usr/src/linux
 
 # Centos网络配置

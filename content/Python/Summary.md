@@ -6,11 +6,6 @@ Tags: Python
 
 # python难点总结
 
-* abstractmethod
-
-    抽象方法是定义在基类中，可能有或没有任何实现的方法．
-    可以用abc标准库的修饰器@abstractmethod实现．
-
 # 多线程
 
 * GIL
@@ -18,6 +13,10 @@ Tags: Python
     GIL: Global Interpretror Lock. 全局解释器锁．
 
     python不建议使用多线程，用多进程代替．
+
+***
+
+# 协程
 
 * coroutine
 

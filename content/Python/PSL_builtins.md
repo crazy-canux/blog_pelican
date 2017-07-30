@@ -36,20 +36,27 @@ python2和python3共同的内置函数：
 
     __import__(name, globals={}, locals={}, fromlist=[], level=-1) # import关键字实际调用该函数
 
-    compile(source, filename, mode[, flags[, dont_inherit]]) # 编译source返回一个code对象．
-    mode: exec用于模块 python2可以用exec关键字执行,python3改成exec()函数;single用于单行申明;eval用于表达式 可以用eval()函数执行． eg:
+    compile(source, filename, mode[, flags[, dont_inherit]])
+    # 编译source返回一个code对象(代码对象)．
+    # mode: exec, 用于模块 python2可以用exec关键字执行,python3改成exec()函数;
     module = "for i in xrange(10): print(i)"
     code = compile(module, '', 'exec')
     type(code) # code
     exec code
+    # mode: single, 用于单行语句, 也是用exec执行;
+    code = compile("print 'test'", '', single)
+    type(code) # code
+    exec code
+    # mode: eval, 用于表达式 可以用eval()函数执行． eg:
     expression = "3 * 4"
     code = compile(expression, '', 'eval')
     type(code) # code
     eval(code)
 
-    format(value[, format_spec]) # 返回格式化后的字符串形式．
+    eval(source[, globals[, locals]])
+    # 返回python表达式的结果，source可以是compile()返回的代码对象，也可以是一个表达式．
 
-    eval(source[, globals[, locals]]) # 返回python表达式的结果，source可以是compile()的返回值，也可以是一个表达式．
+    format(value[, format_spec]) # 返回格式化后的字符串形式．
 
     ## 环境变量相关
     globals() # 返回当前作用域的全局名称空间的字典．
@@ -69,7 +76,7 @@ python2和python3共同的内置函数：
     ## 对象相关的操作
     id(object) # 返回一个对象的ID, 用内存地址作为ID来表示唯一性. 也就是对象的身份．等价is关键字.
     repr(object) # 返回object的标准字符串形式，可以通过eval()重新得到该对象．eval(repr(object)) == object.
-    callable(object) # 如果object是可调用的返回True
+    callable(object) # 如果object是可调用的返回True, 需要实现魔法方法__call__()
     hash(object) # 返回一个对象的散列/哈希(hash)值，有相同值的对象hash值相同.可用做字典的键.
     len(object) # 返回序列（str, tuple, list)或映射（dict)的长度
     dir([object]) # 查看对象的信息
@@ -97,26 +104,32 @@ python2和python3共同的内置函数：
     next(iterator[, default]) # 返回迭代器iterator中的下一个元素，如果没有元素了，default指定内容返回该内容，否则抛出StopIteration异常．
 
     ## related to input
-    input([prompt]) # 等于eval(raw_input(prompt))，根据prompt提示输入内容，返回输入的内容.
+    input([prompt]) # 等于eval(raw_input(prompt))
+    # 根据prompt提示输入内容，返回输入的内容,如果是表达式会先求值再返回.
 
     ## related to file
     open(name[, mode[, buffering]]) # 打开一个文件，返回一个file类类型的对象．
 
 [New]python3新增的内置函数：
 
-    ascii(object) # 和repr()函数等效．
     exec(object[, globals[, locals]]) # python2中是一个关键字，python3才是内置函数．
+    # object可以是一个文件对象，也可以是一个语句或代码块．
+
+    ascii(object) # 和repr()函数等效．
     print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) # python2中是一个关键字，python3才是内置函数．
 
 python2.7中有，python3中被废弃的内置函数：
 
     [Deprecated]apply(object[, args[, kwargs]]) # 直接使用函数定义的可变长参数形式, function_name(*args, **kwargs)
 
+    # python2中还可以使用的函数
     coerce(x, y)
     intern(string)
-    execfile(filename[, globals[, locals]])
+    execfile(filename[, globals[, locals]]) # 类似于exec
     unichr(i) # 返回chr(i)的unicode形式．
-    raw_input([prompt]) # python3中合并为input().
+
+    # 建议使用替代方法的函数
+    raw_input([prompt]) # python3中合并为input(). 不会对输入的表达式求值，以字符串的形式原样返回．
     `` # python3中合并为repr()
     cmp(x, y) # 参考python3的operator.cmp()
     reduce(function, sequence[, initial]) # 参考python3的functools.reduce()
@@ -728,7 +741,7 @@ python2:
 python2:
 
     type(object) # 返回object对象的类型, 也就是对象的类型．
-    type(name, bases, dict) #
+    type(name, bases, dict) # a new type
 
 内置方法:
 
@@ -761,6 +774,10 @@ python2:
     __self__
     __self_class__
     __thisclass__
+
+***
+
+python内置的三个装饰器
 
 # classmethod
 

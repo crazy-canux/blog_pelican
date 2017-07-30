@@ -30,6 +30,37 @@ hawq的client: psql (参考postgresql)
 # psql
 
     $ psql
+    $ PGPASSWORD='password';psql -h <host> -p <port> -U <username> -d [database] -c "[psql command]"
+    $ psql -l # 查看所有database
 
-    # jdbc for hawq
+    # jdbc
     $ jdbc:pivotal:greenplum://hdm1:5432;DatabaseName=getstartdb;User=hdbuser;Password=hdbpass
+
+***
+
+# sql
+
+AO(append only) table:
+
+    > create table {table_name} (var type, var1 type1);
+
+parquet table:
+
+    > create table {table_name} (var type, var1 type2) WITH (appendonly=true, orientation=parquet);
+
+AO table distributed by specified column and partitioned by range:
+
+    > create table {table_name} (var type, var1 type1) distributed by range(var) partition by range(var1) (start val end val1 every val2);
+
+AO table distributed by randomly and partitioned by range:
+
+    > create table {table_name} (var type, var1 type1) distributed randomly partition by range (var) (start(val) end (val1) every(val2));
+
+parquet table distributed by specified column and partitoned by list:
+
+    > create table {table_name} (var type, var1 type1) WITH (appendonly=true, orientation=parquet) distributed by (var) partition by list (var1) (partition name values (val), partition name1 values (val1));
+
+parquet table distributed by randomly and partitioned by list:
+
+    > create table {table_name} (var type, var1 type1) WITH (appendonly=true, orientation=parquet) distributed randomly partiton by list (var1) (partition name values (val), partition name1 values (val));
+

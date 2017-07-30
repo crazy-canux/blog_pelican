@@ -27,9 +27,11 @@ python3叫builtins
 
 把下一个版本的新特性导入到当前版本。
 
-    from __future__ import <future_name>
+    from __future__ import <feature_name>
+
+    # feature name:
+    all_feature_names # 一次导入所有feature
     absolute_import # 绝对导入
-    all_feature_names
     division
     generators
     nested_scopes
@@ -37,9 +39,16 @@ python3叫builtins
     unicode_literals # python2中u'string'才表示unicode, 'string'表示str，python3中所有字符串都是unicode。
     with_statement
 
+data:
+
+    all_feature_names
+    ...
+
 ## sys
 
     import sys
+
+Dynamic objects:
 
     # 动态对象
     sys.argv # 命令行参数的列表，sys.argv[0]是程序名称, len(sys.argv)就是C语言中的argc
@@ -58,10 +67,12 @@ python3叫builtins
     [Deprecated]exc_value
     [Deprecated]exc_traceback
 
+Static objects:
+
     # 静态对象
     float_info -- a dict with information about the float inplementation.
     long_info -- a struct sequence with information about the long implementation.
-    maxint -- the largest supported integer (the smallest is -maxint-1)
+    maxint -- the largest supported integer (the smallest is -maxint-1).
     maxsize -- the largest supported length of containers.
     maxunicode -- the largest supported character
     builtin_module_names -- tuple of module names built into this interpreter
@@ -69,10 +80,8 @@ python3叫builtins
     version_info -- version information as a named tuple
     hexversion -- version information encoded as a single integer
     copyright -- copyright notice pertaining to this interpreter
-
     platform -- platform identifier # 可以判断操作系统类型
     sys.platform # 'win32', 'linux2'
-
     executable -- absolute path of the executable binary of the Python interpreter
     prefix -- prefix used to find the Python library
     exec_prefix -- prefix used to find the machine-specific Python library
@@ -83,7 +92,8 @@ python3叫builtins
     __displayhook__ -- the original displayhook; don't touch!
     __excepthook__ -- the original excepthook; don't touch!
 
-    # 函数
+functions:
+
     displayhook() -- print an object to the screen, and save it in __builtin__._
     excepthook() -- print an exception and its traceback to sys.stderr
     exc_info() -- 返回当前异常的线程安全的三个信息．type, value, traceback.
@@ -118,12 +128,18 @@ python3叫builtins
 实现抽象方法．
 
     import abc
-    class AbstractMethod(object):
-        __metaclass__ = abc.ABCMeta
 
-        @abc.abstractmethod
-        def abstract_method(self):
-            """Method do nothing."""
+classes:
+
+    # abc.ABCMeta
+    ABCMeta
+
+    # abc.abstractproperty
+    abstractproperty
+
+functions:
+
+    abstractmethod(funcobj)
 
 ## atexit
 
@@ -140,8 +156,16 @@ garbage collector：python的垃圾回收模块．
 从运行的python对象获取有用的信息．
 
     import inspect
-    inspect.isgenerator()
-    inspect.isgeneratorfunction() # 检查一个函数是否是生成器
+
+classes:
+
+functions:
+
+    classify_class_attrs(cls)
+    isgenerator()
+    isgeneratorfunction() # 检查一个函数是否是生成器
+
+data:
 
 ## site
 

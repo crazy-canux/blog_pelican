@@ -32,6 +32,7 @@ ack/ack2的升级版
 安装：
 
     $sudo apt-get install silversearcher-ag
+    $sudo yum install the_silver_searcher
 
 使用：
 

@@ -22,9 +22,6 @@ Linux安装：
     $sudo apt-get install python-dev
     $sudo yum install python-devel
 
-    $sudo apt-get install python3-dev
-    $sudo yum install python3-devel
-
     $sudo apt-get install libssl-dev
     $sudo yum install openssl-devel
 
@@ -33,7 +30,13 @@ Linux安装：
     C:\Python27\Lib
     /usr/lib/python2.7/
 
-命令：
+python的IDE：
+
+1. Windows: IDLE
+2. Linux: Vim
+3. Pycharm/IntelliJ
+
+python命令：
 
     $ python/ipython     # 进入python解释器
     >>>exit()/Ctrl+d     # 退出python解释器
@@ -41,13 +44,14 @@ Linux安装：
     help>quit            # 退出help工具
     $ pydoc --help        # 文档工具
 
-python的IDE：
+    # -c　cmd, __name__ != '__main__'
+    $ python -c 'import module/package; expressions'
+    # -m mod, __name__ == '__main__'
+    $ python -m 'module/package'
 
-1. Windows: IDLE
-2. Linux: Vim
-3. Pycharm/IntelliJ
+***
 
-python的可用接口
+# python的可用接口
 
 1. python内置常量，函数，类和异常．
 
@@ -117,7 +121,7 @@ python的版本管理工具.
 
 ***
 
-# 第三方库
+# 安装第三方库
 
 <https://pypi.python.org/pypi>
 
@@ -151,6 +155,7 @@ python的版本管理工具.
     缺点是不支持卸载。
 
         $sudo apt-get install python-setuptools
+        $sudo yum install python-setuptools
 
         $pip install -U setuptools
 
@@ -167,6 +172,8 @@ python的版本管理工具.
 
         $sudo apt-get install python-pip
         $sudo apt-get install python-wheel
+        $sudo yum install python-pip
+        $sudo yum install python-wheel
 
         $pip install -U pip
         $pip install -U wheel

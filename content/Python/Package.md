@@ -53,12 +53,12 @@ python3.4之后并入了虚拟化标准库venv.
     # 先升级pip和setuptools
     $pip install pip
     $pip install setuptools
+    $pip install wheel
 
     # 导出项目用的所有依赖库．
     $pip freeze > requirements.txt
     # 在其它环境需要安装依赖：
-    $pip install -r
-    requirements.txt
+    $pip install -r requirements.txt
 
 virtualenvwrapper
 
@@ -71,6 +71,7 @@ virtualenvwrapper
     $ mkvirtualenv [project-name]
     $ workon [project-name] # 切换到针对该项目的virtualenv
     (pro)$ pip install [package] # 安装第三方包
+    (pro)$ ~/.virtualenv/[project-name]/bin/python setupt.py install # 源码安装
     (pro)$ lssitepackages # 查看安装的第三方包
 
 ## setuptools
@@ -83,6 +84,7 @@ python2.7.9和python3.4以及virtualenv自带setuptools．
 
 支持sdist打包成tar.gz包,和wheel打包成whl包．
 
+    $pip install -U pip
     $pip install -U setuotools
     $pip install -U wheel
 
@@ -203,12 +205,17 @@ python2.7.9和python3.4以及virtualenv自带setuptools．
 
 在索引中注册项目(不再支持，直接upload)：
 
-    $python setup.py register -r pypi
+    [Deprecated] $ python setup.py register -r pypi
 
-打包:
+先打包, 在dist目录生成包:
 
-    $python setup.py sdist # 生成tarball
-    $python setup.py bdist_wheel # 安装wheel后，可以用setuptools生成wheel包
+    $ python setup.py sdist # 生成tarball
+    $ python setup.py bdist_wheel # 安装wheel后，可以用setuptools生成wheel包
+
+再上传到pypi(推荐):
+
+    $ pip install twine
+    $ twine upload dist/*
 
 打包并上传到pypi：
 

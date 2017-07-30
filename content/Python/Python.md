@@ -80,9 +80,10 @@ encoding declarations:
     coding[=:]\s*([-\w.]+)
     # 注释与正则表达式匹配将被作为编码申明处理．
 
-explicit line joining:
+[Deprecated] explicit line joining:
 
     # 多个物理行通过反斜线backslash续行进行显示换行
+    # 推荐用隐式换行．
     if a == b \
            and c ==d: # 只有续行的最后一行可以有注释．反斜线的行不能注释.
         print 'more than one physical line.'
@@ -781,7 +782,7 @@ BaseException是所有异常的基类． Exception是常规错误的基类.
         except_suite
     except Exception[, reason]: # 可以用Exception来捕获所有异常，而不用区分具体的异常．不推荐用逗号，应该用as代替．
         except_suite
-    except:    # 不推荐此用法，和上面一个等效
+    [Deprecated] except:    # 不推荐此用法，和上面一个等效
         except_suite
     ...
     else:    # 可选， 没有异常触发except时运行else,　except和else只能运行一个．
@@ -810,7 +811,7 @@ SomeException可以是字符串，内置异常，第三方库异常类，自定�
     raise ExceptionClass[, args[, traceback]] # 类
     raise ExceptionClass(arguments)[, args[, traceback]] # 实例
     raise ExceptionClass, instance # [TODO]
-    raise instance # 触发实例异常
+    raise instance # 触发实例异常, raise reason 就是跑出一个ExceptionClass类型的instance.
     raise string # 触发字符串异常
     raise # 重新触发前一个异常，如果之前没有异常触发TypeError.
 
@@ -1040,10 +1041,16 @@ lambda匿名函数返回一个可调用的函数对象．
 
 lambda匿名函数支持通过def定义的函数的所有功能．
 
-lambda匿名函数中不能有return语句．
+lambda匿名函数中不能有return语句, expression的结果就是函数返回值．
 
     lambda [arg1[, arg2, ...argN]]: expression
     lambda *args, **kwargs: expression
+    lambda : expression
+
+lambda不能是一个申明：
+
+    # 因为在python2中print是一个关键字，所以下面的申明不是合法的lambda表达式．
+    lambda : print 'not working'
 
 ## *内嵌函数*
 
@@ -1114,7 +1121,6 @@ lambda匿名函数中不能有return语句．
 不带参数的装饰器：
 
     def deco_name(func):
-        # @wraps(func)
         def wrapper_name(*args, **kwargs): # 抽象出相同的部分进行包装
             """Docs for wrapper_name."""
             print func.__name__ # 抽象出来的部分在这里实现
@@ -1137,7 +1143,6 @@ lambda匿名函数中不能有return语句．
 
     def deco_name(arg):
         def deco_inner(func):
-            # @wraps(func)
             def wrapper_name(*args, **kwargs):
                 """Docs for wrapper_name."""
                 print arg # 通过装饰器的参数arg来做一些判断
@@ -1163,6 +1168,8 @@ lambda匿名函数中不能有return语句．
     foo.__doc__ # "Docs for wrapper_name.", 并非foo的doc.
     # 可以通过import functools.wraps来修饰wrapper_name改变这一属性．
 
+<https://github.com/crazy-canux/python/blob/master/python/psl/myfunctools.py>
+
 多层装饰器：
 
     @foo
@@ -1171,6 +1178,8 @@ lambda匿名函数中不能有return语句．
         ...
 
     func = foo(bar(func))
+
+<https://github.com/crazy-canux/python/blob/master/python/decorator/function_decorator.py>
 
 ## *yield生成器*
 
@@ -1262,9 +1271,30 @@ python解释器最先加载内建名称空间，也就是\_\_builtins\_\_模块�
 包就是把多个模块放在一个目录中，然后必须加上\_\_init\_\_.py文件．包是用来组织模块的．
 
     # 包支持模糊导入.
-    from package.module import *
-    # 在__init__.py定义__all__变量来决定导入哪些文件．
-    __all__ = []
+    [Deprecated] from package.module import * # 会导入包里面所有的变量，函数，类．
+
+在__init__.py导入属性，导入时可以省略模块名：
+
+    robot/__init__.py
+    from robot.run import run, run_cli
+
+    test.py
+    from robot import run, run_cli # 可以省略属性所在的模块名
+    run()
+    run_cli()
+
+    等效:
+    test.py
+    from robot.run import run, run_cli # 通过包名和模块名直接导入．
+    run()
+    run_cli()
+
+在__init__.py定义__all__变量来决定导入哪些属性．
+
+    from robot.run import run, run_cli
+    __all__ = [run, run_cli]
+
+    from robot import * # 仅仅导入__all__指定的属性
 
 ## *import导入模块和包*
 

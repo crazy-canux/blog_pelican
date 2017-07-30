@@ -2,6 +2,8 @@ Title: PSL_Test
 Date: 2016-04-11 22:58:13
 Tags: Python, Test, TDD
 
+
+
 # Test
 
 python的单元测试库．
@@ -63,6 +65,8 @@ ERROR 表示测试过程引发一个不是AssertionError的异常．
     import unittest
     import MyClass
 
+classes:
+
     unittest.TestCase: 每个实例就是一个test case. 使用TestCase.assert* 系列方法进行测试．
     unittest.TestSuite: 每个实例就是一个test suite. 多个test case放在一起就是一个test suite.
     unittest.TestLoader/unittest.defaultTestLoader: 用来加载TestCase到TestSuite.
@@ -74,11 +78,11 @@ ERROR 表示测试过程引发一个不是AssertionError的异常．
     unittest.TextTestRunner: 用来执行测试用例．
     unittest.TextTestResult: 用来打印格式化的测试结果．
 
-unittest.TestCase
-
     # unittest.TestCase
+    # methods:
     assertXXX　系列方法．
     failXXX 系列方法
+    fail(self, msg=None) # test立即失败
     addCleanup(self, function, *args, **kwargs)
     addTypeEqualityFunc(self, typeobj, function)
     countTestCases(self)
@@ -92,21 +96,33 @@ unittest.TestCase
     setUp(self) # 重写之后，每个case运行之前都会调用一次．
     tearDown(self) # 同上
 
-    # classmethod
+    # classmethods:
     setUpClass(cls) # 通过@classmethod重写，这样所有的case运行之前只调用一次，而不是每个case运行之前都调用．
     tearDownClass(cls) # 同上
 
-unittest的functions
+    # data:
+    failureException = AssertionError
+    longMessage = False
+    maxDiff = 640
 
-    import unittest
+functions:
+
+    findTestCases(module, prefix='test', sortUsing=<built-in function cmp>, suiteClass=<class 'unittest.suite.TestSuite'>)
+    getTestCaseNames(testCaseClass, prefix, sortUsing=<built-in function cmp>)
+    installHandler()
+    makeSuite(testCaseClass, prefix='test', sortUsing=<built-in function cmp>, suiteClass=<class 'unittest.suite.TestSuite'>)
+    registerResult(result)
+    removeHandler(method=None)
+    removeResult(result)
+
     # unittest.case实现了几个函数用来增强unittest.TestCase的方法, 一般当装饰器用．
-    expectedFailure() # 如果这个case失败了，不计入失败的数目．
-    @unittest.expectedFailure
+    expectedFailure(func) # 如果这个case失败了，不计入失败的数目．
+    # @unittest.expectedFailure
     skip(reason) # 无条件跳过一个test case.
     skipIf(condition, reason) # condition为true就跳过一个test case.
     skipUnless(condition, reason) # 和上面相反
 
-example:
+examples:
 
     class MyClassTest(unittest.TestCase):
 
@@ -134,8 +150,7 @@ example:
     if __name__ == "__main__":
         unittest.main()
 
-自动发现和批量执行testcase/testsuite:
-
+    # 自动发现和批量执行testcase/testsuite:
     def discover_test_case():
         test_cases = []
         _module = ...
@@ -170,7 +185,6 @@ mock就是在测试中对于不容易构造或获取的对象，用一个虚拟�
     # Python2.7 此处用的是第三方库mock
     from mock import Mock, patch, PropertyMock, MagicMock
 
-
 ## nose2
 
 <https://github.com/nose-devs/nose2>
@@ -194,14 +208,6 @@ pytest用于单元测试．推荐使用．
     $ pip install -U pytest
 
     import pytest
-
-     def test_main():
-         ...
-
-    if __name__ == "__main__":
-        pytest.main("/path/to/test_script.py")
-
-    $ py.test
 
 ***
 

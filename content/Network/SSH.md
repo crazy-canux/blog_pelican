@@ -38,14 +38,14 @@ ssh也包括一些密钥管理的命令.
 
 ssh-keygen
 
-    $ ssh-keygen -t rsa
+    $ ssh-keygen -t rsa -C 'canuxcheng@gmail.com'
 
     # 通过将本机的公钥拷贝到远程机器实现无密码访问．
     # 将本机的public-key拷贝到远程机器的authorized_keys.
     $ ssh-copy-id -i ~/.ssh/id_rsa.pub user@remote
-
     # 另外的拷贝方法
     $ ssh user@host "cat >> ~/.ssh/authorized_keys" < ~/.ssh/id_rsa.pub
+
     $ sudo service ssh restart # 需要重启ssh服务
 
 ssh-add

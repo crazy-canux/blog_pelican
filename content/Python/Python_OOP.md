@@ -320,7 +320,7 @@ python可以重载魔法方法．
 
 ## magicmethod
 
-python有一些可自定义的特殊方法集，它们中的一些有预定义的默认行为，一些没有，留到需要的时候去实现．
+python类有一些可自定义的特殊方法集，它们中的一些有预定义的默认行为，一些没有，留到需要的时候去实现．
 
 这些特殊方法是python中用来扩充类的方法．可以用来模拟标准类型或者重载操作符.
 
@@ -348,7 +348,17 @@ python有一些可自定义的特殊方法集，它们中的一些有预定义�
 
 可调用对象的特殊方法：
 
-    __call__(self, *args) # 表示可调用的实例
+    __call__(self, *args) # 表示可调用的实例, callable(object) 会返回true.
+
+    class TestClass(object):
+        def __call__(self, *args):
+            print "Instance is callable after implement call method in class."
+            print "Args come from instance invoke is: {}".format(args)
+
+    tc = TestClass()
+    callable(tc) # True
+    tc()
+    tc('arg1')
 
 实例和类的检查相关特殊方法：
 
@@ -392,14 +402,16 @@ with上下文管理特殊方法：
 
 容器类型相关特殊方法:
 
-    __len__(self) # 长度，　len()
-    __getitem__(self, key)
-    __missing__(self, key)
-    __setitem__(self, key, value)
-    __delitem__(self, key)
-    __reversed__(self)
+    __len__(self) #　len()
+    __getitem__(self, key) #
+    __setitem__(self, key, value) #
+    __delitem__(self, key) # del
+    __reversed__(self) # reversed()
+    __iter__(self) # iter()
     __contains__(self, item)
-    __iter__(self)
+    __missing__(self, key)
+
+<https://github.com/crazy-canux/python/blob/master/python/magicmethod/container.py>
 
 数值类型相关特殊方法：
 
@@ -421,7 +433,7 @@ with上下文管理特殊方法：
     __rxxx__(self, other)
 
     # 原位运算必须返回self.
-    __ixxx__(self, other)
+    __ixxx__(self, other) # self += other -> self = self + other
 
     __neg__(self)
     __pos__(self)
@@ -506,8 +518,24 @@ Delegation授权(代理)是Wrapping包装的一个特性,用于简化处理相�
             # 在这里做一些你希望使用该元类的类在定义时做的操作
 
     class ClassName(object):
-        __metaclass__ = MetaClassName # 指点元类
+        __metaclass__ = MetaClassName # 指定元类
         ...
+
+<https://github.com/crazy-canux/python/tree/master/python/metaclass>
+
+## abstractmethod
+
+抽象方法，类似于java的interface.
+
+最简单的抽象方法：
+
+    # 如果子类没有实现同名的该方法，就会抛出异常．
+    def base_method(self):
+        raise NotImplementedError
+
+或者使用abc标准库来实现：
+
+<https://github.com/crazy-canux/python/tree/master/python/psl/myabc.py>
 
 # descriptors
 
@@ -608,7 +636,7 @@ obj.__getattribute__和class.__getattribute__的调用方式不同．
     obj.function(*args) -> function(obj, *args)
     Class.function(*args) -> function(*args)
 
-# property
+## property
 
 property属性是一种有用的特殊类型的描述符． 也是descriptor的主要用途．
 
@@ -663,6 +691,8 @@ property属性是一种有用的特殊类型的描述符． 也是descriptor的�
         @email.deleter
         def email(self):
             del self._email
+
+<https://github.com/crazy-canux/python/tree/master/python/descriptor>
 
 ***
 
@@ -755,6 +785,8 @@ super()返回的对象有一个用于调用Descriptor的定制__getattribute__()
 
 类装饰器比函数装饰器更灵活，高内聚，封装性等优点．
 
+类装饰器用于装饰一个类.
+
     def deco_name(cls):
         class WrapperName(cls, ...):
             def __init__(self, *args, **kwargs):
@@ -768,3 +800,7 @@ super()返回的对象有一个用于调用Descriptor的定制__getattribute__()
         def __init__(self, *args, **kwargs):
             ...
         ...
+
+<https://github.com/crazy-canux/python/blob/master/python/decorator/class_decorator.py>
+
+***

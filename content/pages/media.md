@@ -18,13 +18,25 @@ E01 - E13
 
 # Monday
 
-## 冰与火之歌-权利的游戏S06
+## 冰与火之歌-权利的游戏S07
+
+E01 - E7
+
+下载地址：
+
+<http://www.ttmeiju.com/meiju/Game.of.Thrones.html>
+
+<http://www.kmeiju.net/archives/4386.html>
+
+## 血族S04
 
 E01 - E10
 
 下载地址：
 
-<http://cn163.net/archives/23711/>
+<http://www.ttmeiju.com/meiju/The.Strain.html>
+
+<http://www.kmeiju.net/archives/5345.html>
 
 ## 白公主S01
 
@@ -41,14 +53,6 @@ E01 - E13
 下载地址：
 
 <http://cn163.net/archives/23679/>
-
-## 血族S03
-
-E01 - E13
-
-下载地址：
-
-<http://cn163.net/archives/23963/#tab-widget1>
 
 ## 西部世界S01
 

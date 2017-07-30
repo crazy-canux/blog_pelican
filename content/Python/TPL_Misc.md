@@ -4,6 +4,12 @@ Tags: Misc
 
 
 
+# TPL
+
+Third Party Library: 第三方库
+
+***
+
 # colorama
 
 Simple cross-platform colored terminal text in Python
@@ -15,6 +21,19 @@ Install:
     $ pip install colorama
 
     from colorama import Fore, Back, Style, init
+
+functions:
+
+    init()
+
+data:
+
+    Fore
+    Back
+    Style
+
+examples:
+
     init()
     print Fore.RED + 'show red' + Fore.RESET # 字体颜色
     print Back.CYAN + 'show cyan in background' + Back.RESET # 背景颜色
@@ -31,8 +50,19 @@ decorator
 
 <https://pypi.python.org/pypi/enum/0.4.6>
 
-    from enum import Enum
-    class Dataset(str, Enum):
+    from enum import Enum, IntEnum
+
+classes:
+
+    # enum.Enum
+
+functions:
+
+    unique(enumeration)
+
+examples:
+
+    clas Dataset(str, Enum):
         FIRST = 'one'
         SECOND = 'second'
 

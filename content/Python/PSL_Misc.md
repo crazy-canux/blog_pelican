@@ -6,7 +6,7 @@ Tags: Python, PSL, Misc
 
 # PSL
 
-Python Standard Library 的其它标准库
+Python Standard Library: Python标准库
 
 ***
 
@@ -24,6 +24,19 @@ Python Standard Library 的其它标准库
 
 ## shlex
 
+类shell的词法分析．
+
+classes:
+
+    shlex
+
+functions:
+
+    split(s, comments=False, posix=True)
+    # split("command **kwargs") -> ['command', 'arg1', ...]
+
+data:
+
 ***
 
 # Custom Python Interpreters
@@ -39,8 +52,14 @@ Python Standard Library 的其它标准库
 ## keyword
 
     import keyword
-    keyword.kwlist # 返回所有关键字的列表
+
+functions:
+
     keyword.iskeyword(keyword) # x.__contains__(y) <==> y in x
+
+data:
+
+    keyword.kwlist # 返回所有关键字的列表
 
 ## parser
 

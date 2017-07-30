@@ -147,7 +147,7 @@ common.exception包括了所有的异常．
 
 ***
 
-# example
+# examples
 
     try:
         wait = WebDriverWait(driver, 10, 1.0)

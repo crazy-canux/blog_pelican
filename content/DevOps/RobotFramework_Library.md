@@ -96,6 +96,18 @@ robotframework测试库实现为模块时，导入的模块的命名空间的可
 
 Listener监听器接口允许外部监听器获取关于测试执行的通知．
 
+可以实现的方法有：
+
+    start_suite(name, attribute)/end_suite(name, attribute) # test suite开始/结束的时候调用
+    start_test(name, attribute)/end_test(name, attribute) # test case开始/结束的时候调用
+    start_keyword(name, attributes)/end_keyword(name, attribute) # keyword开始/结束的时候调用
+    close() # 当整个test结束调用
+    log_message(message) # 当执行的keyword写log的时候调用
+    message(message) # 当framework写system log的时候调用
+    ...
+
+<http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#listener-interface-methods>
+
     # librarylistener.py
     # rf的外部监听程序
 

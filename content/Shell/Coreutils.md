@@ -67,10 +67,6 @@ Linux外部命令的项目是coreutils。
     passwd
     pkill
 
-    $ sudo apt-get install sysstat
-    iostat
-    mpstat
-
 # 文件和目录管理
 
     mkdir
