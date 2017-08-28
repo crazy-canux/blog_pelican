@@ -362,6 +362,8 @@ python类有一些可自定义的特殊方法集，它们中的一些有预定�
 
 实例和类的检查相关特殊方法：
 
+可以控制内置方法的反射(自省)行为．
+
     __instancecheck__(self, instance) # isinstance(instance, class)
     __subclasscheck__(self, subclass) # issubclass(subclass, class)
 
@@ -423,7 +425,7 @@ with上下文管理特殊方法：
     __floordiv__(self, other)
     __mod__(self, other)
     __divmod__(self, other)
-    __pow__(self, other[, modulo])
+    __pow__(self, other[, module])
     __lshift__(self, other)
     __rshift__(self, other)
     __and__(self, other)

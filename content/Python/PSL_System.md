@@ -53,26 +53,39 @@ classes:
 
 functions:
 
-    # 获取当前unix时间戳
-    time.time()
+    clock()
+    sleep(seconds) # 延迟
+    tzset()
 
-    # 将时间2011-09-27 10:50:00转换成时间戳（从1970开始的秒数）
-    time.mktime(time.strptime("2016-01-01 00:00:00", "%Y-%m-%d %H:%M:%S"))
+    # 获取时间戳(Epoch seconds)
+    time() # 获取当前时间戳
+    mktime(tuple) # mktime((2017,8,23,11,7,10,12)) , 参数是时间元组
 
-    # 将时间戳转换成时间2011-09-27 10:50:00
-    time.gmtime(1472540718.340721)
+    # 获取时间元组 (tm_year,tm_mon,tm_mday,tm_hour,tm_min, tm_sec,tm_wday,tm_yday,tm_isdst)
+    localtime([seconds]) # 参数是时间戳
+    gmtime([seconds]) # 参数是时间戳
+    strptime(string, format) # 参数是时间字符串
 
-    time.sleep(seconds) # 延迟
+    # 获取时间字符串
+    asctime([tuple])
+    strftime(format[, tuple])
+    ctime(seconds) # 参数是时间戳
 
 data:
-
-## io
 
 ## logging
 
     import logging
 
+classes:
+
+functions:
+
+data:
+
 ## getopt
+
+C风格的参数处理.
 
 ## argparse
 
@@ -141,6 +154,8 @@ functions:
 
 data:
 
+## io
+
 ## errno
 
 ## getpass
@@ -176,10 +191,65 @@ python可以通过多进程取代多线程，从而绕过GIL.
 classes:
 
     # multiprocessing.Process
+    Process(group=None, target=None, name=None, args=(), kwargs={})
+    # methods:
+    run(self)
+    start(self)
+    join(self, timeout=None)
+    is_alive()
+    terminate(self)
+    # data descriptor:
+    authkey
+    daemon
+    exitcode
+    ident
+    name
+    pid
 
 functions:
 
-    Queue(maxsize=0) # return a queue object.
+    # 工厂函数
+
+    Manager()
+
+    Pool(processes=None, initializer=None, initargs=(), maxtasksperchild=None)
+
+    # IPC: 管道
+
+    Pipe(duplex=True) # duplex=True表示默认是双向pipe.
+    receiver, sender = Pipe()
+    sender.send(obj)
+    receiver.recv()
+    close()
+
+    # IPC: 消息队列
+
+    # 来自于Queue.Queue, 具体方法参考Queue.Queue
+    Queue(maxsize=0) # return a queue object
+    q = Queue()
+
+    # IPC: 共享内存
+    Array(typecode_or_type, size_or_initializer, **kwds)
+    RawArray(typecode_or_type, size_or_initializer)
+    Value(typecode_or_type, *args, **kwds)
+    RawValue(typecode_or_type, *args)
+
+    Event()
+    Semaphore(value=1)
+    BoundedSemaphore(value=1)
+    Lock()
+    RLock()
+    Condition(lock=None)
+
+    # 普通函数
+
+    active_children()
+    allow_connection_pickling()
+    cpu_count()
+    current_process()
+    freeze_support()
+    get_logger()
+    log_to_stderr(level=None)
 
 data:
 
@@ -192,6 +262,8 @@ data:
 
 ## threading
 
+threading支持守护线程(通过join方法实现)．
+
     import threading
 
 classes:
@@ -199,14 +271,14 @@ classes:
     # threading.Thread
     Thread(group=None, target=None, name=None, args=(), kwargs=None, verbose=None)
     # methods:
-    getName(self)
-    setName(self, name)
-    isAlive(self)
-    isDaemon(self)
-    setDaemon(self, daemonic)
-    start(self)
-    run(self)
-    join(self, timeout=None)
+    run(self) # 子类重写用来定义线程的功能的函数, 通常通过这种方式来创建线程
+    start(self) # 开始执行线程
+    join(self, timeout=None) # 主程序挂起，直到线程结束,再继续运行主程序
+    getName(self) # 返回线程名字
+    setName(self, name) # 设置线程名字
+    isAlive(self) # 表示线程是否还在运行的boolean
+    isDaemon(self) # 返回线程的daemon标志
+    setDaemon(self, daemonic) # 在调用start方法前把daemon标志设为daemonic
 
 functions:
 
@@ -217,9 +289,25 @@ functions:
     t.start() # 在一个子线程等待，timeout就执行f(*args, **kwaargs).
     t.cancel() # 如果还在等待就取消．
 
+    Event(*args, **kwargs)
+    BoundedSemaphore(*args, **kwargs)
+    Semaphore(*args, **kwargs)
+    Condition(*args, **kwargs)
+    Lock = allocate_lock(...)
+    RLock(*args, **kwargs)
+
     # 普通函数：
 
-    activeCount()
+    activeCount() # 当前活动的线程对象的数量
+    currentThread() # 返回当前线程对象
+    enumerate() # 返回当前活动线程列表
+    settrace(func) # 为所有的线程设置一个跟踪函数
+    setprofile(func) # 为所有线程设置一个profile函数
+    stack_size()
+
+## select
+
+## mmap
 
 ## dummy_thread
 
@@ -228,10 +316,6 @@ functions:
 ## readline
 
 ## rlcompleter
-
-## select
-
-## mmap
 
 ***
 

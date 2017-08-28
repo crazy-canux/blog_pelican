@@ -1,17 +1,8 @@
----
-layout: post
-title: PowerShell之内置命令
-comments: true
-date: 2016-05-24 10:44:44
-updated:
-tags:
-- powershell
-- windows
-categories:
-- Windows
-- PowerShell
-permalink:
----
+Title: PowerShell Builtin Command
+Date: 2016-05-24 10:44:44
+Tags: PowerShell, Builtins
+
+
 
 # Get-Help和Help:
 

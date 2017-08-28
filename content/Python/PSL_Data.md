@@ -10,7 +10,19 @@ Tags: Python, Data
 
 classes:
 
-    # datetime.datetime
+    # datetime.date
+    date(year, month, day)
+    # methods:
+    ctime(...)
+    ...
+    # data descriptors:
+    day
+    month
+    year
+
+    # datetime.datetime(datetime.date)
+    datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])
+    # methods:
     datetime.datetime.strptime(string, format)
     format_datetime = datetime.datetime.strptime('20160824161431', '%Y%m%d%H%M%S') # return: datetime.datetime(2016, 8, 24, 16, 14, 31)
     format_datetime = datetime.datetime.strptime('24 August 2016 16:14:31', '%Y%m%d%H%M%S') # return: datetime.datetime(2016, 8, 24, 16, 14, 31)
@@ -20,18 +32,13 @@ classes:
     datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') # return: '2017-02-07 23:07:32'
 
     str(datetime.datetime.now())
-
     datetime.datetime.now().strftime('%Y%m%d%H%M%S') # 当前时间戳
-
-    # datetime.date
 
     # datetime.time
 
     # datetime.timedelta
 
     # datetime.tzinfo
-
-functions:
 
 data:
 
@@ -87,6 +94,25 @@ data:
 ## sched
 
 ## Queue
+
+队列数据结构．
+
+    import Queue
+
+classes:
+
+    # Queue.Queue
+    Queue(maxsize=0) # 创建一个大小为maxsize的queue对象
+    # methods:
+    empty(self) # 如果queue为空返回True
+    full(self) # 如果queue达到maxsize返回True
+    get(self, block=True, timeout=None) # 从队列中取出一个元素并返回,如果block=True,会一直阻塞,直到队列中有元素．
+    get_nowait(self)
+    join(self)
+    put(self, item, block=True, timeout=None) # 把item放到队列中,如果block=true,会一直阻塞,直到队列有空间存放item.
+    put_nowait(self, item)
+    qsize(self) # 返回queue大小，近似值
+    task_done(self)
 
 ## weakref
 
@@ -183,14 +209,24 @@ DB-API参考PEP249定义了Database的API。
 
 classes:
 
+    # sqlite3.Connection
+    # methods:
+    close(...)
+    commit(...)
+    cursor(...)
+    execute(...)
+    ...
+
+    # sqlite3.Cursor
+    # methods:
+    close(...)
+    ...
+
 functions:
 
-    cxn = sqlite3.connect(r'/path/to/file')
-    cur = cxn.cursor()
-    cur.execute(<sql>)
+    adapt(obj, protocol, alternate)
+    connect(database[, timeout, isolation_level, detect_types, factory])
     ...
-    cur.close()
-    cxn.close()
 
 data:
 

@@ -1,17 +1,8 @@
----
-layout: post
-title: Django之Template
-comments: true
-date: 2016-10-04 04:12:49
-updated:
-tags:
-- python
-- django
-categories:
-- Python
-- Django
-permalink:
----
+Title: Django Template
+Date: 2016-10-04 04:12:49
+Tags: Django, Template
+
+
 
 # 模板设置
 

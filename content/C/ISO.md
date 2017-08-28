@@ -1,18 +1,8 @@
----
-layout: post
-title: C语言之ISO
-comments: true
-date: 2016-04-01 21:54:16
-updated:
-tags:
-- C
-- ISO C
-- ANSI C
-- POSIX
-categories:
-- C
-permalink:
----
+Title: C ISO
+Date: 2016-04-01 21:54:16
+Tags: C, ISO
+
+
 
 # C标准库
 

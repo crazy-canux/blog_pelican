@@ -1,16 +1,8 @@
----
-layout: post
-title: C开发环境
-comments: true
-date: 2016-04-11 22:57:37
-updated:
-tags:
-- gcc
-- gdb
-categories:
-- C
-permalink:
----
+Title: DevOps
+Date: 2016-04-11 22:57:37
+Tags: C, DevOps
+
+
 
 # IDE
 

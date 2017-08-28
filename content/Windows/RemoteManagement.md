@@ -1,20 +1,8 @@
----
-layout: post
-title: PowerShell之RemoteManagement
-comments: true
-date: 2016-07-18 14:54:39
-updated:
-tags:
-- powershell
-- wmi
-- cim
-- winrm
-- rpc
-categories:
-- Windows
-- PowerShell
-permalink:
----
+Title: PowerShell RemoteManagement
+Date: 2016-07-18 14:54:39
+Tags: PowerShell, RemoteManagement
+
+
 
 # Windows远程管理
 

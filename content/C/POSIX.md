@@ -1,18 +1,8 @@
----
-layout: post
-title: C语言之POSIX
-comments: true
-date: 2016-04-02 11:18:05
-updated:
-tags:
-- C
-- ISO C
-- ANSI C
-- POSIX
-categories:
-- C
-permalink:
----
+Title: C POSIX
+Date: 2016-04-02 11:18:05
+Tags: C, Posix
+
+
 
 # POSIX标准
 

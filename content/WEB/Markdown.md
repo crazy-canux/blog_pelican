@@ -1,15 +1,8 @@
----
-layout: post
-title: Markdown
-comments: true
-date: 2016-03-28 22:03:15
-updated:
-tags:
-- Markdown
-categories:
-- Web
-permalink:
----
+Title: Markdown
+Date: 2016-03-28 22:03:15
+Tags: Markdown
+
+
 
 # Markdown
 

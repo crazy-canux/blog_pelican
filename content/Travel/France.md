@@ -1,16 +1,8 @@
----
-layout: post
-title: 法国旅游
-comments: true
-date: 2016-04-10 17:49:15
-updated:
-tags:
-- france
-- travel
-categories:
-- travel
-permalink:
----
+Title: France
+Date: 2016-04-10 17:49:15
+Tags: Travel, France
+
+
 
 # 法国之旅
 

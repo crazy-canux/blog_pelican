@@ -245,12 +245,10 @@ Gerrit is a code review and project management tool for Git based projects.
 # Git命令
 
 git的结构：
-1. working directory(工作目录)
-    通过git init初始化
-2. staging area(暂存区)
-    通过git add添加index到暂存区
-3. repository(仓库)
-    通过git commit提交到repository
+
+1. working directory(工作目录),通过git init初始化
+2. staging area(暂存区),通过git add添加index到暂存区
+3. repository(仓库),通过git commit提交到repository
 
         git help <verb>
         git <verb> --help
@@ -278,6 +276,7 @@ Add file contents to the index
 Record changes to the repository
 
     git commit -m "[1.0.0.0]init repository."
+    git commit --amend
 
 ## bisect
 
@@ -287,113 +286,157 @@ Find by binary search the change that introduced a bug
 
 List, create, or delete branches
 
-    $git branch -m old-name new-name # 重命名
+    git branch [branch-name]
+    git branch -d [branch-name] # 删除已经merge到master的分支
+    git branch -D [branch-name] # 强制删除分支
+    git branch -m [old-name] [new-name] # 重命名
+    git branch -M [old-name] [new-name] # 强制重命名
 
 ## blame
 
 Show what revision and author last modified each line of a file
 
-    $git blame filename # 查看文件的历史记录
+    git blame filename # 查看文件的历史记录
 
 ## checkout
 
 Checkout a branch or paths to the working tree
 
-    $git checkout -b develop master
+    git checkout [branch-name]
+    git checkout -b [branch-name] [start-point] # 创建并切换到分支
+    git checkout -B [branch-name] [start-point] # 强制执行
+    git checkout -- file/path # 撤销工作目录中文件的修改
+    git checkout [branch-name] -- file/path # 获取远程仓库的文件到当前工作目录
 
 ## clone
 
 Clone a repository into a new directory
 
+    git clone [url]
+
 ## diff
 
 Show changes between commits, commit and working tree, etc
+
+    git diff # 查看工作目录变化
+    git diff --staged # 查看暂存区变化
 
 ## fetch
 
 Download objects and refs from another repository
 
+    git fetch
+    git fetch -p
+
 ## grep
 
 Print lines matching a pattern reinitialize an existing one
+
+    git grep [<pathspec>...]
 
 ## log
 
 Show commit logs
 
+    git log # 显示commit的log
+
 ## merge
 
 Join two or more development histories together
 
-    $git merge --no-ff develop
+    git merge [branch-name]
+    git merge --ff # fast-forward,默认直接两个分支合并，不会产生新的commit,看不到开发分支的分叉．
+    git merge --no-ff # no fast-forward,每次合并会创建新的commit.可以看到开发分支的分叉
+    git merge --ff-only
 
 ## mv
 
 Move or rename a file, a directory, or a symlink
 
+    git mv [old] [new] # 重命名暂存区文件
+
 ## pull
 
 Fetch from and integrate with another repository or a local branch
+
+    git pull
 
 ## push
 
 Update remote refs along with associated objects
 
-    $ git config --global push.default simple
+    git config --global push.default simple
 
 ## rebase
 
 Forward-port local commits to the updated upstream head
 
-    $git rebase -i head # 修改提交的信息
+    git rebase -i [commit] # 修改提交的信息
     # r commit-id [branch]comment.
+    git rebase --continue
+    git rebase --abort
+    git rebase --skip
+    git rebase --edit-todo
 
 ## reset
 
 Reset current HEAD to the specified state
 
-    $git reset --hard origin/master
+    git reset --hard [commit] # 全部回退
+    git reset --soft [commit]
+    git reset --mixed [commit]
+    git reset --merge [commit]
+    git reset --keep [commit]
 
 ## rm
 
 Remove files from the working tree and from the index
 
+    git rm [filename] # 删除工作目录，暂存区的文件
+    git rm --cached [filename] # 不删除工作目录的文件
+
 ## revert
 
 Revert some existing commits
 
-    $git revert head # 撤销一次merge
+    git revert [commit] # 撤销一次merge
 
 ## reflog
 
 Manage reflog information
 
-    $git reflog show # 查看所有git操作日
-    $git reflog branch # 查看分支的所有历史操作
+    git reflog show # 查看所有git操作日
+    git reflog expire
+    git reflog delete
 
 ## show
 
 Show various types of objects
 
+    git show
+
 ## status
 
 Show the working tree status tag Create, list, delete or verify a
 
-    $git status
+    git status
+    git status -s # 显示状态的简介信息, 默认是--long
 
 ## stash
 
 Stash the changes in a dirty working directory away
 
-    $git stash # 暂存当前工作目录
-    $git stash list # 查看暂存列表
-    $git stash pop --index stash@{N} # 恢复暂存区N和工作目录
+    git stash # 暂存当前工作目录
+    git stash list # 查看暂存列表
+    git stash show [stash]
+    git stash pop --index stash@{N} # 恢复暂存区N和工作目录
+    git stash apply --index stash@{N} # 同上
 
 ## tag
 
-object signed with GPG
+Create, list, delete or verify a tag object signed with GPG
 
-    $git tag -a v1.0.0.0 -m "release 1.0 version."
+    git tag -a v1.0.0.0 -m "release 1.0 version."
 
 ## submodule
 
@@ -401,11 +444,11 @@ Initialize, update or inspect submodules
 
 会在项目产生.gitmodules文件，而且不被.gitignore忽略，所以不要在URL添加用户名和密码．
 
-    $git submodule add <repository> [<path>]
-    $git submodule update --init --recursive
+    git submodule add <repository> [<path>]
+    git submodule update --init --recursive
 
-***
+## mergetool
 
-# mergetool
+Run merge conflict resolution tools to resolve merge conflicts.
 
-    $ git mergetool --tool=meld
+    git mergetool --tool=meld

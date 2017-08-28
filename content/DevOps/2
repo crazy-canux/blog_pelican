@@ -35,30 +35,19 @@ make命令会执行当前目录的makefile/Makefile/GNUmakefile文件．
     make install
     make clean
 
-make的工作顺序：
-* 读入所有makefile文件
-* 读入include的其它makefile文件
-* 初始化变量
-* 推导隐晦规则，分析所有规则
-* 为所有目标文件创建依赖关系链
-* 根据依赖关系决定哪些目标需要重新生成
-* 执行生成的命令
-
-# makefile语法
+# makefile格式
 
 make命令执行makefile文件时，会比较target和prerequisites的时间戳，如果后者比前者新，或者前者不存在，就会执行command,否则会跳过command.
 
 其中#表示注释，\表示续行．@表示该命令的执行不会打印到stdout,-表示忽略错误继续执行．
 
-makefile中的command必须以tab开头，target和prerequisites有多个时用空格分开．
-
     # comment
-    target...: prerequisites...
+    target: prerequisites...
         command
-        command1 too \
+        command to \
         long
-        @command2
-        -command3
+        @command
+        -command
         ...
 
 makefile的变量：
@@ -87,19 +76,3 @@ makefile的变量：
     clean:
         -rm elf $(obj)
 
-在makefile中引用外部makefile:
-
-    # 优先在当前目录查找，-l可以指定额外的查找路径
-    -include a.makefile b.makefile ...
-
-makefile支持的通配符：
-
-    ~    # 用来表示$HOME环境变量
-    *    # 用来表示任意长度字符串
-    [...]
-
-自动推导和隐晦规则：
-
-伪目标：
-
-查找路径：

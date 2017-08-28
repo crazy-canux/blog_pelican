@@ -18,7 +18,7 @@ zypper: suse.
 
 安装一个中文输入法框架fcitx(IBus, SCIM, UIM)：
 
-    sudo apt-get install fcitx
+    $ sudo apt-get install fcitx
 
 安装一种输入法引擎：
 
@@ -149,8 +149,8 @@ ubuntu修改hostname:
 
 # Centos/Fedora/Redhat安装后的基本配置
 
-    $ sudo yum -y install epel-release terminator gcc gcc-c++ kernel-devel bzip2
-    $ sudo ln -s /usr/src/kernels/...x86_64 /usr/src/linux
+    $ sudo yum -y install epel-release kernel-devel gcc gcc-c++
+    $ sudo yum -y install terminator bzip2
 
 # Centos网络配置
 

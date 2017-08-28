@@ -1,15 +1,8 @@
----
-layout: post
-title: Django之MISC
-comments: true
-date: 2017-01-04 01:13:36
-updated:
-tags:
-categories:
-- Python
-- Django
-permalink:
----
+Title: Django MISC
+Date: 2017-01-04 01:13:36
+Tags: Django, Misc
+
+
 
 # Django的国际化和本地化
 

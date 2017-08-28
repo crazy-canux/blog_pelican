@@ -1,16 +1,8 @@
----
-layout: post
-title: Windows之WMI和CIM
-comments: true
-date: 2016-04-03 14:15:47
-updated:
-tags:
-- Windows
-- wmi
-categories:
-- Windows
-permalink:
----
+Title: Windows WMI
+Date: 2016-04-03 14:15:47
+Tags: Windows, WMI, CIM
+
+
 
 # WMI/CIM
 

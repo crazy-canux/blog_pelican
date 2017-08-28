@@ -1,6 +1,6 @@
 Title: Document
 Date: 2016-08-03 21:57:26
-Tags: reST, Sphinx, readthedoc
+Tags: Python, Document, reST, Sphinx, readthedoc
 
 
 

@@ -1,17 +1,8 @@
----
-layout: post
-title: Django之Module
-comments: true
-date: 2016-10-04 04:20:31
-updated:
-tags:
-- python
-- django
-categories:
-- Python
-- Django
-permalink:
----
+Title: Django Module
+Date: 2016-10-04 04:20:31
+Tags: Django, Module
+
+
 
 # models.py
 

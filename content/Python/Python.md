@@ -943,7 +943,7 @@ def function_name(arguments)
 
 当函数参数不确定时，可以使用可变长度参数．
 
-一个星号表示一个非关键字参数组成的元组．
+一个星号表示一个非关键字参数组成的元组(可以是其它序列，会自动转换成元组)．
 
 两个星号表示一个关键字参数组成的字典．
 
@@ -956,6 +956,7 @@ def function_name(arguments)
 
 也可以在元组和字典中放部分参数，另外一部分直接传递, 非关键字参数的传值不能在关键字参数后面．
 
+    # 注意，函数定义的时候星号是必须的，函数调用的时候也需要星号．
     args = ('val1', 'val2')
     kwargs = {key1: 'val1', key2: 'val2'}
     func_test('position', 'default', *args, **kwargs)

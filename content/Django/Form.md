@@ -1,17 +1,8 @@
----
-layout: post
-title: Django之Form
-comments: true
-date: 2016-10-04 04:30:02
-updated:
-tags:
-- python
-- django
-categories:
-- Python
-- Django
-permalink:
----
+Title: Django Form
+Date: 2016-10-04 04:30:02
+Tags: Django, Form
+
+
 
 # forms.py
 

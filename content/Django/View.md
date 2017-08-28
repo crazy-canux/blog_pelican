@@ -1,15 +1,8 @@
----
-layout: post
-title: Django之View
-comments: true
-date: 2016-10-04 04:20:39
-updated:
-tags:
-categories:
-- Python
-- Django
-permalink:
----
+Title: Django View
+Date: 2016-10-04 04:20:39
+Tags: Django, View
+
+
 
 # views.py
 

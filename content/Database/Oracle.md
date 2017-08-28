@@ -98,6 +98,10 @@ sysman是oracle的数据库用户EM管理用户。
 
 # 函数
 
+isnull函数:
+
+　　　　NVL(column, 0)    column为null函数返回0
+
 ***
 
 # SQL

@@ -31,7 +31,6 @@ default port：1433
 
 Client -> SNAC(OLE DB/ODBC) -> Network Libraries -> TDS <=> Server -> Endpoints -> SQL OS(relational engine/storage engine)
 
-
 ## GUI
 
 * SSMS
@@ -159,6 +158,22 @@ system data有下面类型：
 
 ***
 
+# 函数
+
+data函数：
+
+    GETDATE()
+    DATEPART()
+    DATEADD()
+    DATEDIFF()
+    CONVERT()
+
+isnull函数：
+
+    ISNULL(column, 0)    column为NULL函数返回0
+
+***
+
 # 数据结构
 
 ## tables
@@ -270,7 +285,7 @@ sa是数据库默认的管理员,dbcc需要sa权限执行。
 
         DROP PROCEDURE <procedure>
 
-## 函数
+## functions
 
 * system functions
 
@@ -292,14 +307,14 @@ sa是数据库默认的管理员,dbcc需要sa权限执行。
 
 1. 创建scalar-valued函数
 
-    CREATE FUNCTION <schema>.<function> (@p1 type1)
-    RETURNS return_value_datatype
-    WITH EXECUTE AS CALLER
-    AS
-    BEGIN
+        CREATE FUNCTION <schema>.<function> (@p1 type1)
+        RETURNS return_value_datatype
+        WITH EXECUTE AS CALLER
+        AS
+        BEGIN
         body of the function
-    END
-    GO
+        END
+        GO
 
 2. 创建inline table-valued函数
 
@@ -307,8 +322,8 @@ sa是数据库默认的管理员,dbcc需要sa权限执行。
 
 4. 删除函数
 
-    DROP FUNCTION <schema>.<function>
-    GO
+        DROP FUNCTION <schema>.<function>
+        GO
 
 ## debug
 

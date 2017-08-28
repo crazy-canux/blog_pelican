@@ -1,6 +1,6 @@
 Title: DevOps
 Date: 2016-04-03 10:49:21
-Tags: Python, Vim, Pycharm
+Tags: Python, DevOps, Vim, Pycharm
 
 
 

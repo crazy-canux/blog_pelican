@@ -8,6 +8,8 @@ Tags: Database, RDBMS
 
 ***
 
+# SQLite
+
 # Oracle
 
 # MSSQL

@@ -1,16 +1,8 @@
----
-layout: post
-title: Wordpress
-comments: true
-date: 2016-11-18 00:06:31
-updated:
-tags:
-- wordpress
-categories:
-- Web
-- CMS
-permalink:
----
+Title: Wordpress
+Date: 2016-11-18 00:06:31
+Tags: Wordpress
+
+
 
 # WordPress
 

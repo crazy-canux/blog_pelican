@@ -37,13 +37,20 @@ mysqld的默认端口是3306.
 
     $ mysql -u<user> -p
 
-本地执行sql语句:
+本地执行sql语句或mysql客户端命令:
 
     $ mysql -u<username> -p<password> <database> -e/--execute <sql query>
 
-远程执行sql语句:
+远程执行sql语句或mysql客户端命令:
 
     $ mysql -h<host> -P<port> -u<username> -p<password> <database> -e/--execute <sql query>
+
+启用'load data local'命令：
+
+    # 交互式
+    $ mysql --local-infile=1 -uroot -ppassword
+    # 非交互式
+    $ mysql --local-infile=1 -uroot -pchengca w3c -e "LOAD DATA LOCAL INFILE '/home/user/customers.txt' INTO TABLE Customers COLUMNS TERMINATED BY '\t' LINES TERMINATED BY '\n';"
 
 导出数据命令:
 
@@ -94,6 +101,11 @@ A command line client for MySQL that can do auto-completion and syntax highlight
     warnings  (\W) Show warnings after every statement.
     nowarning (\w) Don't show warnings after every statement.
 
+其它可以在mysql客户端执行的命令：
+
+    # 从本地一个文件导入数据，列分隔符为\t,行分隔符为\n
+    LOAD DATA LOCAL INFILE '/home/user/customers.txt' INTO TABLE Customers COLUMNS TERMINATED BY '\t' LINES TERMINATED BY '\n';
+
 ***
 
 # 数据类型
@@ -102,9 +114,23 @@ A command line client for MySQL that can do auto-completion and syntax highlight
 
 # 函数
 
-    NOW()
+date函数：
 
+    NOW()
+    CURDAET()
+    CURTIME()
     DATE()
+    EXTRACT()
+    DATA_ADD()
+    DATE_SUB()
+    DATEDIFF()
+    DATE_FORMAT()
+
+isnull函数：
+
+    ISNULL(column, 0)
+    IFNULL(column, 0)
+    COALESCE(column, 0)
 
 ***
 

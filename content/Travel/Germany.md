@@ -1,16 +1,8 @@
----
-layout: post
-title: 德国旅行
-comments: true
-date: 2016-05-08 16:41:50
-updated:
-tags:
-- deutschland
-- travel
-categories:
-- travel
-permalink:
----
+Title: Germany
+Date: 2016-05-08 16:41:50
+Tags: Travel, Germany
+
+
 
 # 德国之旅
 

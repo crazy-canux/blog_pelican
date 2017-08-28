@@ -12,6 +12,14 @@ Tags: DevOps, Development
 
 现代的软件开发采用的是敏捷开发流程(Agile development).
 
+Alpha: inner test version.
+
+Beta: outer test version.
+
+RC: release candidate. gamma.
+
+GA: generally avaliable. stable/production.
+
 ***
 
 # 怎样选择Licenses

@@ -1,17 +1,8 @@
----
-layout: post
-title: Windows之系统管理
-comments: true
-date: 2016-04-26 09:54:45
-updated:
-tags:
-- windows
-- system
-- administration
-categories:
-- Windows
-permalink:
----
+Title: Windows Admin
+Date: 2016-04-26 09:54:45
+Tags: Windows, Admin
+
+
 
 # windows的services和process
 

@@ -28,45 +28,63 @@ selenium.webdriver.remote.webdriver.WebDriver
 的子类.
 
     # selenium.webdriver.firefox.webdriver.WebDriver
-
-    driver.context(*args, **kwds)
-    driver.quit(self)
-    driver.set_context(self, context)
-
+    # methods:
+    context(*args, **kwds)
+    quit(self)
+    set_context(self, context)
     # data descriptor
     firefox_profile
 
-selenium.webdriver.[browser].webelement.[Browser]Element
+    # selenium.webdriver.chrome.webdriver.WebDriver
+    # methods:
+    create_options(self)
+    launch_app(self, id)
+    quit(self)
+
+selenium.webdriver.firefox.webelement.FirefoxWebElement
 是
 selenium.webdriver.remote.webelement.WebElement
 的子类．
 
     # selenium.webdriver.firefox.webelement.FirefoxWebElement
 
-    elem.find_anonymous_element_by_attribute(self, name, value)
+    # methods:
+    find_anonymous_element_by_attribute(self, name, value)
 
-    # data descriptor
-    elem.anonymous_children
+    # data descriptor:
+    anonymous_children
 
 ## selenium.webdriver.remote.webdriver
 
     # WebDriver
     from selenium.webdriver.remote.webdriver import WebDriver
 
-    driver.add_cookie(self, cookie_dict)
+    # methods:
+    add_cookie(self, cookie_dict)
     ...
-    driver.implicitly_wait(self, time_to_wait) # 隐式等待一个元素被找到．
-    driver.get("http://www.google.com")
-    driver.maximize_window() # 最大化窗口
-    driver.get_screenshot_as_file("filename")
-    driver.execute_script(self, script, *args)
-    driver.execute_script('arguments[0].focus();', elem) # 获取elem的焦点
-    driver.close() # 关闭一个标签
-    driver.quit() # 退出整个浏览器
+    implicitly_wait(self, time_to_wait) # 隐式等待一个元素被找到．
+    get("http://www.google.com")
+    maximize_window() # 最大化窗口
+    get_screenshot_as_file("filename")
+    execute_script(self, script, *args)
+    execute_script('arguments[0].focus();', elem) # 获取elem的焦点
+    close() # 关闭一个标签
+    quit() # 退出整个浏览器
 
-    # data descriptor
-    driver.current_window_handle # 当前窗口的句柄
-    driver.title
+    # data descriptors:
+    application_cache
+    current_url
+    current_window_handle # 当前窗口的句柄
+    desired_capabilities
+    file_detector
+    log_types
+    mobile
+    name
+    orientation
+    page_source
+    switch_to
+    title
+    window_handles
 
 定位元素的八个方法
 
@@ -83,6 +101,7 @@ selenium.webdriver.remote.webelement.WebElement
 
     from selenium.webdriver.remote.webelement import WebElement
 
+    # methods:
     elem.click() # 点击按钮．
     elem.clear() # 清空文本输入框．
     elem.send_keys(self, *value) # 给文本框输入内容，比如用户名密码，搜索框等．
@@ -95,7 +114,7 @@ selenium.webdriver.remote.webelement.WebElement
     elem.submit(self)
     elem.value_of_css_property(self, property_name)
 
-    # data descriptor
+    # data descriptor:
     id
     location
     location_once_scrolled_into_view

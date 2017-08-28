@@ -1,16 +1,7 @@
-Title: Data Ingestion
+Title: Sqoop
 Date: 2017-05-24 22:57:37
-Tags: Ingestion, Flume, Sqoop, Kafka
+Tags: Ingestion, Sqoop
 
 
 
-# Data Ingestion
-
-**
-
-# sqoop
-
-# kafka
-
-# flume
-
+# Sqoop

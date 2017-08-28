@@ -1,16 +1,8 @@
----
-layout: post
-title: Django之URL
-comments: true
-date: 2016-10-04 04:20:39
-updated:
-tags:
-- URL
-categories:
-- Python
-- Django
-permalink:
----
+Title: Django URL
+Date: 2016-10-04 04:20:39
+Tags: Django, URL
+
+
 
 # urls.py
 

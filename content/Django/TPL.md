@@ -1,17 +1,8 @@
----
-layout: post
-title: Django之TPL
-comments: true
-date: 2016-09-27 01:33:42
-updated:
-tags:
-- python
-- django
-categories:
-- Python
-- Django
-permalink:
----
+Title: Django TPL
+Date: 2016-09-27 01:33:42
+Tags: Django, TPL
+
+
 
 # TPL
 

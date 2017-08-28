@@ -1,17 +1,8 @@
----
-layout: post
-title: Django之Admin
-comments: true
-date: 2016-10-04 04:29:37
-updated:
-tags:
-- python
-- django
-categories:
-- Python
-- Django
-permalink:
----
+Title: Django Admin
+Date: 2016-10-04 04:29:37
+Tags: Django, Admin
+
+
 
 # admin.py
 
