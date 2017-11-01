@@ -28,11 +28,15 @@ functions:
 
     WCOREDUMP(...)
     ...
+
     abort(...)
     fork() # 创建一个子进程，返回0给子进程，返回子进程pid给父进程．
     exec*
     wait() # 等待子进程结束，返回(pid, status).
     waitpid(pid, options) # 等待指定子进程结束.
+    listdir(path)
+    makedirs(path [, mode=0777])
+    mkdir(path [, mode=0777])
     ...
 
     # 使用subprocess模块代替下列函数：
@@ -79,9 +83,48 @@ data:
 
 classes:
 
+    Logger(Filterer)
+    # methods:
+    setLevel(self, level) # 只会输出指定level以上的log, 默认是WARNING
+    critical(self, msg, *args, **kwargs) # 50
+    error(self, msg, *args, **kwargs) # 40
+    warning(self, msg, *args, **kwargs) # 30
+    info(self, msg, *args, **kwargs) # 20
+    debug(self, msg, *args, **kwargs) # 10
+    exception(self, msg, *args, **kwargs) #
+    log(self, level, msg, *args, **kwargs) #
+    addHandler(self, hdlr) # 添加handler到logger
+
+    Formatter
+    %(asctime)s
+
+    Handler(Filterer)
+    # methods:
+    setFormatter(self, fmt)
+    setLevel(self, level)
+
+    StreamHandler(Handler) # 默认打印到sys.stderr
+
+    FileHandler(StreamHandler) # 打印到文件
+
 functions:
 
+    basicConfig(**kwargs) # 设置log的格式，默认是BASIC_FORMAT.
+    # filename/filemode/format/datefmt/level/stream
+    # stream默认是sy.stderr,当filename和stream同时指定，stream被忽略．
+    getLogger(name=None) # 返回Logger类型对象
+
 data:
+
+    BASIC_FORMAT = '%(levelname)s:%(name)s:%(message)s'
+    CRITICAL = 50
+    FATAL = 50
+    ERROR = 40
+    WARN = 30
+    WARNING = 30
+    INFO = 20
+    DEBUG = 10
+    NOTSET = 0
 
 ## getopt
 
@@ -259,6 +302,15 @@ data:
 ## thread
 
 实现了基本的线程操作，推荐使用更高级的threading替代该模块．
+
+functions:
+
+    start_new_thread(function, args[, kwargs]) # 启动新线程，执行function(*args, **kwargs), 函数返回时线程退出．
+    stack_size([size])
+    interrupt_main()
+    get_ident()
+    exit()
+    allocate_lock()
 
 ## threading
 

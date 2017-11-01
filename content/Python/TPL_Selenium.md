@@ -4,13 +4,13 @@ Tags: Selenium
 
 
 
-# Selenium
+# *Selenium*
 
 参考DevOps/selenium进行安装配置．
 
 selenium只有两个包webdriver和common.
 
-# selenium.webdriver
+# *selenium.webdriver*
 
     from selenium import webdriver
 
@@ -61,15 +61,56 @@ selenium.webdriver.remote.webelement.WebElement
 
     # methods:
     add_cookie(self, cookie_dict)
-    ...
-    implicitly_wait(self, time_to_wait) # 隐式等待一个元素被找到．
-    get("http://www.google.com")
-    maximize_window() # 最大化窗口
-    get_screenshot_as_file("filename")
+    back()
+    create_web_element(element_id)
+    delete_all_cookies()
+    delete_cookie()
+    execute(driver_command, params=None)
+    execute_async_script(script, *args)
     execute_script(self, script, *args)
-    execute_script('arguments[0].focus();', elem) # 获取elem的焦点
+    # execute_script('arguments[0].focus();', elem) # 获取elem的焦点
+    file_detector_context(*args, **kwds)
+    forward()
+    implicitly_wait(self, time_to_wait) # 隐式等待一个元素被找到．
+    maximize_window() # 最大化窗口
     close() # 关闭一个标签
     quit() # 退出整个浏览器
+    refresh()
+    save_screenshot(filename)
+    start_client()
+    start_session(capabilities, browser_profile=None)
+    stop_client()
+    switch_to_active_element()
+    switch_to_alert()
+    switch_to_default_content()
+    switch_to_frame(frame_reference)
+    switch_to_window(widow_name)
+
+    get("http://www.google.com")
+    get_cookie(name)
+    get_cookies()
+    get_log(log_type)
+    get_screenshot_as_base64()
+    get_screenshot_as_file(filename)
+    get_screenshot_as_png()
+    get_window_position(windowHandle='current')
+    get_window_rect()
+    get_window_size(windowHandle='current')
+
+    set_page_load_timeout(time_to_wait)
+    ...
+
+    # 定位元素的16个方法
+    find_element_by_***()
+    elem = driver.find_element_by_id()
+    elem = driver.find_element_by_name()
+    elem = driver.find_element_by_class_name()
+    elem = driver.find_element_by_tag_name
+    elem = driver.find_element_by_link_text
+    elem = driver.find_element_by_partial_link_text
+    elem = driver.find_element_by_xpath()
+    elem = driver.find_element_by_css_selector()
+    find_elements_by_***()
 
     # data descriptors:
     application_cache
@@ -85,17 +126,6 @@ selenium.webdriver.remote.webelement.WebElement
     switch_to
     title
     window_handles
-
-定位元素的八个方法
-
-    elem = driver.find_element_by_id()
-    elem = driver.find_element_by_name()
-    elem = driver.find_element_by_class_name()
-    elem = driver.find_element_by_tag_name
-    elem = driver.find_element_by_link_text
-    elem = driver.find_element_by_partial_link_text
-    elem = driver.find_element_by_xpath()
-    elem = driver.find_element_by_css_selector()
 
 ## selenium.webdriver.remote.webelement
 
@@ -157,7 +187,7 @@ selenium.webdriver.remote.webelement.WebElement
 
 ***
 
-# selenium.common
+# *selenium.common*
 
 common.exception包括了所有的异常．
 

@@ -29,7 +29,7 @@ selenium, driver, browser三个版本都需要兼容才能工作．
 
 <https://sites.google.com/a/chromium.org/chromedriver/downloads>
 
-<https://github.com/mozilla/geckodriver>
+<https://github.com/mozilla/geckodriver/releases>
 
 [Deprecated] Remote Control: 也就是selenium1.selenium2依然保留了selenium1的API.但是selenium3会彻底删除RC的API.
 

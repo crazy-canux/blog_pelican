@@ -24,6 +24,8 @@ GUI工具： mysql workbench
 
 mysqld的默认端口是3306.
 
+注意mysql的/etc/mysql/my.cnf和相关文件如果设置了bind-address = 127.0.0.1就无法远程访问，需要注释掉．
+
 # mysql命令
 
     $ mysql [OPTIONS] [database]
@@ -143,7 +145,7 @@ isnull函数：
 查看所有用户：
 
     SELECT DISTINCT(USER) FROM mysql.user;
-    SELECT user,host,password FROM mysql.user;
+    SELECT user,host FROM mysql.user;
 
 查看当前用户：
 
@@ -152,6 +154,7 @@ isnull函数：
 创建/删除用户：
 
     CREATE USER 'username'@'hostname' IDENTIFIED BY 'password';
+    # hostname 指定能连接的server，%表示任何server．
     DROP USER 'username'@'hostname';
 
 设置和更改密码：
@@ -177,8 +180,12 @@ isnull函数：
 
 指定数据库对用户授权：
 
-    GRANT ALL PRIVILEGES ON databasename.* TO "username"@"hostname";
+    GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'hostname';
     FLUSH PRIVILEGES;
+
+查看权限：
+
+    SHOW GRANTS FOR 'username'@'hostname';
 
 查看所有表：
 

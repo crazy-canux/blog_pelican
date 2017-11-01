@@ -111,10 +111,6 @@ File协议是本地文件协议
 
 ***
 
-# NFS
-
-NFS: network file system.
-
 # SMB/CIFS
 
 SMB/CIFS占用TCP和UDP的139和445端口。

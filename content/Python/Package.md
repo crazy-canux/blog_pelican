@@ -65,14 +65,15 @@ virtualenvwrapper
 <https://bitbucket.org/virtualenvwrapper/virtualenvwrapper>
 
     $ pip install virtualenvwrapper
-    $ export WORKON_HOME=~/.virtualenv
+    $ export WORKON_HOME=~/.virtualenvs # 写入到rc文件
     $ mkdir -p $WORKON_HOME
     $ source virtualenvwrapper.sh
     $ mkvirtualenv [project-name]
     $ workon [project-name] # 切换到针对该项目的virtualenv
     (pro)$ pip install [package] # 安装第三方包
-    (pro)$ ~/.virtualenv/[project-name]/bin/python setupt.py install # 源码安装
+    (pro)$ ~/.virtualenvs/[project-name]/bin/python setupt.py install # 源码安装
     (pro)$ lssitepackages # 查看安装的第三方包
+    $ deactivate # 退出virtualenv
 
 ## setuptools
 

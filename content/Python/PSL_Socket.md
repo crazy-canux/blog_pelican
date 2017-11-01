@@ -135,7 +135,53 @@ functions:
 
 python2叫SocketServer,python3改名为socketserver.
 
-用于简化实现网络客户端和服务器的大量样板代码。
+一般的socket server的类, client可以通过socket来实现．
+
+    import SocketServer
+
+classes:
+
+    BaseRequestHandler(self, request, client_address, server)
+
+    BaseServer
+
+    StreamRequestHandler(BaseRequestHandler)
+    self.rfile
+    self.wfile
+    # methods:
+    handle(self) # 子类重写该方法
+    finish(self)
+    setup(self)
+
+    TCPServer(BaseServer)
+    TCPServer(server_address, RequestHandlerClass, bind_and_activate=True)
+    # methods:
+    serve_forever(poll_interval=0.5)
+    shutdown()
+    handle_request()
+    fileno()
+    ...
+    # Instance variables:
+    server_address
+    RequestHandlerClass
+    socket
+    # Class variables:
+    timeout
+    ...
+
+    DatagramRequestHandler(BaseRequestHandler)
+    self.request
+    self.client_address
+    self.server
+    # methods:
+    handle(self) # 子类重写该方法
+    finish(self)
+    setup(self)
+
+    UDPServer(TCPServer)
+    UDPServer(server_address, RequestHandlerClass, bind_and_activate=True)
+    # methods:
+    serve_forever(self, poll_interval=0.5)
 
 ## asynchat
 

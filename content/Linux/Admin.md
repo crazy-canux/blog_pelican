@@ -1,4 +1,4 @@
-Title: Linux Admin
+Title: Admin
 Date: 2016-04-03 14:04:05
 Tags: Linux, Ubuntu, CentOS, Suse
 
@@ -14,7 +14,37 @@ zypper: suse.
 
 ***
 
-# 中文输入法
+# Linux系统常用的安装和配置
+
+## virtualbox
+
+开机自动挂载共享文件夹
+
+    # 手动挂在命令, 需要安装增强功能
+    $ mount -t vboxsf FolderNameOnWindows /path/on/linux
+
+    # 实现开机自动挂载
+    $ sudo vim /etc/rc.local
+    mount.vboxsf -w ShareFolderNameOnWindows MountPointOnLinux
+
+## xrdp
+
+从windows的RDP远程连接linux.
+
+use RDP on windows to connect to linux.
+
+    sudo dpkg -i tigervncserver_1.6...deb # download and install tigervncserver first.
+    sudo apt-get install -f
+    sudo apt-get instal xrdp -y
+    echo unity > ~/.xsession
+
+***
+
+# Ubuntu/Debian安装后的基本配置
+
+    sudo apt-get install build-essential libssl-dev
+
+## 中文输入法
 
 安装一个中文输入法框架fcitx(IBus, SCIM, UIM)：
 
@@ -35,33 +65,34 @@ zypper: suse.
 
 在键盘输入方式系统从ibus改为fcitx，然后重启。
 
-# gedit打开txt文件乱码
+## dconf修改配置
 
-    sudo apt-get install dconf-editor
+也可以通过系统自带的dconf命令修改．
 
-org->gnome->gedit->preferences->encodings->auto-detected 添加'GB2312','GBK',...
+    $ sudo apt-get install dconf-editor
 
-# virtualbox 开机自动挂载共享文件夹
+gedit打开txt文件乱码
 
-    # 手动挂在命令, 需要安装增强功能
-    $ mount -t vboxsf FolderNameOnWindows /path/on/linux
+    # org->gnome->gedit->preferences->encodings->auto-detected 添加'GB2312','GBK',...
 
-    # 实现开机自动挂载
-    $ sudo vim /etc/rc.local
-    mount.vboxsf -w ShareFolderNameOnWindows MountPointOnLinux
+开启远程桌面无密码登陆
 
-# 挂载U盘失败
+    $ dconf write /org/gnome/desktop/remote-access/require-encryption false
+    or
+    # org->gnome->desktop->remote-access->require-encryption false
+
+## 挂载U盘失败
 
 移动硬盘或者u盘不能挂载，删掉/etc/fstab的关于sdb的行，保存后重新插拔。
 
-# Linux创建桌面图标（比如eclipse）
+## 创建桌面图标（比如eclipse）
 
     cd /usr/share/applications
     sudo vi XXX.desktop
 
 添加必要属性后拖到桌面或启动栏即可。
 
-# Linux安装QQ
+## 安装QQ
 
     sudo apt-get install libgtk2.0-0:i386
     sudo apt-get install lib32ncurses5
@@ -70,13 +101,13 @@ org->gnome->gedit->preferences->encodings->auto-detected 添加'GB2312','GBK',..
     sudo dpkg -i ttf-wqy-microhei_0.2.0-beta-2_all.deb
     sudo dpkg -i wine-qqintl_0.1.3-2_i386.deb
 
-# 安装文档的包
-
-    sudo apt-get install glibc-doc manpages-dev manpages-posix-dev manpages-zh
+## 安装文档的包
 
 手册位于/usr/share/man
 
-# 记录终端操作
+    sudo apt-get install glibc-doc manpages-dev manpages-posix-dev manpages-zh
+
+## 记录终端操作
 
 安装相关工具:
 
@@ -100,18 +131,12 @@ org->gnome->gedit->preferences->encodings->auto-detected 添加'GB2312','GBK',..
 
     $convert -limit memory 2mb -limit map 2mb -delay 2 -loop 0 *.gif example.gif
 
-# 添加用户为管理员
+## 添加用户为管理员
 
     $ vim /etc/sudoers
     user     ALL = (ALL:ALL) ALL
 
-***
-
-# Ubuntu/Debian安装后的基本配置
-
-    $ sudo apt-get install  terminator
-
-# Ubuntu网络设置
+## Ubuntu网络设置
 
 ubuntu修改hostname:
 
@@ -121,7 +146,7 @@ ubuntu修改hostname:
     ip-address hostname
     $ sudo reboot
 
-在下面路径添加代理脚本:
+设置系统代理:
 
     $ vim /etc/profile.d/sys_proxy.sh
     http_proxy="http://proxy-server:port"
@@ -135,24 +160,31 @@ ubuntu修改hostname:
     $ vim /etc/network/interfaces
     auto eth0
     iface eth0 inet static
-    address 192.168.0.1
-    netmask 255.255.255.0
-    getway 192.168.0.0
-    # 修改dns
-    $ vim /etc/resolv.conf
-    nameserver 192.168.0.1
-    $ vim /etc/resolvconf/resolv.conf.d/base
-    nameserver 192.168.0.1
+        address 192.168.0.1
+        netmask 255.255.255.0
+        gateway 192.168.0.0
+        dns-nameservers 8.8.8.8
     $ service network restart
+
+## E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+method1:
+
+    $ sudo mkdir -p /var/lib/dpkg/info/package
+    $ sudo mv /var/lib/dpkg/info/package.* /var/lib/dpkg/info/package
+
+method2:
+
+    $ sudo apt-get purge package
+    $ sudo apt-get install package
 
 ***
 
 # Centos/Fedora/Redhat安装后的基本配置
 
     $ sudo yum -y install epel-release kernel-devel gcc gcc-c++
-    $ sudo yum -y install terminator bzip2
 
-# Centos网络配置
+## Centos网络配置
 
 安装mini版本之后配置网络：
 
@@ -208,7 +240,7 @@ ubuntu修改hostname:
 
     $ sudo reboot
 
-# centos安装增强功能
+## centos安装增强功能
 
     $ sudo mkdir -p /media/cdrom
     $ sudo mount /dev/cdrom /media/cdrom

@@ -201,7 +201,7 @@ python访问数据库两种方式：
 
 ORM是对象-关系管理器，相关模块有SQLAlchemy, SQLObject.
 
-DB-API参考PEP249定义了Database的API。
+DB-API参考PEP248/249定义了Database的API。
 
 <https://www.python.org/dev/peps/pep-0249/>
 
@@ -249,3 +249,12 @@ data:
 # TPL
 
 相关的第三方库
+
+## SQLAlchemy
+
+ORM: Object-Relational Mapping.
+
+就是把数据库的表结构映射成python的对象.
+
+    $ pip install sqlalchemy
+

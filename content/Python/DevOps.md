@@ -22,9 +22,6 @@ Linux安装：
     $sudo apt-get install python-dev
     $sudo yum install python-devel
 
-    $sudo apt-get install libssl-dev
-    $sudo yum install openssl-devel
-
 标准库的路径：
 
     C:\Python27\Lib

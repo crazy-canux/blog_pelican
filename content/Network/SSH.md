@@ -12,7 +12,12 @@ windows上支持ssh协议的客户端：
 
 * putty
 * xshell
+* MobaXterm
 * secureCRT
+
+安装：
+
+    $ sudo apt-get install openssh-server
 
 ***
 
@@ -72,14 +77,16 @@ paramiko依赖pycrypto
 
     import paramiko
 
-    # client
+    # SSHClient
     client = paramiko.SSHClient()
+    # methods:
     load_system_host_keys(filename=None)
     load_host_keys(filename)
     get_host_keys()
     set_missing_host_key_policy(policy)
-    # 允许连接不在know_hosts文件中的主机
-    set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    # paramiko.client.AutoAddPolicy()
+    # paramiko.client.RejectPolicy()
+    # paramiko.client.WarningPolicy()
     save_host_keys(self, filename)
     connect(hostname, port=22, username=None, password=None, pkey=None, key_filename=None, timeout=None, allow_agent=True, look_for_keys=True, compress=False, sock=None)
     # 查找Authentication顺序：
@@ -87,7 +94,7 @@ paramiko依赖pycrypto
     # 2. allow_agent
     # 3. look_for_keys
     # 4. username/password
-    stdin, stdout, stderr = exec_command(command, bufsize=-1, timeout=None, get_pty=False)
+    stdin, stdout, stderr = exec_command(command, bufsize=-1, timeout=None, get_pty=False) # 返回三个ChannelFile类型的对象
     # stdin -> paramiko.ChannelFile
     # output = stdout.readlines() -> list
     # error = stderr.readlines() -> list
@@ -97,58 +104,23 @@ paramiko依赖pycrypto
     get_transport() # return a transport
     close(self)
 
-    # transport
-    accept(self, timeout=None)
-    add_server_key(self, key)
-    atfork(self)
-    auth_interactive(self, username, handler, submethods='')
-    auth_none(self, username)
-    auth_password(self, username, password, event=None, fallback=True)
-    auth_publickey(self, username, key, event=None)
+    # Transport
+    connect(self, hostkey=None, username='', password=None, pkey=None)
     cancel_port_forward(self, address, port)
     close(self)
-    connect(self, hostkey=None, username='', password=None, pkey=None)
-    get_exception(self)
-    get_hexdump(self)
-    get_log_channel(self)
-    get_remote_server_key(self)
-    get_security_options(self)
-    get_server_key(self)
-    get_username(self)
-    getpeername(self)
-    global_request(self, kind, data=None, wait=True)
-    is_active(self)
-    is_authenticated(self)
     open_channel(self, kind, dest_addr=None, src_addr=None)  # Request a new channel to the server
     open_session(self) # alias of open_channel
-    open_forward_agent_channel(self)
-    open_forwarded_tcpip_channel(self, (src_addr, src_port), (dest_addr, dest_port))
-    open_sftp_client(self)
-    open_x11_channel(self, src_addr=None)
-    renegotiate_keys(self)
-    request_port_forward(self, address, port, handler=None)
     run(self)
     send_ignore(self, bytes=None)
-    set_hexdump(self, hexdump)
-    set_keepalive(self, interval)
-    set_log_channel(self, name)
-    set_subsystem_handler(self, name, handler, *larg, **kwarg)
     start_client(self, event=None)
     start_server(self, event=None, server=None)
     stop_thread(self)
     use_compression(self, compress=True)
 
-    # channel
+    # Channel
     close()
     exec_command(command)
     exit_status_ready(self)
-    fileno(self)
-    get_id(self)
-    get_name(self)
-    get_pty(self, term='vt100', width=80, height=24, width_pixels=0, height_pixels=0)
-    get_transport(self)
-    getpeername(self)
-    gettimeout(self)
     invoke_shell(self)
     invoke_subsystem(self, subsystem)
     makefile(self, *params)
@@ -158,22 +130,24 @@ paramiko依赖pycrypto
     recv_ready(self)
     recv_stderr(self, nbytes)
     recv_stderr_ready(self)
-    request_forward_agent(self, handler)
-    request_x11(self, screen_number=0, auth_protocol=None, auth_cookie=None, single_connection=False, handler=None)
-    resize_pty(self, width=80, height=24, width_pixels=0, height_pixels=0)
     send(self, s)
     send_exit_status(self, status)
     send_ready(self)
     send_stderr(self, s)
     sendall(self, s)
     sendall_stderr(self, s)
-    set_combine_stderr(self, combine)
-    set_name(self, name)
-    setblocking(self, blocking)
     settimeout(self, timeout)
     shutdown(self, how)
     shutdown_read(self)
     shutdown_write(self)
+
+    # ChannelFile(BufferedFile)
+    read(size=None) # 读size字节，默认整个文件
+    readline(size=None) # 读下一行
+    readlines(sizehint=None) # 读所有行，返回list
+    write(data)
+    writelines(sequence)
+    close()
 
 ***
 

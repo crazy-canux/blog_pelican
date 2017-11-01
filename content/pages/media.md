@@ -14,6 +14,16 @@ E01 - E13
 
 <http://cn163.net/archives/19774/>
 
+## 血族S04
+
+E01 - E10
+
+下载地址：
+
+<http://www.ttmeiju.com/meiju/The.Strain.html>
+
+<http://www.kmeiju.net/archives/5345.html>
+
 ***
 
 # Monday
@@ -28,16 +38,6 @@ E01 - E7
 
 <http://www.kmeiju.net/archives/4386.html>
 
-## 血族S04
-
-E01 - E10
-
-下载地址：
-
-<http://www.ttmeiju.com/meiju/The.Strain.html>
-
-<http://www.kmeiju.net/archives/5345.html>
-
 ## 白公主S01
 
 E01 - E08
@@ -46,13 +46,13 @@ E01 - E08
 
 <http://cn163.net/archives/24156/>
 
-## 末日孤舰S03
+## 末日孤舰S04
 
-E01 - E13
+E01 - E10
 
 下载地址：
 
-<http://cn163.net/archives/23679/>
+<http://www.kmeiju.net/archives/5351.html>
 
 ## 西部世界S01
 

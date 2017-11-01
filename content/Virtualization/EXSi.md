@@ -16,13 +16,20 @@ vCenter Server是vSphere的高级管理系统．需单独购买．
 
 ***
 
-# vSphere client
+# 配置管理
 
 开启虚拟机copy/paste功能：
 
+    # 通过vsphere client
     edit properties -> Options -> Advanced -> General -> configuration Parameters
     # isolation.tools.copy.disable    false
     # isolation.tools.paste.disable    false
+
+开启虚拟机的虚拟化功能：
+
+    # 通过ssh到esxi服务器
+    $ vim /vmfs/volumes/datastore1/Ubuntu1604/Ubuntu1604.vmx
+    vhv.enable = "TRUE" # 添加到最后一行
 
 ***
 

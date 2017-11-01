@@ -22,18 +22,20 @@ Operations development:
 
 QA development:
 
-2017 - Java + Hadoop + Mongodb + JavaScript + Agile + QA
+2017 - Mongodb + Agile + JavaScript + Ansible + Jenkins + QA
 
-2018 - Hadoop + PMP
+2018 - OpenStack + Web + PMP
+
+2019 - FullStack: Linux/C/Shell/Python/JavaScript/Web(Html/Css/Django/Vue)/Sql/OpenStack
 
 ***
 
-BigData devops(development/operations/QA)
+Devops(development/operations/QA)
 
-2019 - ITIL Practitioner
+2020 - ITIL Practitioner
 
-2020 - ITIL MALC/Expert
+2021 - ITIL MALC/Expert
 
-2021 - ITIL Master
+2022 - ITIL Master
 
 ***

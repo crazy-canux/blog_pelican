@@ -14,11 +14,7 @@ Born: 1989
 
 Gender: Male
 
-Want to be a perfect Python/Java/JavaScript Developer.
-
-Be expert in: DevOps, Hadoop.
-
-Interested in：DevOps, Virtualization, Cloud Computing, Big Data.
+Interested in：DevOps, Cloud Computing, Big Data.
 
 ***
 

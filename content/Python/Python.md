@@ -871,6 +871,8 @@ with语句块执行完毕后调用__exit__()方法，__exit__()有三个参数�
         def __exit__(self, type, value, traceback):
             ...
 
+父类实现了上下文管理协议，子类可以直接使用with.
+
 ***
 
 # **python函数**

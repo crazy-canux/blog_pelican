@@ -242,6 +242,25 @@ Gerrit is a code review and project management tool for Git based projects.
 
 ***
 
+# 搭建私有git服务器
+
+    $ sudo groupadd git
+    $ sudo adduser git -g git
+    $ cd /home/git
+    $ mkdir src
+    $ git init --bare src
+    $ sudo chown -R git:git src
+
+## gitolite
+
+<https://github.com/sitaramc/gitolite>
+
+## gitosis
+
+<https://github.com/res0nat0r/gitosis>
+
+***
+
 # Git命令
 
 git的结构：

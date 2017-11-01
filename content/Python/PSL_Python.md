@@ -59,13 +59,9 @@ Dynamic objects:
     sys.stderr # 标准出错
     displayhook -- called to show results in an interactive session
     excepthook --
-    exitfunc --
     last_type -- type of last uncaught exception
     last_value -- value of last uncaught exception
     last_traceback --
-    [Deprecated]exc_type
-    [Deprecated]exc_value
-    [Deprecated]exc_traceback
 
 Static objects:
 
@@ -81,7 +77,7 @@ Static objects:
     hexversion -- version information encoded as a single integer
     copyright -- copyright notice pertaining to this interpreter
     platform -- platform identifier # 可以判断操作系统类型
-    sys.platform # 'win32', 'linux2'
+    sys.platform # 'win32', 'linux2', 'darwin'
     executable -- absolute path of the executable binary of the Python interpreter
     prefix -- prefix used to find the Python library
     exec_prefix -- prefix used to find the machine-specific Python library
@@ -111,11 +107,23 @@ functions:
     setrecursionlimit() -- set the max recursion depth for the interpreter
     settrace() -- set the global debug tracing function
 
+data:
+
+    flags # 命令行的状态，-d debug, -v verbose
+
 ## sysconfig
 
 ## future_builtins
 
 ## warnings
+
+python的警告模块，只警告，不中断程序运行．
+
+    import warnings
+
+functions:
+
+    warn(message[, category[, stacklevel]])
 
 ## contextlib
 
@@ -145,6 +153,20 @@ functions:
 
 ## traceback
 
+For python stack traces. 追踪python的堆栈信息．
+
+    import traceback
+
+functions:
+
+    extract_stack(f=None, limit=None)
+    extract_tb(tb, limit=None)
+    format_stack(f=None, limit=None)
+    format_tb(tb, limit=None) # 格式化后返回字符串
+    print_stack(f=None, limit=None, file=None)
+    print_tb(tb, limit=None, file=None) # 直接打印stacktrace信息
+    ...
+
 ## gc
 
 garbage collector：python的垃圾回收模块．
@@ -162,6 +184,7 @@ classes:
 functions:
 
     classify_class_attrs(cls)
+    stack(context=1)
     isgenerator()
     isgeneratorfunction() # 检查一个函数是否是生成器
 

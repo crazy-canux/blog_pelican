@@ -9,6 +9,7 @@ Tags: DevOps, Development, Operations, QA
 DevOps包括ChatOps, 敏捷开发，持续集成,持续交付,持续发布/部署，QA(自动化测试），智能监控和日志管理等内容．
 
 DevOps涉及到三个部门：
+
 * Development
 * Operations
 * Quality Assurance
@@ -32,11 +33,13 @@ Continuous Integration.
 Continuous Delivery.
 
 持续交付包括：
+
 * 将通过测试的代码部署到Staging.
 
 # Continuous Release/Deploy
 
 持续部署/发布包括：
+
 * 将通过评审的交付代码部署到Production.
 
 ***

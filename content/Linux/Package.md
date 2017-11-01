@@ -1,4 +1,4 @@
-Title: Linux Package
+Title: Package
 Date: 2016-06-07 16:57:45
 Tags: Linux, dpkg, yum, zypper
 
@@ -24,10 +24,15 @@ dpkg-query - a tool to query the dpkg database
 
 dpkg的本地前端工具。
 
-使用gdebi安装deb包会自动解决依赖问题。
+安装gdebi:
 
-    sudo aptitude install gdebi-core # install gdebi itself
-    sudo aptitude install gdebi-gtk # install gdebi GUI
+    $ sudo apt-get install gdebi-core
+    $ sudo apt-get install gdebi-gtk
+    $ sudo aptitude install gdebi-core # install gdebi itself
+    $ sudo aptitude install gdebi-gtk # install gdebi GUI
+
+使用gdebi安装deb包会自动解决依赖问题:
+
     sudo gdebi XXX.deb # install package
 
 ## apt - command-line interface
@@ -36,11 +41,15 @@ dpkg的远程前端工具。
 
 apt - command-line interface
 
+    $ apt install package
+
 apt-get - APT package handling utility -- command-line interface
+
+    $ sudo apt-get install package
 
 aptitude - high-level interface to the package manager
 
-    sudo aptitude install package
+    $ sudo aptitude install package
 
 ***
 
@@ -53,6 +62,7 @@ redhat的包管理机制。
 rpm的本地前端工具。
 
 rpm -
+
 rpmbuild -
 
 ## yum

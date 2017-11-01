@@ -10,7 +10,7 @@ http port: 80
 
 https port: 443
 
-http/https的命令：
+http/https的请求方式：
 
     get # 从服务器取出资源
     post # 在服务器新建资源
@@ -52,7 +52,7 @@ python开发的类似于curl的命令行工具，同时还有wget的功能．
 
 ***
 
-# python的http/url标准库
+# python的http标准库
 
 python2的http标准库
 
@@ -62,6 +62,53 @@ python2的http标准库
 python3的标准库
 
 1. http
+
+## httplib
+
+用于实现http的client.
+
+classes:
+
+    HTTPConnection
+    HTTPConnection(host, port=None, strict=None, timeout=<object object>, source_address=None)
+    # methods:
+    request(self, method, url, body=None, headers={})
+    getresponse(self, buffering=False) # 返回HTTPResponse对象
+
+    HTTPSConnection(HTTPConnection)
+    HTTPSConnection(host, port=None, key_file=None, cert_file=None, strict=None, timeout=<object object>, source_address=None)
+    # methods:
+    connect()
+
+    HTTPResponse
+    HTTPResponse(sock, debuglevel=0, strict=0, method=None, buffering=False)
+    # methods:
+    read(self, amt=None)
+
+## BaseHTTPServer
+
+用于实现http的基本的server.参考SocketServer标准库.
+
+classes:
+
+    BaseHTTPRequestHandler(SocketServer.StreamRequestHandler)
+
+    HTTPServer(SocketServer.TCPServer)
+    HTTPServer(server_address, RequestHandlerClass, bind_and_activate=True)
+    # methods:
+    serve_forever(self, poll_interval=0.5)
+
+## SimpleHTTPServer
+
+## CGIHTTPServer
+
+## cookielib
+
+## Cookie
+
+***
+
+# python的url标准库
 
 python2的url标准库：
 
@@ -73,10 +120,6 @@ python3的url标准库：
 
 1. urllib
 
-## urllib
-
-## urllib2
-
 ## urlparse
 
     import urlparse
@@ -85,17 +128,9 @@ python3的url标准库：
     # 返回: (scheme, netloc, path, params, query, fragment)
     urlparse.ParseResult(self, scheme, netloc, path, params, query, fragment)
 
-## httplib
+## urllib
 
-## BaseHTTPServer
-
-## CGIHTTPServer
-
-## SimpleHTTPServer
-
-## cookielib
-
-## Cookie
+## urllib2
 
 ***
 
@@ -122,36 +157,35 @@ python3的url标准库：
     pip install requests
 
     import requests
-    requests.reqeust(method, url, **kwargs)
-    requests.Method()
-    requests.Request()
 
-    # Method Request, 返回requests.Response类型的对象。
+    # requests.api定义了下列方法来发起请求,返回requests.Response类型的对象。
+    requests.reqeust(method, url, **kwargs) # 实际调用session.request()
     get(url, params=None, **kwargs)
     post(url, data=None, json=None, **kwargs)
     put(url, data=None, **kwargs)
-    delete(url, **kwargs)
     patch(url, data=None, **kwargs)
+    delete(url, **kwargs)
     head(url, **kwargs)
     options(url, **kwargs)
+    # multipart/form-data # 用于上传文本和二进制文件，用post方法
 
-    # **kwargs
+    # **kwargs参数参考requests.Request类
     # dict
-    params=None
-    data=None
+    params=None # 用于get的url中
+    data=None # 用于post/put/patch的body中, 也可以是str/tuple/list类型，元素是键值对即可,还可以是json类型.
     headers=None
     cookies=None
     files=None
     proxies=None
     # str/json
-    json=None
+    json=None # 用于post的body中, 也可以是dict类型．
     # tuple
-    auth=('user', 'password')
-    timeout=(connect timeout, read timeout)
+    auth=('user', 'password') # 参考requests.auth包.
+    timeout=(connect timeout, read timeout) # None表示永久等待．
     cert=(cert.pem, key.pem)
     # bool
-    allow_redirects=True
-    verify=True
+    allow_redirects=True # 是否重定向
+    verify=True # 是否验证SSL
     stream=True
 
 Response:
@@ -180,18 +214,33 @@ Response:
     r.cookies
     r.elapsed.seconds/microseconds/days
 
-Sessions
+Sessions:
+
+会话对象让你能够跨请求保持某些参数。它也会在同一个 Session实例发出的所有请求之间保持cookie.
 
     from requests.sessions import Session
-    from requests import Session
+    # methods:
+    requests.reqeust(method, url, **kwargs)
+    get(url, params=None, **kwargs)
+    post(url, data=None, json=None, **kwargs)
+    put(url, data=None, **kwargs)
+    patch(url, data=None, **kwargs)
+    delete(url, **kwargs)
+    head(url, **kwargs)
+    options(url, **kwargs)
+    ...
 
-auth
+Auth:
+
+身份认证．
 
     from requests.auth import HTTPBasicAuth
+    auth = HTTPBasicAuth(username, password)
 
-packages
+    from requests.auth import HTTPProxyAuth
+    HTTPProxyAuth(HTTPBasicAuth)
 
-    from requests.packages import urllib3
+    from requests.auth import HTTPDigestAuth
 
 ***
 

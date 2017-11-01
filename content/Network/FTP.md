@@ -1,6 +1,6 @@
 Title: FTP
 Date: 2016-07-28 16:08:54
-Tags: Python, FTP
+Tags: FTP
 
 
 
@@ -16,12 +16,22 @@ ftp服务器有很多：
 
     $ sudo apt-get install vsftpd
 
+windows开启ftp服务和建立IIS站点即可。
+
+linux配置：
+
+    $ vim /etc/vsftpd.conf
+    local_root=/home/canux/FTP
+    anon_root=/home/canux/FTP
+    local_enable=YES
+    anonymous_enable=YES
+    chroot_local_user=YES
+    $ sudo service vsftpd restart
+
 ftp的网页浏览格式：
 
     ftp://host/path
     ftp://username:password@host:port/path
-
-windows开启ftp服务即可。
 
 ***
 
