@@ -103,9 +103,9 @@ Keywords分类：
 variables:测试用例中可能变化的数据定义成变量．
 
     *** Variables ***
-    ${ScalarVar}
-    @{ListVar}
-    &{DictVar}
+    ${ScalarVar}    first one    second one
+    @{ListVar}     one    two
+    &{DictVar}     key=value    key1=value1
 
 变量类型：
 
@@ -264,7 +264,7 @@ robot framework相关的工具．
     -W --consolewidth chars
     -C --consolecolors auto|on|ansi|off
     -K --consolemarkers auto|on|off
-    -L --loglevel level    # TRACE, DEBUG, INFO (default), WARN, NONE
+    -L --loglevel level    # 格式LOGLEVEL:DEFAULT, 可选TRACE, DEBUG, INFO (default), WARN, NONE
     -b --debugfile # 存放debug log的文件．
     -T --timestampoutputs # 表示所有在outputdir里面的文件都自动加时间戳．
     -P --pythonpath path * # 指定PYTHONPATH, 可以指定正在开发的库用来测试，而不需要安装到site-packages.

@@ -116,5 +116,6 @@ index.rst这是文档的首页。
 
 安装：
 
-    $pip install pypandoc
+    $ sudo apt-get install pandoc
+    $ pip install pypandoc
 

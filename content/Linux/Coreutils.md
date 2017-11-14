@@ -16,6 +16,8 @@ Linux外部命令的项目是coreutils。
 
 外部命令在下列目录中：
 
+    ~/bin # 用户自定义
+
     /sbin
 
     /bin
@@ -70,6 +72,11 @@ Linux外部命令的项目是coreutils。
     clear
     passwd
     pkill
+
+    # /etc/crontab 设置了环境变量
+    crontab
+    crontab -l
+    crontab -e
 
 # 文件和目录管理
 
@@ -155,13 +162,37 @@ Linux外部命令的项目是coreutils。
 
 # 压缩备份
 
+tar(.tar)
+
     tar
+
+bzip2(.bz2)
+
+gzip(.gz)
+
+zip(.zip)
+
     zip
+    unzip
+
+compress(.z)
+
+    compress
+    uncompress
+
+7z(.7z)
+
+    $ sudo apt-get install p7zip
+    p7zip
 
 # 磁盘管理
 
-    df # 查看文件系统信息
+文件系统:
+
+    df
     $ df -h
+
+文件/目录:
 
     du
     $ du -h
@@ -201,10 +232,11 @@ Linux外部命令的项目是coreutils。
     tcpdump
     wget
     iptables
-    virsh
 
     # 在Network里面研究的几个常用命令
     curl(参考network-http)
     ftp(参考network-ftp)
     snmp(参考network-snmp)
     ssh/scp/sftp(参考network-ssh)
+
+***

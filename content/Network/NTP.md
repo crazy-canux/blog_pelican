@@ -20,7 +20,6 @@ CST: Chinese Standard Time, 中国标准时间, = UTC+8
 
     $ sudo apt-get install ntp
 
-
 ***
 
 

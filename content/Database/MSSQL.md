@@ -371,7 +371,7 @@ THROW error, 'msg', number;
 
 <https://github.com/FreeTDS/freetds>
 
-    $sudo apt-get install freetds*
+    $sudo apt-get install freetds-dev
 
 配置freetds，/etc/freetds/freetds.conf:
 

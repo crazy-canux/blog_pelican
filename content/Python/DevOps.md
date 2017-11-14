@@ -125,65 +125,63 @@ python的版本管理工具.
 第三方库路径：
 
     C:\Python27\Lib\site-packages
-    /usr/lib/python2.7/dist-packages
-    /usr/lib/python2.7/site-packages
+    ~/.local/lib/python2.7/site-packages
     /usr/local/lib/python2.7/dist-packages
     /usr/local/lib/python2.7/site-packages
+    /usr/lib/python2.7/dist-packages
+    /usr/lib/python2.7/site-packages
 
-* 二进制安装：
+二进制安装：
 
-        $sudo apt-get install python-packagename
+    $sudo apt-get install python-packagename
 
-* 源码安装第三方库：
+源码安装第三方库：
 
-        $ cd package
-        $ python setup.py install
+    $ cd package
+    $ python setup.py install
 
-* easy_install(setuptools)安装：
+    # 安装到　~/.local/lib/python2.7/site-packages
+    $ python setup.py install --user
+
+easy_install(setuptools)安装：
 
     <https://github.com/pypa/setuptools>
-
     easy_install安装egg包,不推荐使用．
-
     setuptools带的工具,从pypi的egg归档格式中安装。
-
     python2.7.9, python3.4, virtualenv自带setuptools.
-
     缺点是不支持卸载。
 
-        $sudo apt-get install python-setuptools
-        $sudo yum install python-setuptools
+    $sudo apt-get install python-setuptools
+    $sudo yum install python-setuptools
 
-        $pip install -U setuptools
+    $ pip install -U setuptools
 
-        $sudo -E easy_install packagename[=version] # 安装
-        $sudo -E easy_install -U packagename[=version] # 升级
+    $sudo -E easy_install packagename[=version] # 安装
+    $sudo -E easy_install -U packagename[=version] # 升级
 
-* pip安装：
+pip安装：
 
     <https://github.com/pypa/pip>
-
     python2.7.9和python3.4和virtualenv自带pip.
-
     直接从pypi安装wheel格式和sdist格式(也就是tarball)。
 
-        $sudo apt-get install python-pip
-        $sudo apt-get install python-wheel
-        $sudo yum install python-pip
-        $sudo yum install python-wheel
+    $sudo apt-get install python-pip
+    $sudo apt-get install python-wheel
+    $sudo yum install python-pip
+    $sudo yum install python-wheel
 
-        $pip install -U pip
-        $pip install -U wheel
+    $pip install -U pip
+    $pip install -U wheel
 
-        $ pip install packagename[==version] # 安装
-        $ pip install -U packagename[==version] # 升级
-        $ pip uninstall packagename # 卸载
-        $ pip install XXX.whl # 安装wheel包
+    $ pip install packagename[==version] # 安装
+    $ pip install -U packagename[==version] # 升级
+    $ pip uninstall packagename # 卸载
+    $ pip install XXX.whl # 安装wheel包
 
-        $pip list
-        $pip search packagename
-        $pip freeze > requirements.txt
-        $pip install -r requirements.txt
+    $pip list
+    $pip search packagename
+    $pip freeze > requirements.txt
+    $pip install -r requirements.txt
 
 ***
 

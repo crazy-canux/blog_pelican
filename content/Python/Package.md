@@ -65,15 +65,24 @@ virtualenvwrapper
 <https://bitbucket.org/virtualenvwrapper/virtualenvwrapper>
 
     $ pip install virtualenvwrapper
-    $ export WORKON_HOME=~/.virtualenvs # 写入到rc文件
+
+    # 创建主目录
     $ mkdir -p $WORKON_HOME
-    $ source virtualenvwrapper.sh
+
+    # 最好写入到.bashrc/.zshrc:
+    $ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+    $ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+    $ export WORKON_HOME=~/.virtualenvs
+    $ source /usr/local/bin/virtualenvwrapper.sh
+
+    # 为每个项目创建独立python环境：
     $ mkvirtualenv [project-name]
     $ workon [project-name] # 切换到针对该项目的virtualenv
     (pro)$ pip install [package] # 安装第三方包
     (pro)$ ~/.virtualenvs/[project-name]/bin/python setupt.py install # 源码安装
     (pro)$ lssitepackages # 查看安装的第三方包
     $ deactivate # 退出virtualenv
+    $ rmvirtualenv [project-name] # 删除环境
 
 ## setuptools
 
@@ -111,8 +120,11 @@ python2.7.9和python3.4以及virtualenv自带setuptools．
             return pypandoc.convert(readme, 'rst')
 
     setup(
+        # metadata:
         name=project,
         version=project.__version__,
+        url='',
+        download_url='',
         author='',
         author_email='',
         maintainer='',
@@ -122,21 +134,25 @@ python2.7.9和python3.4以及virtualenv自带setuptools．
         license='',
         platforms='any',
         keywords='',
-        url='',
-        download_url='',
-        # find_packages会自动查找包含__init__.py的包．
-        packages=find_packages(),
-        package_dir={"": ""},
-        install_requires=['a==1.0.0', 'b>=1.0.0'],
-        extras_require='',
-        cmdclass='',
-        entry_points={},
         classifiers=[
             'Development Status :: 5 - Production/Stable',
             ...
         ],
-        test_suite='',
-        test_require='',
+        # options
+        packages=find_packages(),
+        package_dir={},
+        package_data={},
+        include_package_data=None,
+        exclude_package_data=None,
+        install_requires=['a==1.0.0', 'b>=1.0.0'],
+        setup_requires=[],
+        python_requires='',
+        extras_require=None,
+        test_require=[]
+        zip_safe=True,
+        scripts=[],
+        data_files=[(dest, source),()],
+        entry_points={}
     )
 
 创建setup.cfg文件：

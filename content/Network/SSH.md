@@ -39,6 +39,10 @@ sftp
 
     $ sftp
 
+常用选项：
+
+    -o StrictHostKeyChecking=no
+
 ssh也包括一些密钥管理的命令.
 
 ssh-keygen
@@ -50,18 +54,16 @@ ssh-keygen
     $ ssh-copy-id -i ~/.ssh/id_rsa.pub user@remote
     # 另外的拷贝方法
     $ ssh user@host "cat >> ~/.ssh/authorized_keys" < ~/.ssh/id_rsa.pub
-
     $ sudo service ssh restart # 需要重启ssh服务
+
+    非交互式通过命令行传密码的命令：
+    $ sshpass -p [password]
 
 ssh-add
 
 ssh-keysign
 
 ssh-keyscan
-
-非交互式通过命令行传密码的命令：
-
-    $ sshpass -p [password]
 
 ***
 

@@ -42,7 +42,7 @@ functions:
     check_call(*popenargs, **kwargs)
     # check_call(["ls", "-l"]) -> 如果返回码为０就返回，否则抛出CalledProcessError.
 
-    check_output(*popenargs, **kwargs)
+    check_output(*popenargs, **kwargs) # 返回一个字符串
     # output = check_output(["ls", "-l", "/dev/null"]) -> 如果返回码为０返回命令结果，否则抛出CalledProcessError.
 
 data:

@@ -29,9 +29,17 @@ Tags: Wordpress
     mysql> GRANT ALL PRIVILEGES ON wordpress.* TO "wordpress"@"localhost";
     mysql> FLUSH PRIVILEGES;
 
+编辑配置文件：
+
+    wp-config.php
+
 登陆并安装站点：
 
-    http://localhost/WordPress/wp-admin/install.php
+    http://localhost
+
+管理界面：
+
+    http://localhost/wp-admin
 
 ***
 

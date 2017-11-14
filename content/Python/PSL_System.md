@@ -37,6 +37,10 @@ functions:
     listdir(path)
     makedirs(path [, mode=0777])
     mkdir(path [, mode=0777])
+    walk(top, topdown=True, onerror=None, followlinks=False) # 返回 (dirpath, dirnames, filenames) 类型的迭代器
+    remove(path) # remove a file
+    rmdir(path) # remove a directory
+    removedirs(path)
     ...
 
     # 使用subprocess模块代替下列函数：
@@ -192,6 +196,10 @@ classes:
     # argparse._SubParsersAction
     # methods:
     add_parser(self, name, **kwargs) # -> argparse.ArgumentParser
+
+    # HelpFormatter
+
+    # Action
 
 functions:
 

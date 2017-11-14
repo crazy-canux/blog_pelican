@@ -25,6 +25,8 @@ function:
     os.path.splitext(p) # 分解路径和扩展名返回组成的元组，/home/user/test.py -> ("/home/user/test", ".py")
     os.path.basename(p) # 返回最后一个组件名，也就是文件名 /home/user/test.py -> test.py
     os.path.getsize(filename) # 返回文件大小
+    os.path.exists(path) # 判断path(文件或目录)是否存在
+    os.path.isfile(path) # 判断path是否是常规文件
 
 ## stat
 
