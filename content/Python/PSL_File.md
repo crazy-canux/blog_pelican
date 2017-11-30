@@ -17,11 +17,12 @@ windows的路径要写成：
 function:
 
     os.path.expanduser(path) # 把path中~或~user扩展成绝对路径 expanduser("~/src") -> /home/user/src
+    os.path.expandvars(path) # 把path中的shell变量$var 或 ${var} 还原．
     os.path.realpath(filename) # 返回filename的真实路径+文件名 realpath("/home/user/file.py") -> /home/user/file.py
     os.path.dirname(filename) # 返回filename的路径 dirname("/home/user/file.py") -> /home/user
     os.path.join(a, *p) # 拼结一个完整的路径　
     os.path.join(a, os.pardir) # 返回上级目录的路径
-    os.path.abspath(path) # 返回绝对路径
+    os.path.abspath(path) # 返回绝对路径, os.path.abspath('__file__')
     os.path.splitext(p) # 分解路径和扩展名返回组成的元组，/home/user/test.py -> ("/home/user/test", ".py")
     os.path.basename(p) # 返回最后一个组件名，也就是文件名 /home/user/test.py -> test.py
     os.path.getsize(filename) # 返回文件大小

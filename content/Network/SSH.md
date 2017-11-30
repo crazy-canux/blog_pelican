@@ -41,7 +41,9 @@ sftp
 
 常用选项：
 
+    # 不需要输入yes来交互, 或者修改/etc/ssh/ssh_config
     -o StrictHostKeyChecking=no
+    -o UserKnownHostsFile /dev/null
 
 ssh也包括一些密钥管理的命令.
 
@@ -86,17 +88,17 @@ paramiko依赖pycrypto
     load_host_keys(filename)
     get_host_keys()
     set_missing_host_key_policy(policy)
-    # paramiko.client.AutoAddPolicy()
+    # paramiko.client.AutoAddPolicy() # 首次连接不用输入yes/no交互
     # paramiko.client.RejectPolicy()
     # paramiko.client.WarningPolicy()
     save_host_keys(self, filename)
-    connect(hostname, port=22, username=None, password=None, pkey=None, key_filename=None, timeout=None, allow_agent=True, look_for_keys=True, compress=False, sock=None)
+    connect(hostname, port=22, username=None, password=None, pkey=None, key_filename=None, timeout=None, allow_agent=True, look_for_keys=True, compress=False, sock=None) # 支持连接本机
     # 查找Authentication顺序：
     # 1. pkey or key_filename
     # 2. allow_agent
     # 3. look_for_keys
     # 4. username/password
-    stdin, stdout, stderr = exec_command(command, bufsize=-1, timeout=None, get_pty=False) # 返回三个ChannelFile类型的对象
+    stdin, stdout, stderr = exec_command(command, bufsize=-1, timeout=None, get_pty=False) # 返回三个ChannelFile类型的对象, get_pty可用于执行sudo命令输入密码，stdin.write(password + '\n')
     # stdin -> paramiko.ChannelFile
     # output = stdout.readlines() -> list
     # error = stderr.readlines() -> list
@@ -152,6 +154,3 @@ paramiko依赖pycrypto
     close()
 
 ***
-
-# Java
-

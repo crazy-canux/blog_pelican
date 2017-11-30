@@ -33,6 +33,17 @@ vCenter Server是vSphere的高级管理系统．需单独购买．
 
 ***
 
+# 命令
+
+    vim-cmd vmsvc/getallvms # 获取所有虚拟机
+    vim-cmd vmsvc/reload
+    vim-cmd vmsvc/power.on vmid
+    vim-cmd vmsvc/power.shutdown vimid
+    vim-cmd vmsvc/power.off vimid
+    vim-cmd vmsvc/power.reboot vimid
+
+***
+
 # python
 
 pyVmomi is the Python SDK for the VMware vSphere API that allows you to manage ESX, ESXi, and vCenter.

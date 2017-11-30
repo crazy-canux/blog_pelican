@@ -149,6 +149,9 @@ Linux外部命令的项目是coreutils。
     cal
     factor
 
+    dirname
+    dirname $0   # 获取当前文件所在目录
+
     rsync
     rsync [OPTION]... SRC [SRC]... DEST
     rsync [OPTION]... SRC [SRC]... [USER@]HOST:DEST
@@ -195,7 +198,7 @@ compress(.z)
 文件/目录:
 
     du
-    $ du -h
+    $ du -sh
 
     dd
     fsck

@@ -12,7 +12,11 @@ ftp服务器有很多：
 2. proftpd
 3. pyftpdlib
 
-安装ftp:
+***
+
+# vsftpd
+
+安装vsftpd:
 
     $ sudo apt-get install vsftpd
 

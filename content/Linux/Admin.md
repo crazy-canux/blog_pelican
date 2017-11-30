@@ -38,6 +38,18 @@ use RDP on windows to connect to linux.
     sudo apt-get instal xrdp -y
     echo unity > ~/.xsession
 
+## systemd
+
+sytemd是upstart的替代版本．通过查看/sbin/init指向systemd还是upstart.
+
+    /etc/systemd/
+    $ systemctl
+
+## upstart
+
+    /etc/init.d/
+    $ service
+
 ***
 
 # Ubuntu/Debian安装后的基本配置

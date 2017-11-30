@@ -83,6 +83,7 @@ Fedora创建网站的配置文件/etc/httpd/conf.d/mysite.conf:
         WSGIDaemonProcess mysite python-path=/home/user/mysite
         # If use virtualenv and named .venv
         # WSGIDaemonProcess mysite python-path=/home/user/mysite:/home/user/mysite/.venv/lib/python2.7/site-packages
+        # WSGIProcessGroup mysite
 
         WSGIScriptAlias / /home/user/mysite/mysite/wsgi.py
 

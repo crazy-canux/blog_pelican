@@ -144,6 +144,15 @@ Nagios XI 架构：
 
 ***
 
+# Nagios命令
+
+    /usr/local/nagios/bin/nagios --help
+    -v 验证配置文件
+    -d daemon mode
+    -W worker mode.
+
+***
+
 # Nagios 集中监控
 
 ## 本地监控

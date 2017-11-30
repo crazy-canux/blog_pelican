@@ -10,9 +10,13 @@ Tags: Apache, httpd
 
 <http://httpd.apache.org/>
 
-安装apache2：
+ubuntu/debian：
 
     sudo aptitude install apache2
+
+redhat/centos/fedora:
+
+    $ sudo yum install httpd2
 
 启动服务器：
 

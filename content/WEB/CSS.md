@@ -255,7 +255,7 @@ id选择器常常用来建立派生选择器：
 
 ## 外边距属性
 
-    margin
+    margin # 依次为上，右，下，左．
     margin-right
     margin-top
     margin-bottom
@@ -270,12 +270,12 @@ id选择器常常用来建立派生选择器：
     right
     bottom
     left
-    overflow
+    overflow # 内容益处元素框时，visible/hidden/scroll/auto/inderit
     clip
     vertical-align
     z-index
-    display # 规定元素应该生成的框的类型
-    float # 规定框是否应该浮动
+    display # 规定元素应该生成的框的类型, inline/none/block/...
+    float # none/left/right/inderit, 规定框是否应该浮动
 
 ***
 

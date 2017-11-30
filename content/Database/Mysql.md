@@ -11,10 +11,17 @@ Tags: Mysql
     $ sudo apt-get install mysql-server
     $ sudo yum install mysql-community-server
 
+    $ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+    # 注意mysql的/etc/mysql/my.cnf和相关文件如果设置了bind-address = 127.0.0.1就无法远程访问，需要注释掉．
+
 安装mysql客户端
 
     $ sudo apt-get install mysql-client
     $ sudo yum install mysql-community-client
+
+安装开发工具：
+
+    $ sudo apt-get install libmysqlclient-dev
 
 CLI工具： mysql
 
@@ -23,8 +30,6 @@ GUI工具： mysql workbench
 安装完成默认的数据库是 mysql。
 
 mysqld的默认端口是3306.
-
-注意mysql的/etc/mysql/my.cnf和相关文件如果设置了bind-address = 127.0.0.1就无法远程访问，需要注释掉．
 
 # mysql命令
 
@@ -138,6 +143,8 @@ isnull函数：
 
 # SQL
 
+注意：hostname 指定能连接的server，%表示任何server．
+
 查看版本：
 
     SELECT VERSION();
@@ -153,9 +160,8 @@ isnull函数：
 
 创建/删除用户：
 
-    CREATE USER 'username'@'hostname' IDENTIFIED BY 'password';
-    # hostname 指定能连接的server，%表示任何server．
-    DROP USER 'username'@'hostname';
+    CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+    DROP USER 'username'@'%';
 
 设置和更改密码：
 
@@ -180,12 +186,12 @@ isnull函数：
 
 指定数据库对用户授权：
 
-    GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'hostname';
+    GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'%';
     FLUSH PRIVILEGES;
 
 查看权限：
 
-    SHOW GRANTS FOR 'username'@'hostname';
+    SHOW GRANTS FOR 'username'@'%';
 
 查看所有表：
 
@@ -231,7 +237,7 @@ isnull函数：
 
     import mysql.connector
 
-## MySQLdb
+## MySQL-Python/mysqlclient
 
 MySQLdb 1.X 是旧版本，<https://github.com/farcepest/MySQLdb1>
 

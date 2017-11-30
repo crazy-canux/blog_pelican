@@ -6,4 +6,3 @@ Tags: Linux, FireWall
 
 # UFW & Iptables
 
-# Upstart & Systemd

@@ -7,7 +7,6 @@ Tags: Ansible
 # Ansible
 
 <https://github.com/ansible/ansible>
-
 <http://www.ansible.com.cn/index.html>
 
 ansible通过SSH来远程管理Linux/Unix机器．
@@ -39,29 +38,62 @@ ansible运行命令的两种方式：
 
 ansible:
 
+    $ ansible -i inventory group1:group1:group3/all ...
+
     $ansible --help
     -m MODULE_NAME, --module-name=MODULE_NAME # 执行模块，默认是command
     -M MODULE_PATH, --module-path=MODULE_PATH # 指定模块的路径
     -a MODULE_ARGS, --args=MODULE_ARGS # 模块的参数
     -i INVENTORY, --inventory INVENTORY # 默认/etc/ansible/hosts, 需要指定hosts分组
     -f FORKS, --forks=FORKS # 指定并发进程的数量
+    -C, --check
+    -D, --diff
+    -l SUBSET, --limit=SUBSET
+    --syntax-check
+    --list-hosts
+    -v, --verbose # -v, -vvv, -vvvv
+
+    # 提权选项
     -b, --become
     --become-method=BECOME_METHOD # sudo(default)/su/pbrun/pfexec/runas/doas
     --become-user=BECOME_USER # root(default)
     -K, --ask-become-pass
-    --list-hosts
-    $ ansible -u username -b # 从username sudo到root
-    $ ansible -u userA -b --become-user userB # 从userA sudo到userB
 
-    # all表示用于/etc/ansible/hosts中定义的所有的远程主机组
-    $ansible all -m ping
-    $ansible all -a 'echo $USER'
+    # 连接选项
+    -u REMOTE_USER
+    --ssh-common-args
+    --ssh-extra-args
+    -T TIMEOUT # default 10s
+    -K, --ask-pass
 
 ***
 
 # inventory
 
+可以是ini格式，也可以是yaml格式.
+
     $ sudo vim /etc/ansible/hosts
+
+    [remote-server]
+    server-ip ansible_connection=ssh ansible_user=user ansible_password=password
+
+    [remote-group]
+    server1
+    server2
+
+    [remote-group:vars]
+    ansible_host
+    ansible_port
+    ansible_connection=local/smart/ssh/paramiko
+    ansible_user
+    ansible_ssh_pass
+    ansible_ssh_common_args
+    ansible_ssh_extra_args
+
+    ansible_become
+    ansible_become_method
+    ansible_become_user
+    ansible_become_pass
 
 ***
 
@@ -74,8 +106,8 @@ module也就是所说的task plugins/library plugins.
 commands modules：
 
     command # 默认模块，用于在远程机器上执行命令
-    shell # 和command相同，只是该模块支持管道
-    raw # 和command相同
+    shell # 和command相同，只是该模块支持管道和特殊字符，一般用来执行脚本和复杂命令
+    raw
     expect
     script
     telnet
@@ -98,12 +130,19 @@ package modules:
 
 playbook的格式是YAML.
 
-    $ ansible-playbook playbook.yaml -K -vvv > output.txt
+    $ ansible-playbook -i inventory playbook.yaml -K -vvv > output.txt
     -i INVENTORY, --inventory INVENTORY # 默认/etc/ansible/hosts, 在playbook中指定hosts分组，而不是命令行
-    -C, --check
-    --syntax-check
-    --list-tags
-    --list-tasks
+
+    - hosts: host-or-group
+      remote_user: user
+
+      task:
+      - name: task name.
+        module: args
+
+variables:
+
+    register: var   # 用var来存储task的结果,查看不同模块的返回值．
 
 become:
 

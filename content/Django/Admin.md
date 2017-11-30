@@ -10,7 +10,7 @@ Tags: Django, Admin
 
 创建一个管理员用户：
 
-    $python manage.py createsuperuser
+    $ python manage.py createsuperuser
 
 管理员登陆界面：
 

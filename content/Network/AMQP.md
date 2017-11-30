@@ -42,7 +42,7 @@ rabbitmq的三个组件：
         }
     ].
 
-# rabbitmqctl 命令
+## rabbitmqctl 命令
 
     $ sudo rabbitmqctl [-n node] [-t timeout] [-q] <commands> [command options]
 
@@ -58,7 +58,7 @@ rabbitmq的三个组件：
     $ reset
     $ start_app
 
-# rabbitmq-plugins 插件管理
+## rabbitmq-plugins 插件管理
 
 启动web-gui:
 

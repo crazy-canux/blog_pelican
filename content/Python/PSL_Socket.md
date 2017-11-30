@@ -8,6 +8,8 @@ Tags: Python, Socket
 
 ## subprocess
 
+开启一个子进程来执行外部命令.
+
     import subprocess
 
 classes:
@@ -17,6 +19,13 @@ classes:
     preexec_fn=None, close_fds=False, shell=False,cwd=None,
     env=None, universal_newlines=False,startupinfo=None, creationflags=0)
     # p = Popen(shlex.split(command), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    # 如果命令和参数是字符串形式，需要参数shell=True
+    # p = Popen(command_string, shell=True, ...)
+
+    # 非交互执行sudo命令, 或者使用pexpect
+    Popen(['sudo', '-S'] + shlex.split(command), universal_newlines=True, ...)
+    child.communicate(password+'\n')
 
     # methods:
     poll() # 检查子进程是否结束，返回returncode.

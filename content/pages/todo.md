@@ -22,11 +22,11 @@ Operations development:
 
 QA development:
 
-2017 - Mongodb + Agile + JavaScript + Ansible + Jenkins + QA
+2017 - Mongodb + Agile + Ansible + Jenkins + QA
 
-2018 - OpenStack + Web + PMP
+2018 - JavaScript + PMP
 
-2019 - FullStack: Linux/C/Shell/Python/JavaScript/Web(Html/Css/Django/Vue)/Sql/OpenStack
+2019 - FullStack: Linux/C/Shell/Python/Web(JS/Html/Css/Django)/Sql
 
 ***
 

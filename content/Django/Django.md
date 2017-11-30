@@ -50,6 +50,7 @@ virtualenv中安装：
 安装使用的数据库引擎的库：
 
     $pip install mysql-python # MySQLdb
+    $pip install mysqlclient # mysql-python的升级版
     $pip install psycopg2
     $pip install cx_Oracle
 
@@ -243,9 +244,7 @@ django通过wsgi来部署，参考django的deploy。
 
 ***
 
-# manage.py
-
-manage.py有下面子命令：
+# django-admin & manage.py
 
     [staticfiles]
         collectstatic # 设置STATIC_ROOT = '/var/www/static/project/'用来收集静态文件

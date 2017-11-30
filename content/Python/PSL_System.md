@@ -115,8 +115,9 @@ functions:
 
     basicConfig(**kwargs) # 设置log的格式，默认是BASIC_FORMAT.
     # filename/filemode/format/datefmt/level/stream
-    # stream默认是sy.stderr,当filename和stream同时指定，stream被忽略．
+    # stream默认是sys.stderr,当filename和stream同时指定，stream被忽略．
     getLogger(name=None) # 返回Logger类型对象
+    # eg: format="%(asctime)s [%(name)s] %(levelname)s: %(message)s"
 
 data:
 
@@ -164,7 +165,7 @@ classes:
         type - The type to which the command-line argument should be converted.
         choices - A container of the allowable values for the argument.
         required - Whether or not the command-line option may be omitted (optionals only).
-        help - A brief description of what the argument does.
+        help - A brief description of what the argument does. # 用来打印默认值：%(default)s
         metavar - A name for the argument in usage messages.
         dest - The name of the attribute to be added to the object returned by.
     add_subparsers(self, **kwargs) # -> argparse._SubParsersAction
