@@ -250,14 +250,3 @@ mysqlclient 是MySQLdb1的升级版,支持python3， <https://github.com/PyMySQL
     $pip install mysqlclient
 
 ***
-
-# Java
-
-## connector/J
-
-<http://dev.mysql.com/doc/connector-j/5.1/en/>
-
-<https://github.com/mysql/mysql-connector-j>
-
-官方提供的java的API，下载java安装包安装。
-

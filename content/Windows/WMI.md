@@ -1,4 +1,4 @@
-Title: Windows WMI
+Title: WMI
 Date: 2016-04-03 14:15:47
 Tags: Windows, WMI, CIM
 
@@ -162,39 +162,4 @@ wql关键字：
     select * from win32_service
     select * from win32_process
 
-# Python
-
-## windows
-
-Windows安装[pywin32](https://sourceforge.net/projects/pywin32/?source=navbar)和[wmi](http://timgolden.me.uk/python/wmi/index.html)两个包,可以访问wmi。
-
-    pip install pywin32
-    pip install wmi
-    import wmi
-    c = wmi.WMI()
-    c.<wmi class/wmi provider>
-
-## linux
-
-linux需要先安装wmic命令。
-
-Linux通过subprocess/sh远程执行wmic命令。
-
-### subprocess
-
-python标准库subprocess
-
-    import subprocess
-    wmi_output = subprocess.check_output(command)
-    command = ['wmic', '-U', domain\\user%password, //host, wql]
-
-### sh
-
-sh是subprocess的升级版。
-
-    pip install sh
-
-    from sh import wmic
-    output = sh.wmic(arguments)
-    arguments = ['-U', domain\\user%password, //host, wql]
-
+***

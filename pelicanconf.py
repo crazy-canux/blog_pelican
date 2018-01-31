@@ -194,9 +194,10 @@ MENUITEMS = (('Category', 'categories.html'),
              ('Tags', 'tags.html'))
 
 LINKS = (('Python', 'https://www.python.org/'),
+         ('Go', 'http://www.golang.org/'),
+         ('JavaScript', 'http://www.ecma-international.org/'),
+         ('Web', 'https://www.w3.org/'),
          ('Django', 'https://www.djangoproject.com/'),
-         ('Java', 'http://openjdk.java.net/'),
-         ('Spring', 'https://spring.io/'),
          ('Hadoop', 'http://hadoop.apache.org/'),
          ('OpenStack', 'https://www.openstack.org/'))
 

@@ -375,17 +375,16 @@ THROW error, 'msg', number;
 
 配置freetds，/etc/freetds/freetds.conf:
 
-    # A typical Sybase server
-    [egServer50]
-            host = symachine.domain.com
-            port = 5000
-            tds version = 5.0
-
     # A typical Microsoft server
     [egServer70]
             host = ntmachine.domain.com
             port = 1433
             tds version = 7.0
+
+freetds的命令行工具tsql:
+
+    $ sudo apt-get install freetds-bin
+    $ man tsql
 
 ***
 
@@ -409,11 +408,6 @@ THROW error, 'msg', number;
 debug:
 
 <https://msdn.microsoft.com/en-us/library/dd327979.aspx?f=255&MSPPError=-2147217396>
-
-(7391, 'The operation could not be performed because OLE DB provider "SQLNCLI10"
-for linked server "euedcapp0049.edc.eu.corp" was unable to begin a distributed
-transaction.DB-Lib error message 7391, severity 16:\nGeneral SQL Server error:
-Check messages from the SQL Server\n')
 
 ## pyodbc
 
@@ -451,38 +445,3 @@ linux连接
 
 ***
 
-# java
-
-<https://msdn.microsoft.com/library/mt484311.aspx>
-
-需要安装sqljdbc才能通过java访问mssql数据库
-
-    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-    String connectionUrl = "jdbc:sqlserver://localhost;database=AdventureWorks;integratedSecurity=true;"
-    Connection con = DriverManager.getConnection(connectionUrl);
-
-## Installation Instructions for the Microsoft Windows version of the JDBC Driver
-
-Note: By downloading the Microsoft JDBC Driver 6.0 (Preview), 4.2, 4.1, or 4.0
-for SQL Server, you are accepting the terms and conditions of the End-User
-License Agreement (EULA) for this component. Please review the End-User License
-Agreement (EULA) located on this page and print a copy of the EULA for your
-records.
-
-1. Download sqljdbc_<version>_<language>.exe to a temporary directory.
-
-2. Run sqljdbc_<version>_<language>.exe.
-
-3. Enter an installation directory when prompted. We recommend that you unpack
-   this zip file in %ProgramFiles% with the default directory: "Microsoft JDBC
-   Driver x.x for SQL Server".
-
-## Installation Instructions for the UNIX version of the JDBC Driver
-
-1. Download sqljdbc_<version>_<language>.tar.gz to a temporary directory.
-
-2. To unpack the zipped tar file, navigate to the directory where you want
-   the driver unpacked and type gzip -d sqljdbc_<version>_<language>.tar.gz.
-
-3. To unpack the tar file, move it to the directory where you want the
-   driver installed and type tar –xf sqljdbc_<version>_<language>.tar.

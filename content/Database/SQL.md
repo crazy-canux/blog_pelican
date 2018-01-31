@@ -164,6 +164,9 @@ order by子句对结果进行排序,默认升序(ASC)：
     SELECT column, column1 FROM table ORDER BY column DESC, column1 ASC;
     # 根据第几个字段排序
     SELECT column, column1 FROM table ORDER BY number;
+    # 多个字段排序，优先级从前到后
+    SELECT column FROM table ORDER BY column1, column2
+    SELECT column FROM table ORDER BY column1 DESC, column2 DESC
 
 top子句用于规定要返回的记录数目：
 

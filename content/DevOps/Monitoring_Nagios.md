@@ -1,6 +1,6 @@
 Title: Monitoring Nagios
 Date: 2016-03-25 11:15:48
-Tags: Nagios
+Tags: Monitoring, Nagios
 
 
 

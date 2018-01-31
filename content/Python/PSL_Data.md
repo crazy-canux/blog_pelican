@@ -245,16 +245,3 @@ data:
 ## tarfile
 
 ***
-
-# TPL
-
-相关的第三方库
-
-## SQLAlchemy
-
-ORM: Object-Relational Mapping.
-
-就是把数据库的表结构映射成python的对象.
-
-    $ pip install sqlalchemy
-

@@ -13,7 +13,8 @@ Tags: Python, System
     os.path # 参考PSL_File
     os.name
     os.curdir
-    os.pardir # 表示上一级路径
+    os.pardir # 表示上一级路径.., 需要用abspath解析
+    # os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir))
     os.sep
     os.extsep
     os.altsep
@@ -100,7 +101,8 @@ classes:
     addHandler(self, hdlr) # 添加handler到logger
 
     Formatter
-    %(asctime)s
+    # %(asctime)s:%(levelname)s:%(name)s:%(message)s'
+    Formatter(fmt=None, datefmt=None)
 
     Handler(Filterer)
     # methods:
@@ -108,16 +110,23 @@ classes:
     setLevel(self, level)
 
     StreamHandler(Handler) # 默认打印到sys.stderr
+    StreamHandler(stream=None)
 
     FileHandler(StreamHandler) # 打印到文件
+    FileHandler(filename, mode='a', encoding=None, delay=0)
 
 functions:
 
-    basicConfig(**kwargs) # 设置log的格式，默认是BASIC_FORMAT.
+    basicConfig(**kwargs) # 设置log的格式
     # filename/filemode/format/datefmt/level/stream
+    # format默认是BASIC_FORMAT.
+    # level默认是warning/warn.
     # stream默认是sys.stderr,当filename和stream同时指定，stream被忽略．
+    # datafmt
+    # filename 日志文件名
+    # filemode w每次覆盖写入，a每次追加写入
+
     getLogger(name=None) # 返回Logger类型对象
-    # eg: format="%(asctime)s [%(name)s] %(levelname)s: %(message)s"
 
 data:
 
@@ -260,11 +269,14 @@ classes:
 
 functions:
 
-    # 工厂函数
-
-    Manager()
-
     Pool(processes=None, initializer=None, initargs=(), maxtasksperchild=None)
+    apply(func, args=(), kwargs={}) # 阻塞
+    map(func, itreable, chunksize=None)
+    apply_async(func, args=(), kwargs={}, callback=None) # 非阻塞
+    map_async(func, iterable, chunksize=None, callback=None)
+    close()
+    terminate()
+    join()
 
     # IPC: 管道
 
@@ -281,6 +293,8 @@ functions:
     q = Queue()
 
     # IPC: 共享内存
+    Manager()
+
     Array(typecode_or_type, size_or_initializer, **kwds)
     RawArray(typecode_or_type, size_or_initializer)
     Value(typecode_or_type, *args, **kwds)
@@ -379,13 +393,3 @@ functions:
 ## rlcompleter
 
 ***
-
-# TPL
-
-## Click
-
-<https://github.com/pallets/click>
-
-## Pexpect
-
-<https://github.com/pexpect/pexpect>

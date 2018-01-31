@@ -61,6 +61,13 @@ makefile中的command必须以tab开头，target和prerequisites有多个时用�
         -command3
         ...
 
+makefile变量赋值:
+
+    var=val
+    var := val  覆盖之前的值
+    var ?= val  如果没有被赋值过，就赋值
+    var += val  添加一个值
+
 makefile的变量：
 
     定义变量：

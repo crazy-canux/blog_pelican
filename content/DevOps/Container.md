@@ -1,6 +1,6 @@
 Title: Container
 Date: 2017-01-12 21:00:08
-Tags: Container, Docker
+Tags: Container, DevOps
 
 
 
@@ -25,3 +25,4 @@ Tags: Container, Docker
 # Swarm
 
 容器编排应用．
+

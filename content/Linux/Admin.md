@@ -31,24 +31,47 @@ zypper: suse.
 
 从windows的RDP远程连接linux.
 
-use RDP on windows to connect to linux.
+use RDP on windows to connect to ubuntu16.04.
 
     sudo dpkg -i tigervncserver_1.6...deb # download and install tigervncserver first.
     sudo apt-get install -f
     sudo apt-get instal xrdp -y
     echo unity > ~/.xsession
 
+use RDP on windows to connect to ubuntu14.04.
+
+    sudo apt-get install xrdp
+    sudo apt-get install xfce4
+    echo xfce4-session > ~/.xsession
+    sudo vim /etc/xrdp/startwm.sh
+    # add 'startxfce4' to last line.
+    sudo service xrdp restart
+
 ## systemd
 
 sytemd是upstart的替代版本．通过查看/sbin/init指向systemd还是upstart.
 
-    /etc/systemd/
-    $ systemctl
+    /etc/systemd/system/***.service
+    $ sudo vim ***.service
+    $ systemctl daemon-reload
+    $ sudo systemctl start/stop/status ***
+
+日志管理:
+
+    $ journalctl -xe *.servivce
 
 ## upstart
 
-    /etc/init.d/
-    $ service
+如果init指向upstart, service如果在/etc/init.d找不到会去/etc/systemd/system找.
+
+    /etc/init.d/***
+    $ vim ***
+    $ sudo service *** start/stop/status
+
+## 清理内存的buff/cache
+
+    echo 3 > /proc/sys/vm/drop_caches
+    # reboot才能改回默认的0
 
 ***
 
@@ -169,6 +192,8 @@ ubuntu修改hostname:
 
 设置静态IP:
 
+    $ ifconfig
+    # 查看网卡，ubuntu14.04 eth0, ubuntu16.04 ens160
     $ vim /etc/network/interfaces
     auto eth0
     iface eth0 inet static
@@ -189,6 +214,14 @@ method2:
 
     $ sudo apt-get purge package
     $ sudo apt-get install package
+
+## ubuntu14.04安装升级pip
+
+    # ubuntu14.04 默认python2.7.6, 不带pip
+    $ sudo apt-get install pip # 安装1.5.4
+    $ sudo -H pip install -U pip
+    $ sudo pip install pyopenssl ndg-httpsclient pyasn1
+    $ sudo -H pip install -U pip
 
 ***
 

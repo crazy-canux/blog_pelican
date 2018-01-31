@@ -18,16 +18,3 @@ LDAP的windows工具：LDAPSoft LDAP Browser
 
 ***
 
-# python的ldap的第三方库
-
-## python-ldap
-
-<https://www.python-ldap.org/>
-
-## pyldap
-
-<https://github.com/pyldap/pyldap>
-
-***
-
-## java

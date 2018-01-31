@@ -6,6 +6,7 @@ Tags: Database, NoSQL, Redis
 
 # Redis
 
+redis在key-value存储上性能比memcached更好．
 
 ***
 
@@ -29,4 +30,3 @@ Tags: Database, NoSQL, Redis
 
 ***
 
-# Java

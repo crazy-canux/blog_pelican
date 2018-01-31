@@ -385,6 +385,8 @@ Fetch from and integrate with another repository or a local branch
 Update remote refs along with associated objects
 
     git config --global push.default simple
+    git push origin --tags # push所有tag
+    git push origin [tagname] # push单个tag
 
 ## rebase
 
@@ -455,7 +457,7 @@ Stash the changes in a dirty working directory away
 
 Create, list, delete or verify a tag object signed with GPG
 
-    git tag -a v1.0.0.0 -m "release 1.0 version."
+    git tag -a v1.0.0 -m "release 1.0.0."
 
 ## submodule
 

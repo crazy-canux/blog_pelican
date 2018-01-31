@@ -11,13 +11,19 @@ AMQP: Advanced Message Queue Protocol.
 
 AMQP是高级消息队列协议．是异步消息传递所使用的应用层协议规范．
 
+常用的开源AMQP框架：
+
+<https://github.com/rabbitmq>
+
+<https://github.com/apache/kafka>
+
+<https://github.com/apache/activemq>
+
 ***
 
 # Rabbitmq
 
 RabbitMQ是一个erlang开发的AMQP的开源项目．
-
-<http://www.rabbitmq.com/>
 
 rabbitmq-server也叫broker server
 
@@ -67,12 +73,4 @@ rabbitmq的三个组件：
 
 ***
 
-# python
 
-## pika
-
-<https://github.com/pika/pika>
-
-    $ pip install pika
-
-    import pika

@@ -162,7 +162,8 @@ easy_install(setuptools)安装：
 pip安装：
 
     <https://github.com/pypa/pip>
-    python2.7.9和python3.4和virtualenv自带pip.
+    python2.7.9和python3.4和virtualenv自带最新版pip.
+    其它低版本的python需要单独安装pip.
     直接从pypi安装wheel格式和sdist格式(也就是tarball)。
 
     $sudo apt-get install python-pip
@@ -183,68 +184,74 @@ pip安装：
     $pip freeze > requirements.txt
     $pip install -r requirements.txt
 
+    # 修改pip的源
+    $ sudo vim /etc/pip.conf
+    [global]
+    trusted-host = pypi.douban.com
+    index-url = http://pypi.douban.com/simple
+
 ***
 
 # python代码检查
 
-* flake8
+## flake8
 
-    <https://github.com/PyCQA/flake8>
+<https://github.com/PyCQA/flake8>
 
-    Include: pyflakes, pep8/pycodestyle, McCabe
+Include: pyflakes, pep8/pycodestyle, McCabe
 
-* pylama
+## pylama
 
-    <https://github.com/klen/pylama>
+<https://github.com/klen/pylama>
 
-    Include: pyflakes, pylint, pep8/pycodestyle, pep257/pydocstyle, mccabe, radon, ghslint(for js)
+Include: pyflakes, pylint, pep8/pycodestyle, pep257/pydocstyle, mccabe, radon, ghslint(for js)
 
-* pep8/pycodestyle
+## pep8/pycodestyle
 
-    Simple Python style checker in one Python file.
+Simple Python style checker in one Python file.
 
-    <https://github.com/PyCQA/pycodestyle>
+<https://github.com/PyCQA/pycodestyle>
 
-* pep257/pydocstyle
+## pep257/pydocstyle
 
-    docstring style checker
+docstring style checker
 
-    <https://github.com/PyCQA/pydocstyle>
+<https://github.com/PyCQA/pydocstyle>
 
-* jedi
+## jedi
 
-    Awesome autocompletion and static analysis library for python.
+Awesome autocompletion and static analysis library for python.
 
-    <https://github.com/davidhalter/jedi>
+<https://github.com/davidhalter/jedi>
 
-* mccabe
+## mccabe
 
-    McCabe complexity checker for Python
+McCabe complexity checker for Python
 
-    <https://github.com/PyCQA/mccabe>
+<https://github.com/PyCQA/mccabe>
 
-* pyflakes
+## pyflakes
 
-    A simple program which checks Python source files for errors.
+A simple program which checks Python source files for errors.
 
-    Faster than pylint.
+Faster than pylint.
 
-    <https://github.com/PyCQA/pyflakes>
+<https://github.com/PyCQA/pyflakes>
 
-* pylint
+## pylint
 
-    A Python source code analyzer which looks for programming errors, helps enforcing a coding standard and sniffs for some code smells
+A Python source code analyzer which looks for programming errors, helps enforcing a coding standard and sniffs for some code smells
 
-    <https://github.com/PyCQA/pylint>
+<https://github.com/PyCQA/pylint>
 
-        $pylint --list-msgs
-        $pylint --help-msg=C6409
+    $pylint --list-msgs
+    $pylint --help-msg=C6409
 
-* rope
+## rope
 
-    A python refactoring library
+A python refactoring library
 
-    <https://github.com/python-rope/rope>
+<https://github.com/python-rope/rope>
 
 ***
 
@@ -284,3 +291,28 @@ pip安装：
     |-- fabfile.py
 
 ***
+
+# CICD
+
+## buildbot
+
+Python-based continuous integration testing framework
+
+<https://github.com/buildbot/buildbot>
+
+## pybuilder
+
+Continuous build tool for Python.
+
+<https://github.com/pybuilder/pybuilder>
+
+***
+
+# pypi
+
+创建私有的pypi服务器
+
+## pypiserver
+
+
+

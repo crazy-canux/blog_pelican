@@ -110,6 +110,8 @@ This is a postgres client that does auto-completion and syntax highlighting.
     SELECT current_date;
     SELECT current_time;
 
+***
+
 # python
 
 ## psycopg

@@ -98,3 +98,8 @@ bash的优化项目bash-it：
     !EOF! can be any symbol and character.
     !EOF!
 
+## shell函数
+
+return只是返回当前函数，不退出主程序
+
+exit直接退出主程序

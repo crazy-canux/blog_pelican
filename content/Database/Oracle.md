@@ -151,39 +151,3 @@ isnull函数:
 
 ***
 
-# java
-
-需要安装oracle的jdbc驱动。
-
-    import java.sql.DriverManager;
-    import java.sql.Connection;
-    import java.sql.SQLException;
-
-    public class OracleJDBC{
-        public static void main(String[] argv){
-            try {
-                Class.forName("oracle.jdbc.driver.OracleDriver");
-            } catch (ClassNotFoundException e) {
-                System.out.println("Where is your oracle JDBC driver?");
-                e.printStackTrace();
-                return;
-            }
-            System.out.println("Oracle JDBC driver registered!");
-            Connection connection = null;
-            try {
-                connection = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@localhost:1521:mkyong", "username",
-                    "password");
-            } catch (SQLException e) {
-                System.out.println("Connection failed! check output console.");
-                e.printStackTrace();
-                return;
-            }
-            if (connection != null) {
-                System.out.println("You make it, take control your oracle
-                now.!");
-            } else {
-                System.out.println("Failed to make connection!");
-            }
-        }
-    }

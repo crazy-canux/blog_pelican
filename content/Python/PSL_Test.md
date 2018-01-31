@@ -236,15 +236,3 @@ virtualenv management and test command line tool.
     $ tox
 
 ***
-
-## buildbot
-
-Python-based continuous integration testing framework
-
-<https://github.com/buildbot/buildbot>
-
-## pybuilder
-
-Continuous build tool for Python.
-
-<https://github.com/pybuilder/pybuilder>

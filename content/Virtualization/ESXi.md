@@ -35,12 +35,23 @@ vCenter Server是vSphere的高级管理系统．需单独购买．
 
 # 命令
 
+vim-cmd:
+
     vim-cmd vmsvc/getallvms # 获取所有虚拟机
     vim-cmd vmsvc/reload
     vim-cmd vmsvc/power.on vmid
     vim-cmd vmsvc/power.shutdown vimid
     vim-cmd vmsvc/power.off vimid
     vim-cmd vmsvc/power.reboot vimid
+
+esxtop:
+
+    # 类似于linux的top命令
+    esxtop
+
+vscsiStats:
+
+    vscsiStats -l
 
 ***
 

@@ -2,13 +2,17 @@ Title: Vagrant
 Date: 2017-01-12 21:00:01
 Tags: Vagrant
 
+
+
 # Vagrant
 
-用来构建和分发开发环境．
+构建在虚拟化技术之上的虚拟机运行环境管理工具．
+
+适合用来构建和分发开发环境．通过命令行可以批量自动化，不用一个一个安装配置图形界面的虚拟机．
 
 <https://github.com/mitchellh/vagrant>
 
-安装vagrant和virtualbox.
+需要安装virtualbox或vmware等虚拟机.
 
 vagrant还支持其它的providers(docker, vmware, hyper-v, aws)
 
@@ -65,9 +69,12 @@ vagrant还支持其它的providers(docker, vmware, hyper-v, aws)
     # 会销毁box占用的所有资源，但不删除box.
     $ vagrant destroy
 
-# 删除box
+# 管理box
 
+    $ vagrant box list
     $ vagrant box remove
+
+***
 
 # 配置Vagrantfile
 
@@ -87,6 +94,8 @@ vagrant还支持其它的providers(docker, vmware, hyper-v, aws)
     cfg.vm.network :public_network, ip: "192.168.1.1"
 
     cfg.vm.synced_folder "/var/tmp/pkg-build", "/var/tmp/pkg-build"
+
+***
 
 # 打包
 
@@ -122,3 +131,8 @@ windows不支持ssh,所以需要类似于putty这种客户端．
 
 ![Pic1](/images/vagrant1.PNG)
 
+# Q&A
+
+1. vagrant怎样打包ESXi上的虚拟机．
+
+2. vagrant能否打包cluster(virtualbox或esxi)

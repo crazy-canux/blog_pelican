@@ -32,7 +32,7 @@ python3新增管理可执行的python的zip包．
 
 相关的第三方库
 
-# virtualenv
+## virtualenv
 
 python3.4之后并入了虚拟化标准库venv.
 
@@ -76,7 +76,7 @@ virtualenvwrapper
     $ source /usr/local/bin/virtualenvwrapper.sh
 
     # 为每个项目创建独立python环境：
-    $ mkvirtualenv [project-name]
+    $ mkvirtualenv -r requirementx.txt [project-name]
     $ workon [project-name] # 切换到针对该项目的virtualenv
     (pro)$ pip install [package] # 安装第三方包
     (pro)$ ~/.virtualenvs/[project-name]/bin/python setupt.py install # 源码安装
@@ -84,7 +84,7 @@ virtualenvwrapper
     $ deactivate # 退出virtualenv
     $ rmvirtualenv [project-name] # 删除环境
 
-## setuptools
+### setuptools
 
 <https://github.com/pypa/setuptools>
 
@@ -150,8 +150,8 @@ python2.7.9和python3.4以及virtualenv自带setuptools．
         extras_require=None,
         test_require=[]
         zip_safe=True,
-        scripts=[],
-        data_files=[(dest, source),()],
+        scripts=[],    # 会被添加到环境变量用于命令.
+        data_files=[(dest, source),()],    # 会把项目的source拷贝到机器的dest.
         entry_points={}
     )
 

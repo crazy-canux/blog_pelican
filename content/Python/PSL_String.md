@@ -35,8 +35,8 @@ functions:
     findall(pattern, string, flags=0)
     finditer(pattern, string, flags=0)
     match(pattern, string, flags=0) # if not match, return None, else return object.
-    purge()
     search(pattern, string, flags=0)
+    purge()
     split(pattern, string, maxsplit=0, flags=0) # 根据pattern分割string,返回分割后的列表．
     sub(pattern, repl, string, count=0, flags=0)
     subn(pattern, repl, string, count=0, flags=0)
@@ -122,7 +122,3 @@ functions:
 ## stringprep
 
 ***
-
-# TPL
-
-相关的第三方库

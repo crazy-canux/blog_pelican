@@ -97,7 +97,3 @@ functions:
 ## numbers
 
 ***
-
-# TPL
-
-相关的第三方库

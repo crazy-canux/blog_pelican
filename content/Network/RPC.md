@@ -5,3 +5,11 @@ Tags: RPC
 
 
 # RPC
+
+google的rpc框架，支持多语言．
+
+<https://github.com/grpc/grpc>
+
+facebook的rpc框架，贡献给了apache, 支持多语言．
+
+<https://github.com/apache/thrift>

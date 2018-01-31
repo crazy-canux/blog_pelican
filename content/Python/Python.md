@@ -603,7 +603,7 @@ python中的三目运算：
     while condition:
         expression
 
-    # while执行完会执行else，break会跳过else．
+    # while执行完会执行else(包括while不执行)，break会跳过else．
     while condition:
         expression
     else:
