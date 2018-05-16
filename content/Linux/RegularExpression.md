@@ -6,6 +6,10 @@ Tags: Posix, RE
 
 # RE
 
+在线检测：
+
+<https://www.regexpal.com/>
+
 RE分为BRE(basic RE), ERE(extended RE), SRE(simpla RE).
 
 在BRE中+?(){}|没有特殊含义，除非用\转义．
@@ -89,3 +93,4 @@ RE分为BRE(basic RE), ERE(extended RE), SRE(simpla RE).
     [\s\S]       匹配任何空白字符和非空白字符
     ^\s\+        行首空格
     \s\+$        行尾空格
+    ^[^<]        不以<开头的字符串

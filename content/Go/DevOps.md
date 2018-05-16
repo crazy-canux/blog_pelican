@@ -53,7 +53,7 @@ GOPATH 从go1.1到1.7都需要设置，而且不能是go的安装目录, go1.8�
 gopath结构：
 
     src    存放源码
-    pkg    编译后的文件
+    pkg    编译后的库文件
     bin    编译后生成的可执行文件
 
 bin目录一般加入环境变量:
@@ -66,16 +66,81 @@ gopath有多个值时用冒号分开即可.
 
 # go命令
 
-get
-
-    $ go get
+    $ go help [command]
 
 build
 
-    $ go build hello.go
+编译包和依赖
+
+    $ go build [-o output] [-i] [build flags] [packages]
+
+get
+
+下载并安装包和依赖, 也就是安装第三方的库．
+
+    $ go get [...] [packages]
+
+install
+
+编译并安装包和依赖
+
+    $ go install [build flags] [packages]
 
 run
 
-    $ go run hello.go
+编译并运行程序
+
+    $ go run [...] gofiles... [...]
+
+fmt
+
+格式化代码和文档：
+
+    $ go fmt [...] [packages]
+
+test
+
+测试包:
+
+    $ go test [...] [packages] [...]
+
+doc
+
+查看文档：
+
+    $ go doc [package/symbol]
 
 ***
+
+# 包管理
+
+go get的功能很有限．
+
+godep和golide都会被官方的dep取代．
+
+## dep
+
+<https://github.com/golang/dep>
+
+安装：
+
+    $ go get -u github.com/golang/dep/cmd/dep
+
+go官方包管理器
+
+    # 初始化一个使用dep管理包的项目，
+    # 创建Gopkg.toml, Gopkg.lock, vendor/
+    $ dep init
+
+    $ dep status
+
+    $ dep prune
+
+    $ dep ensure
+    $ dep ensure -update
+
+决绝GFW问题:
+
+    在Gopkg.lock添加source
+    source = "github.com/golang/sys"
+

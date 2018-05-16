@@ -74,7 +74,7 @@ drop也可以用来删除索引和视图．
 变更表：
 
     # 添加列
-    ALTER TABLE table ADD (column type);
+    ALTER TABLE table ADD COLUMN column type;
 
     # 删除列
     ALTER TABLE table DROP COLUMN column;
@@ -177,9 +177,15 @@ top子句用于规定要返回的记录数目：
     # oracle
     SELECT * FROM table WHERE ROWNUM <= number;
 
+    Top 一般需要order by
+    # number最小的10个
+    select top 10 from table order by number
+    # number最大的10个
+    select top 10 from table order by number desc
+
 group by子句用来分组，放在where子句后面如果有的话:
 
-通常用于合计函数(count, max, min, sum, avg).
+group by一定要用合计函数(count, max, min, sum, avg, ...).
 
     SELECT column1, aggregate_function(column2) FROM table GROUP BY column1;
 
@@ -205,7 +211,7 @@ as关键字指定别名：
 
 执行顺序：
 
-    from -> where -> top -> group by -> having -> select -> order by
+    from -> where -> group by -> having -> select -> distinct -> union -> order by -> top
 
 ## insert into
 

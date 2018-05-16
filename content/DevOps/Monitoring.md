@@ -18,15 +18,13 @@ kibana: 数据可视化
 
 elasticsearch: 搜索，分析，存储数据
 
-logstash: 动态数据收集管道，支持可扩展的插件．
-
-beats: 轻量型数据采集平台，从边缘机器向logstash/elasticsearch发送数据．
-
 x-pack: 具有监控和报警功能的工具包.
 
-# TICK stack
+logstash: 动态数据收集管道，支持可扩展的插件．
 
-telegraf: metrics collector.
+beats(agent): 轻量型数据采集平台，从边缘机器向logstash/elasticsearch发送数据．
+
+# TICK stack
 
 influxdb: tsdb.
 
@@ -34,6 +32,12 @@ kapacitor: alerting.
 
 chronograf: GUI.
 
+telegraf(agent): metrics collector.
+
+***
+
 # Graphing
 
-最流行的监控绘图软件是grafana.支持influxdb和elasticsearch.
+最流行的监控绘图软件是grafana, 支持influxdb和elasticsearch.
+
+使用grafana替代chronograf.

@@ -22,6 +22,7 @@ Jenkins is a self-contained, open source automation server which can be used to 
 
     $ vim /etc/systemd/system/jenkins.service
     $ systemctl daemon-reload
+    $ systemctl enable jenkins.service
     $ systemctl start jenkins
 
 修改jinkens主目录:
@@ -32,27 +33,25 @@ Jenkins is a self-contained, open source automation server which can be used to 
 
 # 系统管理
 
-## 管理插件
-
-## 管理用户
-
-***
+管理插件，管理用户等.
 
 # 添加credentials
 
 首先添加源代码的credential.比如github/gitlab/p4v/bitbucket.
 
-***
+# blueocean
 
-# 新建任务
-
-## 构建自由风格的软件项目
-
-
-
-## pipeline
-
+blueocean是jenkins的一个差劲，提供更好的用户界面.
 
 ***
+
+# pipeline
+
+使用pipeline需要先安装pipeline插件.
+
+pipeline是groovy语法的jenkins的DSL.
+
+***
+
 
 

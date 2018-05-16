@@ -63,27 +63,23 @@ bash的优化项目bash-it：
 
 <https://github.com/oh-my-fish/oh-my-fish>
 
-***
-
-# shell命令
-
-    bash --help
-
 ## thefuck
 
 一个纠正shell命令输错的命令
 
 <https://github.com/nvbn/thefuck>
 
-***
-
-# shell script
-
 ## shellcheck
 
 一个debug脚本的工具．
 
 <https://github.com/koalaman/shellcheck>
+
+***
+
+# shell script
+
+基本语法
 
 ## shell注释
 
@@ -103,3 +99,21 @@ bash的优化项目bash-it：
 return只是返回当前函数，不退出主程序
 
 exit直接退出主程序
+
+## shell控制流
+
+if
+
+    if []; then command; ...; fi
+
+if-else
+
+    if []; then command; ...; else command; fi
+
+if-elif-else
+
+    if []; then command; ...; elif []; then command; ...; else command; fi
+
+while
+
+    while []; do command;...; done

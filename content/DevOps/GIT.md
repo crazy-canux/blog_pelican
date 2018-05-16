@@ -385,8 +385,14 @@ Fetch from and integrate with another repository or a local branch
 Update remote refs along with associated objects
 
     git config --global push.default simple
-    git push origin --tags # push所有tag
+
+    git push origin --delete <branch>
+    git push origin :<branch>
+
+    git push origin --tags -f # push所有tag
     git push origin [tagname] # push单个tag
+    git push origin --delete tag [tagname]
+    git push origin :refs/tags/[tagname]
 
 ## rebase
 
@@ -457,7 +463,9 @@ Stash the changes in a dirty working directory away
 
 Create, list, delete or verify a tag object signed with GPG
 
-    git tag -a v1.0.0 -m "release 1.0.0."
+    git tag -l # 查看所有本地tag
+    git tag -d v1.0.0 # 删除本地tag
+    git tag -a v1.0.0 -m "release 1.0.0." -f
 
 ## submodule
 
@@ -473,3 +481,12 @@ Initialize, update or inspect submodules
 Run merge conflict resolution tools to resolve merge conflicts.
 
     git mergetool --tool=meld
+
+***
+
+# Best Prictise
+
+merge远程tag
+
+    git checkout -b influxdata-1.5.2 master
+    git pull https://github.com/influxdata/influxdb.git v1.5.2

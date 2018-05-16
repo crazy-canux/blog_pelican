@@ -68,6 +68,12 @@ makefile变量赋值:
     var ?= val  如果没有被赋值过，就赋值
     var += val  添加一个值
 
+通过命令定义变量：
+
+    var := $(shell <command>)
+    为了区分makefile变量和shell命令里面的变量，用$$var表示shell变量
+    var := $(shell cat file | awk '/.*/{print $$0}')
+
 makefile的变量：
 
     定义变量：

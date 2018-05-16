@@ -109,7 +109,7 @@ file:\\\C:\Program Files\Java\jdk_version\docs\index.html
 
 ***
 
-# Build
+# 包管理器
 
 基于jvm的build tool:
 
@@ -118,12 +118,16 @@ file:\\\C:\Program Files\Java\jdk_version\docs\index.html
 * gradle
 * sbt
 
-# Gradle
+## ant
+
+## maven
+
+## gradle
 
 <https://github.com/gradle/gradle>
 
 gradle是ant和maven的更高级别．
 
-# SBT
+## SBT
 
 <https://github.com/sbt/sbt>

@@ -20,13 +20,17 @@ Operations development:
 
 ***
 
-QA development:
+Testing development:
 
 2017 - Mongodb + Agile + Ansible + Jenkins + QA
 
-2018 - JavaScript + PMP
+***
 
-2019 - FullStack: Linux/C/Shell/Python/Web(JS/Html/Css/Django)/Sql
+DevOps development:
+
+2018 - JavaScript + Go
+
+2019 - FullStack: Go/Python/JavaScript/Sql + PMP
 
 ***
 

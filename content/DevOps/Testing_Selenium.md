@@ -12,7 +12,7 @@ Tags: Testing, QA, Selenium
 
     selenium1: deprecated.
     selenium2: 默认支持firefox<=46. 支持python2.6+, python3.2+
-    selenium3: 支持firefox47+, 所有浏览器都需要安装webdriver.支持python2.6+, python3.3+
+    selenium3: 支持firefox47+, 所有浏览器都需要安装webdriver.支持python2.6+, python3.3+, 必须重启OS.
 
 支持python, java, javascript等API.
 
@@ -20,7 +20,7 @@ Tags: Testing, QA, Selenium
 
     $ pip install selenium
 
-selenium3需要安装相应浏览器的driver:
+selenium3需要安装相应浏览器的driver, 然后重启OS:
 
 selenium, driver, browser三个版本都需要兼容才能工作．
 

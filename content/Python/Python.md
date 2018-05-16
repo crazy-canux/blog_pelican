@@ -394,12 +394,18 @@ str类型是不可变类型(immutable),是标量(scalar),是序列(sequence)通�
 
 下面都表示一个只有一行的字符串．
 
-    # 一个引号需要在引号内部空格表示和下一行有空格，续行符前的空格可有可无．
+    # 一个引号的情况,需要在引号内部空格表示和下一行有空格，续行符前的空格可有可无．
     a = 'This is a ' \
     'string'
 
-    b = "This is a " \
+    b = 'This is a \
+    string'
+
+    c = "This is a " \
     "string"
+
+    d = "This is a \
+    string"
 
     # 三引号续行符前的空格就表示和下一行有空格．
     c = """This is a \

@@ -1,20 +1,12 @@
----
-layout: post
-title: Java之java.io
-comments: true
-date: 2016-05-05 22:35:44
-updated:
-tags:
-categories:
-permalink:
----
+Title: JSL_io
+Date: 2016-05-05 22:35:44
+Tags: Java, JSL, io
+
+
 
 # java.io
 
-> Provides for system input and output through data streams, serialization and
-the file system. Unless otherwise noted, passing a null argument to a
-constructor or method in any class or interface in this package will cause a
-NullPointerException to be thrown.
+> Provides for system input and output through data streams, serialization and the file system. Unless otherwise noted, passing a null argument to a constructor or method in any class or interface in this package will cause a NullPointerException to be thrown.
 
 # java.io.Console
 

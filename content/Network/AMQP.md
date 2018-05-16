@@ -32,7 +32,9 @@ rabbitmq的三个组件：
 * queue,　队列，接受消息的实体
 * binding, 绑定器，连接交换器和队列，并且封装消息的路由信息
 
-        producer => exchange -> routes -> queue => comsumer
+workflow:
+
+    producer => exchange -> routes -> queue => comsumer
 
 安装
 

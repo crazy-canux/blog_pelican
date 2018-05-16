@@ -31,6 +31,8 @@ vCenter Server是vSphere的高级管理系统．需单独购买．
     $ vim /vmfs/volumes/datastore1/Ubuntu1604/Ubuntu1604.vmx
     vhv.enable = "TRUE" # 添加到最后一行
 
+创建的vm命名不能带小数点.
+
 ***
 
 # 命令
@@ -43,6 +45,13 @@ vim-cmd:
     vim-cmd vmsvc/power.shutdown vimid
     vim-cmd vmsvc/power.off vimid
     vim-cmd vmsvc/power.reboot vimid
+
+    # power on all vms
+    for vm in `vim-cmd vmsvc/getallvms | awk '{if (NR>1) {print $1}}'`;
+    do
+        echo "power on ${vm}...";
+        vim-cmd vmsvc/power.on ${vm}
+    done
 
 esxtop:
 
@@ -77,5 +86,3 @@ pyVmomi is the Python SDK for the VMware vSphere API that allows you to manage E
         return None
 
 ***
-
-# java

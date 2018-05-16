@@ -105,7 +105,7 @@ system data有下面类型：
     tinyint: 8bits
     smallint: 16bits
     int: 32bits
-    bigint: 64
+    bigint: 64bits
     decimal:
     numeric:
     smallmoney: 32bits
@@ -122,6 +122,7 @@ system data有下面类型：
     smalldatetime:
     time:
 
+    # 只能用单引号，不能用双引号
     char:
     nchar:
     varchar:
@@ -160,17 +161,20 @@ system data有下面类型：
 
 # 函数
 
-data函数：
+date & time functions:
 
-    GETDATE()
+    GETDATE() // 获取当前系统时间
+    GETUTCDATE()
+    DATEDIFF(datepart varchar, startingdate datetime, endingdate datetime) // 返回两个时间的间隔
+    DATEDIFF(s, '1970-01-01 00:00:00', GETUTCDATE()) # 当前时间的epoch time.
     DATEPART()
     DATEADD()
-    DATEDIFF()
-    CONVERT()
+    DATENAME()
 
-isnull函数：
+other functions:
 
     ISNULL(column, 0)    column为NULL函数返回0
+    CONVERT()
 
 ***
 

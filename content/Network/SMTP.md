@@ -6,9 +6,26 @@ Tags: EMAIL, SMTP
 
 # Email
 
+MTA: Mail Transfer Agent
+
+MUA: Mail User Agent
+
 python邮件服务器MTA：smtp协议
 
 python客户端MUA：本地协议pop3, 远程协议imap
+
+## mailutils:
+
+mailutils默认使用postfix,如果已经安装其它MTA就使用已经安装的．
+
+    $ sudo apt-get install mailutils
+    $ echo "test mail body" | mail -s "test mail title" canuxcheng@gmail.com
+
+非交互安装mailutils:
+
+    $ sudo debconf-set-selections <<< "postfix postfix/mailname string domain.com"
+    $ sudo debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
+    $ sudo apt-get install -y mailutils
 
 ***
 
@@ -32,9 +49,23 @@ python客户端MUA：本地协议pop3, 远程协议imap
     # mv sendmail.cf sendmail.cf.old
     # m4 sendmail.mc > sendmail.cf
 
-测试：
+***
 
-    $ echo "test mail" | /usr/sbin/sendmail -s "subject" yourmail@domain.com
+# postfix
+
+比sendmail更友好的smtp服务器．
+
+安装：
+
+    $ sudo apt-get install postfix
+    # general type of mail configuration -> Internet site
+    # system mail name -> gmail.com
+
+配置：
+
+    $ sudo vim /etc/postfix/main.cf
+    inet_interfaces = all
+    mydestination =
 
 ***
 

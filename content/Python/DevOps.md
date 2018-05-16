@@ -20,6 +20,7 @@ Linux安装：
     $sudo yum install python
 
     $sudo apt-get install python-dev
+    $sudo apt-get install python3-dev
     $sudo yum install python-devel
 
 标准库的路径：
@@ -112,7 +113,7 @@ python写的交互式解释器。
 
 ## pyenv
 
-python的版本管理工具.
+python的版本管理工具,　用于管理多个pyton版本.
 
 <https://github.com/yyuu/pyenv>
 
@@ -154,6 +155,8 @@ easy_install(setuptools)安装：
     $sudo apt-get install python-setuptools
     $sudo yum install python-setuptools
 
+    $ sudo apt-get install python3-setuptools
+
     $ pip install -U setuptools
 
     $sudo -E easy_install packagename[=version] # 安装
@@ -171,6 +174,9 @@ pip安装：
     $sudo yum install python-pip
     $sudo yum install python-wheel
 
+    $ sudo apt-get install python3-pip
+    $ sudo apt-get install python3-wheel
+
     $pip install -U pip
     $pip install -U wheel
 
@@ -178,6 +184,8 @@ pip安装：
     $ pip install -U packagename[==version] # 升级
     $ pip uninstall packagename # 卸载
     $ pip install XXX.whl # 安装wheel包
+
+    $ pip3 install/uninstall <packagename>
 
     $pip list
     $pip search packagename

@@ -18,23 +18,78 @@ graphite/influxdb/opentsdb/premetheus/elasticsearch/mysql/postgresql
 
 ***
 
-# admin
+# HTTP API
 
-organizational administrators.
+    port = 3000
 
-grafana administrators.
+## dashboard
+
+create/update dashboard:
+
+将datasource设置成变量，然后导出的json文件就可以直接导入了．
+
+dashboard.id=null才能创建新dashboard.
+
+    post /api/dashboards/db
+    data = json.dumps({
+        "dashboard": {
+            "id": null,
+            ...
+        },
+        "folderId": 0,
+        "overwrite": True, # True for python, true for go.
+        "message": "commit message"
+    })
+
+## datasource
+
+create datasource:
+
+    post /api/datasources
+    data = json.dumps({
+        "name":
+        "type":
+        "url":
+        "database":
+        "access": "proxy"
+    })
+
+## alert
+
+create alert notification/channel:
+
+    post /api/alert-notifications
+    data = json.dumps({
+        "name":
+        "type": "email",
+        "isDefault": true,
+        "settings": {
+            "addresses": "a.com; b.com",
+            "uploadImage": true
+        }
+    })
 
 ***
 
-# dashboard
-
-## row
-
-## panel
+# Data source
 
 ***
 
-# templating
+# Dashboard
+
+graph
+
+singlestat
+
+table
+
+text
+
+heatmap
+
+alertlist
+
+## templating
 
 定义变量：
 
@@ -47,13 +102,21 @@ grafana administrators.
     [[varname]]
     select * from cpu where 'host' =~ /^[[host]]&/
 
+内置变量：
+
+    $_interval  # 相当于influxdb里面的$interval，表示group by的时间间隔
+    $timeFilter/$_timeFilter    # time > now() - <time range>
+
+panel里的变量：
+
+    $col         给select出来的field取别名
+    $tag_host
+
+## Annotations
+
 ***
 
-# Annotations
-
-***
-
-# alerting
+# Alerting
 
 需要安装配置SMTP.
 
@@ -91,5 +154,3 @@ conditions暂不支持template variables.
     $ sudo grafana-cli plugins remove <plugin-id>
 
 ***
-
-# HTTP API

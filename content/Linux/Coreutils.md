@@ -52,6 +52,8 @@ Linux外部命令的项目是coreutils。
     cat /etc/issue
     cat /proc/version
 
+    uptime
+
     lsb_release # 查看发行版本信息
     $ lsb_release -a
 
@@ -64,16 +66,10 @@ Linux外部命令的项目是coreutils。
     free # 显示空闲和使用的系统内存
     cat /proc/meminfo # 查看内存信息
 
-    lspci # 列出所有PCI设备
-    lsusb # 列出USB设备
-    lsblk # 列出块设备
-    lshw # 列出硬件
-
     clear
-    passwd
 
     pkill
-    pkill -ef <pattern>
+    pkill -ef <pattern> # 杀死args匹配的进程
 
     # 内核也有一个kill命令
     kill
@@ -84,6 +80,28 @@ Linux外部命令的项目是coreutils。
     crontab
     crontab -l
     crontab -e
+
+    ps
+    ps -eo lstart,args # 查看进程的启动时间和完整的命令行参数
+
+sysstat:
+
+    sudo apt install sysstat
+
+# 用户和权限管理
+
+    chmod
+    chown
+    chgrp
+    chattr
+    useradd
+    userdel
+    usermod
+    groupadd
+    groupdel
+    groupmod
+    gpasswd
+    passwd
 
 # 文件和目录管理
 
@@ -107,11 +125,6 @@ Linux外部命令的项目是coreutils。
     expr
     uniq
     wc
-
-    chmod
-    chown
-    chgrp
-    chattr
 
     cksum
     cmp
@@ -191,7 +204,8 @@ Linux外部命令的项目是coreutils。
     --specials
     -D == --devices --specials
     -H --hard-links  preserve hard-link
-    -l --links  copy symlinks as symlinks
+    -l --links  copy symlinks as symlinks 保留软链接
+    -L          copy symlinks to dest 复制原始文件
     --delete  从dest删除src没有的文件
     -h --human-readable
     -g --group  preserve group
@@ -265,45 +279,77 @@ zip(.zip)
 
 # 磁盘管理
 
-文件系统:
+df计算文件系统磁盘空间使用:
 
     df
     $ df -h
 
-文件/目录:
+du计算文件空间使用:
 
     du
     $ du -sh
+
+mount/umount挂载文件系统:
 
     mount
     # 把一个目录挂载到内存上
     mount -t tmpfs -o size=1024m tmpfs /path/to/mount
 
+    umount
+
+dd转化并拷贝文件:
+
     dd
+
+fsck检查并修复文件系统:
+
     fsck
+
+fdisk管理磁盘分区表:
+
     fdisk
+
+sync同步缓存写入固态存储:
+
     sync
 
 # 设备管理
 
-    setleds
-    loadkeys
-    dumpkeys
-    MAKEDEV
+    lspci # 列出所有PCI设备
 
-***
+    lsusb # 列出USB设备
+
+    lsblk # 列出块设备
+
+    lshw # 列出硬件
+
+    setleds
+
+    loadkeys
+
+    dumpkeys
+
+    MAKEDEV
 
 # 网络管理
 
     telnet
+
     ping # 用于确定网络的连通性
+
     ifconfig # 查看TCP/IP设置
+
     arp # 用于确定IP地址的网卡物理地址
+
     route # 操作路由表的命令：
+
     nslookup # 查询IP地址和对应的域名
+
     ethtool # 查询网络设备信息
 
-    netstat #查看当前网络状态
+netstat:
+
+    netstat
     -a, --all, --listening # 显示所有socket, 默认只现实connected
     -l, --listening  # 显示listening
     -n, --numeric
@@ -316,16 +362,23 @@ zip(.zip)
     --ax25
     --ipx
     --netrom
+
     # 常用
     netstat -anp    # 查看哪些端口是打开的．
     sudo netstat -anp | grep port # 查看端口是否被使用
     sudo netstat -tupln # 查看tcp&udp端口是否被监听
 
+lsof:
+
     lsof #
     lsof -i # 查看
     sudo lsof -i :port # 查看端口是否被使用
 
+tcpdump:
+
     tcpdump
+
+wget:
 
     wget [option] [URL]
     -a, --append-output=FILE 输出重定向到日志
@@ -342,10 +395,17 @@ zip(.zip)
     -r, --recursive  迭代下载
     -O, --output-document=FILE, 重命名下载文件
 
+curl:
+
+    curl
+
+iptables:
+
     iptables
 
+misc:
+
     # 在Network里面研究的几个常用命令
-    curl(参考network-http)
     ftp(参考network-ftp)
     snmp(参考network-snmp)
     ssh/scp/sftp(参考network-ssh)

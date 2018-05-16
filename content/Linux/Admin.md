@@ -51,33 +51,57 @@ use RDP on windows to connect to ubuntu14.04.
 
 sytemd是upstart的替代版本．通过查看/sbin/init指向systemd还是upstart.
 
+    $ ls -l /sbin/init
+    /sbin/init -> /lib/systemd/systemd
+
     /etc/systemd/system/***.service
     $ sudo vim ***.service
-    $ systemctl daemon-reload
     $ sudo systemctl start/stop/status ***
+
+    # 重新加载.service文件
+    $ systemctl daemon-reload
+
+    # 设置开机自动启动
+    $ systemctl list-unit-files
+    $ systemctl enable ***
+    $ systemctl disable ***
+    $ systemctl is-enabled grafana-server
 
 日志管理:
 
-    $ journalctl -xe *.servivce
+    $ journalctl -xe ***.servivce
 
 ## upstart
 
 如果init指向upstart, service如果在/etc/init.d找不到会去/etc/systemd/system找.
 
+    $ ls -l /sbin/init
+    /sbin/init
+
     /etc/init.d/***
-    $ vim ***
+    $ sudo vim ***
     $ sudo service *** start/stop/status
+
+    # 设置开机自动启动
+    $ update-rc.d *** defaults
+    # 取消开机启动
+    $ update-rc.d *** remove
 
 ## 清理内存的buff/cache
 
     echo 3 > /proc/sys/vm/drop_caches
     # reboot才能改回默认的0
 
+## 终端现实超大艺术字
+
+    $ sudo apt-get install figlet
+    $ figlet <text>
+
 ***
 
 # Ubuntu/Debian安装后的基本配置
 
-    sudo apt-get install build-essential libssl-dev
+    sudo apt-get install build-essential make libssl-dev
 
 ## 中文输入法
 

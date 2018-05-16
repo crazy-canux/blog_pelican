@@ -28,3 +28,21 @@ redhat/centos/fedora:
 
 ***
 
+# apache命令
+
+a2ensite
+
+    $ sudo a2ensite <site>
+
+a2dissite
+
+    $ sudo a2dissite <site>
+
+a2enmod
+
+    $ sudo a2enmod <mod>
+
+a2dismod
+
+    $ sudo a2dismod <mod>
+

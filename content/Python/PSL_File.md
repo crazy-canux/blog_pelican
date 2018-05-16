@@ -54,8 +54,12 @@ Utility functions for copying and archiving files and directory trees.
 
 functions:
 
+    copy(src, dst)
+    copy2(src, dst)
+    ...
     rmtree(path, ignore_errors=False, onerror=None) # 删除指定的目录,path不能是文件．
     unregister_archive_format(name)
+    move(src, dst)
     ...
 
 ## tempfile
@@ -64,6 +68,14 @@ functions:
 
 ## ConfigParser
 
+一般用来处理*.ini文件，格式为：
+
+    [section]
+    option-key = option-value
+
+
+导入：
+
     import ConfigParser
 
 classes:
@@ -71,6 +83,8 @@ classes:
     ConfigParser.ConfigParser(defaults=None)
     # methods:
     read(filenames) # 读取ini文件
+    sections() # 获取所有section
+    options(section) # 获取section的所有option
     get(section, option, raw=False, vars=None) # 返回字符串
     set(section, option, value)
     has_section(section)
@@ -97,8 +111,23 @@ classes:
 
     # csv.DictReader
     DictReader(self, f, fieldnames=None, restkey=None, restval=None, dialect='excel', *args, **kwds)
+    # methods
+    next()
+
+    # csv.DictWriter
+    DictWriter(self, f, fieldnames, restval='', extrasaction='raise', dialect='excel', *args, **kwargs)
+    # mthods
+    writeheader()
+    writerow(rowdict)
+    writerows(rowdicts)
 
 functions:
+
+    // 返回DictReader对象
+    reader(iterable, dialect='excel', **kwargs)
+
+    // 返回DictWriter对象
+    writer(fileobj, dialect='excel', **kwargs)
 
 data:
 

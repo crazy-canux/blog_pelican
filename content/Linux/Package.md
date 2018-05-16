@@ -13,16 +13,64 @@ debian的包管理机制。
 dpkg的本地前端工具。
 
 deb - Debian binary package format
+
 dpkg - package manager for Debian
+
+    dpkg
+
 dpkg-reconfigure - reconfigure an already installed package
+
+    dpkg-reconfigure
+
 dpkg-deb - Debian package archive (.deb) manipulation tool
+
+    # 创建debian包
+    dpkg-deb -b|--build <directory> [<deb>]
+
+    # <directory> 结构, DEBIAN/control　是必需的
+    |- debian_root
+       |- DEBIAN
+          |- preinst/preinstallation # 解压deb包之前执行
+          |- prerm/preremove
+          |- control
+          |- postinst/postinstallation # 解压完成之后执行，通常用来配置
+          |- postrm/postremove
+          |- copyright
+          |- changelog
+          |- conffiles
+       |- etc
+          |- init.d
+             |- <service>
+          |- logrotate.d
+             |- <service>
+       |- user/local/...
+       |- opt/...
+
+    # control文件
+    Package
+    Version
+    Description
+    Section: utils/net/mail/text/x11/...
+    Priority: required/standard/optional/extra/...
+    Essential: yes/no
+    Architecture: i386/amd64/...
+    Source:
+    Depends:    # 运行该process需要的依萊, 只能安装之前安装好，或者用gdebi安装
+    Pre-Depends:
+    Recommends:
+    Suggests:
+    ...
+    最后一行需要空行
+
 dpkg-query - a tool to query the dpkg database
 
-    dpkg --help
+    dpkg-query
 
 ## gdebi - Simple tool to install deb files
 
 dpkg的本地前端工具。
+
+使用gdebi安装deb包会自动解决依赖问题:
 
 安装gdebi:
 
@@ -31,7 +79,7 @@ dpkg的本地前端工具。
     $ sudo aptitude install gdebi-core # install gdebi itself
     $ sudo aptitude install gdebi-gtk # install gdebi GUI
 
-使用gdebi安装deb包会自动解决依赖问题:
+使用gdebi:
 
     sudo gdebi XXX.deb # install package
 
@@ -45,11 +93,41 @@ apt - command-line interface
 
 apt-get - APT package handling utility -- command-line interface
 
-    $ sudo apt-get install package
+    $ sudo apt-get option command package
+
+    # command:
+    install
+    remove
+    purge
+    download
+    source
+    update
+
+    # option:
+    -d download
+    --print-uris
+
+    # 打印在当前环境安装该包需要的所有以来的下载连接信息
+    apt-get --print-uris install package
 
 aptitude - high-level interface to the package manager
 
     $ sudo aptitude install package
+
+apt-cache - query the APT cache
+
+    $ apt-cache showpkg <pkg>
+    $ apt-cache showsrc <pkg>
+    $ apt-cache search <pkg>
+    $ apt-cache madison <pkg>
+    $ apt-cache policy <pkg>
+
+    # 查看哪些包依赖该包
+    $ apt-cache rdepends <pkg>
+    # 查看该包依赖哪些包
+    $ apt-cache depends <pkg>
+    # 查看依赖，　以及依赖的依赖
+    $ apt-cache --recurse depends <pkg>
 
 ***
 
@@ -69,6 +147,8 @@ rpmbuild -
 
 rpm的远程前端工具。
 
+yum -
+
 ***
 
 # zypper
@@ -83,8 +163,14 @@ suse的包管理机制。
 
 # gbp
 
-通过git来管理debian或rpm包．
+通过git来管理deb或rpm包．
 
 <https://github.com/agx/git-buildpackage>
 
     $sudo -E pip install gbp
+
+# fpm
+
+通过fpm来创建deb/rpm包
+
+<https://github.com/jordansissel/fpm>

@@ -8,6 +8,13 @@ Tags: Python, Document, reST, Sphinx, readthedoc
 
 python项目文档相关的工具．
 
+# pydoc
+
+python自带的文档命令行接口
+
+    $ pydoc --help
+    $ pydoc -p <port>
+
 ***
 
 # TPL

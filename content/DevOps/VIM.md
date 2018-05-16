@@ -231,3 +231,10 @@ vim常用的插件
 
 ## syntastic
 
+***
+
+# 常用情景
+
+vim内部使用sudo保存:
+
+    :w !sudo tee %
