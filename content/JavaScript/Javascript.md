@@ -69,6 +69,8 @@ ECMAScript中的语句以分号;结尾，代码块以大括号{}包围．
 
 ## 变量和常量
 
+    var varName = varValue
+
 ***
 
 # 控制流
@@ -80,6 +82,10 @@ ECMAScript中的语句以分号;结尾，代码块以大括号{}包围．
 ***
 
 # 函数
+
+    function funcName(args) {
+        expression;
+    }
 
 ***
 

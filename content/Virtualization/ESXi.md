@@ -53,6 +53,11 @@ vim-cmd:
         vim-cmd vmsvc/power.on ${vm}
     done
 
+esxcli:
+
+    esxcli vm process list # 查看所有运行的vm
+    esxcli vm process kill --type=[force/soft/hard] --world-id=<world-id> # 关机
+
 esxtop:
 
     # 类似于linux的top命令

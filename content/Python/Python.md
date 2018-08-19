@@ -828,7 +828,8 @@ SomeException可以是字符串，内置异常，第三方库异常类，自定�
 通过raise来触发自定义的异常．
 
     class MyError(Exception/StandardError/Warning):
-        def __init__(self):
+        def __init__(self, msg):
+            super(...).__init__(self, ...)
             ...
         ...
 

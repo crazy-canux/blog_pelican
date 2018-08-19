@@ -42,6 +42,7 @@ functions:
     remove(path) # remove a file
     rmdir(path) # remove a directory
     removedirs(path)
+    symlink(src, dst)
     ...
 
     # 使用subprocess模块代替下列函数：

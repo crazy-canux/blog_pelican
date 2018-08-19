@@ -20,6 +20,12 @@ log
 
     $ sudo journalctl -u influxdb.service
 
+config:
+
+    # 开通kapacitor的subscription功能
+    [[subscriber]]
+    enable = true
+
 ***
 
 # 数据结构
@@ -75,10 +81,20 @@ fileds
     $ SHOW FIELD KEYS
     $ SHOW FIELD KEYS FROM <measurement>
 
+subscription
+
+    $ SHOW SUBSCRIPTIONS
+    $ CREATE SUBSCIPTION <subs_name> ON <db>.<rp> DESTINATIONS ("ANY"|"ALL") host{",", host}
+    $ DROP SUBSCRIPTION <subs_name> ON <db>.<rp>
+
 series
 
     $ SHOW SERIES
     $ DROP SERIES FROM <measurement> WHERE <tagkey>=<tagvalue>
+
+shared
+
+    $ drop shard <shard_id>
 
 ***
 
@@ -127,6 +143,8 @@ The FROM clause specifies a single measurement.
 
 The WHERE clause specifies the time range for the query.
 
+    # tag_value/field_value 用单引号表示字符串,不能用双引号.
+    select <> from <> where <condition1> OR/AND <condition2>
     select <> from <> where <tag_key/field_key operation tag_value/field_value>
 
     now()
@@ -235,9 +253,18 @@ replication: 存储的数据副本数量
 
 # CQ
 
-对超过保存策略指定时间的数据，可以做统计采样.
+对超过保存策略指定时间的数据，可以做统计采样.(类似于store procedure).
+
+CQ不能更新，只能删除重建．
 
     show continuous queries
+
+    create continuous query <CQ_name> on <database>
+    begin
+        SELECT <function[s]> INTO <destination_measurement> FROM <measurement> [WHERE <stuff>] GROUP BY time(<interval>)[,<tag_key[s]>]
+    end
+
+    DROP CONTINUOUS QUERY <cq_name> ON <database_name>
 
 ***
 

@@ -88,44 +88,44 @@ ubuntu14.04推荐安装的依赖:
 
 image管理：
 
+    $ docker image COMMAND
+
     查看本地镜像:
-    $ docker images
+    $ docker image ls
     REPOSITORY    TAG    IMAGE ID    CREATED    SIZE
 
-    通过修改container,创建新的image：
-    docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
-    $ docker commit
-
     根据创建dockerfile，创建新的images:
-    docker build [OPTIONS] PATH | URL | -
-    $ docker build
+    $ docker image build
 
     创建tag
-    docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
-    $ dicker tag
+    $ dicker image tag
 
     删除image
-    docker rmi [OPTIONS] IMAGE [IMAGE...]
-    $ docker rmi <IMAGE ID>
+    $ docker image rm <IMAGE ID>
 
 container管理:
 
+    $ docker container COMMAND
+
     运行image,产生一个container:
-    docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
-    $ docker run <IMAGE ID>/<REPOSITORY> [COMMAND] [ARGS]
+    $ docker container run <IMAGE ID>/<REPOSITORY> [COMMAND] [ARGS]
 
     列出container:
-    $ docker ps
+    $ docker container ls
     CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS    PORTS    NAMES
     -a 查看所有containers, 默认只显示running状态的
 
+    启动container:
+    $ docker container start/restart <CONTAINER ID>
+
     停止container:
-    docker stop [OPTIONS] CONTAINER [CONTAINER...]
-    $ docker stop <CONTAINER ID>
+    $ docker container stop <CONTAINER ID>
 
     删除container：
-    docker rm [OPTIONS] CONTAINER [CONTAINER...]
-    $ docker rm <CONTAINER ID>
+    $ docker container rm <CONTAINER ID>
+
+    在container中执行命令
+    $ docker container exec [OPTIONS] <CONTAINER> COMMAND [ARG...]
 
 docker hub使用:
 

@@ -97,6 +97,10 @@ methods:
 
 # regexp
 
+实现了正则表达式搜索
+
+
+
 ***
 
 # regexp/syntax

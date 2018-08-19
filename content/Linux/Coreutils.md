@@ -47,6 +47,18 @@ Linux外部命令的项目是coreutils。
 
 # 系统管理
 
+    # 查看cpu/mem/swap/system信息
+    vmstat
+
+    # 查看进程消耗的cpu/mem/swap/system等系统信息
+    top
+    %cpu = cputime/realtime * 100%
+    cpu_usage = %cpu/cpu-number
+    %mem = RES/physicalMem * 100%
+
+    htop
+    $ sudo apt-get install htop
+
     uname # 打印linux系统信息
     $ uname -a
     cat /etc/issue
@@ -62,14 +74,21 @@ Linux外部命令的项目是coreutils。
     lscpu # 显示cpu架构的信息
     cat /proc/cpuinfo # 查看cpu信息
 
-    vmstat # 报告虚拟内存的统计信息
     free # 显示空闲和使用的系统内存
     cat /proc/meminfo # 查看内存信息
 
     clear
 
+    ps
+    # 格式化输出，逗号后面不能有空格
+    ps -eo/-Ao %cpu/pcpu,%mem/pmem,start/start_time/lstart,pid,ppid,cmd/args/command
+
+    pstree -a
+
     pkill
     pkill -ef <pattern> # 杀死args匹配的进程
+
+    pgrep -P pid
 
     # 内核也有一个kill命令
     kill
@@ -81,25 +100,26 @@ Linux外部命令的项目是coreutils。
     crontab -l
     crontab -e
 
-    ps
-    ps -eo lstart,args # 查看进程的启动时间和完整的命令行参数
-
-sysstat:
-
-    sudo apt install sysstat
-
 # 用户和权限管理
+
+    id
+    id -u 打印当前用户uid(root uid=0)
 
     chmod
     chown
     chgrp
     chattr
+
     useradd
     userdel
     usermod
+    users # 查看当前登陆的用户
+
     groupadd
     groupdel
     groupmod
+    groups # 查看指定用户所属的组，默认当前用户的组
+
     gpasswd
     passwd
 
@@ -175,6 +195,9 @@ sysstat:
     cal
     factor
 
+    readlink 获取符号连接信息
+    sudo readlink /proc/1/exe
+
     ln TARGET LINK_NAME # 创建文件的硬链接,目录不能创建硬链接
     -s, --symbolic
     ln -s TARGET LINK_NAME # 创建文件或目录的软链接
@@ -214,7 +237,13 @@ sysstat:
     -t --times  preserve modification times
     -O, --omit-dir-times    忽略目录的modification times.
 
-    四个用到正则表达式的重要命令：
+计算文件空间使用:
+
+    du
+    $ du -sh
+
+四个用到正则表达式的重要命令：
+
     sed
     awk
     grep/ack/ag
@@ -277,17 +306,29 @@ zip(.zip)
     $ sudo apt-get install p7zip
     p7zip
 
-# 磁盘管理
+# 磁盘管理(设备管理)
+
+sysstat:
+
+    # <https://github.com/sysstat/sysstat>
+    $ sudo apt-get install sysstat
+    # 包括 iostat/mpstat/pidstat/tapestat/cifsiostat
+
+iostat:
+
+    # 查看diskio信息
+    $ sudo iostat
+
+iotop
+
+    # 查看进程的diskio
+    $ sudo apt-get install iotop
+    $ sudo iotop
 
 df计算文件系统磁盘空间使用:
 
     df
     $ df -h
-
-du计算文件空间使用:
-
-    du
-    $ du -sh
 
 mount/umount挂载文件系统:
 
@@ -308,12 +349,29 @@ fsck检查并修复文件系统:
 fdisk管理磁盘分区表:
 
     fdisk
+    fdisk -l
+
+    fdisk /dev/sda # 可以创建新的磁盘分区
+    > n ...    创建新的分区
+    > t (8e表示linux LVM), 修改分区类型
+    > w 保存修改
+    partprobe /dev/sda # 在不重启的情况下保存分区
+
+磁盘管理:
+
+    # 先创建linux lvm分区
+    pvcreate <pv-name> # 创建物理卷PV
+    pvdisplay
+    vgextend <vg-name> <pv-name>  # 给物理卷创建卷组VG
+    vgdisplay
+    lvextend -r -l +100%FREE <lv-path> # 将物理卷上的空闲空间全部放到逻辑卷LV上
+    lvdisplay
 
 sync同步缓存写入固态存储:
 
     sync
 
-# 设备管理
+设备管理:
 
     lspci # 列出所有PCI设备
 
@@ -350,12 +408,12 @@ sync同步缓存写入固态存储:
 netstat:
 
     netstat
-    -a, --all, --listening # 显示所有socket, 默认只现实connected
+    -a, --all, --listening # 显示所有socket, 默认只显示connected
     -l, --listening  # 显示listening
     -n, --numeric
     -p, --programs # 显示pid或程序名称
-    -t, --tcp
     # socket选项:
+    -t, --tcp
     -u, --udp
     -w, --raw
     -x, --unix
@@ -366,7 +424,13 @@ netstat:
     # 常用
     netstat -anp    # 查看哪些端口是打开的．
     sudo netstat -anp | grep port # 查看端口是否被使用
-    sudo netstat -tupln # 查看tcp&udp端口是否被监听
+    sudo netstat -tulnp # 查看tcp&udp端口是否被监听
+
+iftop:
+
+    # <http://www.ex-parrot.com/~pdw/iftop/>
+    $ sudo apt-get install iftop
+    $ sudo iftop
 
 lsof:
 
@@ -381,19 +445,30 @@ tcpdump:
 wget:
 
     wget [option] [URL]
+
     -a, --append-output=FILE 输出重定向到日志
     -o, --output-file=FILE
     -q, --quiet    不输出
     -b, --background
+
     -t, --tries=NUMBER    超时重连次数, 0表示不限制, 默认20
     -nc, --no-clobber    不覆盖原有文件
     -N, --timestamping   只下载比本地新的文件
     -c, --continue    断点续传
     -T, --timeout=SECONDS    超时时间, 默认900s
     -w, --wait=SECONDS    重连之间的等待时间
-    -x, --force-directories    创建和服务器一样的结构下载
-    -r, --recursive  迭代下载
     -O, --output-document=FILE, 重命名下载文件
+
+    -nH, --no-host-directories 不创建站点的根目录
+    -x, --force-directories    创建和服务器一样的结构下载
+    -P, --directory-prefix=PREFIX  指定下载的目录
+
+    -R,  --reject=LIST 排除下载的文件
+    -r, --recursive  迭代下载
+    -np, --no-parent 不下载父目录的内容
+
+    # 同步目录
+    wget -Nc -r -np -nH --cut-dirs=3 -R "index.*, *.js, *.css, *.html, *.jpg, *.png, *.gif" -P /path/to/source/ http://host/path/to/dest/
 
 curl:
 

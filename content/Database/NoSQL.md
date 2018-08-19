@@ -12,11 +12,15 @@ NoSQL: Not only SQL.
 
 ***
 
-# memcached
+# memcached(cache)
 
-# redis
+# redis(cache)
 
 # mongodb
+
+# hbase(hadoop)
+
+# cassandra(hadoop)
 
 # rethinkdb
 

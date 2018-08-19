@@ -44,7 +44,7 @@ python3.5开始并入了虚拟化标准库venv.
 
     # 默认python2.7
     $virtualenv .venv
-    # 指定python3
+    # 指定python3, 会安装pip/setuptools/wheel到当前环境.
     $virtualenv -p `which python3` .venv
 
     # 激活虚拟环境
@@ -79,6 +79,11 @@ virtualenvwrapper
 
     # 为每个项目创建独立python环境：
     $ mkvirtualenv -r requirementx.txt [project-name]
+    # 不安装setuotools/wheel/pip
+    $ mkvirtualenv --no-setuptools --no-wheel --no-pip [name]
+    # 指定查找pip/setuptools的路径
+    --extra-search-dir=/usr/local/lib/python2.7/dist-packages
+    --extra-search-dir=/usr/lib/python2.7/dist-packages
     $ workon [project-name] # 切换到针对该项目的virtualenv
     (pro)$ /path/to/pip install [package] # 安装第三方包
     (pro)$ ~/.virtualenvs/[project-name]/bin/python setupt.py install # 源码安装

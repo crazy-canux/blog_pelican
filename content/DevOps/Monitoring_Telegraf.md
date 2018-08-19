@@ -75,4 +75,8 @@ input configuration:
     inputDefaults
     outputDefaults
 
+调试：
+
+    ./telegraf --config ./etc/telegraf.conf --input-filter process --test
+
 ***

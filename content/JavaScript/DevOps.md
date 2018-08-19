@@ -12,7 +12,7 @@ Tags: Node, Javascript
 
     npm是javascript的包管理器，npm和hexo都是javascript包, 高版本的nodejs自带npm。
 
-        $sudo apt-get install npm
+        $ sudo apt-get install npm
 
 * nvm
 

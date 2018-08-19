@@ -24,7 +24,7 @@ V: view，展现哪些数据
 
 # 安装
 
-django1.8是长期支持版(2015.4).
+<https://www.djangoproject.com/download/#supported-versions>
 
 django1.11是最后一个支持python2.7的长期支持版(2017.4).
 

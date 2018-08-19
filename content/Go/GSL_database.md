@@ -49,7 +49,9 @@ interface:
 
     // 对已执行的命令的总结
     type Result interface {
+        // 返回一个数据库生成的回应命令的整数．
         LastInsertId() (int64, error)
+        // 返回被update/insert/delete影响的行数.
         RowsAffected() (int64, error)
     }
 
@@ -100,6 +102,24 @@ methods:
     // 开始一个事务
     func (db *DB) Begin() (*Tx, error)
 
+## Stmt
+
+stmt是准备好的状态，可以安全的被多个go程同时使用．
+
+struct:
+
+    type Stmt struct {}
+
+methods:
+
+    func (s *Stmt) Exec(args ...interface{}) (Result, error)
+
+    func (s *Stmt) Query(args ...interface{}) (*Rows, error)
+
+    func (s *Stmt) QueryRow(args ...interface{}) *Row
+
+    func (s *Stmt) Close() error
+
 ## Tx
 
 Tx表示一个进行中的数据库事务．
@@ -130,24 +150,6 @@ methods:
 
     // 回滚事务
     func (tx *Tx) Rollback() error
-
-## Stmt
-
-stmt是准备好的状态，可以安全的被多个go程同时使用．
-
-struct:
-
-    type Stmt struct {}
-
-methods:
-
-    func (s *Stmt) Exec(args ...interface{}) (Result, error)
-
-    func (s *Stmt) Query(args ...interface{}) (*Rows, error)
-
-    func (s *Stmt) QueryRow(args ...interface{}) *Row
-
-    func (s *Stmt) Close() error
 
 ## Row
 

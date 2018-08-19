@@ -4,7 +4,11 @@ Tags: Security
 
 
 
-# Network Security
+# Security
+
+<https://nvd.nist.gov/>
+
+<http://cve.scap.org.cn/>
 
 # GFW
 
@@ -20,8 +24,6 @@ BUV: Block Until Verdict
 
 Web Application Firewall, web应用防火墙
 
-***
-
 # IPS
 
 Intrusion Prevention System, 入侵防御系统
@@ -34,9 +36,7 @@ Intrusion Detection System, 入侵检测系统
 
 Network Security Monitoring, 网络安全监控
 
-# ATP
+# XSS
 
-ADVANCED THREAT PROTECTION
-
-
+Cross Site Scripting, 跨站脚本攻击
 

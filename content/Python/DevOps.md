@@ -179,6 +179,7 @@ pip安装：
 
     $pip install -U pip
     $pip install -U wheel
+    $pip install -U setuptools
 
     $ pip install packagename[==version] # 安装
     $ pip install -U packagename[==version] # 升级
@@ -187,12 +188,43 @@ pip安装：
 
     $ pip3 install/uninstall <packagename>
 
+pip命令:
+
     $pip list
     $pip search packagename
     $pip freeze > requirements.txt
     $pip install -r requirements.txt
 
-    # 修改pip的源
+    $ pip install [options] <requirement specifier> [package-index-options]
+
+    $ pip install --target <dir> # 通过target指定安装的具体site-packages路径,不包括scripts/data
+    $ pip install --prefix <dir> # 通过prefix指定安装的bin, lib等路径，会安装scripts/data等
+    $ pip install --root <dir> # 会自动创建<dir>/usr/local/bin,<dir>/usr/local/lib来安装
+    $ pip install --user # 安装到/home/$USER/.local/lib
+
+    # 下面是通过源码安装，不能通过whl等二进制安装
+    $ pip install --install-option="--<options>" # 通过源码安装，传递参数给python setup.py install
+    $ pip install --global-option=...
+
+    # 一般指定了其它安装路径都需要用-I, 因为如果系统路径已经安装，就不会再安装
+    $ pip install -I/--ignore-installed # 重新安装, 配合--prefix使用.
+
+    # General options:
+    --log <path>
+    --timeout <sec>
+    --trusted-host <hostname>
+    --cache-dir <dir>
+    --no-cache-dir
+    --disable-pip-version-check
+
+    # Package index options
+    -i, --index-url <url>
+    --extra-index-url <url>
+    --no-index
+    -f, --find-links <url>
+    --process-dependency-links
+
+    # 手动修改pip的源
     $ sudo vim /etc/pip.conf
     [global]
     trusted-host = pypi.douban.com

@@ -64,6 +64,9 @@ chan是先进先出的.chan是引用传递．
 
     ch := make(chan Type, cap)
 
+    // 带缓冲的chan可以通过range遍历
+    for i := range ch {...}
+
 带缓冲的chan，在缓冲区满之前，都不会阻塞buffered，是异步的asynchronous.
 
 chan的方向：
@@ -78,11 +81,23 @@ chan的方向：
 
     var send_only <-chan Type
 
+显示关闭chan:
+
+    // 一般在生产者关闭chan
+    close(ch)
+
+    // 如果chan关闭ok=false
+    v, ok := <-ch
+
 ***
 
 ## select
 
-监听chan的数据流，类似于switch-case.
+监听chan的数据流，类似于switch-case, 处理多个chan的情况
+
+select默认是阻塞的，只有监听的chan中有数据才执行.
+
+select类似switch, default是监听的chan都没有准备好的时候默认执行的．
 
 ***
 

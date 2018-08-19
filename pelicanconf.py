@@ -177,7 +177,7 @@ SITEICON = 'extra/siteicon.ico'
 #THEME_STATIC_DIR = 'theme'
 #THEME_STATIC_PATHS = ['static']
 #CSS_FILE = 'main.css'
-SITESUBTITLE = 'DevOps & Big Data & Cloud Computing'
+SITESUBTITLE = 'Linux & Cloud & Container'
 #DISQUS_SITENAME
 GITHUB_URL = 'https://github.com/crazy-canux'
 #GOOGLE_ANALYTICS
@@ -193,12 +193,13 @@ GITHUB_URL = 'https://github.com/crazy-canux'
 MENUITEMS = (('Category', 'categories.html'),
              ('Tags', 'tags.html'))
 
-LINKS = (('Python', 'https://www.python.org/'),
-         ('Go', 'http://www.golang.org/'),
+LINKS = (('Go', 'http://www.golang.org/'),
+         ('Python', 'https://www.python.org/'),
          ('JavaScript', 'http://www.ecma-international.org/'),
          ('Web', 'https://www.w3.org/'),
-         ('Hadoop', 'http://hadoop.apache.org/'),
-         ('OpenStack', 'https://www.openstack.org/'))
+         ('Linux', 'https://www.linuxfoundation.org/'),
+         ('OpenStack', 'https://www.openstack.org/foundation/'),
+         ('CNCF', 'https://www.cncf.io/'))
 
 SOCIAL = (('github', 'https://github.com/crazy-canux'),
           ('linkedin', 'http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button'),

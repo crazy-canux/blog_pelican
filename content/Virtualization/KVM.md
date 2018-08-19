@@ -10,8 +10,3 @@ Kernel-based Virtual Machine.
 
 ***
 
-# tools
-
-## libvirt
-
-## virsh

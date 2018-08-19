@@ -17,6 +17,8 @@ deb - Debian binary package format
 dpkg - package manager for Debian
 
     dpkg
+    dpkg -X  ./xxx.deb  xxx  # 将deb包解压到xxx目录
+    dpkg -e  ./xxx.deb  xxx/DEBIAN # 将control信息解压
 
 dpkg-reconfigure - reconfigure an already installed package
 
@@ -104,8 +106,11 @@ apt-get - APT package handling utility -- command-line interface
     update
 
     # option:
-    -d download
+    -d, --download-only
     --print-uris
+    -y,--yes,--assume-yes    # 交互时确认
+    --reinstall
+    --allow-unauthenticated
 
     # 打印在当前环境安装该包需要的所有以来的下载连接信息
     apt-get --print-uris install package
@@ -174,3 +179,7 @@ suse的包管理机制。
 通过fpm来创建deb/rpm包
 
 <https://github.com/jordansissel/fpm>
+
+***
+
+# patch

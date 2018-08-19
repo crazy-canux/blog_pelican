@@ -48,8 +48,3 @@ postman是一个application,同时也可以从chrome启动.
 
 <https://github.com/SmartBear/soapui>
 
-# fiddler
-
-一个application.
-
-<http://www.telerik.com/fiddler>

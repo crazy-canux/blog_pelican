@@ -124,7 +124,7 @@ functions:
 
 examples:
 
-    class MyClassTest(unittest.TestCase):
+    class MyClassTestCase(unittest.TestCase):
 
         @classmethod
         def setUpClass(cls):

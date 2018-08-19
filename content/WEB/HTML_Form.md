@@ -34,9 +34,9 @@ form元素定义html表单。支持全局属性和事件属性。
     on/off
 
     # enctype属性规定在发送表单数据之前如何编码
-    application/x-www-form-urlencoded
-    multipart/form-data
-    text/plain
+    application/x-www-form-urlencoded, 默认值，表示在发送前编码所有值．
+    multipart/form-data, 不编码，在使用包含文件上传控件的表单必须使用．
+    text/plain, 空格转换为"+"加号，不对特殊字符编码．
 
     # method属性规定用于发送form-data的http方法
     get/post

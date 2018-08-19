@@ -46,15 +46,15 @@ Continuous Delivery.
 
 # CI/CD的工具
 
+持续集成和部署
+
+## Jenkins
+
 ## travis CI
 
 <https://travis-ci.org/>
 
-<https://coveralls.io/>
-
-travis CI是基于github的CI工具．
-
-coveralls/codecov用于分析单元测试覆盖率．
+travis CI是基于github的CI工具, 部署代码然后运行测试代码.
 
 在github项目添加.travis.yml文件：
 
@@ -69,7 +69,27 @@ coveralls/codecov用于分析单元测试覆盖率．
     after_success:
       - coveralls
 
-## stackstorm
+## circleci
+
+<https://circleci.com/>
+
+***
+
+# coverage的工具
+
+统计单元测试的覆盖率
+
+## coveralls
+
+<https://coveralls.io/>
+
+## codecov
+
+<https://codecov.io/>
+
+***
+
+# stackstorm
 
 StackStorm is a platform for integration and automation across services and tools, taking actions in response to events.
 
@@ -77,13 +97,13 @@ For DevOps and ChatOps.
 
 <https://github.com/StackStorm/st2>
 
-## Drone
+# Drone
 
 Drone is a Continuous Delivery platform built on Docker, written in Go
 
 <https://github.com/drone/drone>
 
-## sentry
+# sentry
 
 Sentry is a cross-platform crash reporting and aggregation platform.
 
@@ -93,7 +113,7 @@ Sentry is a cross-platform crash reporting and aggregation platform.
 
 <https://github.com/getsentry/raven-java>
 
-## supervisor
+# supervisor
 
 Supervisor process control system for UNIX/Linux.
 

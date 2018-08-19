@@ -16,16 +16,20 @@ python客户端MUA：本地协议pop3, 远程协议imap
 
 ## mailutils:
 
-mailutils默认使用postfix,如果已经安装其它MTA就使用已经安装的．
+mailutils默认安装postfix,如果已经安装其它MTA就使用已经安装的．
 
     $ sudo apt-get install mailutils
-    $ echo "test mail body" | mail -s "test mail title" canuxcheng@gmail.com
 
 非交互安装mailutils:
 
-    $ sudo debconf-set-selections <<< "postfix postfix/mailname string domain.com"
+    # 这里不用配置任何参数．
+    $ sudo debconf-set-selections <<< "postfix postfix/mailname string "
     $ sudo debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
     $ sudo apt-get install -y mailutils
+
+测试：
+
+    $ echo "test mail body" | mail -s "test mail title" canuxcheng@gmail.com
 
 ***
 
@@ -59,13 +63,14 @@ mailutils默认使用postfix,如果已经安装其它MTA就使用已经安装的
 
     $ sudo apt-get install postfix
     # general type of mail configuration -> Internet site
-    # system mail name -> gmail.com
+    # system mail name -> 空着
 
 配置：
 
+    # 使用默认值即可.
     $ sudo vim /etc/postfix/main.cf
     inet_interfaces = all
-    mydestination =
+    mydestination = localhost, $hostname, localhost.localdomain, localhost
 
 ***
 
@@ -73,11 +78,11 @@ mailutils默认使用postfix,如果已经安装其它MTA就使用已经安装的
 
 服务端：
 
-1. smtplib
+1. smtpd
 
 客户端：
 
-1. smtpd
+1. smtplib
 2. poplib
 3. imaplib
 

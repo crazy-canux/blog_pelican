@@ -86,6 +86,9 @@ classes:
     sections() # 获取所有section
     options(section) # 获取section的所有option
     get(section, option, raw=False, vars=None) # 返回字符串
+    getint(section, options)
+    getfloat(section, options)
+    getboolean(section, options) # 大小写都可以:0/1, false/true, no/yes, off/on
     set(section, option, value)
     has_section(section)
     has_option(section, option)

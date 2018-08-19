@@ -8,6 +8,18 @@ Tags: WEB
 
 web一般包括web server, web service, load balancing.
 
+URL: Uniform Resource Locator, 统一资源定位符．
+
+    scheme://host[:port#]/path/.../[?query-string][#anchor]
+
+DNS: Domain Name System, 域名系统.
+
+header: header中用来保存session，cookie等头部信息．
+
+session: 服务端的数据存储机制．
+
+cookie: 客户端的数据存储机制．分为会话cookie和持久cookie.
+
 ***
 
 # webserver
@@ -17,6 +29,8 @@ LAMP: Linux+apache+mysql+php
 LNMP: Linux+nginx+mysql+php
 
 # Blog静态站点
+
+hugo是golang开发的静态站点生成器．
 
 pelican是python开发的静态站点生成器.
 

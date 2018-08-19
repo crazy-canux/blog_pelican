@@ -94,11 +94,74 @@ bash的优化项目bash-it：
     !EOF! can be any symbol and character.
     !EOF!
 
-## shell函数
+## shell关键字和特殊符号
 
-return只是返回当前函数，不退出主程序
+## shell运算符和优先级
 
-exit直接退出主程序
+## shell数据结构和变量
+
+变量类型：
+
+    局部变量
+    环境变量
+    shell变量
+
+定义变量:
+
+    等号前后不能有空格
+    不能用数字开头命名变量
+    不能用标点符号和关键字
+
+    var=`ls /etc`
+    var=$(ls /etc)
+
+使用变量：
+
+    $var
+    ${var}
+
+只读变量:
+
+    使用readonly定义只读变量，不能再重新赋值
+
+    var=value
+    readonly var
+
+删除变量:
+
+    使用unset删除变量，被删除的变量不能使用.
+
+    var=value
+    unset var
+
+变量操作：
+
+    ${var/old/new} # 将变量中的old替换成new.
+    ${var:start:end} # 获取变量的start到end个字符，相当于var[start:end],下标从0开始.
+
+字符串类型：
+
+    单引号的字符串是原样输出，其中的变量是无效的，里面不能有单引号.
+    var='this is string'
+
+    双引号的字符串里面可以有变量，可以出现转义字符.
+    var="this is string"
+
+    获取字符串长度
+    var="this is tring"
+    echo ${#var}
+
+    字符串切片
+    var="this is string"
+    ${var:start:end}    # 相当于var[start:end], 下标从0开始
+
+    获取pattern在string中的起始下标
+    string="this is string"
+    `expr index "$string" pattern`
+
+数字类型：
+
+数组:
 
 ## shell控制流
 
@@ -117,3 +180,15 @@ if-elif-else
 while
 
     while []; do command;...; done
+
+for
+
+    for VAR in ${1,2,3,...}; do command; ...; done
+
+## shell函数
+
+return只是返回当前函数，不退出主程序
+
+exit直接退出主程序
+
+## 输入输出和重定向

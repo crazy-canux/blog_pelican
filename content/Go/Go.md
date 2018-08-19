@@ -78,7 +78,7 @@ go中的运算都是从左到右结合．
     !    # 逻辑非
 
     *
-    /
+    /    # 结果取整数
     %
     <<   # 位运算，左移
     >>   # 位运算，右移
@@ -241,6 +241,8 @@ go中的字符串是不可变的, 修改字符串：
 遍历字符串：
 
     for index, value := range s {...}
+    for index := range s {...}
+    for _, value := range s {...}
 
 ## 结构体/struct
 
@@ -304,7 +306,7 @@ go中的字符串是不可变的, 修改字符串：
 
 定义数组：
 
-    var <ArrayName> [number]Type
+    var <ArrayName> [number]Type{}
 
     ArrayName := [number]Type{val, val1, ...}
 
@@ -326,6 +328,7 @@ go中的字符串是不可变的, 修改字符串：
     for index, value := range a {
         fmt.Println('%d, %d\n', index, value)
     }
+
     # 只要索引, 去掉,value即可
     for index := range a {...}
     # 只要值，用_忽略索引
@@ -364,7 +367,7 @@ go的指针保存了值的内存地址, go没有指针运算．
 
 定义切片：
 
-    var SliceName []Type
+    var SliceName []Type{}
 
     SliceName := make([]Type, len, cap) // 通过make函数创建切片
 
@@ -394,6 +397,8 @@ go的指针保存了值的内存地址, go没有指针运算．
     for index, value := range s {
         ...
     }
+    for index := range s {...}
+    for _, value := range s {...}
 
 ## 映射/map
 
@@ -407,11 +412,14 @@ map的key需要支持==或!= 运算，不能是函数，映射，切片
 
 定义映射：
 
-    var MapName = map[keyType]ValueType
-    MapName = map[keyType]ValueType{
+    var MapName = map[keyType]ValueType{}
+
+    var MapName = map[keyType]ValueType{
         key: value,
         ...
     }
+
+    MapName := map[keyType]valueType{}
 
     MapName := map[KeyType]ValueType{
         "key": value,
@@ -420,6 +428,7 @@ map的key需要支持==或!= 运算，不能是函数，映射，切片
 
     var MapName = make(map[keyType]ValueType, cap)
     MapName := make(map[keyType]ValueType, cap)
+
     MapName[key] = value
 
 映射操作：
@@ -433,6 +442,8 @@ map的key需要支持==或!= 运算，不能是函数，映射，切片
 遍历映射：
 
     for key, value := range m {...}
+    for key := range m {...}
+    for _, value := range m {...}
 
 ## 类型转换
 
@@ -482,9 +493,7 @@ if后面的小括号不要，但是代码块需要大括号．
 
     if condition {
         ...
-    }
-
-    if condition {
+    } else if condition {
         ...
     } else {
         ...
@@ -581,7 +590,7 @@ goto跳转语句，跳转到指定标签运行．
         return ...
     }
 
-命名返回值：
+命名返回值(必须用括号)：
 
     // 一般return后面不带返回值，否则需要返回定义的所有变量
     func FuncName(var Type) (rvar rType, rvar1 rType) {

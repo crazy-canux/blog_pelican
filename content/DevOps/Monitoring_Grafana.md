@@ -71,10 +71,6 @@ create alert notification/channel:
 
 ***
 
-# Data source
-
-***
-
 # Dashboard
 
 graph
@@ -118,9 +114,7 @@ panel里的变量：
 
 # Alerting
 
-需要安装配置SMTP.
-
-推荐使用sendmail.
+email需要安装配置SMTP,推荐使用sendmail.
 
 alert发出去的图片或连接打不开：
 

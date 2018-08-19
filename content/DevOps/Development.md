@@ -16,7 +16,9 @@ Alpha: inner test version.
 
 Beta: outer test version.
 
-RC: release candidate. gamma.
+RC: release candidate. 最终版本之前的最后一个版本．也叫gamma.
+
+RTM: release to manufacture, 最终版
 
 GA: generally avaliable. stable/production.
 
