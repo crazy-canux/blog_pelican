@@ -10,7 +10,6 @@ Tags: Go, GSL, math, sort
 
 ## variables
 
-
 ## functions
 
 ***

@@ -1,6 +1,6 @@
-Title: Django Module
+Title: Django Model
 Date: 2016-10-04 04:20:31
-Tags: Django, Module
+Tags: Django, Model
 
 
 

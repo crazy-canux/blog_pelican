@@ -81,6 +81,11 @@ bash的优化项目bash-it：
 
 基本语法
 
+    #!/usr/bin/env bash
+
+    command1 && command2    # 当command1执行成功（返回0)才会执行command2
+    command1 || command2    # 当command1执行失败（返回非0)才会执行command2
+
 ## shell注释
 
 单行注释：
@@ -96,7 +101,79 @@ bash的优化项目bash-it：
 
 ## shell关键字和特殊符号
 
+三个特殊命令
+
+    echo
+    printf
+    test
+
+关键字
+
+    function
+
 ## shell运算符和优先级
+
+原生shell不支持数学运算，可以通过expr来实现．
+
+    # expr表达式内部运算符前后要空格.
+    val=`expr 2 + 2`
+
+算术运算符
+
+    +
+    -
+    *    # `expr $a \* $b`, 不要转义
+    /
+    %
+    =     # a=$b
+    ==    # [ $a == $b ] , 需要中括号，需要空格
+    !=    # [ $a != $b ], 同上
+
+关系运算符
+
+    # 只支持数字，不支持字符串．需要中括号和空格
+    -eq
+    -ne
+    -gt
+    -lt
+    -ge
+    -le
+
+布尔运算符
+
+    # 符合短路和斷路原则
+    !     # [ !false ]
+    -o    # [ exp1 -o exp2 ], 有一个为true就返回true
+    -a    # [ exp1 -a exp2], 两个都是true才返回true
+
+逻辑运算
+
+    ||
+    &&
+
+字符串运算符
+
+    =
+    !=
+    -Z    # 字符串长度为0返回true
+    -n    # 字符串长度为0返回false
+    str    # [ $a ], 字符串不为空返回true
+
+文件测试运算符
+
+    -b
+    -c
+    -d
+    -f
+    -g
+    -k
+    -p
+    -u
+    -r
+    -w
+    -x
+    -s
+    -e
 
 ## shell数据结构和变量
 
@@ -163,27 +240,101 @@ bash的优化项目bash-it：
 
 数组:
 
+
 ## shell控制流
 
 if
 
     if []; then command; ...; fi
 
+    if condition
+    then
+        command
+    fi
+
 if-else
 
     if []; then command; ...; else command; fi
+
+    if condition
+    then
+        command
+    else
+        command
+    fi
 
 if-elif-else
 
     if []; then command; ...; elif []; then command; ...; else command; fi
 
+    if condition
+    then
+        command
+    elif condition
+    then
+        command
+    else
+        command
+    fi
+
 while
 
     while []; do command;...; done
 
+    while condition
+    do
+        command
+    done
+
+    # 无限循环
+    while :
+    do
+        command
+    done
+
+    # 无限循环
+    while true
+    do
+        command
+    done
+
 for
 
     for VAR in ${1,2,3,...}; do command; ...; done
+
+    for var in item1 item2 ... itemN
+    do
+        command
+    done
+
+    # 无限循环
+    for (( ; ; ))
+
+until
+
+    until condition; do command; ...; done
+
+    until condition
+    do
+        command
+    done
+
+case
+
+    case $VAR in
+    val1)
+        command
+        ...
+        ;;
+    val2)
+        command
+        ...
+        ;;
+    esac
+
+break
+
+continue
 
 ## shell函数
 
@@ -191,4 +342,38 @@ return只是返回当前函数，不退出主程序
 
 exit直接退出主程序
 
+通过关键字function定义函数:
+
+    function Name() {
+        ...
+        # 如果不显示调用return返回，则函数返回最后一条命令的结果
+        return $code
+    }
+
+也可以直接定义函数:
+
+    Name() {
+        ...
+    }
+
+函数返回值:
+
+    $?
+
+函数参数：
+
+    $1 - $9 可以在函数内部获取调用函数时候传递进来的９个参数
+    ${10} - ${100} 获取第十个参数和后面的参数
+
+特殊字符：
+
+    $# 表示传递到脚本的参数个数
+    $*
+    $$
+    $!
+    $@
+    $-
+
 ## 输入输出和重定向
+
+## 文件包含

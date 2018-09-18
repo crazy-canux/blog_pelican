@@ -1,14 +1,12 @@
-Title: REST
+Title: API
 Date: 2016-07-07 16:43:15
-Tags: webservice, SOAP, REST, RESTful
+Tags: webservice, REST, RPC, Webhook
 
 
 
 # webservice
 
-webservice的方式主要是SOAP和REST.
-
-测试SOAP和REST的命令行工具是curl(参考shell命令)和httpie.
+***
 
 # SOAP
 
@@ -23,6 +21,10 @@ REST: Representational State Transfer,表述性状态传递．
 符合REST的架构称为RESTful.
 
 REST支持的格式除了XML, 还有JSON，后者几乎是标准格式．
+
+# RPC
+
+# WebHook
 
 ***
 

@@ -30,6 +30,13 @@ ansible通过winrm+powershell来远程管理Windows机器．
     .ansible.cfg
     /etc/ansible/ansible.cfg
 
+手动配置:
+
+    $ sudo vim /etc/ansible/ansible.cfg
+    [defaults]
+    ask_pass = False
+    host_key_checking = False
+
 # ansible命令
 
 ansible运行命令的两种方式：

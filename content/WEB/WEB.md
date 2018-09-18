@@ -76,14 +76,4 @@ RSS:
 
 SOAP: 是一种简单的基于XML的协议，它使应用程序通过HTTP来交换信息。
 
-REST: Representational State Transfer, 一般使用JSON进行数据传输．
-
 ***
-
-# loadbalancing
-
-Nginx
-
-HAProxy
-
-LVS

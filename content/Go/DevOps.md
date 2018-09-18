@@ -68,17 +68,17 @@ gopath有多个值时用冒号分开即可.
 
     $ go help [command]
 
-build
-
-编译包和依赖
-
-    $ go build [-o output] [-i] [build flags] [packages]
-
 get
 
 下载并安装包和依赖, 也就是安装第三方的库．
 
     $ go get [...] [packages]
+
+build
+
+编译包和依赖
+
+    $ go build [-o output] [-i] [build flags] [packages]
 
 install
 
@@ -143,4 +143,12 @@ go官方包管理器
 
     在Gopkg.lock添加source
     source = "github.com/golang/sys"
+
+## GFW
+
+go get安装第三方包如果出现依赖无法安装，可以通过github下载．
+
+    $ cd golang.org/x
+    $ git clone https://github.com/golang/crypto.git crypto
+    $ go install golang.org/x/crypto/ssh
 

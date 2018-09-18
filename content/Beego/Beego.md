@@ -41,9 +41,9 @@ C: controller，如何展现数据
 
 验证安装:
 
-    $ bee new hello
-    $ cd hello
-    $ bee run hello
+    $ bee new beegolang
+    $ cd beegolang
+    $ bee run beegolang
 
 # 命令
 
@@ -63,15 +63,14 @@ beego
 
 # project
 
-创建一个名为hello的项目
+创建一个名为beegolang的项目
 
-    $ cd $GOPATH/src/beegolang
-    $ bee new hello
+    $ cd $GOPATH/src
+    $ bee new beegolang
 
-    hello
+    beegolang
     |-- conf
         |- app.conf
-    |-- main.go
     |-- models
         |-- models.go
     |-- views
@@ -81,12 +80,11 @@ beego
     |-- routers
     |-- tests
     |-- static
+    |-- main.go
 
 验证开发服务器：
 
-    $ bee run beegolang/hello
-    # OR
-    $ cd beegolang/hello; bee run
+    $ bee run beegolang
 
 浏览器输入：
 

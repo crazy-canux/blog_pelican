@@ -111,6 +111,7 @@ apt-get - APT package handling utility -- command-line interface
     -y,--yes,--assume-yes    # 交互时确认
     --reinstall
     --allow-unauthenticated
+    --allow-downgrades (>= ubuntu1604)
 
     # 打印在当前环境安装该包需要的所有以来的下载连接信息
     apt-get --print-uris install package

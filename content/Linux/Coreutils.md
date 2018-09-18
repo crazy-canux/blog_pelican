@@ -100,6 +100,15 @@ Linux外部命令的项目是coreutils。
     crontab -l
     crontab -e
 
+    # 修改默认编辑器nano
+    select-editor
+
+时区管理
+
+    timedatectl list-timezones # 查看所有时区
+    sudo timedatectl set-timezone Asia/Shanghai # 设置时区
+    ls -l /etc/localtime # 应该是一个链接
+
 # 用户和权限管理
 
     id
@@ -236,6 +245,7 @@ Linux外部命令的项目是coreutils。
     -p --perms  preserve permissions
     -t --times  preserve modification times
     -O, --omit-dir-times    忽略目录的modification times.
+    --exclude 排除文件
 
 计算文件空间使用:
 

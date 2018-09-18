@@ -20,9 +20,9 @@ mysql driver:
 
 postgresql driver:
 
-<https://github.com/jackc/pgx>
-
 <https://github.com/lib/pq>
+
+<https://github.com/jackc/pgx>
 
 ## variables
 
@@ -34,26 +34,6 @@ postgresql driver:
     // 注册并命名一个数据库，在Open中使用该命名启用该驱动
     // 如果注册同一名称两次或者driver参数为nil, 会导致panic.
     Register(name string, driver driver.Driver)
-
-## Scanner
-
-interface:
-
-    type Scanner interface {
-        Scan(src interface{}) error
-    }
-
-## Result
-
-interface:
-
-    // 对已执行的命令的总结
-    type Result interface {
-        // 返回一个数据库生成的回应命令的整数．
-        LastInsertId() (int64, error)
-        // 返回被update/insert/delete影响的行数.
-        RowsAffected() (int64, error)
-    }
 
 ## DB
 
@@ -68,6 +48,9 @@ struct:
 functions:
 
     // 验证数据库驱动和参数
+    // driverName: mssql, mysql, postgres
+    // mssql dataSourceName: "server=%s;port=%d;database=%s;user id=%s;password=%s"
+    // mysql dataSourceName: "user:password@tcp(server:port)/database"
     Open(driverName, dataSourceName string) (*DB, error)
 
 methods:
@@ -150,6 +133,23 @@ methods:
 
     // 回滚事务
     func (tx *Tx) Rollback() error
+
+## Scanner
+
+interface:
+
+    type Scanner interface {
+        Scan(src interface{}) error
+    }
+
+## Result
+
+Exec方法返回Result.
+
+    type Result interface {
+        LastInsertId() (int64, error)
+        RowsAffected() (int64, error)
+    }
 
 ## Row
 

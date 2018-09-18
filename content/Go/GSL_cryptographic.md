@@ -40,6 +40,17 @@ interface:
 
 # crypto/md5
 
+## constants
+
+    const BlockSize = 64
+    const Size = 16
+
+## function
+
+    func Sum(data []byte) [Size]byte
+
+    func New() hash.Hash
+
 ***
 
 # crypto/sha1

@@ -12,13 +12,16 @@ Tags: Go, GSL, os, syscall, log, flag, bufio, io, fmt
 
 ## constants
 
+    # flag 参数
     const (
         O_RDONLY int = syscall.O_RDONLY
         O_WRONLY int = syscall.O_WRONLY
         O_RDWR int = syscall.O_RDWR
-        O_CREATE int = syscall.O_CREATE
-        O_TRUNC int = syscall.O_TRUNC
-        ...
+        O_CREATE int = syscall.O_CREATE # 不存在就创建
+        O_APPEND int = syscall.O_APPEND # 追加写入
+        O_TRUNC int = syscall.O_TRUNC # 打开时清空文件
+        O_EXCL int = syscall.O_EXCL
+        O_SYNC int = syscall.O_SYNC
     )
 
     const (
@@ -65,6 +68,30 @@ Tags: Go, GSL, os, syscall, log, flag, bufio, io, fmt
     // 返回key=value格式的环境变量的字符串的切片拷贝
     func Environ() []string
 
+文件相关的操作
+
+    func IsPathSeparator(c uint8) bool
+    ...
+    func SameFile(fi1, fi2 FileInfo) bool
+    func Getwd() (dir string, err error)
+    func Chdir(dir string) error
+    func Chmod(name string, mode FileMode) error
+    func Chown(name string, uid, gid int) error
+    ...
+    func Mkdir(name string, perm FileMode) error
+    func MkdirAll(path string, perm FileMode) error
+    func Rename(oldpath, newpath string) error
+    func Truncate(name string, size int64) error
+    func Remove(name string) error
+    func RemoveAll(path string) error
+    func Readlink(name string) (string, error)
+    // 创建符号连接
+    func Symlink(oldname, newname string) error
+    // 创建硬连接
+    func Link(oldname, newname string) error
+    // 返回一个用于保管临时文件的默认目录
+    func TempDir() string
+
 ## Signal
 
 interface:
@@ -99,8 +126,25 @@ constant:
 methods:
 
     func (m FileMode) IsDir() bool
+    func (m FileMode) IsRegular() bool
 
 ## FileInfo
+
+用来描述一个文件对象
+
+    type FileInfo interface {
+        Name() string
+        Size() int64
+        Mode() FileMode
+        ModeTime() time.Time
+        IsDir() bool
+        Sys() interface{}
+    }
+
+function:
+
+    func Stat(name string) (fi FileInfo, err error)
+    func Lstat(name string) (fi FileInfo, err error)
 
 ## File
 
@@ -134,8 +178,12 @@ methods:
     // 返回0, io.EOF, 表示读取0个字节,文件终止．
     func (f *File) Read(b []byte) (n int, err error)
 
+    func (f *File) ReadAt(b []byte, off int64) (n int, err error)
+
     // 向文件f写入len(b)字节数据b，返回写入字节数
     func (f *File) Write(b []byte) (n int, err error)
+
+    func (f *File) WriteAt(b []byte, off int64) (ret int, err error)
 
     func (f *File) WriteString(s string) (ret int, err error)
 
@@ -375,8 +423,10 @@ methods:
 
     func TeeReader(r Reader, w Writer) Reader
 
+    // 返回一个串联的Reader接口,依次读.
     func MultiReader(readers ...Reader) Reader
 
+    // 返回一个串联的Writer接口，依次写入．
     func MultiWriter(writers ...Writer) Writer
 
     // 将src数据拷贝到dst, 直到EOF或出错，返回拷贝的字节数
@@ -389,6 +439,7 @@ methods:
 
     func ReadFull(r Reader, buf []byte) (n int, err error)
 
+    // 将字符串s写入w
     func WriteString(w Writer, s string) (n int, err error)
 
 ## Reader
@@ -407,7 +458,7 @@ interface:
 
 用于包装基本的写入方法
 
-os.File 和 bufio.Writer都是io.Writer接口
+os.File, bufio.Writer, net/http.ResponseWriter 都是io.Writer接口
 
 interface:
 
@@ -809,15 +860,15 @@ methods:
 
     // 返回已被设置的flag数量
     func NFlag() int
-
     // 返回已注册flag的结构体指针
     func Lookup(name string) *Flag
 
-    // 返回解析flag之后参数个数
+    // 非flag参数不能在flag参数前面指定，否则flag参数不会被解析．
+    // 返回非flag参数个数
     func NArg() int
-    // 返回解析之后非flag参数个数
+    // 返回所有非flag参数
     func Args() []string
-    // 返回解析之后的第i个参数, i=0 就是第一个参数，而不是程序名称
+    // 返回第i个非flag参数, i=0 就是第一个参数，而不是程序名称
     func Arg(i int) string
 
     // 向Stderr写入所有注册好的flag的默认值
@@ -926,3 +977,9 @@ interface:
 ## Getter
 
 ***
+
+## logrus
+
+第三方log包
+
+<https://github.com/sirupsen/logrus>

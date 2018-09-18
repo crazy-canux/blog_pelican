@@ -1,6 +1,6 @@
 Title: GSL_file
 Date: 2018-01-01 10:49:21
-Tags: Go, GSL, path, encoding, text, html
+Tags: Go, GSL, path, encoding, text, html, gob, csv, json, xml, yaml
 
 
 
@@ -34,7 +34,7 @@ chan/complex/func类型不能编码为json.
 
 ## functions
 
-    # 返回v的json编码(将go的对象转换为json对象)
+    # 返回v的json编码(将go的对象转换为json对象), 可以打tag.
     json.Marshal(v interface{}) ([]byte, error)
 
     # 具有缩进功能
@@ -141,8 +141,111 @@ methods:
 
 ***
 
-# text
+# text/template
+
+***
+
+# text/template/parse
+
+***
+
+# text/scanner
+
+***
+
+# text/tabwriter
 
 ***
 
 # html
+
+提供了用于转义和解转义html文本的函数．
+
+    import "net"
+
+## functions
+
+    // 将　<, >, &, ', " 转义为字符实体 &lt, &gt, &#39,
+     func EscapeString(s string) string
+
+     func UnescapeString(s string) string
+
+***
+
+# html/template
+
+实现了数据驱动模板，用于生成可对抗代码注入的安全html输出．
+
+## functions
+
+    // 将b转义后写入w．
+    func HTMLEscape(w io.Writer, b []byte)
+
+    // 转义s之后,返回结果字符串.
+    func HTMLEscapeString(s string) string
+
+    // 转义多个字符串，返回结果字符串.
+    func HTMLEscaper(args ...interface{}) string
+
+## FuncMap
+
+定义函数名字符串到函数的映射，每个函数必须要1到2个返回值．
+
+    type FuncMap map[string]interface{}
+
+## Template
+
+    type Template struct {
+        Tree *parse.Tree
+    }
+
+function:
+
+    // 创建名为name的模板
+    func New(name string) *Template
+
+    // 在err非nil时panic, 检测模板是否正确．
+    // 通过template.New().Parse() 返回值作为参数.
+    func Must(t *Template, err error) *Template
+
+    // 创建一个模板，并解析filenames作为模板内容
+    // 第一个文件名为模板名字(不包括扩展名)
+    func ParseFiles(filenames ...string) (*Template, error)
+
+    // 创建一个模板，并解析匹配pattern的文件．
+    // 匹配的第一个文件名为模板名字(不包括扩展名)
+    func ParseGlob(pattern string) (*Template, error)
+
+methods:
+
+    // 将字符串str解析为模板
+    func (t *Template) Parse(str string) (*Template, error)
+
+    //
+    func (t *Template) ParseFiles(filenames ...string) (*Template, error)
+
+    //
+    func (t *Template) ParseGlob(pattern string) (*Template, error)
+
+    // 将解析好的模板应用到data上，并将输出写入wr.
+    func (t *Template) Execute(wr io.Writer, data interface{}) (err error)
+
+    // 使用和t关联的名为name的模板
+    func (t *Template) ExecuteTemplate(wr io.Writer, name string, data interface{}) error
+
+    // 注册函数到模板t, funcMap的key是模板中调用的函数名，value是实际的函数
+    func (t *Template) Funcs(funcMap FuncMap) *Template
+
+***
+
+# yaml
+
+<https://github.com/go-yaml/yaml>
+
+***
+
+# toml
+
+<https://github.com/toml-lang/toml>
+
+<https://github.com/BurntSushi/toml>

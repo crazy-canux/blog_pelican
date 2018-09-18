@@ -1,4 +1,4 @@
-Title: GSL_Concurrency
+Title: GSL_concurrency
 Date: 2018-01-01 10:49:21
 Tags: Go, GSL, sync
 

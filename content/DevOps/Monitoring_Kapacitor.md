@@ -69,7 +69,7 @@ Open source framework for processing, monitoring, and alerting on time series da
     POST /kapacitor/v1/config/smtp/
     {
         "set":{
-            "enabled": false
+            "enabled": true
         }
     }
 
