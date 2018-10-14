@@ -1,6 +1,6 @@
 Title: Jenkins
 Date: 2016-04-15 09:41:39
-Tags: CI, Jenkins
+Tags: DevOps, Jenkins
 
 
 
@@ -25,7 +25,7 @@ Jenkins is a self-contained, open source automation server which can be used to 
     $ systemctl enable jenkins.service
     $ systemctl start jenkins
 
-修改jinkens主目录:
+jinkens主目录:
 
     # 默认主目录在/home/canux/.jenkins
 
@@ -39,9 +39,21 @@ Jenkins is a self-contained, open source automation server which can be used to 
 
 首先添加源代码的credential.比如github/gitlab/p4v/bitbucket.
 
+# nodes
+
+添加节点需要安装和master版本一样的java.
+
 # blueocean
 
 blueocean是jenkins的一个差劲，提供更好的用户界面.
+
+***
+
+# plugins
+
+## thinbackup
+
+备份插件，主要备份jenkins主目录.
 
 ***
 
@@ -52,6 +64,4 @@ blueocean是jenkins的一个差劲，提供更好的用户界面.
 pipeline是groovy语法的jenkins的DSL.
 
 ***
-
-
 

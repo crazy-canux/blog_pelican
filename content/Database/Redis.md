@@ -12,6 +12,12 @@ redis在key-value存储上性能比memcached更好．
 
     $ sudo apt-get install redis-server
 
+redis监听端口6379.
+
+redis gui:
+
+<https://github.com/uglide/RedisDesktopManager>
+
 ***
 
 # redis的命令

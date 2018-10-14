@@ -1,6 +1,6 @@
-Title: Django Test
-Date: 2016-10-04 04:51:30
-Tags: Django, Test
+Title: Beego Test
+Date: 2018-10-04 04:51:30
+Tags: Beego, Test
 
 
 

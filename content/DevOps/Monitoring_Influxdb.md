@@ -57,6 +57,10 @@ IFQL: influx query language.
     $ influx -username <username> -p <password> -h <hostname>
     $ influx -precision rfc3339 # 显示可读的时间戳
 
+    $ influx -database 'test' -host '127.0.0.1'
+    -execute 'select * from "test"."test"."test" where time > now() - 30d'
+    -format 'csv' > test.csv
+
 database
 
     $ CREATE DATABASE test
@@ -220,7 +224,7 @@ The tz() clause returns the UTC offset for the specified timezone.
 transformations函数的field_key可以是aggregations和selectors函数的返回值
 
     cumulative_sum(<field_key>)
-    derivative(<field_key>, [<unit>]) # 求单位时间的变化率
+    derivative(<field_key>, [<unit>]) # 求单位时间的变化率, (cur-last)/(interval/unit)
     difference(<field_key>) # 返回连续时间值之间的差异 -> 值的差异
     elapsed(<field_key>) # 返回连续时间间隔的差异 -> 时间间隔差异
     moving_average()

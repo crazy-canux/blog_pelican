@@ -1,6 +1,6 @@
 Title: GSL_database
 Date: 2018-01-01 10:49:21
-Tags: Go, GSL, database
+Tags: Go, database
 
 
 
@@ -47,7 +47,7 @@ struct:
 
 functions:
 
-    // 验证数据库驱动和参数
+    // 验证数据库驱动和参数,并不创建和数据库的连接．
     // driverName: mssql, mysql, postgres
     // mssql dataSourceName: "server=%s;port=%d;database=%s;user id=%s;password=%s"
     // mysql dataSourceName: "user:password@tcp(server:port)/database"
@@ -58,13 +58,13 @@ methods:
     // 返回数据库下层驱动
     func (db *DB) Driver() driver.Driver
 
-    // 检查连接是否有效
+    // 创建和数据库的连接,检查连接是否有效
     func (db *DB) Ping() error
 
     // 关闭数据库，释放资源
     func (db *DB) Close() error
 
-    // 设置与数据库建立连接的最大数目
+    // 设置与数据库建立连接的最大数目, 默认０表示无限制.
     func (db *DB) SetMaxOpenConns(n int)
 
     // 设置连接池中的最大闲置连接数

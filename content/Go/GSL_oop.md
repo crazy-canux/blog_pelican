@@ -1,6 +1,6 @@
 Title: GSL_oop
 Date: 2018-01-01 10:49:21
-Tags: Go, GSL, reflect
+Tags: Go, reflect
 
 
 

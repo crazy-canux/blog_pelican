@@ -1,6 +1,6 @@
 Title: GSL_sytem
 Date: 2018-01-01 10:49:21
-Tags: Go, GSL, os, syscall, log, flag, bufio, io, fmt
+Tags: Go, os, syscall, log, flag, bufio, io, fmt
 
 
 
@@ -446,7 +446,7 @@ methods:
 
 用于包装基本的读取方法
 
-os.File 和 bufio.Reader都是io.Reader接口
+os.File(os.Stdout, os.Stdin. os.Stderr), bytes.Buffer 和 bufio.Reader 都是io.Reader接口
 
 interface:
 
@@ -458,7 +458,7 @@ interface:
 
 用于包装基本的写入方法
 
-os.File, bufio.Writer, net/http.ResponseWriter 都是io.Writer接口
+os.File(os.Stdin, os.Stderr, os.Stdin), bytes.Buffer 和 bufio.Writer, net/http.ResponseWriter 都是io.Writer接口
 
 interface:
 

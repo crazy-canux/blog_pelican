@@ -8,6 +8,8 @@ Tags: Linux, FileSystem
 
 Linux采用虚拟文件系统，支持多个文件系统协议．
 
+***
+
 # ext/ext2/ext3/ext4
 
 # JFS2
@@ -25,6 +27,11 @@ linux的VM(虚拟内存)包括ramfs和swap.
 # tmpfs
 
 临时文件系统, 优先使用ramfs,　其次使用swap.
+
+    # 挂载tmpfs
+    mount -t tmpfs -o size=1024m tmpfs /path/to/mount
+    # /etc/fstab　
+    tmpfs /dev/shm tmpfs,defaults,size=512m 0 0
 
 # vfat/fat/ntfs
 

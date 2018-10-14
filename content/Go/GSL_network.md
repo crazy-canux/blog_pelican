@@ -1,6 +1,6 @@
 Title: GSL_network
 Date: 2018-01-01 10:49:21
-Tags: Go, GSL, net
+Tags: Go, net
 
 
 
@@ -19,8 +19,171 @@ Tags: Go, GSL, net
 
 ## variables
 
-
 ## functions
+
+## Addr
+
+代表一个网络终端地址．
+
+TCPAddr, UDPAddr, IPAddr, UnixAddr 都实现了该接口
+
+    type Addr interface {
+        Network() string
+        String() string
+    }
+
+## TCPAddr
+
+function:
+
+    func ResolveTCPAddr(net, addr string) (*TCPAddr, error)
+
+## UDPAddr
+
+function:
+
+    func ResolveUDPAddr(net, addr string) (*UDPAddr, error)
+
+## IPAddr
+
+function:
+
+    func ResolveIPAddr(net, addr string) (*IPAddr, error)
+
+## UnixAddr
+
+function:
+
+    func ResolveUnixAddr(net, addr string) (*UnixAddr, error)
+
+## Conn
+
+该接口代表通用的面向流的网络连接．
+
+    type Conn interface {
+        Read()
+        Write()
+        Close()
+        LocalAddr()
+        RemoteAddr()
+        SetDeadline()
+        SetReadDeadline()
+        setWriteDeadline()
+    }
+
+function:
+
+    // tcp: "tcp"、"tcp4"、"tcp6"、
+    // unix: "unix", "unixpacket"
+    // unix: "unixgramh"
+    // udp: "udp"、"udp4"、"udp6"、
+    // ip: "ip"、"ip4"、"ip6"、
+    func Dail(network, address string) (Conn, error)
+
+    func DialTimeout(network, address string, timeout time.Duration) (Conn, error)
+
+    func Pipe() (Conn, Conn)
+
+## PacketConn
+
+该接口代表通用的面向数据包的网络连接．
+
+    type PacketConn interface {
+        ReadDrom()
+        WriteTo()
+        Close()
+        LocalAddr()
+        SetDeadline()
+        SetReadDeadline()
+        SetWriteDeadline()
+    }
+
+function:
+
+    // ip: "ip"、"ip4"、"ip6"、
+    // udp: "udp"、"udp4"、"udp6"、
+    // unix: "unixgram"
+    func ListenPacket(net, laddr string) (PacketConn, error)
+
+## Listener
+
+通用的面向流的网络协议的公用的网络监听接口．
+
+    type Listener interface {
+        Addr() addr
+        Accept() (c Conn, err error)
+        Close() error
+    }
+
+function:
+
+    // tcp: "tcp"、"tcp4"、"tcp6"、
+    // unix: "unix", "unixpacket"
+    func Listen(net, laddr string) (Listener, error)
+
+## IPConn
+
+实现了Conn和PacketConn接口．
+
+function:
+
+    func DilIP(netProto string, laddr, raddr *IPAddr) (*IPConn, error)
+    func ListenIP(netProto string, laddr *IPAddr) (*IPConn, error)
+
+method:
+
+## UDPConn
+
+实现了Conn和PacketConn接口.
+
+function:
+
+    func DialUDP(net string, laddr, raddr *UDPAddr) (*UDPConn, error)
+    func ListenDUP(net string, laddr *UDPAddr) (*UDPConn, error)
+
+method:
+
+## TCPConn
+
+实现了Conn接口.
+
+function:
+
+    func DialTCP(net string, laddr, raddr *TCPAddr) (*TCPConn, error)
+
+method:
+
+## TCPListener
+
+function:
+
+    func ListenTCP(net string, laddr *TCPAddr) (*TCPListener, error)
+
+method:
+
+    func (l *TCPListener) Accept() (Conn, error)
+
+## UnixConn
+
+实现了Conn和PacketConn接口.
+
+function:
+
+    func DialUnix(net string, laddr, raddr *UnixAddr) (*UnixConn, error)
+    func ListenUnixgram(net string, laddr *UnixAddr) (*UnixConn, error)
+
+method:
+
+## UnixListener
+
+function:
+
+    func ListenUnix(net string, laddr *UnixAddr) (*UnixListener, error)
+
+method:
+
+    func (l *UnixListener) Accept() (c Conn, err error)
+    func (l *UnixListener) AcceptUnix() (*UnixConn, error)
 
 ***
 

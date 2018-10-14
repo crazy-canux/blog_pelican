@@ -1,6 +1,6 @@
 Title: Beego Template
 Date: 2018-09-27 01:33:42
-Tags: Beego, Golang, Template
+Tags: Beego, Template
 
 
 

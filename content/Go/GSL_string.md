@@ -1,6 +1,6 @@
 Title: GSL_string
 Date: 2018-01-01 10:49:21
-Tags: Go, GSL, strings, strconv, unicode, regexp, bytes, index
+Tags: Go, strings, strconv, unicode, regexp, bytes, index
 
 
 
@@ -82,7 +82,15 @@ struct:
 
 functions:
 
+    func NewBuffer(buf []byte) *Buffer
+    func NewBufferString(s string) *Buffer
+
 methods:
+
+    func (b *Buffer) String() string
+
+    func (b *Buffer) Read(p []byte) (n int, err error)
+    func (b *Buffer) Write(p []byte) (n int, err error)
 
 ***
 

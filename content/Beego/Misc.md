@@ -1,6 +1,6 @@
-Title: Django MISC
-Date: 2017-01-04 01:13:36
-Tags: Django, Misc
+Title: Beego MISC
+Date: 2018-01-04 01:13:36
+Tags: Beego, Misc
 
 
 

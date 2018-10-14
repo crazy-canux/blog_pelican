@@ -1,6 +1,6 @@
 Title: GSL_file
 Date: 2018-01-01 10:49:21
-Tags: Go, GSL, path, encoding, text, html, gob, csv, json, xml, yaml
+Tags: Go, path, encoding, text, html, gob, csv, json, xml, yaml
 
 
 

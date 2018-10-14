@@ -67,23 +67,14 @@ mongo shell进入到指定数据库:
     exit    # 退出mongo shell
 
     db    # 显示当前数据库
-    use <db_name>    # 切换到指定数据库, 不存在则创建．
+
     show dbs    # 查看所有数据库
-    show collections # 查看当前database的collections
-    show users
-    show profile
-    show logs
-    show log [name]
-
-    sh.help()
-
-    rs.help()
-
     db.help() # 查看所有database的方法
-    db.hostInfo()
-    db.serverStatus()
 
+    show collections # 查看当前database的collections
     db.mycoll.help() # 查看所有collections的方法
+
+    use <db_name>    # 切换到指定数据库, 不存在则创建．
 
 ***
 
@@ -97,20 +88,28 @@ mongo的CURD操作就相当于关系数据库中的sql操作．
 
 CURD: create update read delete.
 
-    > use <database_name> # 切换/创建数据库
+    > use <database_name> # 创建数据库
     > db.createCollection(collection_name) # 在当前数据库创建集合
     > db.dropDatabase() # 删除当前数据库
     > db.getCollectionNames() # 获取当前数据库的所有集合
 
-    > db.mycoll.insert(obj) #　往集合mycollection中插入JSON对象obj.
+    > db.mycollection.insert(obj) #　往集合mycollection中插入JSON对象obj.
     > db.mycoll.find([query],[fields]) # 查询文档
     > db.mycoll.remove(query) # 删除文档
     > db.mycoll.save(obj) # 替换已有的文档
     > db.mycoll.update( query, object[, upsert_bool, multi_bool] ) # 更新已有的文档
     > db.mycoll.drop() # 删除当前集合
 
-    # 释放内存
-    > use admin
-    > db.runCommand({closeAllDatabases:1})
+***
+
+# Python
+
+<https://github.com/mongodb/mongo-python-driver>
+
+    $ pip install pymongo
+
+    from pymongo import MongoClient
+    client = MongoClient("mongodb://mongodb0.example.net:27017")
 
 ***
+

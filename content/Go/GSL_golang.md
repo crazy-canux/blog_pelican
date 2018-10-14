@@ -1,6 +1,6 @@
 Title: GSL_golang
 Date: 2018-01-01 10:49:21
-Tags: Go, GSL, go, runtime, expvar, context, unsafe, errors
+Tags: Go, go, runtime, expvar, context, unsafe, errors
 
 
 

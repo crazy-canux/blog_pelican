@@ -1,6 +1,6 @@
 Title: Beego
 Date: 2018-07-20 23:14:07
-Tags: Go, Beego
+Tags: Beego
 
 
 

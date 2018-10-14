@@ -28,40 +28,12 @@ Tags: Database, Monitoring
 
 # Redis
 
-通过redis-cli info查看
+通过redis-cli> info查看
+
+    其它指标参考grafana dashboard.
 
     Redis_mode: cluster/standalone
-     
-    >>> client
-    Connected_clients  已连接的客户端数量
-    Blocked_clients 正在等待阻塞命令的客户端数量
-     
-    >>>memory
-    Used_memory 由redis内存分配器分配的内存总量
-    Used_memory_rss  和top看到一样
-     
-    >>> cpu
-    Used_cpu_sys
-    Used_cpu_user
-     
-    >>>keyspace
-    Keys :  db0的key的数量
-    Expires: db0的过期的key
-    Avg_ttl:  db0平均存活时间
-     
-    >>> stats
-    Total_commands_processed   redis处理的命令数
-    Instantaneous_ops_per_sec    redis内部每秒执行命令数（QPS）
-    Total_net_input_bytes    redis网络入口流量
-    Total_net_output_bytes  redis网络出口流量
-    Instantaneous_input_kbps：   每秒读字节数
-    Instantaneous_output_kbps:  每秒写字节数
-    Rejected_connections:  拒绝连接的个数
-    Expired_keys:  总共过期的key的数量
-    Evicted_keys: 总共剔除的key的数量
-    Keyspace_hits: 命中个数
-    Keyspace_misses: 没命中个数
-     
+
     >>> replication (master/slave)
     Connected_slaves:    连接的slave实例个数
      
@@ -71,3 +43,6 @@ Tags: Database, Monitoring
 
 # Mongo
 
+通过mongo> serverStatus()查看
+
+    其它指标参考grafana dashboard.

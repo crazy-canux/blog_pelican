@@ -1,6 +1,6 @@
 Title: Oracle
 Date: 2016-06-01 22:40:22
-Tags: Oracle
+Tags: Database, Oracle
 
 # Oracle
 

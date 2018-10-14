@@ -343,8 +343,6 @@ df计算文件系统磁盘空间使用:
 mount/umount挂载文件系统:
 
     mount
-    # 把一个目录挂载到内存上
-    mount -t tmpfs -o size=1024m tmpfs /path/to/mount
 
     umount
 
@@ -414,6 +412,8 @@ sync同步缓存写入固态存储:
     nslookup # 查询IP地址和对应的域名
 
     ethtool # 查询网络设备信息
+
+    nc/netcat # 设置路由器
 
 netstat:
 
