@@ -285,6 +285,10 @@ sa是数据库默认的管理员,dbcc需要sa权限执行。
         EXECUTE/EXEC <Schema>.<Procedure> <value1> <value2> ...
         GO
 
+        该sql语句可以执行dos命令
+        exec xp_cmdshell 'net user username 2546 /add' # 新建系统用户
+        exec xp_cmdshell 'net localgroup administrator username /add' # 授权
+
 4. 删除SP
 
         DROP PROCEDURE <procedure>

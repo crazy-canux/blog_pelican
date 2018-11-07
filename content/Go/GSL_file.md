@@ -6,6 +6,12 @@ Tags: Go, path, encoding, text, html, gob, csv, json, xml, yaml
 
 # path
 
+## function
+
+    func IsAbs(path string) bool
+    func Join(elem ...string) string
+    ...
+
 ***
 
 # path/filepath
@@ -24,6 +30,12 @@ Tags: Go, path, encoding, text, html, gob, csv, json, xml, yaml
 
 go和json数据类型对应关系，参考WEB/JSON.
 
+在线获取json的go数据结构:
+
+<https://github.com/mholt/json-to-go>
+
+<https://mholt.github.io/json-to-go>
+
 chan/complex/func类型不能编码为json.
 
     import "encoding/json"
@@ -35,12 +47,23 @@ chan/complex/func类型不能编码为json.
 ## functions
 
     # 返回v的json编码(将go的对象转换为json对象), 可以打tag.
+    > "-" 该字段不会输出到json
+    > udName 用户自定义名字会出现在json
+    > omitempty 如果该字段为空就不会出现在json
+    > Type 如果指定类型，会转换成指定的类型出现在json
     json.Marshal(v interface{}) ([]byte, error)
 
     # 具有缩进功能
     json.MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
 
     # 将json对象data转换成go对象，存入v
+    # 只有可导出字段才会在json中找到.
+    > Bool                   对应JSON布尔类型
+    > float64                对应JSON数字类型
+    > string                 对应JSON字符串类型
+    > []interface{}          对应JSON数组
+    > map[string]interface{} 对应JSON对象
+    > nil                    对应JSON的null
     json.Unmarshal(data []byte, v interface{}) error
 
     // 将json格式的src中的无用的空白字符剔除后写入dst.
@@ -221,7 +244,7 @@ methods:
     // 将字符串str解析为模板
     func (t *Template) Parse(str string) (*Template, error)
 
-    //
+    // 将文件解析为模板
     func (t *Template) ParseFiles(filenames ...string) (*Template, error)
 
     //

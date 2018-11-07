@@ -623,9 +623,9 @@ dl定义定义列表,dt定义定义项目,dd定义定义的描述,都支持全�
 
     <!DOCTYPE html>
     <html>
-      <head>
-        ...head content...
-      </head>
+    <head>
+      ...head content...
+    </head>
     <body>
       ...body content...
 

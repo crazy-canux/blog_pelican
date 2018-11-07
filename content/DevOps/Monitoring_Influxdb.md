@@ -94,7 +94,8 @@ subscription
 series
 
     $ SHOW SERIES
-    $ DROP SERIES FROM <measurement> WHERE <tagkey>=<tagvalue>
+    $ DROP SERIES FROM <measurement> WHERE <tagkey>='<tagvalue>'
+    $ DROP SERIES WHERE <tagkey>='<tagvalue>' # 从所有measurement删除指定节点的所有数据
 
 shared
 
@@ -133,31 +134,38 @@ show:
 
 influxql语句按下列关键字顺序排列
 
+tag_key, field_key, measurement都需要用双引号.
+
 The SELECT clause specifies an InfluxQL function.
 
-    select <field_key/tag_key> from <measurement>
+    select "<field_key/tag_key>" from "<measurement>"
 
 The INTO clause writes query results to a user-specified measurement.
 
-    select <> INTO <measurement> from <>
+    select <> INTO "<measurement>" from <>
 
 The FROM clause specifies a single measurement.
 
-    select <> from <measurement>
+    select <> from "<measurement>"
 
 The WHERE clause specifies the time range for the query.
 
-    # tag_value/field_value 用单引号表示字符串,不能用双引号.
     select <> from <> where <condition1> OR/AND <condition2>
-    select <> from <> where <tag_key/field_key operation tag_value/field_value>
 
-    now()
+    # string类型的 value必须用单引号．
+    select <> from <> where "<tag_key/field_key>" <operation> '<tag_value/field_value>'
+
+    now() : time > now(() - 10m
+
     = != < >
-    =~ !~  /RE/
+
+    RE:
+    =~ !~
+    =~  : /.*ERROR.*|.*CRITICAL.*/  /ERROR|CRITICAL/
 
 The GROUP BY clause groups results by all tags (*) and into 12-minute intervals.
 
-    select <> from <> where <> group by <tag_key>
+    select <> from <> where <> group by "<tag_key>"
 
     fill()
     time()/time(1ns/u/ms/s/m/h/d/w)

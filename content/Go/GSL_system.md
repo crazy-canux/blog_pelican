@@ -62,7 +62,7 @@ Tags: Go, os, syscall, log, flag, bufio, io, fmt
     // 返回内核提供的主机名
     func Hostname() (name string, err error)
 
-    // 当前程序以给出的状态码退出，defer不会执行
+    // 当前程序以给出的状态码马上退出，defer不会执行
     func Exit(code int)
 
     // 返回key=value格式的环境变量的字符串的切片拷贝
@@ -821,6 +821,21 @@ interface:
 
 ## functions
 
+    func Printf(format string, v ...interface{})
+    func Print(v ...interface{})
+    func Println(v ...interface{})
+
+    // 下列函数在Print...函数基础上再调用os.Exit(1)
+    func Fatalf(format string, v ...interface{})
+    func Fatal(v ...interface{})
+    func Fatalln(v ...interface{})
+
+    // 下列函数在Print...函数基础上再调用panic(...)
+    // panic会执行当前函数的defer, 然后退出当前函数，返回到调用者，
+    // 调用函数会执行defer, 直到应用程序退出.最后panic.
+    func Panicf(format string, v ...interface{})
+    func Panic(v ...interface{})
+    func Panicln(v ...interface{})
 
 ## Logger
 

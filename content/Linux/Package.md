@@ -64,6 +64,9 @@ dpkg-deb - Debian package archive (.deb) manipulation tool
     ...
     最后一行需要空行
 
+    # 查看包信息
+    dpkg-deb -I XXX.deb
+
 dpkg-query - a tool to query the dpkg database
 
     dpkg-query
@@ -104,6 +107,10 @@ apt-get - APT package handling utility -- command-line interface
     download
     source
     update
+
+    # install
+    # 可以通过apt-cache madison查看version
+    apt-get install <package>=<version>
 
     # option:
     -d, --download-only

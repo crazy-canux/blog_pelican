@@ -204,16 +204,30 @@ Linux外部命令的项目是coreutils。
     cal
     factor
 
+lsof查看打开的文件资源:
+
+    lsof #
+    lsof -i # 查看
+    sudo lsof -i :port # 查看端口是否被使用
+
+readlink:
+
     readlink 获取符号连接信息
     sudo readlink /proc/1/exe
+
+ln:
 
     ln TARGET LINK_NAME # 创建文件的硬链接,目录不能创建硬链接
     -s, --symbolic
     ln -s TARGET LINK_NAME # 创建文件或目录的软链接
 
+dirname:
+
     dirname
     dirname $0   # 获取当前文件所在目录的相对路径, 也就是.
     $(cd $(dirname $0) && pwd)    # 获取当前文件所在目录的绝对路径
+
+rsync:
 
     rsync
     rsync [OPTION]... SRC [SRC]... DEST
@@ -223,7 +237,7 @@ Linux外部命令的项目是coreutils。
     -e "ssh -o StrictHostKeyChecking=no"
     -v verbose
     -a archive == -rlptgoD
-    -u --update # use modification time
+    -u --update # 跳过目的地址上modification time更新的文件
     --inplace
     --append
     --append-verify
@@ -343,8 +357,12 @@ df计算文件系统磁盘空间使用:
 mount/umount挂载文件系统:
 
     mount
+    mount -t type -o option device dir
+    mount -t ext4 /dev/sdb1 /var/www
+    mount -t tmpfs -o size=100G tmpfs /var/www
 
     umount
+    umount device/dir
 
 dd转化并拷贝文件:
 
@@ -353,6 +371,11 @@ dd转化并拷贝文件:
 fsck检查并修复文件系统:
 
     fsck
+
+mkfs:
+
+    mkfs [options] [-t type fs-options] device [size]
+    mkfs.ext4 /dev/sdb1
 
 fdisk管理磁盘分区表:
 
@@ -441,12 +464,6 @@ iftop:
     # <http://www.ex-parrot.com/~pdw/iftop/>
     $ sudo apt-get install iftop
     $ sudo iftop
-
-lsof:
-
-    lsof #
-    lsof -i # 查看
-    sudo lsof -i :port # 查看端口是否被使用
 
 tcpdump:
 

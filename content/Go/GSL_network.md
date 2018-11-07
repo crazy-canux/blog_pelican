@@ -309,6 +309,8 @@ method:
 
 ## Server
 
+定义了运行http服务端的参数．
+
     type Server struct {
         Addr string
         Handler Handler
@@ -331,9 +333,32 @@ method:
 
     func (s *Server) ListenAndServeTLS(certFile, keyFile string) error
 
+## Client
+
+代表一个http客户端.
+
+    type Client struct {
+        Transport RoundTripper
+        CheckRedirect func(req *Request, via []*Request) error
+        Jar CookieJar
+        Timeout time.Duration
+    }
+
 ## Header
 
+代表http的头部.
+
+    type Header map[string][]string
+
+method:
+
+    func (h Header) Get(key string) string
+    func (h Header) Set(key, value string)
+    ...
+
 ## Cookie
+
+代表一个http回复的头部中SetCookie头的值，或http请求的头部里面的cookie值．
 
     type Cookie struct {
         Name string
@@ -355,6 +380,8 @@ method:
     func (c *Cookie) String() string
 
 ## Request
+
+代表一个服务端接收的或客户端发送的http请求.
 
     type Request struct {
         Method string
@@ -385,13 +412,22 @@ function:
 
 method:
 
-    // 解析并返回该请求的header设置的cookie
+    // 解析并返回该请求r的header设置的cookie
     func (r *Request) Cookies() []*Cookie
 
-    // 返回请求中命名为name的cookie,如果未找到返回nil, ErrNoCookie.
+    // 返回请求r中命名为name的cookie,如果未找到返回nil, ErrNoCookie.
     func (r *Request) Cookie(name string) (*cookie, error)
 
+    //解析r.URL中的查询字符串，并将解析结果更新到r.Form字段.
+    // post和put的body会同时更新到r.PostForm和r.Form.
+    func (r *Request) ParseForm() error
+
+    // 将请求的主体作为multipart/form-data解析.
+    func (r *Request) ParseMultipartForm(maxMemory int64) error
+
 ## Response
+
+代表一个http请求的回复r
 
     type Response struct {
         Status string
@@ -413,6 +449,11 @@ functions:
 
     func ReadResponse(r *bufio.Reader, req *Request) (*Response, error)
 
+    func Head(url string) (resp *Response, err error)
+    func Get(url string) (resp *Response, err error)
+    func Post(url string, bodyType string, boyd io.Reader) (resp *Response, err error)
+    func PostForm(url string, data url.Values) (resp *Response, err error)
+
 methods:
 
     func (r *Response) ProtoAtLeast(major, minor int) bool
@@ -420,9 +461,15 @@ methods:
     // 获取相应中的Set-Cookie设置的cookie
     func (r *Response) Cookies() []*Cookie
 
-## Transport
+## ResponseWriter
 
-## Client
+用于构造http回复.
+
+    type ResponseWriter interface {
+        Header() Header
+        WriteHeader(int)
+        Write([]byte) (int, error)
+    }
 
 ***
 
@@ -436,6 +483,54 @@ methods:
 
 # net/rpc
 
+function:
+
+    // 在DefaultServer注册并公布rcvr方法.
+    func Register(rcvr interface{}) error
+
+    // 接收连接，将每个连接交给DefaultServer服务.会阻塞.
+    func Accept(lis net.Listener)
+
+    // 在单个连接执行DefaultServer,会阻塞.
+    func ServceConn(conn io.ReadWriteCloser)
+
+    func HandleHTTP()
+
+## Call
+
+代表一个执行中或执行完毕的会话．
+
+    type Call struct {
+        ServiceMethod string
+        Args interface{}
+        Reply interface{}
+        Error error
+        Done chan *Call
+    }
+
+## Client
+
+rpc客户端
+
+    type client struct {}
+
+function:
+
+    func NewClient(conn io.ReadWriteCloser) *Client
+
+    func Dial(network, address string) (*Client, error)
+
+    func DialHTTP(network, address string) (*Client, error)
+
+method:
+
+    // 调用指定的方法，等待返回，将结果写入reply.
+    func (client *Client) Call(serviceMethod string, args interface{}, reply interface{}) error
+
+    func (client *Client) Go(serviceMethod string, args interface{}, reply interface{}, done chan *Call) *Call
+
+    func (client *Client) Close() error
+
 ***
 
 # net/textproto
@@ -443,6 +538,31 @@ methods:
 ***
 
 # net/url
+
+    scheme://[userinfo@]host/path[?query][#fragment]
+
+## URL
+
+    type URL struct {
+        Scheme string
+        Opaque string
+        User *Userinfo
+        Host string // host or host:port
+        Path string
+        RawQuery string
+        Fragment string
+    }
+
+function:
+
+    func Parse(rawurl string) (url *URL, err error)
+    func ParseRequestURI(rawurl string) (url *URL, err error)
+
+methods:
+
+## Userinfo
+
+## VAlues
 
 ***
 

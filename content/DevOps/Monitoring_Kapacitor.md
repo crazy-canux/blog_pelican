@@ -307,7 +307,6 @@ options:
         to = [""]  # 可以在tickscript中指定, tickscript不指定，就用该配置.
 
         global = true # 开启后,tickscript中不用指定handler,默认都是发邮件.
-        state-changes-only = true # alert状态改变才会发送alert.
 
 ## log
 

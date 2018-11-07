@@ -36,7 +36,3 @@ Intrusion Detection System, 入侵检测系统
 
 Network Security Monitoring, 网络安全监控
 
-# XSS
-
-Cross Site Scripting, 跨站脚本攻击
-

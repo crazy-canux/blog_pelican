@@ -4,20 +4,100 @@ Tags: Javascript, OOP
 
 
 
-# 面向对象/OOP
+# OOP
 
-***
+javascript中一切都是对象.
 
-# 类/Class
+javacript内置了Object/Array/Date/RegExp/Function类型.
 
-***
+# Object
 
-# 封装
+创建Object实例:
 
-***
+    obj = new Object()
+    obj.pro = "value"
 
-# 继承
+    obj = {}
 
-***
+    obj = {
+        key: "value",
+        ...
+    }
 
-# 多态
+访问对象属性:
+
+    obj.property
+
+访问对象方法:
+
+    obj.method()
+
+# Boolean
+
+attribution:
+
+    constructor
+    prototype
+
+method:
+
+    toSource()
+    toString()
+    valueOf()
+
+# Number
+
+attribution:
+
+    constructor
+    MAX_VALUE
+    MIN_VALUE
+    NaN
+    NEGATIVE_INFINITY
+    POSITIVE_INFINITY
+    prototype
+
+method:
+
+    toString()
+    toLocaleString()
+    toFixed()
+    toExponential()
+    toPrecision()
+    valueOf()
+
+# String
+
+attribution:
+
+    constructor
+    length
+    prototype
+
+method:
+
+    anchor()
+    big()
+    ...
+
+# Function
+
+全局属性:
+
+    Infinity
+    java
+    NaN
+    Packages
+    undefined
+
+全局函数：
+
+    decodeURI()
+    ...
+
+# Array
+
+# Date
+
+# RegExp
+

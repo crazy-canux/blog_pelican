@@ -28,6 +28,87 @@ interface:
 
     type Hash uint
 
+method:
+
+    func (h Hash) Avaliable() bool
+    func (h Hash) Size() int
+    func (h Hash) New() hash.Hash
+
+***
+
+# crypto/cipher
+
+## function
+
+
+
+
+## Block
+
+代表一个使用特定密钥的底层　加／解密器．
+
+    type Block interface {
+        BlockSize() int
+        Encrypt(dst, src []byte)
+        Decrypt(dst, src []byte)
+    }
+
+## BlockMode
+
+代表一个工作在块模式(CBC, ECB等)的加／解密器
+
+    type BlockMode interface {
+        BlockSize() int
+        CryptBlocks(dst, src []byte)
+    }
+
+function:
+
+    // 返回一个BlockMode接口，底层用b加密，初始向量长度等于b的块尺寸.
+    func NewCBCEncrypter(b Block, iv []byte) BlockMode
+
+    // 返回一个BlockMode接口，底层用b解密，初始向量长度等于b的块尺寸.
+    func NewCBCDecrypter(b Block, iv []byte) BlockMode
+
+## Stream
+
+stream接口表示一个流模式的加／解密器．
+
+    type Stream interface {
+        XORKeyStream(dst, src []byte)
+    }
+
+function:
+
+    func NewCFBEncrypter(block Block, iv []byte) Stream
+
+    func NewCFBDecrypter(block Block, iv []byte) Stream
+
+    func NewOFB(b Block, iv []byte) Stream
+
+    func NewCTR(b Block, iv []byte) Stream
+
+***
+
+# crypto/rand
+
+***
+
+# crypto/aes
+
+## constants
+
+    const BlockSize = 16
+
+## function
+
+    // 创建一个cipher.Block接口, key为密钥，长度只能是16(aes-128),24(aes-192),32(aes-256)字节.
+    func NewCipher(key []byte) (cipher.Block, error)
+
+***
+
+# crypto/des
+
 ***
 
 # crypto/dsa
@@ -47,6 +128,7 @@ interface:
 
 ## function
 
+    // 返回data的ms5检验和
     func Sum(data []byte) [Size]byte
 
     func New() hash.Hash

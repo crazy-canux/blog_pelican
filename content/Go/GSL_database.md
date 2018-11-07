@@ -77,6 +77,7 @@ methods:
     func (db *DB) Query(query string, args ...interface{}) (*Rows, error)
 
     // 执行命令最多返回一行结果
+    // 总是返回非nil值，直到返回值的Scan方法被调用，才会返回被延迟的错误.
     func (db *DB) QueryRow(query string, args ...interface{}) *Row
 
     // 创建一个准备好的状态用于之后的命令

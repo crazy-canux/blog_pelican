@@ -56,13 +56,13 @@ input configuration:
 
     make telegraf
 
-构建deb:
-
-    make package
-
 生成配置文件：
 
     ./telegraf config > ./etc/telegraf.conf
+
+构建deb:
+
+    make package
 
 ***
 
@@ -71,12 +71,18 @@ input configuration:
 修改默认enable的plugin:
 
     # plugin中相应的sampleConfig中的字段不要用#注释．
-    internal/config/config.go
+    internal/config/config.go -> 可以修改默认enable的plugin.
     inputDefaults
     outputDefaults
 
 调试：
 
     ./telegraf --config ./etc/telegraf.conf --input-filter process --test
+
+添加debugxinxi
+
+    import "log"
+    log.Printf("D! key: %v", value)
+    # "D!" 开头的信息当debug=true才会打印.
 
 ***

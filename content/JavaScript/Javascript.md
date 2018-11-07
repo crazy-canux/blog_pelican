@@ -14,17 +14,21 @@ Javascript包括三部分:
 
 ***
 
-# ECMAScript基本语法
+# javascript基本语法
 
 javascript源程序叫xxx.js.
 
-ECMAScript大小写敏感．
+javascript大小写敏感．
 
-ECMAScript使用驼峰命名法．
+javascript使用驼峰命名法．
 
-ECMAScript的标识符以字母，下划线或美元符号开头，还可以包含数字．不能是关键字．
+javascript的标识符以字母，下划线或美元符号开头，还可以包含数字．不能是关键字．
 
-ECMAScript中的语句以分号;结尾，代码块以大括号{}包围．
+JvaScript代码块以大括号{}包围．
+
+JavaScript使用分号;表示一个语句结束, 一般一行写多个语句才需要显示添加分号．
+
+javascript中所有事物都是对象，都有属性和方法.
 
 ***
 
@@ -46,10 +50,10 @@ ECMAScript中的语句以分号;结尾，代码块以大括号{}包围．
 # 关键字
 
     # 数据类型
-    var function typeof
+    var function return typeof new
 
     # 流程控制
-    if else for in do while switch case default break continue return try catch
+    if else for in do while switch case default with break continue try catch
 
     # 修饰符
     void
@@ -57,7 +61,7 @@ ECMAScript中的语句以分号;结尾，代码块以大括号{}包围．
     # 动作相关
     instanceof this throw
 
-    new with delete debugger
+    delete debugger
 
 ***
 
@@ -67,13 +71,202 @@ ECMAScript中的语句以分号;结尾，代码块以大括号{}包围．
 
 # 数据类型
 
-## 变量和常量
+## 变量
+
+申明变量:
+
+重复申明同名变量不会改变变量的值．
+
+    var varName
+    // 一次申明多个变量
+    var varName1, varName2, ...
+
+赋值:
+
+    varName = varValue
+
+申明并赋值:
+
+动态类型语言，变量可以赋予不同类型值.
 
     var varName = varValue
+    // 一次定义多个变量
+    var varName1 = varValue1, varName2=varValue2, ...
+
+申明变量类型:
+
+    var varName = new Boolean/Number/String/Array/Object
+
+## 常量
+
+## 布尔/Boolean
+
+布尔类型只有true和false两个值．
+
+    var x = true
+    var y = false
+
+## 数字/Number
+
+    var name = 1.3
+
+## 字符串/String
+
+字符串可以用单引号或双引号表示.
+
+    var name = "string"
+
+## Null
+
+Null类型只有一个特殊值null.表示一个空对象指针.
+
+通过null清空变量的值．
+
+    varName = null
+
+## Undefined
+
+没有赋值的变量值为undefined.
+
+Undefined类型只有一个特殊值undefined.
+
+## 对象/Object
+
+对象由大括号包围的键值对表示，中间用逗号隔开.
+
+定义对象：
+
+    var obj = new Object;
+
+    var obj = {key: "val1", ...}
+
+访问对象属性:
+
+    val = obj.key
+    val = obj["key"]
+
+访问对象方法:
+
+    obj.method()
+
+## typeof
+
+该操作符可以返回数据类型:
+
+    undefined
+    boolean
+    number
+    string
+    object
+    function
 
 ***
 
 # 控制流
+
+## if
+
+    if (condition) {
+        expression;
+    }
+
+    if (condition) {
+        expression;
+    } else {
+        expression;
+    }
+
+    if (condition) {
+        expression;
+    } else if (condition) {
+        expression;
+    } else {
+        expression;
+    }
+
+## switch
+
+    switch(expression) {
+        case value:
+            statement;
+            break;
+        case value:
+            statement;
+            break;
+        ...
+        default:
+            statement;
+    }
+
+## for
+
+for:
+
+    for (initialization; expression; post-loop-expression) {
+        statement;
+    }
+
+for-in:
+
+    for (property in expression) {
+        statement;
+    }
+
+## while
+
+do-while:
+
+    do {
+        statement;
+    } while (condition);
+
+while:
+
+    while (condition) {
+        statement;
+    }
+
+## with
+
+将代码作用于设定到一个特定对象.
+
+    with (expression) {
+        statement;
+    }
+
+## break和continue
+
+label:
+
+break和continue都可以和label配合使用.
+
+    labelName: statement
+
+break:
+
+跳出循环(for, while).
+
+    labelName:
+    for () {
+        for () {
+            if () {
+                break labelName; # 跳出最外层循环
+            }
+        }
+    }
+
+continue:
+
+继续下一次循环.
+
+    labelName:
+    for () {
+        for () {
+            if () {
+                continue labelName; # 从外层循环继续循环
+            }
+        }
+    }
 
 ***
 
@@ -83,13 +276,35 @@ ECMAScript中的语句以分号;结尾，代码块以大括号{}包围．
 
 # 函数
 
+定义函数：
+
     function funcName(args) {
         expression;
+        return ...
     }
 
+js的函数参数可以是任意参数．
+
+函数内部定义的变量是局部变量,局部变量在函数运行后被删除．
+
+如果把值赋给未申明的变量，该变量被自动作为全局变量．
+
+    name = "value" 相当于全局变量
 ***
 
 # 错误和异常
+
+try-catch:
+
+    try {
+        statement;
+    } catch(err) {
+        statement;
+    }
+
+throw:
+
+    throw exception
 
 ***
 

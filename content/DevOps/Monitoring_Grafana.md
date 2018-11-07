@@ -90,6 +90,7 @@ alertlist
 定义变量：
 
     show tag values with key='host'
+    # 设置在dashboard加载时更新
 
 在templating中定义变量, query中使用的两种方式:
 

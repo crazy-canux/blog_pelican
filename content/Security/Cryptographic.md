@@ -25,3 +25,35 @@ GPGME: GPG Made Easy, 是一个让应用程序使用GPG更容易的库．
 # OpenSSL
 
 <https://www.openssl.org/>
+
+***
+
+# 单向哈希加密
+
+md5和shaX都是常用的存储密码的加密方法.
+
+rainbow table可以破解单向加密.
+
+salt方法可以防止rainbow table破解.
+
+scrypt是最难破解的加密方案.
+
+## md5
+
+## sha1
+
+## sha256
+
+## sha512
+
+***
+
+# 加密解密
+
+## base32
+
+## base64
+
+## aes
+
+## des

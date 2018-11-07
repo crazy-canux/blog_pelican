@@ -16,10 +16,11 @@ go的测试由go test命令和testing包组成．
 
     import "testing"
 
+    # go test 会自动执行
     func TestXXX(t *testing.T) {}
-    func BenchmarkXXX(b *testing.B) {}
 
-go test会运行所有这种命名的函数，t.Error或t.Fail表示该函数测试失败．
+    # go test XXX_test.go -test.bench=".*"  压力测试需要指定才能执行
+    func BenchmarkXXX(b *testing.B) {}
 
 ## constants
 
@@ -91,9 +92,18 @@ methods:
     func (c *B) Skipped() bool
 
 ***
-
 # testing/iotest
 
 ***
 
 # testing/quick
+
+***
+
+# gotests
+
+通过源代码自动生成测试代码，可以用命令行，也可以用goland等的插件．
+
+<https://github.com/cweill/gotests>
+
+    go get -u github.com/cweill/gotests/...

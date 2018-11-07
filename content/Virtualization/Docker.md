@@ -41,15 +41,15 @@ docker hub:
 
 # Install
 
-windows和mac的桌面版需要安装docker toolbox.
+windows:
 
-ubuntu14.04推荐安装的依赖:
+<https://docs.docker.com/docker-for-windows/install/>
 
-    # Install dependency
-    $ sudo apt-get update
-    $ sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+linux:
 
-从repository安装：
+<https://docs.docker.com/install/linux/docker-ce/ubuntu/>
+
+ubuntu16安装：
 
     # Install dependency
     $ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
@@ -64,14 +64,6 @@ ubuntu14.04推荐安装的依赖:
     # Install docker from the stable repository
     $ sudo apt-get update
     $ sudo apt-get install docker-ce
-
-下载deb安装包安装：
-
-    $ sudo dpkg -i /path/to/package.deb
-
-添加用户到docker组:
-
-    $ sudo usermod -aG docker $USER
 
 卸载：
 
@@ -149,17 +141,16 @@ docker hub使用:
 
 ***
 
-# Dockerfile
+# docker-compose
 
-    FROM
-    RUN
-    ADD
-    COPY
-    CMD
-    EXPOSE
-    WORKDIR
-    MAINTAINER
-    ENV
-    ENTRYPOINT
-    USER
-    VOLUME
+安装:
+
+<https://docs.docker.com/compose/install/>
+
+    $ sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    $ sudo chmod +x /usr/local/bin/docker-compose
+
+## docker-compose 命令
+
+    $ docker-compose up -d
+    $ docker-compose restart

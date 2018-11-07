@@ -74,6 +74,11 @@ get
 
     $ go get [...] [packages]
 
+    > go get安装第三方包如果出现依赖无法安装，可以通过github下载．
+    $ cd golang.org/x
+    $ git clone https://github.com/golang/crypto.git crypto
+    $ go install golang.org/x/crypto/ssh
+
 build
 
 编译包和依赖
@@ -122,6 +127,8 @@ godep和golide都会被官方的dep取代．
 
 <https://github.com/golang/dep>
 
+无法解决GFW的问题.
+
 安装：
 
     $ go get -u github.com/golang/dep/cmd/dep
@@ -138,17 +145,3 @@ go官方包管理器
 
     $ dep ensure
     $ dep ensure -update
-
-决绝GFW问题:
-
-    在Gopkg.lock添加source
-    source = "github.com/golang/sys"
-
-## GFW
-
-go get安装第三方包如果出现依赖无法安装，可以通过github下载．
-
-    $ cd golang.org/x
-    $ git clone https://github.com/golang/crypto.git crypto
-    $ go install golang.org/x/crypto/ssh
-
