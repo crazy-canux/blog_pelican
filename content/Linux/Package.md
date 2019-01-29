@@ -142,6 +142,8 @@ apt-cache - query the APT cache
     # 查看依赖，　以及依赖的依赖
     $ apt-cache --recurse depends <pkg>
 
+# install
+
 ***
 
 # RPM

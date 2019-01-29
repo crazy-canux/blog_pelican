@@ -52,6 +52,7 @@ Linux外部命令的项目是coreutils。
 
     # 查看进程消耗的cpu/mem/swap/system等系统信息
     top
+    top -H  # 查看线程
     %cpu = cputime/realtime * 100%
     cpu_usage = %cpu/cpu-number
     %mem = RES/physicalMem * 100%
@@ -73,6 +74,10 @@ Linux外部命令的项目是coreutils。
 
     lscpu # 显示cpu架构的信息
     cat /proc/cpuinfo # 查看cpu信息
+    physical id :物理cpu个数(每个socket/插槽可以放一个物理cpu).
+    cpu cores:物理cpu有几个核(如果是超线程技术的cpu,每个核可以运行两个线程，或者说每个核对应两个逻辑cpu）。
+    processor: 逻辑cpu个数=物理cpu*核数（非超线程），  物理cpu*核数*2（超线程cpu).
+    siblings： 每个物理cpu上的逻辑cpu个数
 
     free # 显示空闲和使用的系统内存
     cat /proc/meminfo # 查看内存信息
@@ -82,11 +87,12 @@ Linux外部命令的项目是coreutils。
     ps
     # 格式化输出，逗号后面不能有空格
     ps -eo/-Ao %cpu/pcpu,%mem/pmem,start/start_time/lstart,pid,ppid,cmd/args/command
+    ps --ppid 1 -o pid,command | grep -v grep | grep daemon # 获取多进程程序主进程的pid
 
     pstree -a
 
     pkill
-    pkill -ef <pattern> # 杀死args匹配的进程
+    pkill -f <pattern> # 杀死args匹配的进程
 
     pgrep -P pid
 
@@ -94,11 +100,18 @@ Linux外部命令的项目是coreutils。
     kill
 
     killall
+    killall -e <deamon> # 杀死匹配的守护进程.
 
+crontab:
+
+    $ sudo apt-get install cron
     # /etc/crontab 设置了环境变量
     crontab
-    crontab -l
-    crontab -e
+    crontab -l # 列出
+    crontab -e # 编辑
+    crontab -u <user> file # 导入配置/etc/cron.d/my-cron-file
+
+editor:
 
     # 修改默认编辑器nano
     select-editor
@@ -114,22 +127,48 @@ Linux外部命令的项目是coreutils。
     id
     id -u 打印当前用户uid(root uid=0)
 
-    chmod
+chmod:
+
+    # 当文件的owner的x位置为s,表示设置了SUID, 仅对二进制可执行文件有效.
+    # 如果执行者对该文件有可执行权限，那么执行者在执行该文件期间，就拥有了该文件的owner的权限.
+    -rwsr-xr-x file
+    chmod u+s <file> # 加SUID
+    chmod 4777 <file>
+
+    -rwxr-sr-x file/dir
+    chmod g+s <file>/<dir> # 加SGID
+    chmod 2777 <dir>
+
+    drwxrwxrwt dir
+    chmod o+t <dir> # 加SBIT
+    chmod 1777 <dir>
+
     chown
     chgrp
     chattr
 
+useradd:
+
     useradd
+    useradd -r -m -G sudo -s /bin/bash <user>
+
     userdel
+
     usermod
+
     users # 查看当前登陆的用户
 
     groupadd
     groupdel
     groupmod
+
     groups # 查看指定用户所属的组，默认当前用户的组
 
     gpasswd
+
+    chpasswd
+    echo "username:password" | chpasswd # 修改username的密码
+
     passwd
 
 # 文件和目录管理
@@ -181,10 +220,6 @@ Linux外部命令的项目是coreutils。
     rm
     split
 
-    tee
-    $command > 2>& 1 log1.log | tee log2.log # 同时重定向到两个文件
-    $ echo "content" | sudo tee filename # 写入到root权限的文件
-
     touch
     umask
     which
@@ -203,6 +238,12 @@ Linux外部命令的项目是coreutils。
     yes
     cal
     factor
+
+tee
+
+    main > 2>&1 log1.log | tee log2.log # 同时重定向到两个文件
+    main 2>&1 | tee ${LOG} # 同时将stdout和stderr输出到终端和日志文件.
+    $ echo "content" | sudo tee filename # 写入到root权限的文件
 
 lsof查看打开的文件资源:
 
@@ -330,186 +371,3 @@ zip(.zip)
     $ sudo apt-get install p7zip
     p7zip
 
-# 磁盘管理(设备管理)
-
-sysstat:
-
-    # <https://github.com/sysstat/sysstat>
-    $ sudo apt-get install sysstat
-    # 包括 iostat/mpstat/pidstat/tapestat/cifsiostat
-
-iostat:
-
-    # 查看diskio信息
-    $ sudo iostat
-
-iotop
-
-    # 查看进程的diskio
-    $ sudo apt-get install iotop
-    $ sudo iotop
-
-df计算文件系统磁盘空间使用:
-
-    df
-    $ df -h
-
-mount/umount挂载文件系统:
-
-    mount
-    mount -t type -o option device dir
-    mount -t ext4 /dev/sdb1 /var/www
-    mount -t tmpfs -o size=100G tmpfs /var/www
-
-    umount
-    umount device/dir
-
-dd转化并拷贝文件:
-
-    dd
-
-fsck检查并修复文件系统:
-
-    fsck
-
-mkfs:
-
-    mkfs [options] [-t type fs-options] device [size]
-    mkfs.ext4 /dev/sdb1
-
-fdisk管理磁盘分区表:
-
-    fdisk
-    fdisk -l
-
-    fdisk /dev/sda # 可以创建新的磁盘分区
-    > n ...    创建新的分区
-    > t (8e表示linux LVM), 修改分区类型
-    > w 保存修改
-    partprobe /dev/sda # 在不重启的情况下保存分区
-
-磁盘管理:
-
-    # 先创建linux lvm分区
-    pvcreate <pv-name> # 创建物理卷PV
-    pvdisplay
-    vgextend <vg-name> <pv-name>  # 给物理卷创建卷组VG
-    vgdisplay
-    lvextend -r -l +100%FREE <lv-path> # 将物理卷上的空闲空间全部放到逻辑卷LV上
-    lvdisplay
-
-sync同步缓存写入固态存储:
-
-    sync
-
-设备管理:
-
-    lspci # 列出所有PCI设备
-
-    lsusb # 列出USB设备
-
-    lsblk # 列出块设备
-
-    lshw # 列出硬件
-
-    setleds
-
-    loadkeys
-
-    dumpkeys
-
-    MAKEDEV
-
-# 网络管理
-
-    telnet
-
-    ping # 用于确定网络的连通性
-
-    ifconfig # 查看TCP/IP设置
-
-    arp # 用于确定IP地址的网卡物理地址
-
-    route # 操作路由表的命令：
-
-    nslookup # 查询IP地址和对应的域名
-
-    ethtool # 查询网络设备信息
-
-    nc/netcat # 设置路由器
-
-netstat:
-
-    netstat
-    -a, --all, --listening # 显示所有socket, 默认只显示connected
-    -l, --listening  # 显示listening
-    -n, --numeric
-    -p, --programs # 显示pid或程序名称
-    # socket选项:
-    -t, --tcp
-    -u, --udp
-    -w, --raw
-    -x, --unix
-    --ax25
-    --ipx
-    --netrom
-
-    # 常用
-    netstat -anp    # 查看哪些端口是打开的．
-    sudo netstat -anp | grep port # 查看端口是否被使用
-    sudo netstat -tulnp # 查看tcp&udp端口是否被监听
-
-iftop:
-
-    # <http://www.ex-parrot.com/~pdw/iftop/>
-    $ sudo apt-get install iftop
-    $ sudo iftop
-
-tcpdump:
-
-    tcpdump
-
-wget:
-
-    wget [option] [URL]
-
-    -a, --append-output=FILE 输出重定向到日志
-    -o, --output-file=FILE
-    -q, --quiet    不输出
-    -b, --background
-
-    -t, --tries=NUMBER    超时重连次数, 0表示不限制, 默认20
-    -nc, --no-clobber    不覆盖原有文件
-    -N, --timestamping   只下载比本地新的文件
-    -c, --continue    断点续传
-    -T, --timeout=SECONDS    超时时间, 默认900s
-    -w, --wait=SECONDS    重连之间的等待时间
-    -O, --output-document=FILE, 重命名下载文件
-
-    -nH, --no-host-directories 不创建站点的根目录
-    -x, --force-directories    创建和服务器一样的结构下载
-    -P, --directory-prefix=PREFIX  指定下载的目录
-
-    -R,  --reject=LIST 排除下载的文件
-    -r, --recursive  迭代下载
-    -np, --no-parent 不下载父目录的内容
-
-    # 同步目录
-    wget -Nc -r -np -nH --cut-dirs=3 -R "index.*, *.js, *.css, *.html, *.jpg, *.png, *.gif" -P /path/to/source/ http://host/path/to/dest/
-
-curl:
-
-    curl
-
-iptables:
-
-    iptables
-
-misc:
-
-    # 在Network里面研究的几个常用命令
-    ftp(参考network-ftp)
-    snmp(参考network-snmp)
-    ssh/scp/sftp(参考network-ssh)
-
-***

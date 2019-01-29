@@ -20,7 +20,7 @@ go源程序叫*.go
 
 go大小写敏感
 
-go程序都是由包组成，程序的入口是main包，每个程序有且只有一个main包．
+go程序都是由包组成，程序的入口是main包中的main函数，每个程序有且只有一个．
 
 go中只有首字母大写的名称才能从包中导出．
 
@@ -111,35 +111,41 @@ go中的运算都是从左到右结合．
 
 定义/申明变量:
 
-通过关键字var在包或函数中定义变量
+通过关键字var在包或函数中申明/定义变量
 
 全局变量必须使用var关键字．
 
-没有初始化的变量在申明的时候赋予零值
+没有初始化的变量在申明的时候赋予零值.
 
 已经申明但没有使用的变量在编译时会报错．
 
+通过等号给变量赋值就是定义变量.
+
 大写字母开头的变量是public, 小写字母开头的是private变量.
+
+申明变量:
 
     # 一个变量一种类型
     var varname Type
+
     # 多个变量一种类型
     var varname varname1 ... Type
-    # 多个变量多种类型
-    var (
-        var1 Type1 = val1
-        var2 Type2 = val2
-        # 给类型取别名
-        variable alias Type
-        ...
-    )
 
-初始化变量:
+定义(初始化)变量:
 
     # 定义的时候初始化
     var i, j int = 1, 2
     # 初始化使用表达式可以省略类型，从值中获取类型
     var i, j = true, "str"
+
+    # 多个变量多种类型
+    var (
+        var1 Type1 = val1
+        var2 Type2 = val2
+        # 给类型取别名
+        variable alias Type = value
+        ...
+    )
 
 特殊变量：
 
@@ -147,9 +153,9 @@ go中的运算都是从左到右结合．
 
 ## 常量
 
-定义／申明常量：
+定义常量：
 
-通过关键字const在包或函数中申明常量．
+通过关键字const在包或函数中定义常量．
 
     # 常量可以是bool, string, 数值
     const Pi float = 3.14
@@ -214,11 +220,13 @@ go中的字符串都采用utf-8编码.
 
 go中的字符串用双引号  或者　反引号
 
-    # 当行字符串
+    # 单行字符串
     var str string = "hello"
     # 多行字符串(原样输出)
     var str string = `hello
                      world`
+
+    var str = "hello" // 类型可以通过值确定
 
 go中的字符串是不可变的, 修改字符串：
 
@@ -250,7 +258,7 @@ go中的字符串是不可变的, 修改字符串：
 
 结构体是值传递.
 
-申明一个结构体：
+申明一个结构体类型：
 
     type StructName struct {
         var Type
@@ -258,20 +266,39 @@ go中的字符串是不可变的, 修改字符串：
         ...
     }
 
-初始化结构体：
+申明多个结构体类型:
+
+    type (
+        StructB struct {
+            ...
+        }
+
+        StructB struct {
+        }
+    )
+
+申明一个结构体类型的变量
 
     var s StructName
-    s.var1 = value
-    s = StructName{val, ...}
 
-结构体文法：
+定义结构体变量:
 
     # 列出全部字段
-    s1 = StructName{val, val1}
-    # 使用val: 可以仅列出部分字段
-    s2 = StructName{var: val} // var1: 0
-    # 使用默认值
-    s3 = StructName{} // var: 0,  var1: 0
+    var s = StructName{val, ...}
+    s := StructName{val, ...}
+
+    # 使用val: 可以仅列出部分字段, 未列出的字段使用默认值
+    var s = StructName{
+        var: val,
+        ...
+    }
+    s := StructName{
+        var: val,
+        ...
+    }
+
+    # 给字段赋值
+    s.var1 = value
 
 结构体指针:
 
@@ -280,59 +307,16 @@ go中的字符串是不可变的, 修改字符串：
         var1 Type1
     }
 
+    var s = &StructName{}
     s := &StructName{}
+
+    (*s).Var1 = val1
+    s.Var1 = val1 // go允许隐士间接引用
 
     s := StructName{val, val1}
     p := &s
     # 原本应该通过(*p).var来访问，go允许隐式间接引用．
     p.var = p.var1
-
-匿名成员：
-
-    type StructName struct {
-        // 不指定成员名称的，叫匿名成员
-        VarName
-    }
-
-## 数组/array
-
-数组通过下标来访问．数组不能改变大小（长度）
-
-数组是值传递．
-
-长度是数组的属性，不同长度的数组不是同一数组
-
-数组长度和容量相同．
-
-定义数组：
-
-    var <ArrayName> [number]Type{}
-
-    ArrayName := [number]Type{val, val1, ...}
-
-数组元素赋值：
-
-    ArrayName[0] = val
-
-数组复制（值传递）：
-
-     newArray = ArrayName
-     # 修改newArray的值，不会改变ArrayName的值
-
-多维数组(嵌套数组):
-
-    doubleArray := [2][4]int{[4]int{1, 2, 3, 4}, [4]int{5, 6 7, 8}}
-
-遍历数组：
-
-    for index, value := range a {
-        fmt.Println('%d, %d\n', index, value)
-    }
-
-    # 只要索引, 去掉,value即可
-    for index := range a {...}
-    # 只要值，用_忽略索引
-    for _, value := range a {...}
 
 ## 指针/pointer
 
@@ -354,42 +338,122 @@ go的指针保存了值的内存地址, go没有指针运算．
 
     *point = value
 
+## 数组/array
+
+数组通过下标来访问．数组不能改变大小（长度）
+
+数组是值传递．
+
+数组的属性有类型和长度,只有长度和类型都相同的才是同类型数组,才能相互赋值.
+
+数组长度和容量相同．
+
+申明数组:
+
+    var ArrayName [number]Type
+
+定义数组：
+
+    var ArrayName = [number]Type{}
+
+    ArrayName := [number]Type{val, val1, ...}
+    ArrayName := [number]Type{index: value, ...} // 给指定索引赋值,其余为零值
+    ArrayName := []Type{val, ...} // 容量也可以由初始化的元素个数决定.
+
+    ArrayName := [number]*Type{0: new(int), 1: new(string), ...} // 指针数组
+
+数组元素赋值：
+
+    ArrayName[0] = val
+
+    *ArrayName[0] = val // 指针数组
+
+数组赋值（值传递）：
+
+    # 只有类型和长度相同的数组才能赋值
+    # 非指针数组赋值，会另外开辟地址空间.
+     # 修改newArray的值，不会改变ArrayName的值
+     newArray = ArrayName
+
+    # 指针类型的数组赋值，指向的是相同的地址.
+
+多维数组(嵌套数组):
+
+    doubleArray := [2][4]int{[4]int{1, 2, 3, 4}, [4]int{5, 6 7, 8}}
+
+遍历数组：
+
+    for index, value := range a {
+        fmt.Println('%d, %d\n', index, value)
+    }
+
+    # 只要索引, 去掉,value即可
+    for index := range a {...}
+    # 只要值，用_忽略索引
+    for _, value := range a {...}
+
 ## 切片/slice
 
 切片的零值是nil, nil切片的长度和容量都是０，且没有底层数组．
 
 切片传递的是地址(引用传递),修改切片的元素值其实就是修改底层数组的对应的元素的值,共享该元素的其它切片的值也相应改变．
 
+切片的属性包括指向底层数组的指针，切片的长度，切片的容量.
+
 切片不存储数据，只是描述数组的一段,因此切片不指定大小（长度）.
 
     # 表示切片类型
     []Type
 
+申明切片:
+
+    var SliceName []Type
+
 定义切片：
 
-    var SliceName []Type{}
-
-    SliceName := make([]Type, len, cap) // 通过make函数创建切片
-
+    // 通过字面量定义
+    var SliceName = []Type{}
     SliceName := []Type{val, val1, ...}
+
+    SliceName := []Type{index: value}   // 索引就表示长度和容量
+
+    // 通过make函数创建切片
+    var SliceName = make([]type, len, cap)
+    SliceName := make([]Type, len, cap)
+
+通过切片定义新切片:
+
+    切片的操作返回新的切片。
+    NewS := SName[i:j]
+    cap(SName) = k
+    NewS 长度和容量：
+    len = j-i
+    cap = k-i
+    NewS 无法访问指向的底层数组第一个元素之前的元素。
+    也不能访问超出长度之后的索引,但是可以通过append增加切片长度之后访问.
+    NewS[index] //当index >= j编译器报错 ，超出了NewS 的长度，无法访问。
+
+三索引操作:
+
+    NewS := SName[i:j:k]
+    三索引表示容量， i:j 表示长度， i:k 表示容量.
+    容量不能超过可用容量(也就是SName的容量).
 
 切片操作：
 
     # 半开区间，不包括最后一个下标
-    a[low : high]
-    a[:high] // low=0, default
-    a[low:] // high=max, default
-    a[:] // a[0:max], default
-
-二维切片：
-
-    [][]Type
-
-扩展切片：
+    s[low:high]
+    s[:high] // low=0, default
+    s[low:] // high=max, default
+    s[:] // s[0:max], default
 
     s[:0] // 把切片的长度变为０（清空切片)
     s[:4] // 扩展为４
     s[2:] // 扩展为 arrayname[2:4]
+
+二维切片：
+
+    [][]Type
 
 遍历切片：
 
@@ -400,36 +464,43 @@ go的指针保存了值的内存地址, go没有指针运算．
     for index := range s {...}
     for _, value := range s {...}
 
+slice作为函数参数:
+
+    切片作为函数参数，传递的其实是值,函数会使用和切片相同的底层数组创建一个新的切片来操作.
+    所以函数内部修改了切片的值,作为参数的切片的值也被修改了.
+
 ## 映射/map
 
 映射的零值是nil, 既没有键，也不能添加键．
 
-map是引用传递．
+map是引用传递．是存储键值对的无序集合.
 
 map是无序的，只能通过key索引，没有下标操作.
 
 map的key需要支持==或!= 运算，不能是函数，映射，切片
 
+申明:
+
+    // 申明值为nil的空映射，不能用于存储键值对.
+    var MapName map[keyType]ValueType
+
 定义映射：
 
     var MapName = map[keyType]ValueType{}
-
     var MapName = map[keyType]ValueType{
         key: value,
         ...
     }
 
     MapName := map[keyType]valueType{}
-
     MapName := map[KeyType]ValueType{
         "key": value,
         ...
     }
 
+    # 通过make定义map
     var MapName = make(map[keyType]ValueType, cap)
     MapName := make(map[keyType]ValueType, cap)
-
-    MapName[key] = value
 
 映射操作：
 
@@ -444,6 +515,10 @@ map的key需要支持==或!= 运算，不能是函数，映射，切片
     for key, value := range m {...}
     for key := range m {...}
     for _, value := range m {...}
+
+map作为函数参数:
+
+    不会创建该映射的副本，该函数对映射的修改就是对原始参数指向的映射的修改.
 
 ## 类型转换
 
@@ -532,7 +607,9 @@ case匹配到的语句如果只有一行可以和case语句写在同一行
     ...
     }
 
-如果不需要默认的break,需要添加fallthrough
+如果不需要默认的break,需要添加fallthrough:
+
+fallthrough不会判断后面的case的condition,而是直接执行后面所有的case.
 
     switch variable {
     case val1:
@@ -541,17 +618,53 @@ case匹配到的语句如果只有一行可以和case语句写在同一行
     ...
     }
 
+## label
+
+golang的label不需要缩进:
+
+    LabelName:
+
 ## break
 
-break语句使switch提前终止．
+break用于跳出for/switch/select循环.
+
+    break
+
+break也支持label:
+
+break的label可以跳出外层循环.
 
     break [tag]
+
+    label:
+    for i := 0; i < 1000; i++ {
+        for j :=0; j < 1000; j++ {
+            if j < i {
+                break label // 跳出最外层循环.
+            }
+        }
+    }
 
 ## continue
 
 continue语句只能在for循环中使用
 
+    continue
+
+continue也支持label:
+
+continue的label可以从外层循环继续执行.
+
     continue [tag]
+
+    next:
+    for outer := 2; outer < 3000; outer++ {
+        for inner :=2; inner < outer; inner++ {
+            if outer%inner == 0 {
+                continue next // 并非继续内存循环，而是从外层循环继续执行.
+            }
+        }
+    }
 
 ## goto
 
@@ -574,7 +687,9 @@ goto跳转语句，跳转到指定标签运行．
 
 函数的零值是nil.
 
-大写字母开头的函数是public, 小写字母开头的是private常量.
+函数是引用类型.
+
+大写字母开头的函数是public, 小写字母开头的是private.
 
 创建函数：
 
@@ -678,6 +793,13 @@ defer会将函数推迟到外层函数返回之后执行.
     FuncName(vars..)
 
 closures/闭包:
+
+init函数:
+
+    # 每个包中可以有任意个init函数.
+    # 这些init函数会在main函数执行之前调用.
+    # init函数不能有参数和返回值
+    func init() {}
 
 ***
 
@@ -800,6 +922,8 @@ recover:
 
 包名一般和所在路径的最后一层目录一致．一般是小写的单个单词.
 
+同一个目录中的代码文件使用同一个包名．
+
     package pkg1
 
 单个导入:
@@ -819,16 +943,52 @@ recover:
 
 包内的函数名首字母大些才能被其它包导入，否则就是私有的．
 
+命名导入:
+
+    import (
+        alias "pkg" # 给包取别名
+    )
+
 导入副作用：
 
 只执行导入包中的init函数并初始化全局变量，不导入其它内容．
 
-    import _ "pkg"
+编译时不检查该导入是否使用.也不能通过包名调用其中的导出函数.
+
+    import _ "path/pkg"
+
+    import (
+        _ "path/pkg"
+    )
+
+go包查找顺序:
+
+    $GOROOT/src/... # 安装golang的路径里面的标准库
+    $GOPATH
 
 ***
 
 # Go文档
 
-godoc
+通过注释编写文档，godoc会自动识别．对包，函数，类型，全局变量都可以.
+
+    // this is documents
+    func Fucntion() {}
+
+    /*
+        This is documents
+    */
+    type St struct {}
+
+也可以给包写一段文字较多的文档，通过在包内创建doc.go.
+
+这段文档会显示在所有其它文档之前．
+
+    # vim doc.go
+    /*
+        This docs for package
+        ...
+    */
+    package pkg # 使用和包一样的名字.
 
 ***

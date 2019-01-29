@@ -16,6 +16,8 @@ graphite/influxdb/opentsdb/premetheus/elasticsearch/mysql/postgresql
 
 安装配置参考官方文档
 
+grafana配置文件是grafana.ini.
+
 ***
 
 # HTTP API

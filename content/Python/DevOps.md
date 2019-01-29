@@ -34,7 +34,9 @@ python的IDE：
 2. Linux: Vim
 3. Pycharm/IntelliJ
 
-python命令：
+***
+
+# python命令
 
     $ python/ipython     # 进入python解释器
     >>>exit()/Ctrl+d     # 退出python解释器
@@ -353,6 +355,4 @@ Continuous build tool for Python.
 创建私有的pypi服务器
 
 ## pypiserver
-
-
 

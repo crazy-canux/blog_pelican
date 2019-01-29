@@ -6,6 +6,10 @@ Tags: Python, Network
 
 # Internet Protocols and Support
 
+socketserver/http/ftp,url,html参考<https://super-devops.readthedocs.io/en/latest/>.
+
+pop,imap/smtp参考<https://super-devops.readthedocs.io/en/latest/>.
+
 ## webbrowser
 
 ## cgi
@@ -19,6 +23,10 @@ Tags: Python, Network
 ## SimpleXMLRPCServer
 
 ## DocXMLRPCServer
+
+***
+
+# socketserver
 
 ***
 

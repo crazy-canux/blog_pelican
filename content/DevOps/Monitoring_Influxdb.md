@@ -202,6 +202,12 @@ The tz() clause returns the UTC offset for the specified timezone.
 
 ***
 
+# flux
+
+influxql的升级版，支持多表查询.
+
+***
+
 # function
 
 ## aggregations
@@ -255,9 +261,9 @@ duration: 存储的数据时间间隔
 
 replication: 存储的数据副本数量
 
-    show retention policies on <database>
+    show retention policies on "<database>"
 
-    create retention policy "<rp_name>" on "<database>" duration 30d replication 1 [default]
+    create retention policy "<rp_name>" on "<database>" duration 30d replication 1 default
 
     drop retention policy "<rp_name>" on "<database>"
 
@@ -279,14 +285,3 @@ CQ不能更新，只能删除重建．
     DROP CONTINUOUS QUERY <cq_name> ON <database_name>
 
 ***
-
-# IFQL
-
-influxdb1.4.1 内置了IFQL.
-
-为ifqld配置并重启influxdb.
-
-安装并启动ifqld
-
-    $ ifqld --verbose --host <influxdb-server:8082>
-

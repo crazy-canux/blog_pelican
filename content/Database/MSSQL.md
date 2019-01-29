@@ -72,25 +72,6 @@ Client -> SNAC(OLE DB/ODBC) -> Network Libraries -> TDS <=> Server -> Endpoints 
 
 ***
 
-# Security
-
-设置权限：
-1. 数据库服务器级别权限
-2. 数据库权限
-3. 表级权限(schema)
-4. 列级权限
-
-* 数据库服务器的security
-    1. 可以创建Logins用户，包括sa帐号和windows的AD帐号。
-
-* 数据库的security
-    1. 可以创建Users用户，用于连接这个数据库。
-    2. 可以创建和设置schemas,默认dbo。
-
-权限的设置在SSMS的 属性->权限 里面设置。
-
-***
-
 # 数据类型
 
 三种数据类型：
@@ -159,22 +140,54 @@ system data有下面类型：
 
 ***
 
-# 函数
+# 函数和操作符
 
-date & time functions:
+date & time:
 
-    GETDATE() // 获取当前系统时间
-    GETUTCDATE()
+    Current_Timestamp // 2018-11-18 00:33:27.840
+    Getdate() // 2018-11-18 00:34:00.173
+    Getutcdate() // 2018-11-18 08:34:11.137
+
+    Sysdatetime() // 2018-11-18 00:34:59.9698057
+    Sysutcdatetime() // 2018-11-18 08:35:30.6485379
+
     DATEDIFF(datepart varchar, startingdate datetime, endingdate datetime) // 返回两个时间的间隔
     DATEDIFF(s, '1970-01-01 00:00:00', GETUTCDATE()) # 当前时间的epoch time.
-    DATEPART()
     DATEADD()
+    DATEPART()
     DATENAME()
 
-other functions:
+other:
 
-    ISNULL(column, 0)    column为NULL函数返回0
-    CONVERT()
+    Cast()
+    Nullif()
+    Isnull(column, 0)    column为NULL函数返回0
+    Convert()
+
+***
+
+# 常用sql
+
+    select @@version()
+
+***
+
+# Security
+
+设置权限：
+1. 数据库服务器级别权限
+2. 数据库权限
+3. 表级权限(schema)
+4. 列级权限
+
+* 数据库服务器的security
+    1. 可以创建Logins用户，包括sa帐号和windows的AD帐号。
+
+* 数据库的security
+    1. 可以创建Users用户，用于连接这个数据库。
+    2. 可以创建和设置schemas,默认dbo。
+
+权限的设置在SSMS的 属性->权限 里面设置。
 
 ***
 
@@ -395,61 +408,3 @@ freetds的命令行工具tsql:
     $ man tsql
 
 ***
-
-# Python
-
-通过python访问mssql需要安装相应的包，linux还需要安装freeTDS。
-
-## pymssql
-
-    import pymssql
-    conn = pymssql.connect(server, user, password, database, timeout, login_timeout, charset, as_dict, appname, port)
-    # charset='utf-8'
-    # as_dict, appname, port 三个是关键字选项。
-    # as_dict=true 表示每行以字典的形式返回，而不是默认的元组。
-    cursor = conn.cursor()
-    cursor.execute(SQL)
-    ...
-    cursor.close()
-    conn.close()
-
-debug:
-
-<https://msdn.microsoft.com/en-us/library/dd327979.aspx?f=255&MSPPError=-2147217396>
-
-## pyodbc
-
-windows配置odbc即可，linux需要安装配置ODBC.
-
-<https://msdn.microsoft.com/en-us/library/hh568449.aspx>
-<http://www.unixodbc.org/>
-<https://msdn.microsoft.com/en-us/library/hh568454.aspx>
-<https://msdn.microsoft.com/en-us/library/hh568451.aspx>
-<https://www.devart.com/odbc/sqlserver/download.html>
-
-导入
-
-    import pyodbc
-
-windows连接
-
-    cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=localhost;PORT=1433;DATABASE=testdb;UID=me;PWD=pass')
-
-linux连接
-
-    cnxn = pyodbc.connect('DRIVER={FreeTDS};SERVER=localhost;PORT=1433;DATABASE=testdb;UID=me;PWD=pass;TDS_Version=7.0')
-
-通过ODBC配置了DSN的连接
-
-    cnxn = pyodbc.connect('DSN=DataSourceName;UID=user;PWD=password')
-
-使用
-
-    cursor = cnxn.cursor()
-    cursor.execute(SQL)
-    ...
-    cursor.close()
-    cnxn.close()
-
-***
-

@@ -38,10 +38,7 @@ method:
 
 # crypto/cipher
 
-## function
-
-
-
+用于包装底层块加密算法的实现.
 
 ## Block
 
@@ -92,9 +89,13 @@ function:
 
 # crypto/rand
 
+用于加解密的更安全的随机数生成器.
+
 ***
 
 # crypto/aes
+
+对称加密算法,aes加密算法用于取代des算法.
 
 ## constants
 
@@ -107,15 +108,15 @@ function:
 
 ***
 
-# crypto/des
-
-***
-
 # crypto/dsa
+
+非对称，数字签名算法dsa.
 
 ***
 
 # crypto/rsa
+
+非对称加密算法rsa.
 
 ***
 

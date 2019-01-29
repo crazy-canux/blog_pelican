@@ -1018,7 +1018,7 @@ python搜索一个标识符先从局部作用域开始搜索，如果没有找�
         print var
     func_test() # global
 
-    # [TODO]
+    # 在函数内部不能修改外部变量,只能引用.
     var = 'global'
     def func_test(*args, **kwargs):
         var += 'local'

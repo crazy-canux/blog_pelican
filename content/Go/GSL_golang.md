@@ -29,8 +29,40 @@ Tags: Go, go, runtime, expvar, context, unsafe, errors
     // 返回本地机器的逻辑cpu个数
     func NumCPU() int
 
-    // 设置同时执行的最大cpu数量
+    //更改调度器可以使用的逻辑cpu数量.
     func GOMAXPROCS(n int) int
+
+    // 使当前goroutine让出绑定的cpu,其它goroutine可以继续执行.
+    // 当前goroutine放回队列等待继续执行.
+    func Gosched()
+
+    // 终止当前goroutine,终止前执行所有defer.
+    func Goexit()
+
+***
+
+# runtime/debug
+
+## function
+
+    // 设置最大线程数，默认1000.
+    func SetMaxThreads(threads int) int
+
+***
+
+# runtime/cgo
+
+***
+
+# runtime/pprof
+
+***
+
+# runtime/race
+
+***
+
+# runtime/trace
 
 ***
 

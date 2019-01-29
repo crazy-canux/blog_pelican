@@ -103,6 +103,12 @@ fmt
 
     $ go fmt [...] [packages]
 
+vet
+
+检测代码常见错误:
+
+    $ go vet [-n] [-x] [build flags] [vet flags] [packages]
+
 test
 
 测试包:
@@ -117,7 +123,7 @@ doc
 
 ***
 
-# 包管理
+# 安装第三方包
 
 go get的功能很有限．
 
@@ -145,3 +151,34 @@ go官方包管理器
 
     $ dep ensure
     $ dep ensure -update
+
+***
+
+# 项目结构
+
+没有子目录包结构：
+
+    go-devops
+        |- README.md
+        |- doc.go
+        |- grafana.go
+        |- grafana_test.go
+        ...
+
+    import "go-devops"
+
+有子目录的包结构：
+
+    go-devops
+        |- README.md
+        |- doc.go // package go_devops
+        |- grafana
+           |- doc.go // package grafana
+           |- grafana.go
+           |- grafana_test.go
+
+    import "go-devops/grafana"
+
+***
+
+# CI/CD

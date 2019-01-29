@@ -6,13 +6,22 @@ Tags: Database, NoSQL, Redis
 
 # Redis
 
+<http://redisdoc.com/>
+
 redis在key-value存储上性能比memcached更好．
 
 安装：
 
+    # redis-cli, redis-sentinel, redis-server
     $ sudo apt-get install redis-server
 
-redis监听端口6379.
+只安装redis-cli:
+
+    $ sudo apt-get install redis-tools
+
+redis-server监听端口6379.
+
+redis-sentinel端口26379.
 
 redis gui:
 
@@ -33,6 +42,10 @@ client:
 test:
 
     redis-benchmark
+
+sentinel:
+
+    redis-sentinel
 
 ***
 
@@ -81,5 +94,4 @@ sorted set
     > zrem <key> <member>
 
 ***
-
 

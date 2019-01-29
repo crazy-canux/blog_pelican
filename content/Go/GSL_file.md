@@ -10,11 +10,54 @@ Tags: Go, path, encoding, text, html, gob, csv, json, xml, yaml
 
     func IsAbs(path string) bool
     func Join(elem ...string) string
+    func Split(path string) (dir, file string)
+    func Join(elem ...string) string
+    func Dir(path string) string
+    func Base(path string) string
+    func Ext(path string) string
     ...
 
 ***
 
 # path/filepath
+
+## Constants
+
+    const (
+        Separator = os.PathSeparator
+        ListSeparator = os.PathListSeparator
+    )
+
+## Variable
+
+    var ErrBadPattern = errors.New("Syntax error in pattern")
+
+    var SkipDir = errors.New("skip this diractory")
+
+## function
+
+    func IsAbs(path string) bool
+    func Abs(path string) (string, error)
+
+    // 返回 targpath 相对于 basepath 的 路径 （相当于返回 targpath - basepath)
+    func Rel(basepath, targpath string) (string, error)
+
+    func Split(path string) (dir, file string)
+    func Join(elem ...string) string
+    func Dir(path string) string
+    func Base(path string) string
+    func Ext(path string) string)
+    func Walk(root string, walkFn WalkFunc) error
+
+## WalkFunc
+
+调用Walk时会对每个目录和文件调用该函数.
+
+如果该函数返回错误，Walk函数会中止.
+
+如果该函数返回SkipDir, Walk会掉过处理该目录，继续处理其它内容.
+
+    type WalkFunc func(path string, info os.FileInfo, err error) error
 
 ***
 
@@ -92,6 +135,21 @@ interface:
     }
 
 ## Decoder
+
+从输入流解码json对象
+
+struct:
+
+    type Decoder struct {}
+
+function:
+
+    func NewDecoder(r io.Reader) *Decoder
+
+method:
+
+    // 从dec读取下一个对象存入v.
+    func (dec *Decoder) Decode(v interface{}) error
 
 ## Encoder
 

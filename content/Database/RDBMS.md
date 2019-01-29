@@ -28,10 +28,6 @@ Tags: Database, RDBMS
 
 安装相应的数据库的python库。
 
-# java
-
-安装相应数据库的JDBC。
-
 # JavaScript
 
 # go

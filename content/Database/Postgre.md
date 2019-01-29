@@ -112,25 +112,3 @@ This is a postgres client that does auto-completion and syntax highlighting.
 
 ***
 
-# python
-
-## psycopg
-
-<http://initd.org/psycopg/>
-
-安装库：
-
-    sudo pip install psycopg2
-
-使用：
-
-    import psycopg2
-    cxn = psycopg2.connect(database='postgres', user='postgres', passwd='*')
-    cur = cxn.cursor()
-    cur.execute(<sql query>)
-    ...
-    cur.close()
-    cxn.close()
-
-***
-

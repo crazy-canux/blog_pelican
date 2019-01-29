@@ -4,7 +4,7 @@ Tags: Go, strings, strconv, unicode, regexp, bytes, index
 
 
 
-# string
+# strings
 
 实现了用于操作字符的函数.
 

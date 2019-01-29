@@ -376,4 +376,11 @@ exit直接退出主程序
 
 ## 输入输出和重定向
 
+stdout和stdin重定向到一个地方:
+
+    2>&1
+
+    main > 2>&1 log1.log | tee log2.log # 同时重定向到两个文件
+    main 2>&1 | tee ${LOG} # 同时将stdout和stderr输出到终端和日志文件.
+
 ## 文件包含

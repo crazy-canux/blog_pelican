@@ -35,17 +35,20 @@ Open source framework for processing, monitoring, and alerting on time series da
 
     $ kapacitor help
 
-    # 创建/更新 task
+    # 创建/更新 task, 创建的默认是disable状态.
     $ kapacitor define [task id/name] -tick [*.tick] -type [stream|batch] -dbrp [database.retentionPolicy]
     # 删除task
     $ kapacitor delete [task id/name]
 
     $ kapacitor list tasks
-    $ kapacitor show [task id/name]
-    $ kapacitor watch [task id/name]
     $ kapacitor reload [task id/name] # 相当于disable & enable.
     $ kapacitor enable [task id/name]
     $ kapaciror disable [task id/name]
+    $ kapacitor show [task id/name]
+    $ kapacitor watch [task id/name]
+
+    $ kapacitor list topics
+    $ kapacitor delete topics [topic id]
 
 ***
 
@@ -105,6 +108,13 @@ chaining operators:
     |    chaining method (constructor)
     .    property method (property methods & event handlers)
     @    User Define Function
+
+status:
+
+    0 -> OK
+    1 -> INFO
+    2 -> WARN
+    3 -> CRIT
 
 ***
 
@@ -188,12 +198,14 @@ property methods:
     post()
     tcp()
     all()    # period里面所有值都满足条件才alert
+    topic()
     flapping()
     history()
-    inhibit()
+    inhibit(<category>, <tags>) // 忽略一类告警
     quiet()
-    noRecoveries() # 不要发恢复的警告
+    noRecoveries() # 不要发恢复(OK)的警告
     stateChangesOnly() # 状态改变才发警告,OK/INFO/WARNING/CRITICAL
+    category()
 
 message/details event data:
 

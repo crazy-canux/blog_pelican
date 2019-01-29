@@ -50,18 +50,21 @@ javascript中所有事物都是对象，都有属性和方法.
 # 关键字
 
     # 数据类型
-    var function return typeof new
+    var function return typeof new delete
 
     # 流程控制
-    if else for in do while switch case default with break continue try catch
+    if else for in do while switch case default with break continue
 
     # 修饰符
     void
 
     # 动作相关
-    instanceof this throw
+    instanceof this
 
-    delete debugger
+    # 异常处理
+    try catch throw
+
+    debugger
 
 ***
 
@@ -208,7 +211,9 @@ for:
 
 for-in:
 
-    for (property in expression) {
+循环遍历对象的属性
+
+    for (property in object) {
         statement;
     }
 
@@ -278,18 +283,51 @@ continue:
 
 定义函数：
 
+    // 没参数
+    function funcName() {
+    }
+
+    // 带参数
     function funcName(args) {
-        expression;
+    }
+
+    // 使用变量
+    var name = function(args) {};
+
+    // 使用构造方法
+    var name = new Function(args, return value);
+
+函数返回值:
+
+    function funcName() {
         return ...
     }
 
-js的函数参数可以是任意参数．
+    // 函数返回值赋值给变量
+    var value = funcName()
+
+js的函数形式参数和实际参数可以是任意个数和任意类型．
 
 函数内部定义的变量是局部变量,局部变量在函数运行后被删除．
 
 如果把值赋给未申明的变量，该变量被自动作为全局变量．
 
     name = "value" 相当于全局变量
+
+函数内部属性:
+
+函数内部两个特殊对象arguments和this.
+
+    arguments // 用来存储该函数的所有参数
+    arguments.callee // 指针，指向该函数本身.
+
+    this // 表示函数调用语句所处的作用域
+    window // 当在全局调用this，引用的就是window对象.
+
+    // 调用函数
+    apply()
+    call()
+
 ***
 
 # 错误和异常

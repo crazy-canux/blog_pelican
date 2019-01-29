@@ -46,14 +46,36 @@ scrypt是最难破解的加密方案.
 
 ## sha512
 
+## hmac
+
 ***
 
-# 加密解密
+# Symmetric Cryptography
+
+对称加密就是加密和解密使用的密钥是相同的．
 
 ## base32
 
 ## base64
 
+## des
+
 ## aes
 
-## des
+## rc4
+
+***
+
+# Asymmetric Cryptography
+
+非对称加密就是存在两个密钥.
+
+## rsa
+
+## dsa
+
+## ecdsa
+
+## ecc
+
+elliptic curves cryptography

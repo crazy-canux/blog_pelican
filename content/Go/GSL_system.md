@@ -70,6 +70,9 @@ Tags: Go, os, syscall, log, flag, bufio, io, fmt
 
 文件相关的操作
 
+    func IsExist(err error) bool // 文件存在返回true
+    func IsNotExist(err error) bool // 文件不存在返回true
+
     func IsPathSeparator(c uint8) bool
     ...
     func SameFile(fi1, fi2 FileInfo) bool
@@ -78,19 +81,16 @@ Tags: Go, os, syscall, log, flag, bufio, io, fmt
     func Chmod(name string, mode FileMode) error
     func Chown(name string, uid, gid int) error
     ...
-    func Mkdir(name string, perm FileMode) error
-    func MkdirAll(path string, perm FileMode) error
+    func Mkdir(name string, perm FileMode) error // 创建单个目录
+    func MkdirAll(path string, perm FileMode) error // 创建多级目录
     func Rename(oldpath, newpath string) error
     func Truncate(name string, size int64) error
     func Remove(name string) error
     func RemoveAll(path string) error
     func Readlink(name string) (string, error)
-    // 创建符号连接
-    func Symlink(oldname, newname string) error
-    // 创建硬连接
-    func Link(oldname, newname string) error
-    // 返回一个用于保管临时文件的默认目录
-    func TempDir() string
+    func Symlink(oldname, newname string) error // 创建符号连接
+    func Link(oldname, newname string) error // 创建硬连接
+    func TempDir() string // 返回一个用于保管临时文件的默认目录
 
 ## Signal
 
@@ -143,7 +143,9 @@ methods:
 
 function:
 
+    // 获取一个文件对象
     func Stat(name string) (fi FileInfo, err error)
+
     func Lstat(name string) (fi FileInfo, err error)
 
 ## File
@@ -800,10 +802,6 @@ interface:
 
 ***
 
-# unsafe
-
-***
-
 # log
 
 实现了简单的日志服务.
@@ -857,6 +855,10 @@ methods:
 # flag
 
 实现了命令行参数解析
+
+第三方包:
+
+<https://github.com/alecthomas/kingpin>
 
 ## variables
 
@@ -993,8 +995,21 @@ interface:
 
 ***
 
-## logrus
+## log
 
-第三方log包
+###glog
+
+<https://github.com/golang/glog>
+
+### logrus
 
 <https://github.com/sirupsen/logrus>
+
+### zap
+
+<https://github.com/uber-go/zap>
+
+### zerolog
+
+<https://github.com/rs/zerolog>
+

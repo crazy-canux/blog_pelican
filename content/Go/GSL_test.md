@@ -10,6 +10,7 @@ go的测试由go test命令和testing包组成．
 
 测试程序命名：
 
+    XXX.go # 测试文件和源码放在一个包中
     XXX_test.go
 
 测试程序结构：
@@ -47,14 +48,16 @@ methods:
     // 用于报告测试函数是否失败
     func (c *T) Failed() bool
 
-    func (c *T) Fatal(args ...interface{})
-    func (c *T) Fatalf(format string, args ...interface{})
+    func (c *T) Log(args ...interface{})
+    func (c *T) Logf(format string, args ...interface{})
 
+    # 相当于Log/Logf之后调用Fail.(当前case失败)
     func (c *T) Error(args ...interface{})
     func (c *T) Errorf(format string, args ...interface{})
 
-    func (c *T) Log(args ...interface{})
-    func (c *T) Logf(format string, args ...interface{})
+    # 相当于Log/Logf之后调用FailNow.(当前测试文件失败)
+    func (c *T) Fatal(args ...interface{})
+    func (c *T) Fatalf(format string, args ...interface{})
 
     func (c *T) Skip(args ...interface{})
     func (c *T) SkipNow()

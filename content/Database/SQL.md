@@ -239,6 +239,8 @@ as关键字指定别名：
     DELETE FROM table WHERE condition;
     DELETE FROM table; # 删除所有行
 
+    TRUNCATE TABLE table; # mysql清空表的内容，不可恢复
+
 ***
 
 # 函数

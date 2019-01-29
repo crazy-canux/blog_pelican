@@ -1,6 +1,6 @@
 Title: GIT
 Date: 2016-04-02 21:11:33
-Tags: GIT, github
+Tags: GIT, github, gitlab
 
 
 
@@ -419,8 +419,9 @@ Reset current HEAD to the specified state
 
 Remove files from the working tree and from the index
 
-    git rm [filename] # 删除工作目录，暂存区的文件
-    git rm --cached [filename] # 不删除工作目录的文件
+    git rm <file> # 删除工作目录和暂存区的文件
+    git rm --cached <file> # 不删除工作目录的文件,　只删除暂存区.
+    git rm -r --cached <file>
 
 ## revert
 
@@ -490,3 +491,10 @@ merge远程tag
 
     git checkout -b influxdata-1.5.2 master
     git pull https://github.com/influxdata/influxdb.git v1.5.2
+
+gitignore忽略文件和目录
+
+    path/to/file
+    path/
+    # 如果已经push：
+    git rm -r --cached path/to/file

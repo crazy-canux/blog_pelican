@@ -225,7 +225,7 @@ ubuntu修改hostname:
         netmask 255.255.255.0
         gateway 192.168.0.0
         dns-nameservers 8.8.8.8
-    $ service network restart
+    $ sudo service networking restart
 
 ## E: Sub-process /usr/bin/dpkg returned an error code (1)
 
@@ -246,6 +246,13 @@ method2:
     $ sudo -H pip install -U pip
     $ sudo pip install pyopenssl ndg-httpsclient pyasn1
     $ sudo -H pip install -U pip
+
+## ubuntu16.04安装配置python
+
+    默认python3.5.2， 需要安装2.7.12
+    sudo apt-get --yes install python2.7
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
 
 ***
 

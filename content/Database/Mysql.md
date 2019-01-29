@@ -119,25 +119,41 @@ A command line client for MySQL that can do auto-completion and syntax highlight
 
 ***
 
-# 函数
+# 函数和运算符
 
-date函数：
+date and time：
 
-    NOW()
-    CURDAET()
-    CURTIME()
+<https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html>
+
+    NOW() // '2018-11-18 16:00:28'
+    UTC_TIMESTAMP() // '2018-11-18 08:01:04'
+    CURDATE()  // '2018-11-18'
+    UTC_DATE() // '2018-11-18'
+    CURTIME()  // '16:02:18'
+    UTC_TIME() // '08:03:36'
+
+    UNIX_TIMESTAMP() // '1542528051'
     DATE()
-    EXTRACT()
-    DATA_ADD()
-    DATE_SUB()
+    TIME()
     DATEDIFF()
-    DATE_FORMAT()
 
-isnull函数：
+control flow:：
 
-    ISNULL(column, 0)
+    CASE
+
+    IF()
     IFNULL(column, 0)
+    NULLIF()
+
+comparison:
+
     COALESCE(column, 0)
+
+    ISNULL()
+    IS NULL
+
+    IN()
+    NOT IN()
 
 ***
 
@@ -203,50 +219,14 @@ isnull函数：
 
 ***
 
-# Python
+# Issue
 
-## pymysql
+1. mysql8  workbench 连不上的问题 :
 
-<https://github.com/PyMySQL/PyMySQL>
+issue:
 
-    $ sudo pip install PyMySQL
+    authentication plugin 'caching_sha2_password' cannot be loaded: the specified module could not be found。
 
-    import pymysql.cursors
-    connection = pymysql.connect(host='localhost', user='user', password='password', database='db')
-    # port = 3306 default
-    # charset = utf8
-    # connect_timeout
-    # cursorclass = pymysql.cursors.DictCursor -> return value as dict.
-    # cursorclass = pymysql.cursors.SSCursor -> return value as tupple.
-    cursor = connection.cursor()
-    cursor.execute(<sql query>)
-    ...
-    cursor.close()
-    connection.close()
+fix：
 
-## connector/Python
-
-<http://dev.mysql.com/doc/connector-python/en/>
-
-<https://github.com/mysql/mysql-connector-python>
-
-官方提供的python的API。
-
-    $sudo apt-get install mysql-connector-python
-    $sudo yum install mysql-connector-python
-
-    import mysql.connector
-
-## MySQL-Python/mysqlclient
-
-MySQLdb 1.X 是旧版本，<https://github.com/farcepest/MySQLdb1>
-
-    $pip install mysql-python
-
-MySQLdb 2.X 是MySQLdb1的升级版，改名为moist，不稳定， <https://github.com/farcepest/moist>
-
-mysqlclient 是MySQLdb1的升级版,支持python3， <https://github.com/PyMySQL/mysqlclient-python>
-
-    $pip install mysqlclient
-
-***
+    alter user 'sandbox'@'%' identified with mysql_native_password by 'password';

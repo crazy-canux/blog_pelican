@@ -121,4 +121,8 @@ functions:
 
 ## stringprep
 
+## readline
+
+## rlcompleter
+
 ***

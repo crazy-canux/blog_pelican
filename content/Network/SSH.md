@@ -72,3 +72,11 @@ ssh-keyscan
 
 ***
 
+# 启用root远程ssh
+
+    $ sudo -i
+    # passwd root
+    # vim /etc/ssh/sshd_config
+    > PermitRootLogin prohibit-password
+    > PermitRootLogin yes
+    # service ssh restart

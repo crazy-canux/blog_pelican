@@ -16,7 +16,7 @@ go的builtin package.
 
 # variables
 
-pointer, channel, func, interface, map, slice的零值：
+pointer, slice, map, channel, func, interface的零值：
 
     nil
 
@@ -31,7 +31,7 @@ pointer, channel, func, interface, map, slice的零值：
     # 返回容量，　Array/ArrayPointer/Slice/Channel
     cap(v Type) int
 
-    # 返回长度，　Array/ArrayPointer/Slice/Map/String/Channel
+    # 返回长度，　String/Array/ArrayPointer/Slice/Map/Channel
     len(v Type) int
 
     print(args ...Type)
@@ -51,8 +51,9 @@ complex:
 
 slice:
 
-    # 向切片末尾追加元素，返回新的切片．
+    # 向切片末尾追加元素，返回新的切片．切片长度增加.
     # 如果长度超过底层数组长度，就创建了一个新的底层数组. 否则底层数组不变．
+    # 在元素不超过1000的情况下，自动创建的底层数组容量翻倍.
     append(slice []Type, elems ...Type) []Type
 
     # 复制一个切片, 返回复制的元素的个数

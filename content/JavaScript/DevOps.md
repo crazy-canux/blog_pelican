@@ -17,6 +17,7 @@ Tags: Node, Javascript
 * nvm
 
     <https://github.com/creationix/nvm>
+    <https://github.com/coreybutler/nvm-windows>
 
     nvm是javascript的版本管理器．
 
@@ -27,3 +28,4 @@ Tags: Node, Javascript
     n是javascript的版本管理工具．
 
 ***
+

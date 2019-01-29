@@ -87,7 +87,6 @@ ansible:
     [remote-group]
     server1
     server2
-
     [remote-group:vars]
     ansible_host
     ansible_port
@@ -96,7 +95,6 @@ ansible:
     ansible_ssh_pass
     ansible_ssh_common_args
     ansible_ssh_extra_args
-
     ansible_become
     ansible_become_method
     ansible_become_user
@@ -161,3 +159,11 @@ become:
 debug:
 
     strategy: debug
+
+***
+
+# awx
+
+ansible的web管理界面.
+
+<https://github.com/ansible/awx>

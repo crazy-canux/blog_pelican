@@ -34,13 +34,13 @@ connection: producer和consumer都是通过tcp连接到rabbitmq-server.
 
 channels: 建立在tcp连接中的虚拟连接，用于处理数据流动.
 
-queue:　生产者和消费者都应该创建queue.
+queue:　生产者和消费者都应该创建queue.(只能通过exchange接收message)
 
 exchanges类型:
 
-* direct
-* fanout
-* topic
+* fanout: 所有绑定到此exchange的queue都可以接收消息
+* direct: 通过routingKey和exchange决定的那个唯一的queue可以接收消息
+* topic：所有符合routingKey(此时可以是一个表达式)的routingKey所bind的queue可以接收消息
 
 message类型:
 
@@ -48,7 +48,7 @@ message类型:
 * messages_ready: 等待deliver给消费者的消息．
 * messages_unack: 已经被consumer处理，但是没有被ack的消息．
 
-virtual hosts: 本质就是一个rabbitmq server, 拥有独立的exchange,queue.
+virtual hosts: 本质就是一个rabbitmq server,拥有独立的exchange,queue.默认是/(%2F).
 
 round-robin dispatch: 循环分发，按顺序分发message到consumer,如果message被consumer正确接收，就会从queue中移除．
 
@@ -85,6 +85,7 @@ durable: 消息持久化，如果rabbitmq-server异常退出或服务器重启�
 
 添加用户并授权：
 
+    # 默认的guest/guest只能用于localhost.
     $ add_user [username] [password]
     $ delete_user <username>
     $ change_password <username> <newpassword>
