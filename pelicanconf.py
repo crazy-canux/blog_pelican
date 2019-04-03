@@ -202,7 +202,7 @@ LINKS = (('Go', 'http://www.golang.org/'),
          ('CNCF', 'https://www.cncf.io/'))
 
 SOCIAL = (('github', 'https://github.com/crazy-canux'),
-          ('linkedin', 'http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button'),
+          ('linkedin', 'https://www.linkedin.com/in/canux-cheng-4b5b23ab/'),
           ('stackoverflow', 'http://stackoverflow.com/users/4344009/canux'),
           ('rss', 'http://canuxcheng.com/feeds/all.rss.xml'),
           ('mail', 'mailto:canuxcheng@gmail.com'))

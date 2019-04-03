@@ -29,7 +29,7 @@ Tags: Go, go, runtime, expvar, context, unsafe, errors
     // 返回本地机器的逻辑cpu个数
     func NumCPU() int
 
-    //更改调度器可以使用的逻辑cpu数量.
+    //更改调度器可以使用的逻辑cpu数量, 默认只用一个cpu.
     func GOMAXPROCS(n int) int
 
     // 使当前goroutine让出绑定的cpu,其它goroutine可以继续执行.

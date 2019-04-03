@@ -74,10 +74,14 @@ Linux外部命令的项目是coreutils。
 
     lscpu # 显示cpu架构的信息
     cat /proc/cpuinfo # 查看cpu信息
+    cat /proc/cpuinfo | grep "processor" | wc -l # 逻辑cpu总数
+    cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l # 物理cpu个数
+    cat /proc/cpuinfo | grep "cpu cores" | uniq # 物理cpu核数
+    cat /proc/cpuinfo | grep -e "cpu cores"  -e "siblings" | sort | uniq # 和cpu cores一样说明没有启用超线程.
+    processor: 逻辑cpu总数=物理cpu个数*物理cpu核数（非超线程），  物理cpu个数*物理cpu核数*2（超线程cpu).
     physical id :物理cpu个数(每个socket/插槽可以放一个物理cpu).
-    cpu cores:物理cpu有几个核(如果是超线程技术的cpu,每个核可以运行两个线程，或者说每个核对应两个逻辑cpu）。
-    processor: 逻辑cpu个数=物理cpu*核数（非超线程），  物理cpu*核数*2（超线程cpu).
-    siblings： 每个物理cpu上的逻辑cpu个数
+    cpu cores: 物理cpu有几个核(如果是超线程技术的cpu,每个核可以运行两个线程，或者说每个核对应两个逻辑cpu）。
+    siblings： 每个物理cpu单个核心上的逻辑cpu个数
 
     free # 显示空闲和使用的系统内存
     cat /proc/meminfo # 查看内存信息
@@ -86,7 +90,7 @@ Linux外部命令的项目是coreutils。
 
     ps
     # 格式化输出，逗号后面不能有空格
-    ps -eo/-Ao %cpu/pcpu,%mem/pmem,start/start_time/lstart,pid,ppid,cmd/args/command
+    ps -eo/-Ao %cpu/pcpu,%mem/pmem,stat,start/start_time/lstart,pid,ppid,cmd/args/command
     ps --ppid 1 -o pid,command | grep -v grep | grep daemon # 获取多进程程序主进程的pid
 
     pstree -a
@@ -121,6 +125,14 @@ editor:
     timedatectl list-timezones # 查看所有时区
     sudo timedatectl set-timezone Asia/Shanghai # 设置时区
     ls -l /etc/localtime # 应该是一个链接
+
+# Linux管理
+
+    lsmod 查看已加载的模块    # /proc/modules
+    modprobe -c 查看已编译可加载的内核模块
+    modprobe <name> 加载模块 # /etc/modules
+    modprobe -r <name> 删除模块
+    rmmod <name> 删除模块
 
 # 用户和权限管理
 

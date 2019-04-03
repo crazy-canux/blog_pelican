@@ -119,8 +119,8 @@ commands modules：
 
 files modules:
 
-    copy src dest
-    synchronize src dest
+    copy src dest mode ...
+    synchronize src dest ...
 
 package modules:
 
@@ -130,6 +130,14 @@ package modules:
     yum name state=present/absent/latest/installed/removed
 
 ***
+
+# adhoc
+
+    $ ansible group -m <module> -a <args> ...
+
+copy:
+
+    $ ansible group -m copy -a "src=/sr dest=/dest mode=0655"
 
 # playbooks
 

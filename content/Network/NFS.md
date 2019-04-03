@@ -28,3 +28,13 @@ NFS: Network File System
 
 ***
 
+# nfs-server
+
+配置/etc/exports
+
+    /etc/exports  文件格式
+    <输出目录> [客户端1 选项（访问权限,用户映射,其他）] [客户端2 选项（访问权限,用户映射,其他）]
+
+# nfs-client
+
+配置/etc/fstab

@@ -189,7 +189,7 @@ bash的优化项目bash-it：
     不能用数字开头命名变量
     不能用标点符号和关键字
 
-    var=`ls /etc`
+    var=`ls /etc`  # 返回的是stdout+stderr
     var=$(ls /etc)
 
 使用变量：
@@ -252,6 +252,9 @@ if
         command
     fi
 
+    if [ ! `cat file | grep pattern | wc -l` ]
+    if [ ! 0 ] 此时0为真
+
 if-else
 
     if []; then command; ...; else command; fi
@@ -300,6 +303,10 @@ while
 
 for
 
+    for ((i=1; i<=100; i++))
+    for i in {1..100}
+    for i in `seq 1 100`
+
     for VAR in ${1,2,3,...}; do command; ...; done
 
     for var in item1 item2 ... itemN
@@ -344,10 +351,11 @@ exit直接退出主程序
 
 通过关键字function定义函数:
 
+    function Name {    // ()可省略
     function Name() {
         ...
         # 如果不显示调用return返回，则函数返回最后一条命令的结果
-        return $code
+        return $?
     }
 
 也可以直接定义函数:
@@ -367,18 +375,20 @@ exit直接退出主程序
 
 特殊字符：
 
-    $# 表示传递到脚本的参数个数
-    $*
+    $# 表示传递到脚本的参数个数,不包括程序本身
+    $* 传入所有参数
+    $@ 传入所有参数
     $$
     $!
-    $@
     $-
 
 ## 输入输出和重定向
 
 stdout和stdin重定向到一个地方:
 
-    2>&1
+    1> 只重定向stdout
+    2> 只重定向stderr
+    2>&1 同时重定向stdout+stderr
 
     main > 2>&1 log1.log | tee log2.log # 同时重定向到两个文件
     main 2>&1 | tee ${LOG} # 同时将stdout和stderr输出到终端和日志文件.

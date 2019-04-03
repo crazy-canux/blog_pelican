@@ -230,3 +230,13 @@ issue:
 fix：
 
     alter user 'sandbox'@'%' identified with mysql_native_password by 'password';
+
+2. max_commection 问题:
+
+issue:
+
+    当连接池连接数量超过最大连接数就无法再建立连接
+
+fix:
+
+    set global max_connections = 5000;

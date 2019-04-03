@@ -8,6 +8,11 @@ Tags: Network, Linux, Windows
 
     telnet
 
+# nc/netcat
+
+    nc -z IP PORT # 查看指定tcp://ip:port是否监听
+    nc -zu IP PORT # 查看udp://ip:port是否监听
+
 # ping
 
     $ sudo apt-get install iputils-ping
@@ -37,8 +42,6 @@ Tags: Network, Linux, Windows
 
     route # 操作路由表的命令：
 
-# iptables
-
 # arp
 
     arp # 用于确定IP地址的网卡物理地址
@@ -50,10 +53,6 @@ Tags: Network, Linux, Windows
 # ethtool
 
     ethtool # 查询网络设备信息
-
-# netcat
-
-    nc/netcat # 设置路由器
 
 # netstat
 
@@ -87,6 +86,9 @@ Tags: Network, Linux, Windows
 # tcpdump
 
     tcpdump
+
+    tcpdump udp port <port> 抓udp 在port端口的包
+    tcpdump -i <interface> host <ip>
 
 # wget
 

@@ -26,7 +26,7 @@ agent configuration:
 input configuration:
 
     interval
-    name_override
+    name_override # 默认measurements是插件名,修改默认measurements.
     name_prefix
     name_suffix
     tags
