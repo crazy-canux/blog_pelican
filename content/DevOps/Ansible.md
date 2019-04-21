@@ -77,28 +77,68 @@ ansible:
 
 # inventory
 
+inventory包括主机和分组,以及主机变量和分组变量.
+
 可以是ini格式，也可以是yaml格式.
 
     $ sudo vim /etc/ansible/hosts
 
-    [remote-server]
-    server-ip ansible_connection=ssh ansible_user=user ansible_password=password
+ini格式:
 
-    [remote-group]
-    server1
-    server2
-    [remote-group:vars]
-    ansible_host
-    ansible_port
+
+    定义主机和主机变量
+    [host1]
+    node1 ansible_connection=ssh ansible_host=host ansible_port=port ansible_user=user ansible_ssh_pass=password
+
+    定义分组和分组变量
+    [group1]
+    node1
+    node2
+    [group1:vars]
     ansible_connection=local/smart/ssh/paramiko
-    ansible_user
-    ansible_ssh_pass
-    ansible_ssh_common_args
-    ansible_ssh_extra_args
-    ansible_become
-    ansible_become_method
-    ansible_become_user
-    ansible_become_pass
+    ansible_host=
+    ansible_port=
+    ansible_user=
+    ansible_ssh_pass=
+    ansible_ssh_common_args=
+    ansible_ssh_extra_args=
+    ansible_become=
+    ansible_become_method=
+    ansible_become_user=
+    ansible_become_pass=
+    ansible_become_exe=
+    ansible_become_flags=
+
+    定义分组的分组
+    [big-group:children]
+    group1
+    group2
+
+yaml:
+
+    all:
+      hosts:    # 定义主机和主机变量
+        node1:
+          ansible_host:
+          ip:
+          access_ip:
+      children:    # 定义分组和分组变量
+        group1:
+          hosts:
+            node1:
+          vars:
+            proxy:
+        group2:
+          hosts:
+            node2:
+        big-group: # 定义分组的分组
+          children:
+            group1:
+              hosts:
+                node1:
+            group2:
+              hosts:
+                node2:
 
 ***
 

@@ -17,9 +17,11 @@ go的测试由go test命令和testing包组成．
 
     import "testing"
 
+    # 单元测试
     # go test 会自动执行
     func TestXXX(t *testing.T) {}
 
+    # 性能测试
     # go test XXX_test.go -test.bench=".*"  压力测试需要指定才能执行
     func BenchmarkXXX(b *testing.B) {}
 

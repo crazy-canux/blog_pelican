@@ -252,12 +252,15 @@ if
         command
     fi
 
+    []/test 中必须为执行的命令的stdout+stderr.
     if [ ! `cat file | grep pattern | wc -l` ]
-    if [ ! 0 ] 此时0为真
+    if [ ! 0 ] 此时0为真, [ ! 0 ]为假
+
+    if command 看返回码$?, 0表示真,其它表示假.
 
 if-else
 
-    if []; then command; ...; else command; fi
+    if condition; then command; ...; else command; fi
 
     if condition
     then
@@ -268,7 +271,7 @@ if-else
 
 if-elif-else
 
-    if []; then command; ...; elif []; then command; ...; else command; fi
+    if condition; then command; ...; elif condition; then command; ...; else command; fi
 
     if condition
     then
@@ -282,7 +285,7 @@ if-elif-else
 
 while
 
-    while []; do command;...; done
+    while condition; do command;...; done
 
     while condition
     do

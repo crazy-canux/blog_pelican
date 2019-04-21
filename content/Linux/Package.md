@@ -19,6 +19,7 @@ dpkg - package manager for Debian
     dpkg
     dpkg -X  ./xxx.deb  xxx  # 将deb包解压到xxx目录
     dpkg -e  ./xxx.deb  xxx/DEBIAN # 将control信息解压
+    dpkg -l | grep pkg # 查看安装的包
 
 dpkg-reconfigure - reconfigure an already installed package
 
@@ -116,6 +117,7 @@ apt-get - APT package handling utility -- command-line interface
     -d, --download-only
     --print-uris
     -y,--yes,--assume-yes    # 交互时确认
+    -f,--force-yes
     --reinstall
     --allow-unauthenticated
     --allow-downgrades (>= ubuntu1604)
@@ -132,7 +134,7 @@ apt-cache - query the APT cache
     $ apt-cache showpkg <pkg>
     $ apt-cache showsrc <pkg>
     $ apt-cache search <pkg>
-    $ apt-cache madison <pkg>
+    $ apt-cache madison <pkg> # 查看当前源可以安装的版本
     $ apt-cache policy <pkg>
 
     # 查看哪些包依赖该包

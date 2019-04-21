@@ -30,6 +30,6 @@ Welcome to follow my github, to see the project.
 
 Welcome to follow my LinkedIn, to see my resume.
 
-[Follow](http://www.linkedin.com/profile/preview?locale=zh_CN&trk=prof-0-sb-preview-primary-button)
+[Follow](https://www.linkedin.com/in/canux-cheng-4b5b23ab/)
 
 ***

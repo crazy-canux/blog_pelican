@@ -56,8 +56,10 @@ libvirt操作qemu/kvm.
 
 ssh远程:
 
-    # 需要enable该用户的ssh权限
-    qemu+ssh://user@host:port/system
+    # 需要安装nc和sshpass
+    $ sudo apt-get install netcat-traditional netcat-openbsd
+    $ sudo apt-get install sshpass
+    $ sshpass -p password virsh -c qemu+ssh://user@127.0.0.1/system list
 
 tcp远程:
 
