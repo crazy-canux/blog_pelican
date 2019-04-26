@@ -63,6 +63,10 @@ iptables命令:
 
     -E/--rename-chain old-chain new-chain
 
+tables:
+
+    -t/--table   filter/nat/mangle
+
 options:
 
     [!] -p/--protocol
@@ -71,13 +75,16 @@ options:
     [!] -o/--out-interface
     [!] -i/--in-interface
     [!] -f/--fragment
-    --line-number  # 显示rulenum
-    --dport   destination-port
+    --dport    destination-port
     --sport    source-port
-    -m/--match
-    -j/--jump
+    -m, --match
+    -j, --jump
+    -g, --goto
+    -c, --set-counters
+    
+    --line-number  # 显示rulenum
     -v/--verbose
-    -t/--table   filter/nat/mangle
+    -n/--numeric
 
 others:
 
