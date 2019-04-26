@@ -22,6 +22,7 @@ CST: Chinese Standard Time, 中国标准时间, = UTC+8
 
     $ timedatectl list-timezones # 查看所有时区
     $ sudo timedatectl set-timezone Asia/Shanghai # 设置时区
+    $ sudo timedatectl set-timezone Etc/UTC
     $ ls -l /etc/localtime # 应该是一个链接
 
 ***
