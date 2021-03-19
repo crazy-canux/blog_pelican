@@ -9,7 +9,7 @@ Fabric==1.13.1
 feedgenerator==1.9
 idna==2.2
 ipaddress==1.0.18
-Jinja2==2.9.4
+Jinja2==2.11.3
 Markdown==2.6.7
 MarkupSafe==0.23
 packaging==16.8
